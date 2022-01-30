@@ -1,0 +1,241 @@
+\hypertarget{page__r_e_a_d_m_e_projet}{}\subsection{Projet}\label{page__r_e_a_d_m_e_projet}
+\hypertarget{page__r_e_a_d_m_e_presentation}{}\subsubsection{Présentation}\label{page__r_e_a_d_m_e_presentation}
+{\bfseries e-\/stock} est un système de gestion de stock automatisé qui permettra \+:
+
+
+\begin{DoxyItemize}
+\item de contrôler et gérer l\textquotesingle{}utilisation de produits stockés dans une armoire sensible
+\item d\textquotesingle{}assurer la traçabilité de l\textquotesingle{}attribution du matériel et des consommables stockés
+\item de sécuriser l\textquotesingle{}accès par un contrôle d\textquotesingle{}accès par badge R\+F\+ID
+\end{DoxyItemize}
+
+Une armoire sera composée de 8 casiers maximum. Chaque casier sera équipé \+:
+
+
+\begin{DoxyItemize}
+\item d\textquotesingle{}une gâche électrique afin d\textquotesingle{}assurer son ouverture/fermeture ;
+\item d\textquotesingle{}une balance pour assurer le comptage automatique des articles.
+\end{DoxyItemize}
+
+Le comptage automatique de la quantité est déterminé en fonction du poids unitaire et du poids mesuré sur la balance.
+
+Un lecteur de badge R\+F\+ID est intégré à chaque armoire pour contrôler l\textquotesingle{}accès. L\textquotesingle{}exploitation de l\textquotesingle{}armoire ​ e-\/stock​ est possible à partir de l\textquotesingle{}écran tactile intégré.
+
+On distinguera deux type d\textquotesingle{}articles \+:
+
+
+\begin{DoxyItemize}
+\item les « consommables » qui sortent définitivement du stock
+\item les « empruntables » qui peuvent être restitués après leur utilisation
+\end{DoxyItemize}\hypertarget{page__r_e_a_d_m_e_bdd}{}\subsubsection{Base de données My\+S\+QL}\label{page__r_e_a_d_m_e_bdd}
+
+
+
+\begin{DoxyCode}
+DROP DATABASE IF EXISTS `e-stock`;
+CREATE DATABASE IF NOT EXISTS `e-stock`;
+USE `e-stock`;
+
+-- Création du compte d'accès à la base de données e-stock
+-- CREATE USER 'estock'@'%' IDENTIFIED BY 'password';
+-- GRANT ALL PRIVILEGES ON `e-stock`.* TO 'estock'@'%';
+-- FLUSH PRIVILEGES;
+-- --------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `Profil` (
+  `idProfil` int(11) NOT NULL AUTO\_INCREMENT,
+  `Nom` varchar(64) NOT NULL,
+  PRIMARY KEY (`idProfil`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `Profil` (`Nom`) VALUES
+('Administrateur'),
+('Gestionnaire'),
+('Utilisateur');
+
+-- --------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `Groupe` (
+  `idGroupe` int(11) NOT NULL AUTO\_INCREMENT,
+  `Nom` varchar(64) NOT NULL,
+  PRIMARY KEY (`idGroupe`),
+  CONSTRAINT Unique\_Groupe UNIQUE (`Nom`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+INSERT INTO `Groupe` (`Nom`) VALUES
+('PROFESSEUR'),
+('1-BTS-SN'),
+('T-BTS-SN');
+
+-- --------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `Utilisateur` (
+  `idUtilisateur` int(11) NOT NULL AUTO\_INCREMENT,
+  `idProfil` int(11) NOT NULL,
+  `idGroupe` int(11) NOT NULL,
+  `Nom` varchar(64) NOT NULL,
+  `Prenom` varchar(64) NOT NULL,
+  `DateValidite` date NOT NULL,
+  `Identifiant` varchar(255) DEFAULT NULL,
+  `MotDePasse` varchar(255) DEFAULT NULL,
+  `Badge` varchar(11) NOT NULL,
+  `Email` varchar(64) NOT NULL,  
+  PRIMARY KEY (`idUtilisateur`),
+--  CONSTRAINT Unique\_Utilisateur UNIQUE (`Badge`),
+  CONSTRAINT Utilisateur\_fk\_1 FOREIGN KEY (`idProfil`) REFERENCES Profil(`idProfil`) ON DELETE CASCADE,
+  CONSTRAINT Utilisateur\_fk\_2 FOREIGN KEY (`idGroupe`) REFERENCES Groupe(`idGroupe`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `Armoire` (
+  `idArmoire` int(11) NOT NULL,
+  `Nom` varchar(255) NOT NULL,
+  `Description` varchar(255) DEFAULT NULL,
+  `nbCasiers` int(11) NOT NULL DEFAULT 8,
+  PRIMARY KEY (`idArmoire`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `Armoire` (`idArmoire`,`Nom`,`Description`,`nbCasiers`) VALUES('1','B22','Atelier','2');
+
+-- --------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `Type` (
+  `idType` int(11) NOT NULL AUTO\_INCREMENT,
+  `Nom` varchar(64) NOT NULL,
+  PRIMARY KEY (`idType`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `Type` (`Nom`) VALUES
+('Equipement'),
+('Consommable');
+
+-- --------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `Unite` (
+  `idUnite` int(11) NOT NULL AUTO\_INCREMENT,
+  `Nom` varchar(64) NOT NULL,
+  PRIMARY KEY (`idUnite`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `Unite` (`Nom`) VALUES
+('Metre'),
+('Piece'),
+('Pourcentage'),
+('Poids g'),
+('Poids kg');
+
+-- --------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `Comptage` (
+  `idComptage` int(11) NOT NULL AUTO\_INCREMENT,
+  `Nom` varchar(64) NOT NULL,
+  PRIMARY KEY (`idComptage`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `Comptage` (`Nom`) VALUES
+('Aucun'),
+('Automatique'),
+('CodeBarre');
+
+-- --------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `Action` (
+  `idAction` int(11) NOT NULL AUTO\_INCREMENT,
+  `Nom` varchar(64) NOT NULL,
+  PRIMARY KEY (`idAction`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `Action` (`Nom`) VALUES
+('Entree'),
+('Sortie');
+
+-- --------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `Article` (
+  `idArticle` int(11) NOT NULL AUTO\_INCREMENT,
+  `idType` int(11) NOT NULL,  
+  --   `Type` enum('Equipement','Consommable'),
+  `Nom` varchar(255) NOT NULL,
+  `Code` varchar(255) NOT NULL,
+  `Designation` varchar(255) NOT NULL,
+  `Poids` int(11) NOT NULL,  
+  PRIMARY KEY (`idArticle`),
+  CONSTRAINT Article\_fk\_1 FOREIGN KEY (`idType`) REFERENCES Type(`idType`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `Stock` (
+  `idStock` int(11) NOT NULL AUTO\_INCREMENT,
+  `idArticle` int(11) NOT NULL,
+  `idComptage` int(11) NOT NULL,
+  `idUnite` int(11) NOT NULL,
+  `Quantite` int(11) DEFAULT 0,
+  `Disponible` int(11) DEFAULT 0,
+  `Tare` int(11) NOT NULL,  
+  `numeroCasier` int(11) NOT NULL,
+  PRIMARY KEY (`idStock`),
+  CONSTRAINT Unique\_NumeroCasier UNIQUE (`numeroCasier`),
+  CONSTRAINT Stock\_fk\_2 FOREIGN KEY (`idArticle`) REFERENCES Article(`idArticle`) ON DELETE CASCADE,
+  CONSTRAINT Stock\_fk\_3 FOREIGN KEY (`idComptage`) REFERENCES Comptage(`idComptage`) ON DELETE CASCADE,
+  CONSTRAINT Stock\_fk\_4 FOREIGN KEY (`idUnite`) REFERENCES Unite(`idUnite`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `Mouvement` (
+  `idMouvement` int(11) NOT NULL AUTO\_INCREMENT, 
+  `idUtilisateur` int(11) NOT NULL,
+  `idStock` int(11) NOT NULL,
+  `idAction` int(11) NOT NULL,
+  --   `Action` enum('Entree','Sortie'),
+  `Quantite` int(11) NOT NULL,
+  `Horodatage` datetime NOT NULL,
+  PRIMARY KEY (`idMouvement`),
+  CONSTRAINT Mouvement\_fk\_1 FOREIGN KEY (`idUtilisateur`) REFERENCES Utilisateur(`idUtilisateur`) ON DELETE
+       CASCADE,
+  CONSTRAINT Mouvement\_fk\_2 FOREIGN KEY (`idStock`) REFERENCES Stock(`idStock`) ON DELETE CASCADE,
+  CONSTRAINT Mouvement\_fk\_3 FOREIGN KEY (`idAction`) REFERENCES Action(`idAction`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+\end{DoxyCode}
+\hypertarget{page__r_e_a_d_m_e_recette}{}\subsubsection{Recette}\label{page__r_e_a_d_m_e_recette}
+
+\begin{DoxyItemize}
+\item Pierre-\/\+Antoine Legger
+\begin{DoxyItemize}
+\item S\textquotesingle{}authentifier
+\item Rechercher un article
+\item Consulter le stock
+\item Communiquer avec le SE pour \+:
+\begin{DoxyItemize}
+\item Commander l\textquotesingle{}ouverture/fermeture des casiers
+\item Afficher l\textquotesingle{}état ouvert/fermé des casiers
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item Joffrey Tranchat
+\begin{DoxyItemize}
+\item Prendre et rapporter un article
+\item Mettre à jour le stock et les mouvements
+\item Consulter les mouvements
+\item Communiquer avec le SE pour \+:
+\item Récupérer les pesées des casiers
+\item Assurer le comptage automatique
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{page__r_e_a_d_m_e_informations}{}\subsubsection{Informations}\label{page__r_e_a_d_m_e_informations}
+\begin{DoxyAuthor}{Auteur}
+Pierre-\/\+Antoine Legger \href{mailto:pierreantoinelegger@gmail.com}{\tt pierreantoinelegger@gmail.\+com} 
+
+Joffrey Tranchat \href{mailto:joffrey.tranchat@gmail.com}{\tt joffrey.\+tranchat@gmail.\+com} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2020 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+0.\+2 
+\end{DoxyVersion}
+\begin{DoxySeeAlso}{Voir également}
+\href{https://svn.riouxsvn.com/e-stock}{\tt https\+://svn.\+riouxsvn.\+com/e-\/stock} 
+\end{DoxySeeAlso}

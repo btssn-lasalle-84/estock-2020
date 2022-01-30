@@ -1,0 +1,60 @@
+\hypertarget{_communication_8h_source}{}\subsection{Communication.\+h}
+\label{_communication_8h_source}\index{Communication.\+h@{Communication.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef COMMUNICATION\_H}
+00002 \textcolor{preprocessor}{#define COMMUNICATION\_H}
+00003 
+00004 \textcolor{preprocessor}{#include <QObject>}
+00005 \textcolor{preprocessor}{#include <QString>}
+00006 \textcolor{preprocessor}{#include <QSerialPort>}
+00007 
+00021 \textcolor{comment}{//#define SERIAL\_PORT\_NAME "/dev/se"}
+\Hypertarget{_communication_8h_source_l00022}\hyperlink{_communication_8h_a8542e30f71d5d41f405c329f0e9bafd7}{00022} \textcolor{preprocessor}{#define SERIAL\_PORT\_NAME "/dev/ttyUSB0"}
+00023 
+00024 \textcolor{comment}{// Protocole e-stock}
+\Hypertarget{_communication_8h_source_l00025}\hyperlink{_communication_8h_add7c72d962d885317215f93ae8a9dc28}{00025} \textcolor{preprocessor}{#define EN\_TETE             QString("CASIERS")}
+\Hypertarget{_communication_8h_source_l00026}\hyperlink{_communication_8h_ac3d2c8b3b9dbc07cedf0bfa8a75d268f}{00026} \textcolor{preprocessor}{#define DELIMITEUR\_CHAMP    QString(";")}
+\Hypertarget{_communication_8h_source_l00027}\hyperlink{_communication_8h_aafcc0c7b4996f7783c9f4e766a233487}{00027} \textcolor{preprocessor}{#define DELIMITEUR\_FIN      QString("\(\backslash\)r\(\backslash\)n")}
+00028 
+00029 \textcolor{comment}{// Types de trames}
+\Hypertarget{_communication_8h_source_l00030}\hyperlink{_communication_8h_ad49128d4b2d459f0d7f057b2e59fb2d5}{00030} \textcolor{preprocessor}{#define TRAME\_OUVERTURE     QString("1")}
+\Hypertarget{_communication_8h_source_l00031}\hyperlink{_communication_8h_a57c2e74056a9338d26f264703e2158d8}{00031} \textcolor{preprocessor}{#define TRAME\_ETAT          QString("2")}
+\Hypertarget{_communication_8h_source_l00032}\hyperlink{_communication_8h_a3a24fc54a5e48cb3eb9786ce61933a6c}{00032} \textcolor{preprocessor}{#define TRAME\_POIDS         QString("3")}
+00033 
+\Hypertarget{_communication_8h_source_l00046}\hyperlink{class_communication}{00046} \textcolor{keyword}{class }\hyperlink{class_communication}{Communication} : \textcolor{keyword}{public} \hyperlink{class_q_object}{QObject}
+00047 \{
+00048     Q\_OBJECT
+00049 
+00050 \textcolor{keyword}{public}:
+00051 
+00052     \hyperlink{class_communication_a56cf4b262e592bcae1d987c3dd00487f}{Communication}(\hyperlink{class_q_object}{QObject} *parent = \textcolor{keyword}{nullptr});
+00053     \hyperlink{class_communication_a75ba08ce908d45251e28e4c1db94e6f4}{~Communication}();
+00054 
+00055     \textcolor{keywordtype}{void} \hyperlink{class_communication_a8fe8d15efd2590a1061a015f5f761924}{demarrerCommunicationPort}();
+00056     \textcolor{keywordtype}{void} \hyperlink{class_communication_aa447a2fe9e2e5c2467a0816865a77340}{arreterCommunicationPort}();
+00057     \textcolor{keywordtype}{void} \hyperlink{class_communication_ae39284eac0920a3d11c085b48c6234da}{configurerPort}();
+00058     \textcolor{keywordtype}{void} \hyperlink{class_communication_ad5969603a6b7232d0227a461fd479251}{ouvrirPort}();
+00059     \textcolor{keywordtype}{void} \hyperlink{class_communication_a06a0f05f4555c6e3586e1800bbaa5e13}{setNomPort}(QString nouveauPortSerie);
+00060     \textcolor{keywordtype}{void} \hyperlink{class_communication_a53c26abe4c16ff155a15929dd5ad07cf}{envoyerTrame}(QString trame);
+00061     \textcolor{keywordtype}{void} \hyperlink{class_communication_ab8f5efe1d44805be0081e986b2687a12}{envoyerRequetePoids}(QString numeroCasier = 0);
+00062 
+00063 \textcolor{keyword}{public} slots:
+00064     \textcolor{keywordtype}{void} \hyperlink{class_communication_a0b8edc96112e71e1ec4a28cc6309cbbc}{recevoirTrame}();
+00065 
+00066 \textcolor{keyword}{private}:
+\Hypertarget{_communication_8h_source_l00067}\hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{00067}      QSerialPort *\hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{port}; 
+\Hypertarget{_communication_8h_source_l00068}\hyperlink{class_communication_a7a55775be5e16249315fe5faef4f13b4}{00068}      QString \hyperlink{class_communication_a7a55775be5e16249315fe5faef4f13b4}{trameBrute}; 
+\Hypertarget{_communication_8h_source_l00069}\hyperlink{class_communication_a5fa89ee1fc732871f3f8f177fb50bf2a}{00069}      QString \hyperlink{class_communication_a5fa89ee1fc732871f3f8f177fb50bf2a}{nomPort}; 
+00070 
+00071      \textcolor{keywordtype}{bool} \hyperlink{class_communication_a3958c8f275ff8d50dca85afe65c795d1}{verifierTrame}(QString trame);
+00072      \textcolor{keywordtype}{void} \hyperlink{class_communication_ab4ff84d0fb69ffa990bc61939c95a093}{traiterTrame}(QString trame);
+00073 
+00074 signals:
+00075      \textcolor{keywordtype}{void} \hyperlink{class_communication_a9fb098f5b5cb8931efefc58984529119}{envoieTrameOuverture}(QString trame);
+00076      \textcolor{keywordtype}{void} \hyperlink{class_communication_a8beb7417ede75d0056b06788ef72d21b}{envoieTrameEtat}(QString trame);
+00077      \textcolor{keywordtype}{void} \hyperlink{class_communication_aaea5653e8aa1b50b4774caf65db21409}{envoieTramePoids}(QString trame);
+00078 \};
+00079 
+00080 \textcolor{preprocessor}{#endif // COMMUNICATION\_H}
+\end{DoxyCode}

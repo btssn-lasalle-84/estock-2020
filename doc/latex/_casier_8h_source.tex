@@ -1,0 +1,32 @@
+\hypertarget{_casier_8h_source}{}\subsection{Casier.\+h}
+\label{_casier_8h_source}\index{Casier.\+h@{Casier.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef CASIER\_H}
+00002 \textcolor{preprocessor}{#define CASIER\_H}
+00003 
+00017 \textcolor{preprocessor}{#include <QtWidgets>}
+00018 
+\Hypertarget{_casier_8h_source_l00032}\hyperlink{class_casier}{00032} \textcolor{keyword}{class }\hyperlink{class_casier}{Casier} : \textcolor{keyword}{public} \hyperlink{class_q_push_button}{QPushButton}
+00033 \{
+00034     Q\_OBJECT
+00035 \textcolor{keyword}{public}:
+00036     \hyperlink{class_casier_aed1cd4435ff913a68b69d8119481bb8f}{Casier}(\textcolor{keywordtype}{int} \hyperlink{class_casier_a17aa23e73b177559266a9fb17f63b812}{numero}, QWidget *parent=0);
+00037     \hyperlink{class_casier_a4aebc2219ccd4612cf79413904bb9340}{~Casier}();
+00038 
+00039     \textcolor{keywordtype}{int} \hyperlink{class_casier_a061b024a2733a5bb1dfcc43bb0022707}{getNumero}() \textcolor{keyword}{const};
+00040     \textcolor{keywordtype}{bool} \hyperlink{class_casier_ab26fd4da845423355835da8d445ed5dd}{estOuvert}() \textcolor{keyword}{const};
+00041     \textcolor{keywordtype}{void} \hyperlink{class_casier_ac4b0de3ba58dc2bab52b049b278f4f90}{ouvrir}();
+00042 
+00043 \textcolor{keyword}{private}:
+\Hypertarget{_casier_8h_source_l00044}\hyperlink{class_casier_a17aa23e73b177559266a9fb17f63b812}{00044}     \textcolor{keywordtype}{int} \hyperlink{class_casier_a17aa23e73b177559266a9fb17f63b812}{numero};
+\Hypertarget{_casier_8h_source_l00045}\hyperlink{class_casier_afe544ed1a87ce714a9fbbe16126669e4}{00045}     \textcolor{keywordtype}{bool} \hyperlink{class_casier_afe544ed1a87ce714a9fbbe16126669e4}{ouvert};
+00050 \textcolor{keyword}{public} slots:
+00051 
+00052 
+00053 signals:
+00054 
+00055 \};
+00056 
+00057 \textcolor{preprocessor}{#endif // CASIER\_H}
+\end{DoxyCode}

@@ -1,0 +1,364 @@
+\hypertarget{_bdd_8cpp_source}{}\subsection{Bdd.\+cpp}
+\label{_bdd_8cpp_source}\index{Bdd.\+cpp@{Bdd.\+cpp}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include "\hyperlink{_bdd_8h}{Bdd.h}"}
+00002 \textcolor{preprocessor}{#include <QDebug>}
+00003 \textcolor{preprocessor}{#include <QMessageBox>}
+00004 
+00019 \hyperlink{class_bdd}{Bdd}* Bdd::bdd = NULL;
+00020 \textcolor{keywordtype}{int} \hyperlink{class_bdd_a9fb6aa118a28c27307f27fd7662e462d}{Bdd::nbAcces} = 0;
+00021 
+\Hypertarget{_bdd_8cpp_source_l00027}\hyperlink{class_bdd_a5306aeacb2baa3be8d4d3f8326527f60}{00027} \hyperlink{class_bdd_a5306aeacb2baa3be8d4d3f8326527f60}{Bdd::Bdd}()
+00028 \{
+00029 \textcolor{preprocessor}{    #ifdef DEBUG\_BDD}
+00030     qDebug() << Q\_FUNC\_INFO;
+00031 \textcolor{preprocessor}{    #endif}
+00032     \hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db} = QSqlDatabase::addDatabase(\textcolor{stringliteral}{"QMYSQL"});
+00033 \}
+00034 
+\Hypertarget{_bdd_8cpp_source_l00040}\hyperlink{class_bdd_a5029277f27f8cfcf9d8603fb331a15dd}{00040} \hyperlink{class_bdd_a5029277f27f8cfcf9d8603fb331a15dd}{Bdd::~Bdd}()
+00041 \{
+00042 \textcolor{preprocessor}{    #ifdef DEBUG\_BDD}
+00043     qDebug() << Q\_FUNC\_INFO;
+00044 \textcolor{preprocessor}{    #endif}
+00045 \}
+00046 
+\Hypertarget{_bdd_8cpp_source_l00053}\hyperlink{class_bdd_a6f55c29d593da12ca31fad02f5adfe24}{00053} \hyperlink{class_bdd}{Bdd}* \hyperlink{class_bdd_a6f55c29d593da12ca31fad02f5adfe24}{Bdd::getInstance}()
+00054 \{
+00055     \textcolor{keywordflow}{if}(\hyperlink{class_bdd_a09bd3b3a31feedf3dd42a507e0249213}{bdd} == NULL)
+00056         \hyperlink{class_bdd_a09bd3b3a31feedf3dd42a507e0249213}{bdd} = \textcolor{keyword}{new} \hyperlink{class_bdd_a5306aeacb2baa3be8d4d3f8326527f60}{Bdd}();
+00057 
+00058     \hyperlink{class_bdd_a9fb6aa118a28c27307f27fd7662e462d}{nbAcces}++;
+00059 
+00060 \textcolor{preprocessor}{    #ifdef DEBUG\_BDD}
+00061     qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"nbAcces"} << \hyperlink{class_bdd_a9fb6aa118a28c27307f27fd7662e462d}{nbAcces};
+00062 \textcolor{preprocessor}{    #endif}
+00063 
+00064     \textcolor{keywordflow}{return} \hyperlink{class_bdd_a09bd3b3a31feedf3dd42a507e0249213}{bdd};
+00065 
+00066 \}
+00067 
+\Hypertarget{_bdd_8cpp_source_l00073}\hyperlink{class_bdd_af89fa3ffa107c7859a3964bf032cfdb7}{00073} \textcolor{keywordtype}{void} \hyperlink{class_bdd_af89fa3ffa107c7859a3964bf032cfdb7}{Bdd::detruireInstance}()
+00074 \{
+00075     \textcolor{keywordflow}{if}(\hyperlink{class_bdd_a09bd3b3a31feedf3dd42a507e0249213}{bdd} != NULL)
+00076     \{
+00077         \hyperlink{class_bdd_a9fb6aa118a28c27307f27fd7662e462d}{nbAcces}--;
+00078 \textcolor{preprocessor}{        #ifdef DEBUG\_BASEDEDONNEES}
+00079         qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"nbAcces"} << \hyperlink{class_bdd_a9fb6aa118a28c27307f27fd7662e462d}{nbAcces};
+00080 \textcolor{preprocessor}{        #endif}
+00081 
+00082         \textcolor{keywordflow}{if}(nbAcces == 0)
+00083             \textcolor{keyword}{delete} \hyperlink{class_bdd_a09bd3b3a31feedf3dd42a507e0249213}{bdd};
+00084     \}
+00085 \}
+00086 
+\Hypertarget{_bdd_8cpp_source_l00093}\hyperlink{class_bdd_a1a234e773787295f521d66685149176b}{00093} \textcolor{keywordtype}{bool} \hyperlink{class_bdd_a1a234e773787295f521d66685149176b}{Bdd::connecter}()
+00094 \{
+00095     \textcolor{keywordflow}{if}(!\hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db}.isOpen())
+00096     \{
+00097         \hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db}.setHostName(\hyperlink{_bdd_8h_a63ebf0552e7b4b8f37af87147904ffce}{HOSTNAME});
+00098         \hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db}.setUserName(\hyperlink{_bdd_8h_a3a747cf18fa28f0de7920de0f89f5144}{USERNAME});
+00099         \hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db}.setPassword(\hyperlink{_bdd_8h_a9e8538fad4eee548302ad9f60e6d47ca}{PASSWORD});
+00100         \hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db}.setDatabaseName(\hyperlink{_bdd_8h_aed52a1560b7fbe28f212643a9be8a139}{DATABASENAME});
+00101 
+00102 \textcolor{preprocessor}{        #ifdef DEBUG\_BDD}
+00103         qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"HostName"} << \hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db}.hostName();
+00104         qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"UserName"} << \hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db}.userName();
+00105         qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"DatabaseName"} << \hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db}.databaseName();
+00106 \textcolor{preprocessor}{        #endif}
+00107         \textcolor{keywordflow}{if}(\hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db}.open())
+00108         \{
+00109 \textcolor{preprocessor}{            #ifdef DEBUG\_BDD}
+00110             qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"connexion réussie à %1"}).arg(
+      \hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db}.hostName());
+00111 \textcolor{preprocessor}{            #endif}
+00112 
+00113             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00114         \}
+00115         \textcolor{keywordflow}{else}
+00116         \{
+00117             qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"erreur : impossible de se connecter à la base de
+       données !"});
+00118 
+00119             QMessageBox::critical(0, QString::fromUtf8(\textcolor{stringliteral}{"e-stock"}), QString::fromUtf8(\textcolor{stringliteral}{"Impossible de se
+       connecter à la base de données !"}));
+00120             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00121         \}
+00122 
+00123     \}
+00124     \textcolor{keywordflow}{else}
+00125         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00126 \}
+00127 
+\Hypertarget{_bdd_8cpp_source_l00134}\hyperlink{class_bdd_afeb7ee6793705cb94a94560fd53e3e9d}{00134} \textcolor{keywordtype}{bool} \hyperlink{class_bdd_afeb7ee6793705cb94a94560fd53e3e9d}{Bdd::estConnecte}()
+00135 \{
+00136     \textcolor{keywordflow}{return} \hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db}.isOpen();
+00137 \}
+00138 
+\Hypertarget{_bdd_8cpp_source_l00146}\hyperlink{class_bdd_ab6ae645b4b54ce5df8dc9b422fb39faa}{00146} \textcolor{keywordtype}{bool} \hyperlink{class_bdd_ab6ae645b4b54ce5df8dc9b422fb39faa}{Bdd::executer}(QString requete)
+00147 \{
+00148     QSqlQuery r;
+00149     \textcolor{keywordtype}{bool} retour;
+00150 
+00151     \textcolor{keywordflow}{if}(\hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db}.isOpen())
+00152     \{
+00153         \textcolor{keywordflow}{if}(requete.contains(\textcolor{stringliteral}{"UPDATE"}) || requete.contains(\textcolor{stringliteral}{"INSERT"}) || requete.contains(\textcolor{stringliteral}{"DELETE"}))
+00154         \{
+00155             retour = r.exec(requete);
+00156 \textcolor{preprocessor}{            #ifdef DEBUG\_BASEDEDONNEES}
+00157             qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Retour %1 pour la requete : %2"}).arg(
+      QString::number(retour)).arg(requete);
+00158 \textcolor{preprocessor}{            #endif}
+00159             \textcolor{keywordflow}{if}(retour)
+00160             \{
+00161                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00162             \}
+00163             \textcolor{keywordflow}{else}
+00164             \{
+00165                 qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Erreur : %1 pour la requête %2"}).arg(r.
+      lastError().text()).arg(requete);
+00166                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00167             \}
+00168         \}
+00169         \textcolor{keywordflow}{else}
+00170         \{
+00171             qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Erreur : requête %1 non autorisée !"}).arg(requete
+      );
+00172             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00173         \}
+00174     \}
+00175     \textcolor{keywordflow}{else}
+00176         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00177 
+00178 \}
+00179 
+\Hypertarget{_bdd_8cpp_source_l00187}\hyperlink{class_bdd_a8f25d29d309041bbf875700db0efd97b}{00187} \textcolor{keywordtype}{bool} \hyperlink{class_bdd_a8f25d29d309041bbf875700db0efd97b}{Bdd::recuperer}(QString requete, QString &donnees)
+00188 \{
+00189     QSqlQuery r;
+00190     \textcolor{keywordtype}{bool} retour;
+00191 
+00192     \textcolor{keywordflow}{if}(\hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db}.isOpen())
+00193     \{
+00194         \textcolor{keywordflow}{if}(requete.contains(\textcolor{stringliteral}{"SELECT"}))
+00195         \{
+00196             retour = r.exec(requete);
+00197 \textcolor{preprocessor}{            #ifdef DEBUG\_BASEDEDONNEES}
+00198             qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Retour %1 pour la requete : %2"}).arg(
+      QString::number(retour)).arg(requete);
+00199 \textcolor{preprocessor}{            #endif}
+00200             \textcolor{keywordflow}{if}(retour)
+00201             \{
+00202                 \textcolor{comment}{// on se positionne sur l'enregistrement}
+00203                 r.first();
+00204 
+00205                 \textcolor{comment}{// on vérifie l'état de l'enregistrement retourné}
+00206                 \textcolor{keywordflow}{if}(!r.isValid())
+00207                 \{
+00208 \textcolor{preprocessor}{                    #ifdef DEBUG\_BASEDEDONNEES}
+00209                     qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Résultat non valide !"});
+00210 \textcolor{preprocessor}{                    #endif}
+00211                     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00212                 \}
+00213 
+00214                 \textcolor{comment}{// on récupère sous forme de QString la valeur du champ}
+00215                 \textcolor{keywordflow}{if}(r.isNull(0))
+00216                 \{
+00217 \textcolor{preprocessor}{                    #ifdef DEBUG\_BASEDEDONNEES}
+00218                     qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Aucun résultat !"});
+00219 \textcolor{preprocessor}{                    #endif}
+00220                     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00221                 \}
+00222                 donnees = r.value(0).toString();
+00223 \textcolor{preprocessor}{                #ifdef DEBUG\_BASEDEDONNEES}
+00224                 qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"Enregistrement -> "} << donnees;
+00225 \textcolor{preprocessor}{                #endif}
+00226                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00227             \}
+00228             \textcolor{keywordflow}{else}
+00229             \{
+00230                 qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Erreur : %1 pour la requête %2"}).arg(r.
+      lastError().text()).arg(requete);
+00231                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00232             \}
+00233         \}
+00234         \textcolor{keywordflow}{else}
+00235         \{
+00236             qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Erreur : requête %1 non autorisée !"}).arg(requete
+      );
+00237             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00238         \}
+00239     \}
+00240     \textcolor{keywordflow}{else}
+00241         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00242 \}
+00243 
+\Hypertarget{_bdd_8cpp_source_l00251}\hyperlink{class_bdd_a397b32b8bc612aadf95bf0595e37ec7c}{00251} \textcolor{keywordtype}{bool} \hyperlink{class_bdd_a8f25d29d309041bbf875700db0efd97b}{Bdd::recuperer}(QString requete, QStringList &donnees)
+00252 \{
+00253     QSqlQuery r;
+00254     \textcolor{keywordtype}{bool} retour;
+00255 
+00256     \textcolor{keywordflow}{if}(\hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db}.isOpen())
+00257     \{
+00258         \textcolor{keywordflow}{if}(requete.contains(\textcolor{stringliteral}{"SELECT"}))
+00259         \{
+00260             retour = r.exec(requete);
+00261 \textcolor{preprocessor}{            #ifdef DEBUG\_BASEDEDONNEES}
+00262             qDebug() << QString::fromUtf8(\textcolor{stringliteral}{"Retour %1 pour la requete : %2"}).arg(QString::number(retour)).
+      arg(requete);
+00263 \textcolor{preprocessor}{            #endif}
+00264             \textcolor{keywordflow}{if}(retour)
+00265             \{
+00266                 \textcolor{comment}{// on se positionne sur l'enregistrement}
+00267                 r.first();
+00268 
+00269                 \textcolor{comment}{// on vérifie l'état de l'enregistrement retourné}
+00270                 \textcolor{keywordflow}{if}(!r.isValid())
+00271                 \{
+00272 \textcolor{preprocessor}{                    #ifdef DEBUG\_BASEDEDONNEES}
+00273                     qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Résultat non valide !"});
+00274 \textcolor{preprocessor}{                    #endif}
+00275                     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00276                 \}
+00277 
+00278                 \textcolor{comment}{// on récupère sous forme de QString la valeur de tous les champs sélectionnés}
+00279                 \textcolor{comment}{// et on les stocke dans une liste de QString}
+00280                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<r.record().count();i++)
+00281                     \textcolor{keywordflow}{if}(!r.isNull(i))
+00282                         donnees << r.value(i).toString();
+00283 \textcolor{preprocessor}{                #ifdef DEBUG\_BASEDEDONNEES}
+00284                 qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"Enregistrement -> "} << donnees;
+00285 \textcolor{preprocessor}{                #endif}
+00286                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00287             \}
+00288             \textcolor{keywordflow}{else}
+00289             \{
+00290                 qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Erreur : %1 pour la requête %2"}).arg(r.
+      lastError().text()).arg(requete);
+00291                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00292             \}
+00293         \}
+00294         \textcolor{keywordflow}{else}
+00295         \{
+00296             qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Erreur : requête %1 non autorisée !"}).arg(requete
+      );
+00297             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00298         \}
+00299     \}
+00300     \textcolor{keywordflow}{else}
+00301         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00302 \}
+00303 
+\Hypertarget{_bdd_8cpp_source_l00311}\hyperlink{class_bdd_ae155534b5b1a9daa94ee2106fcf0f37d}{00311} \textcolor{keywordtype}{bool} \hyperlink{class_bdd_a8f25d29d309041bbf875700db0efd97b}{Bdd::recuperer}(QString requete, QVector<QString> &donnees)
+00312 \{
+00313     QSqlQuery r;
+00314     \textcolor{keywordtype}{bool} retour;
+00315     QString data;
+00316 
+00317     \textcolor{keywordflow}{if}(\hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db}.isOpen())
+00318     \{
+00319         \textcolor{keywordflow}{if}(requete.contains(\textcolor{stringliteral}{"SELECT"}))
+00320         \{
+00321             retour = r.exec(requete);
+00322 \textcolor{preprocessor}{            #ifdef DEBUG\_BASEDEDONNEES}
+00323             qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Retour %1 pour la requete : %2"}).arg(
+      QString::number(retour)).arg(requete);
+00324 \textcolor{preprocessor}{            #endif}
+00325             \textcolor{keywordflow}{if}(retour)
+00326             \{
+00327                 \textcolor{comment}{// pour chaque enregistrement}
+00328                 \textcolor{keywordflow}{while} ( r.next() )
+00329                 \{
+00330                     \textcolor{comment}{// on récupère sous forme de QString la valeur du champs sélectionné}
+00331                     data = r.value(0).toString();
+00332 
+00333 \textcolor{preprocessor}{                    #ifdef DEBUG\_BASEDEDONNEES}
+00334                     \textcolor{comment}{//qDebug() << Q\_FUNC\_INFO << "Enregistrement -> " << data;}
+00335 \textcolor{preprocessor}{                    #endif}
+00336 
+00337                     \textcolor{comment}{// on stocke l'enregistrement dans le QVector}
+00338                     donnees.push\_back(data);
+00339                 \}
+00340 \textcolor{preprocessor}{                #ifdef DEBUG\_BASEDEDONNEES}
+00341                 qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"Enregistrement -> "} << donnees;
+00342 \textcolor{preprocessor}{                #endif}
+00343                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00344             \}
+00345             \textcolor{keywordflow}{else}
+00346             \{
+00347                 qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Erreur : %1 pour la requête %2"}).arg(r.
+      lastError().text()).arg(requete);
+00348                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00349             \}
+00350         \}
+00351         \textcolor{keywordflow}{else}
+00352         \{
+00353             qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Erreur : requête %1 non autorisée !"}).arg(requete
+      );
+00354             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00355         \}
+00356     \}
+00357     \textcolor{keywordflow}{else}
+00358         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00359 \}
+00360 
+\Hypertarget{_bdd_8cpp_source_l00367}\hyperlink{class_bdd_a482cd502a23b933712400044e1ba3e37}{00367} \textcolor{keywordtype}{bool} \hyperlink{class_bdd_a8f25d29d309041bbf875700db0efd97b}{Bdd::recuperer}(QString requete, QVector<QStringList> &donnees)
+00368 \{
+00369     QSqlQuery r;
+00370     \textcolor{keywordtype}{bool} retour;
+00371     QStringList data;
+00372 
+00373     \textcolor{keywordflow}{if}(\hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db}.isOpen())
+00374     \{
+00375         \textcolor{keywordflow}{if}(requete.contains(\textcolor{stringliteral}{"SELECT"}))
+00376         \{
+00377             retour = r.exec(requete);
+00378 \textcolor{preprocessor}{            #ifdef DEBUG\_BASEDEDONNEES}
+00379             qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Retour %1 pour la requete : %2"}).arg(
+      QString::number(retour)).arg(requete);
+00380 \textcolor{preprocessor}{            #endif}
+00381             \textcolor{keywordflow}{if}(retour)
+00382             \{
+00383                 \textcolor{comment}{// pour chaque enregistrement}
+00384                 \textcolor{keywordflow}{while} ( r.next() )
+00385                 \{
+00386                     \textcolor{comment}{// on récupère sous forme de QString la valeur de tous les champs sélectionnés}
+00387                     \textcolor{comment}{// et on les stocke dans une liste de QString}
+00388                     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<r.record().count();i++)
+00389                         data << r.value(i).toString();
+00390 
+00391 \textcolor{preprocessor}{                    #ifdef DEBUG\_BASEDEDONNEES}
+00392                     \textcolor{comment}{//qDebug() << Q\_FUNC\_INFO << "Enregistrement -> " << data;}
+00393                     \textcolor{comment}{/*for(int i=0;i<r.record().count();i++)}
+00394 \textcolor{comment}{                        qDebug() << r.value(i).toString();*/}
+00395 \textcolor{preprocessor}{                    #endif}
+00396 
+00397                     \textcolor{comment}{// on stocke l'enregistrement dans le QVector}
+00398                     donnees.push\_back(data);
+00399 
+00400                     \textcolor{comment}{// on efface la liste de QString pour le prochain enregistrement}
+00401                     data.clear();
+00402                 \}
+00403 \textcolor{preprocessor}{                #ifdef DEBUG\_BASEDEDONNEES}
+00404                 qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"Enregistrement -> "} << donnees;
+00405 \textcolor{preprocessor}{                #endif}
+00406                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00407             \}
+00408             \textcolor{keywordflow}{else}
+00409             \{
+00410                 qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Erreur : %1 pour la requête %2"}).arg(r.
+      lastError().text()).arg(requete);
+00411                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00412             \}
+00413         \}
+00414         \textcolor{keywordflow}{else}
+00415         \{
+00416             qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Erreur : requête %1 non autorisée !"}).arg(requete
+      );
+00417             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00418         \}
+00419     \}
+00420     \textcolor{keywordflow}{else}
+00421         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00422 \}
+\end{DoxyCode}

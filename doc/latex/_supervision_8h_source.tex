@@ -1,0 +1,85 @@
+\hypertarget{_supervision_8h_source}{}\subsection{Supervision.\+h}
+\label{_supervision_8h_source}\index{Supervision.\+h@{Supervision.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef SUPERVISION\_H}
+00002 \textcolor{preprocessor}{#define SUPERVISION\_H}
+00003 
+00018 \textcolor{preprocessor}{#include <QObject>}
+00019 \textcolor{preprocessor}{#include <QString>}
+00020 \textcolor{preprocessor}{#include <QVector>}
+00021 
+\Hypertarget{_supervision_8h_source_l00022}\hyperlink{_supervision_8h_ab642f31e36e2a1f5a6758b7f79230a02}{00022} \textcolor{preprocessor}{#define DEBUG\_SUPERVISION}
+00023 \textcolor{comment}{//#define CHANGE\_PASSWORD\_BEFORE}
+\Hypertarget{_supervision_8h_source_l00024}\hyperlink{_supervision_8h_a8e245c4fce9fb512589d2448451ee3e1}{00024} \textcolor{preprocessor}{#define SUPERVISION\_TEST\_POIDS}
+00025 
+\Hypertarget{_supervision_8h_source_l00026}\hyperlink{_supervision_8h_a9c7b069fee3c8184e14a7de8e5da2dc6}{00026} \textcolor{preprocessor}{#define PRECISION 0}
+00027 
+00028 \textcolor{keyword}{class }\hyperlink{class_armoire}{Armoire};
+00029 \textcolor{keyword}{class }\hyperlink{class_article}{Article};
+00030 \textcolor{keyword}{class }\hyperlink{class_ihm}{Ihm};
+00031 \textcolor{keyword}{class }\hyperlink{class_bdd}{Bdd};
+00032 \textcolor{keyword}{class }\hyperlink{class_code_barre}{CodeBarre};
+00033 \textcolor{keyword}{class }\hyperlink{class_communication}{Communication};
+00034 \textcolor{keyword}{class }\hyperlink{class_rfid}{Rfid};
+00035 \textcolor{keyword}{class }\hyperlink{class_utilisateur}{Utilisateur};
+00036 \textcolor{keyword}{class }\hyperlink{class_communication}{Communication};
+00037 \textcolor{keyword}{class }\hyperlink{class_casier}{Casier};
+00038 
+\Hypertarget{_supervision_8h_source_l00052}\hyperlink{class_supervision}{00052} \textcolor{keyword}{class }\hyperlink{class_supervision}{Supervision} : \hyperlink{class_q_object}{QObject}
+00053 \{
+00054     Q\_OBJECT
+00055 
+00056 \textcolor{keyword}{public}:
+00057     \hyperlink{class_supervision_af3f0ed8f5aadd6b4aa5e0eac2813d8c4}{Supervision}(\hyperlink{class_ihm}{Ihm} *parent = \textcolor{keyword}{nullptr});
+00058     \hyperlink{class_supervision_a5058e6aec3356006c8efe66bf223ec94}{~Supervision}();
+00059 
+00060     \textcolor{keywordtype}{void} \hyperlink{class_supervision_a164a1ad89264ea252401818df325eab8}{deconnecterUtilisateur}();
+00061     \textcolor{keywordtype}{void} \hyperlink{class_supervision_a558665fd7e7c44653907883afd9a58bf}{creerCasiers}();
+00062     QStringList \hyperlink{class_supervision_a72bd93799fcf5423a5f0c5538d4ec892}{getInformationsArmoire}();
+00063     
+00064 \textcolor{keyword}{public} slots:
+00065     \textcolor{keywordtype}{void} \hyperlink{class_supervision_a07e7f0cd8b114182be56ebb5645e62fe}{verifierAuthentificationBadge}(QString badge);
+00066     \textcolor{keywordtype}{void} \hyperlink{class_supervision_ac596674d302f1f747d65c8334aa1ced9}{verifierAuthentificationIdentifiant}(QString identifiant, 
+      QString motDePasse);    
+00067     \textcolor{keywordtype}{void} \hyperlink{class_supervision_af2df200be6727338110b81812703d0ae}{rechercherArticle}(QString recherche);
+00068     \textcolor{keywordtype}{void} \hyperlink{class_supervision_a2efb7e4dabe2664c9cfd41d703b6250c}{selectionnerArticle}(QString nomArticle);
+00069     \textcolor{keywordtype}{void} \hyperlink{class_supervision_ae72bdcb7d70bbb8e13cf61be95ee7c06}{traiterTramePoids}(QString trame);
+00070 
+00071 signals:
+00072     \textcolor{keywordtype}{void} \hyperlink{class_supervision_a116ed6de0e9e3c9c94886235e9f6d6e8}{reponseDemandeDeConnexion}(\textcolor{keywordtype}{bool}, QString);
+00073     \textcolor{keywordtype}{void} \hyperlink{class_supervision_a3fb19a3c16324a21af956fd272ca469d}{erreurDepassementQuantite}();
+00074     \textcolor{keywordtype}{void} \hyperlink{class_supervision_a3023468d106abfe7dc697e61a63778ed}{articlesTrouves}(QVector<QStringList>);
+00075     \textcolor{keywordtype}{void} \hyperlink{class_supervision_ae486eafc331964e223c35ae2b54fa669}{donneesArticleSelectionne}(QVector<QStringList>);
+00076     \textcolor{keywordtype}{void} \hyperlink{class_supervision_ae486eafc331964e223c35ae2b54fa669}{donneesArticleSelectionne}(QStringList);
+00077 
+00078 \textcolor{keyword}{private}:
+\Hypertarget{_supervision_8h_source_l00079}\hyperlink{class_supervision_a5aa823c55bf1531497bbb8fdbc6c5528}{00079}     \hyperlink{class_ihm}{Ihm} *\hyperlink{class_supervision_a5aa823c55bf1531497bbb8fdbc6c5528}{ihm}; 
+\Hypertarget{_supervision_8h_source_l00080}\hyperlink{class_supervision_ac9a970d4f511f2eed5da4aed037533ab}{00080}     \hyperlink{class_bdd}{Bdd} *\hyperlink{class_supervision_ac9a970d4f511f2eed5da4aed037533ab}{bdd}; 
+\Hypertarget{_supervision_8h_source_l00081}\hyperlink{class_supervision_a3ec5986105208e9a2b02b7e97bf61090}{00081}     \hyperlink{class_rfid}{Rfid} *\hyperlink{class_supervision_a3ec5986105208e9a2b02b7e97bf61090}{rfid}; 
+\Hypertarget{_supervision_8h_source_l00082}\hyperlink{class_supervision_a92384f2b12b2549cee988f83add8ad49}{00082}     \hyperlink{class_utilisateur}{Utilisateur} *\hyperlink{class_supervision_a92384f2b12b2549cee988f83add8ad49}{utilisateur}; 
+\Hypertarget{_supervision_8h_source_l00083}\hyperlink{class_supervision_ac01c57f7fd9d043ab46d439e55e426e5}{00083}     \hyperlink{class_code_barre}{CodeBarre} *\hyperlink{class_supervision_ac01c57f7fd9d043ab46d439e55e426e5}{codeBarre}; 
+\Hypertarget{_supervision_8h_source_l00084}\hyperlink{class_supervision_a9f974b5c47899192395e539a0f11034c}{00084}     \hyperlink{class_armoire}{Armoire} *\hyperlink{class_supervision_a9f974b5c47899192395e539a0f11034c}{armoire}; 
+\Hypertarget{_supervision_8h_source_l00085}\hyperlink{class_supervision_a045be64d74de4f7688574eec108220a5}{00085}     \hyperlink{class_communication}{Communication} *\hyperlink{class_supervision_a045be64d74de4f7688574eec108220a5}{communication}; 
+\Hypertarget{_supervision_8h_source_l00086}\hyperlink{class_supervision_a3ac996538c83f3bd3df36095b0abb1b2}{00086}     QVector<Casier*> \hyperlink{class_supervision_a3ac996538c83f3bd3df36095b0abb1b2}{casiers}; 
+00087 
+00088     \textcolor{keywordtype}{void} \hyperlink{class_supervision_ac3bb2f3834b09a81ae9a767502ff693b}{connecterSignauxSlots}();    
+00089 
+00090     \textcolor{comment}{// Athentification}
+00091     QStringList \hyperlink{class_supervision_a137b6c505742a4ada6ab38193eef01dd}{recupererDonneesUtilisateur}(QString requeteBDD);
+00092     \textcolor{keywordtype}{void} \hyperlink{class_supervision_ac58c5b922ce85af75c2233cd3265d201}{crypterMotDepasse}(QString &motDePasse);
+00093     \textcolor{keywordtype}{bool} \hyperlink{class_supervision_acc886b933823993f1e3873582e05e690}{verifierDateValidite}(QString stringDateValidite);
+00094     \textcolor{keywordtype}{bool} \hyperlink{class_supervision_ae3400dad53c52bc09198e8d7f80e0e67}{verifierDonneesUtilisateur}(QStringList &donnees);
+00095     \textcolor{keywordtype}{void} \hyperlink{class_supervision_a7c397ca5f79afa2709a657d7185dfbe1}{connecterUtilisateur}(QStringList &donnees);
+00096 
+00097     QString \hyperlink{class_supervision_afdef41cd85f2ecfae9d1dc46f556a034}{extrairePoids}(QString trame);
+00098     QString \hyperlink{class_supervision_a141a35024b0cb74636a8c6810a1ab26d}{extraireNumeroCasier}(QString trame);
+00099     \textcolor{keywordtype}{int} \hyperlink{class_supervision_a81b1b8960cb2857be4a6789cf27cd413}{compter}(QString poidArticle, QString poidTotal, QString tare);
+00100     \textcolor{keywordtype}{int} \hyperlink{class_supervision_a16fde33340a8bc8b0936926cd6dc0657}{arrondir}(QString arrondire);
+00101 
+00102     \textcolor{keywordtype}{void} \hyperlink{class_supervision_ae6fc43cb8bdfd8045367c08d8e440359}{ajouterDonneesArticle}(\hyperlink{class_article}{Article} *article, QVector<QStringList> &
+      donneesArticle, QStringList &donnees);
+00103 \};
+00104 
+00105 \textcolor{preprocessor}{#endif // SUPERVISION\_H}
+\end{DoxyCode}

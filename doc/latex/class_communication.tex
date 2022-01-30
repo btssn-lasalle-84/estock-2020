@@ -1,0 +1,597 @@
+\hypertarget{class_communication}{}\subsection{Référence de la classe Communication}
+\label{class_communication}\index{Communication@{Communication}}
+
+
+La classe \hyperlink{class_communication}{Communication} permet de communiquer avec le port série.  
+
+
+
+
+{\ttfamily \#include $<$Communication.\+h$>$}
+
+
+
+Graphe de collaboration de Communication\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{class_communication__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Connecteurs publics}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_communication_a0b8edc96112e71e1ec4a28cc6309cbbc}{recevoir\+Trame} ()
+\begin{DoxyCompactList}\small\item\em Définition de la méthode recevoir\+Trame. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Signaux}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_communication_a8beb7417ede75d0056b06788ef72d21b}{envoie\+Trame\+Etat} (Q\+String trame)
+\item 
+void \hyperlink{class_communication_a9fb098f5b5cb8931efefc58984529119}{envoie\+Trame\+Ouverture} (Q\+String trame)
+\item 
+void \hyperlink{class_communication_aaea5653e8aa1b50b4774caf65db21409}{envoie\+Trame\+Poids} (Q\+String trame)
+\end{DoxyCompactItemize}
+\subsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_communication_aa447a2fe9e2e5c2467a0816865a77340}{arreter\+Communication\+Port} ()
+\begin{DoxyCompactList}\small\item\em Définition de la méthode arreter\+Communication\+Port. \end{DoxyCompactList}\item 
+\hyperlink{class_communication_a56cf4b262e592bcae1d987c3dd00487f}{Communication} (\hyperlink{class_q_object}{Q\+Object} $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe \hyperlink{class_communication}{Communication}. \end{DoxyCompactList}\item 
+void \hyperlink{class_communication_ae39284eac0920a3d11c085b48c6234da}{configurer\+Port} ()
+\begin{DoxyCompactList}\small\item\em Définition de la méthode configurer\+Port. \end{DoxyCompactList}\item 
+void \hyperlink{class_communication_a8fe8d15efd2590a1061a015f5f761924}{demarrer\+Communication\+Port} ()
+\begin{DoxyCompactList}\small\item\em Définition de la méthode demarrer\+Communication\+Port. \end{DoxyCompactList}\item 
+void \hyperlink{class_communication_ab8f5efe1d44805be0081e986b2687a12}{envoyer\+Requete\+Poids} (Q\+String numero\+Casier=0)
+\begin{DoxyCompactList}\small\item\em Définition de la méthode envoyer\+Requete\+Poids. \end{DoxyCompactList}\item 
+void \hyperlink{class_communication_a53c26abe4c16ff155a15929dd5ad07cf}{envoyer\+Trame} (Q\+String trame)
+\begin{DoxyCompactList}\small\item\em Définition de la méthode envoyer\+Trame. \end{DoxyCompactList}\item 
+void \hyperlink{class_communication_ad5969603a6b7232d0227a461fd479251}{ouvrir\+Port} ()
+\begin{DoxyCompactList}\small\item\em Définition de la métohde ouvrir\+Port. \end{DoxyCompactList}\item 
+void \hyperlink{class_communication_a06a0f05f4555c6e3586e1800bbaa5e13}{set\+Nom\+Port} (Q\+String nouveau\+Port\+Serie)
+\begin{DoxyCompactList}\small\item\em Définition de la méthode set\+Nom\+Port. \end{DoxyCompactList}\item 
+\hyperlink{class_communication_a75ba08ce908d45251e28e4c1db94e6f4}{$\sim$\+Communication} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe \hyperlink{class_communication}{Communication}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Fonctions membres privées}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_communication_ab4ff84d0fb69ffa990bc61939c95a093}{traiter\+Trame} (Q\+String trame)
+\begin{DoxyCompactList}\small\item\em Définition de la méthode Traiter\+Trame. \end{DoxyCompactList}\item 
+bool \hyperlink{class_communication_a3958c8f275ff8d50dca85afe65c795d1}{verifier\+Trame} (Q\+String trame)
+\begin{DoxyCompactList}\small\item\em Définition de la méthode verifier\+Trame. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+Q\+String \hyperlink{class_communication_a5fa89ee1fc732871f3f8f177fb50bf2a}{nom\+Port}
+\begin{DoxyCompactList}\small\item\em Variable qui contient le nom du port serie. \end{DoxyCompactList}\item 
+Q\+Serial\+Port $\ast$ \hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{port}
+\begin{DoxyCompactList}\small\item\em Variable pointeur sur le port. \end{DoxyCompactList}\item 
+Q\+String \hyperlink{class_communication_a7a55775be5e16249315fe5faef4f13b4}{trame\+Brute}
+\begin{DoxyCompactList}\small\item\em Variable qui contient la trame brute. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Description détaillée}
+La classe \hyperlink{class_communication}{Communication} permet de communiquer avec le port série. 
+
+\begin{DoxyAuthor}{Auteur}
+Tranchat Joffrey 
+
+Legger Pierre-\/\+Antoine
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+jeudi 12 Mars 2020 
+\end{DoxyDate}
+
+
+Définition à la ligne \hyperlink{_communication_8h_source_l00046}{46} du fichier \hyperlink{_communication_8h_source}{Communication.\+h}.
+
+
+
+\subsubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{class_communication_a56cf4b262e592bcae1d987c3dd00487f}\label{class_communication_a56cf4b262e592bcae1d987c3dd00487f}} 
+\index{Communication@{Communication}!Communication@{Communication}}
+\index{Communication@{Communication}!Communication@{Communication}}
+\paragraph{\texorpdfstring{Communication()}{Communication()}}
+{\footnotesize\ttfamily Communication\+::\+Communication (\begin{DoxyParamCaption}\item[{\hyperlink{class_q_object}{Q\+Object} $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+Constructeur de la classe \hyperlink{class_communication}{Communication}. 
+
+initialise un objet \hyperlink{class_communication}{Communication} 
+\begin{DoxyParams}{Paramètres}
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{_communication_8cpp_source_l00023}{23} du fichier \hyperlink{_communication_8cpp_source}{Communication.\+cpp}.
+
+
+\begin{DoxyCode}
+00023                                             : \hyperlink{class_q_object}{QObject}(parent), \hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{port}(\textcolor{keyword}{new} QSerialPort(\textcolor{keyword}{this})), 
+      \hyperlink{class_communication_a7a55775be5e16249315fe5faef4f13b4}{trameBrute}(\textcolor{stringliteral}{"\(\backslash\)0"}), \hyperlink{class_communication_a5fa89ee1fc732871f3f8f177fb50bf2a}{nomPort}(\hyperlink{_communication_8h_a8542e30f71d5d41f405c329f0e9bafd7}{SERIAL\_PORT\_NAME})
+00024 \{
+00025     qDebug() << Q\_FUNC\_INFO;
+00026 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_communication_a75ba08ce908d45251e28e4c1db94e6f4}\label{class_communication_a75ba08ce908d45251e28e4c1db94e6f4}} 
+\index{Communication@{Communication}!````~Communication@{$\sim$\+Communication}}
+\index{````~Communication@{$\sim$\+Communication}!Communication@{Communication}}
+\paragraph{\texorpdfstring{$\sim$\+Communication()}{~Communication()}}
+{\footnotesize\ttfamily Communication\+::$\sim$\+Communication (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructeur de la classe \hyperlink{class_communication}{Communication}. 
+
+Détruit uun objet \hyperlink{class_communication}{Communication} et ferme le port série 
+
+Définition à la ligne \hyperlink{_communication_8cpp_source_l00032}{32} du fichier \hyperlink{_communication_8cpp_source}{Communication.\+cpp}.
+
+
+
+Références \hyperlink{_communication_8h_source_l00067}{port}.
+
+
+\begin{DoxyCode}
+00033 \{
+00034     \hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{port}->close();
+00035     qDebug() << Q\_FUNC\_INFO;
+00036 \}
+\end{DoxyCode}
+
+
+\subsubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{class_communication_aa447a2fe9e2e5c2467a0816865a77340}\label{class_communication_aa447a2fe9e2e5c2467a0816865a77340}} 
+\index{Communication@{Communication}!arreter\+Communication\+Port@{arreter\+Communication\+Port}}
+\index{arreter\+Communication\+Port@{arreter\+Communication\+Port}!Communication@{Communication}}
+\paragraph{\texorpdfstring{arreter\+Communication\+Port()}{arreterCommunicationPort()}}
+{\footnotesize\ttfamily void Communication\+::arreter\+Communication\+Port (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Définition de la méthode arreter\+Communication\+Port. 
+
+Méthode qui ferme le port série 
+
+Définition à la ligne \hyperlink{_communication_8cpp_source_l00053}{53} du fichier \hyperlink{_communication_8cpp_source}{Communication.\+cpp}.
+
+
+
+Références \hyperlink{_communication_8h_source_l00067}{port}.
+
+
+\begin{DoxyCode}
+00054 \{
+00055     qDebug() << Q\_FUNC\_INFO;
+00056     \hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{port}->close();
+00057 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_communication_ae39284eac0920a3d11c085b48c6234da}\label{class_communication_ae39284eac0920a3d11c085b48c6234da}} 
+\index{Communication@{Communication}!configurer\+Port@{configurer\+Port}}
+\index{configurer\+Port@{configurer\+Port}!Communication@{Communication}}
+\paragraph{\texorpdfstring{configurer\+Port()}{configurerPort()}}
+{\footnotesize\ttfamily void Communication\+::configurer\+Port (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Définition de la méthode configurer\+Port. 
+
+Méthode qui configure le port serie par défaut 
+
+Définition à la ligne \hyperlink{_communication_8cpp_source_l00063}{63} du fichier \hyperlink{_communication_8cpp_source}{Communication.\+cpp}.
+
+
+
+Références \hyperlink{_communication_8h_source_l00069}{nom\+Port}, et \hyperlink{_communication_8h_source_l00067}{port}.
+
+
+
+Référencé par \hyperlink{_communication_8cpp_source_l00042}{demarrer\+Communication\+Port()}.
+
+
+\begin{DoxyCode}
+00064 \{
+00065     qDebug() << Q\_FUNC\_INFO;
+00066     \hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{port}->setPortName(\hyperlink{class_communication_a5fa89ee1fc732871f3f8f177fb50bf2a}{nomPort});
+00067     \hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{port}->setBaudRate(QSerialPort::Baud9600);
+00068     \hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{port}->setDataBits(QSerialPort::Data8);
+00069     \hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{port}->setParity(QSerialPort::NoParity);
+00070     \hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{port}->setStopBits(QSerialPort::OneStop);
+00071     \hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{port}->setFlowControl(QSerialPort::NoFlowControl);
+00072 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_communication_a8fe8d15efd2590a1061a015f5f761924}\label{class_communication_a8fe8d15efd2590a1061a015f5f761924}} 
+\index{Communication@{Communication}!demarrer\+Communication\+Port@{demarrer\+Communication\+Port}}
+\index{demarrer\+Communication\+Port@{demarrer\+Communication\+Port}!Communication@{Communication}}
+\paragraph{\texorpdfstring{demarrer\+Communication\+Port()}{demarrerCommunicationPort()}}
+{\footnotesize\ttfamily void Communication\+::demarrer\+Communication\+Port (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Définition de la méthode demarrer\+Communication\+Port. 
+
+Méthode qui démarre la configuration du port serie et ouvre le port serie 
+
+Définition à la ligne \hyperlink{_communication_8cpp_source_l00042}{42} du fichier \hyperlink{_communication_8cpp_source}{Communication.\+cpp}.
+
+
+
+Références \hyperlink{_communication_8cpp_source_l00063}{configurer\+Port()}, et \hyperlink{_communication_8cpp_source_l00078}{ouvrir\+Port()}.
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00036}{Supervision\+::\+Supervision()}.
+
+
+\begin{DoxyCode}
+00043 \{
+00044     qDebug() << Q\_FUNC\_INFO;
+00045     \hyperlink{class_communication_ae39284eac0920a3d11c085b48c6234da}{configurerPort}();
+00046     \hyperlink{class_communication_ad5969603a6b7232d0227a461fd479251}{ouvrirPort}();
+00047 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_communication_a8beb7417ede75d0056b06788ef72d21b}\label{class_communication_a8beb7417ede75d0056b06788ef72d21b}} 
+\index{Communication@{Communication}!envoie\+Trame\+Etat@{envoie\+Trame\+Etat}}
+\index{envoie\+Trame\+Etat@{envoie\+Trame\+Etat}!Communication@{Communication}}
+\paragraph{\texorpdfstring{envoie\+Trame\+Etat}{envoieTrameEtat}}
+{\footnotesize\ttfamily void Communication\+::envoie\+Trame\+Etat (\begin{DoxyParamCaption}\item[{Q\+String}]{trame }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Référencé par \hyperlink{_communication_8cpp_source_l00158}{traiter\+Trame()}.
+
+\mbox{\Hypertarget{class_communication_a9fb098f5b5cb8931efefc58984529119}\label{class_communication_a9fb098f5b5cb8931efefc58984529119}} 
+\index{Communication@{Communication}!envoie\+Trame\+Ouverture@{envoie\+Trame\+Ouverture}}
+\index{envoie\+Trame\+Ouverture@{envoie\+Trame\+Ouverture}!Communication@{Communication}}
+\paragraph{\texorpdfstring{envoie\+Trame\+Ouverture}{envoieTrameOuverture}}
+{\footnotesize\ttfamily void Communication\+::envoie\+Trame\+Ouverture (\begin{DoxyParamCaption}\item[{Q\+String}]{trame }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Référencé par \hyperlink{_communication_8cpp_source_l00158}{traiter\+Trame()}.
+
+\mbox{\Hypertarget{class_communication_aaea5653e8aa1b50b4774caf65db21409}\label{class_communication_aaea5653e8aa1b50b4774caf65db21409}} 
+\index{Communication@{Communication}!envoie\+Trame\+Poids@{envoie\+Trame\+Poids}}
+\index{envoie\+Trame\+Poids@{envoie\+Trame\+Poids}!Communication@{Communication}}
+\paragraph{\texorpdfstring{envoie\+Trame\+Poids}{envoieTramePoids}}
+{\footnotesize\ttfamily void Communication\+::envoie\+Trame\+Poids (\begin{DoxyParamCaption}\item[{Q\+String}]{trame }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Référencé par \hyperlink{_communication_8cpp_source_l00158}{traiter\+Trame()}.
+
+\mbox{\Hypertarget{class_communication_ab8f5efe1d44805be0081e986b2687a12}\label{class_communication_ab8f5efe1d44805be0081e986b2687a12}} 
+\index{Communication@{Communication}!envoyer\+Requete\+Poids@{envoyer\+Requete\+Poids}}
+\index{envoyer\+Requete\+Poids@{envoyer\+Requete\+Poids}!Communication@{Communication}}
+\paragraph{\texorpdfstring{envoyer\+Requete\+Poids()}{envoyerRequetePoids()}}
+{\footnotesize\ttfamily void Communication\+::envoyer\+Requete\+Poids (\begin{DoxyParamCaption}\item[{Q\+String}]{numero\+Casier = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Définition de la méthode envoyer\+Requete\+Poids. 
+
+Méthode qui permet d\textquotesingle{}envoyer une requête pour peser un casier 
+\begin{DoxyParams}{Paramètres}
+{\em numero\+Casier} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{_communication_8cpp_source_l00179}{179} du fichier \hyperlink{_communication_8cpp_source}{Communication.\+cpp}.
+
+
+
+Références \hyperlink{_communication_8cpp_source_l00107}{envoyer\+Trame()}.
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00036}{Supervision\+::\+Supervision()}.
+
+
+\begin{DoxyCode}
+00180 \{
+00181     QString trame = \textcolor{stringliteral}{"CASIERS;3;"} + numeroCasier + \textcolor{stringliteral}{";\(\backslash\)r\(\backslash\)n"};
+00182     \hyperlink{class_communication_a53c26abe4c16ff155a15929dd5ad07cf}{envoyerTrame}(trame);
+00183 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_communication_a53c26abe4c16ff155a15929dd5ad07cf}\label{class_communication_a53c26abe4c16ff155a15929dd5ad07cf}} 
+\index{Communication@{Communication}!envoyer\+Trame@{envoyer\+Trame}}
+\index{envoyer\+Trame@{envoyer\+Trame}!Communication@{Communication}}
+\paragraph{\texorpdfstring{envoyer\+Trame()}{envoyerTrame()}}
+{\footnotesize\ttfamily void Communication\+::envoyer\+Trame (\begin{DoxyParamCaption}\item[{Q\+String}]{trame }\end{DoxyParamCaption})}
+
+
+
+Définition de la méthode envoyer\+Trame. 
+
+Méthode qui permet d\textquotesingle{}envoyer une trame via le port série 
+\begin{DoxyParams}{Paramètres}
+{\em trame} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{_communication_8cpp_source_l00107}{107} du fichier \hyperlink{_communication_8cpp_source}{Communication.\+cpp}.
+
+
+
+Références \hyperlink{_communication_8h_source_l00067}{port}.
+
+
+
+Référencé par \hyperlink{_communication_8cpp_source_l00179}{envoyer\+Requete\+Poids()}.
+
+
+\begin{DoxyCode}
+00108 \{
+00109     \textcolor{keywordflow}{if} (\hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{port}->isOpen())
+00110     \{
+00111        \hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{port}->write(trame.toLatin1());
+00112     \}
+00113 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_communication_ad5969603a6b7232d0227a461fd479251}\label{class_communication_ad5969603a6b7232d0227a461fd479251}} 
+\index{Communication@{Communication}!ouvrir\+Port@{ouvrir\+Port}}
+\index{ouvrir\+Port@{ouvrir\+Port}!Communication@{Communication}}
+\paragraph{\texorpdfstring{ouvrir\+Port()}{ouvrirPort()}}
+{\footnotesize\ttfamily void Communication\+::ouvrir\+Port (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Définition de la métohde ouvrir\+Port. 
+
+Méthode qui ouvre le port serie en lecture et écriture 
+
+Définition à la ligne \hyperlink{_communication_8cpp_source_l00078}{78} du fichier \hyperlink{_communication_8cpp_source}{Communication.\+cpp}.
+
+
+
+Références \hyperlink{_communication_8h_source_l00069}{nom\+Port}, \hyperlink{_communication_8h_source_l00067}{port}, et \hyperlink{_communication_8cpp_source_l00119}{recevoir\+Trame()}.
+
+
+
+Référencé par \hyperlink{_communication_8cpp_source_l00042}{demarrer\+Communication\+Port()}.
+
+
+\begin{DoxyCode}
+00079 \{
+00080     \textcolor{keywordflow}{if} (\hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{port}->open(QIODevice::ReadWrite))
+00081     \{
+00082         qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"connecté au port"} << \hyperlink{class_communication_a5fa89ee1fc732871f3f8f177fb50bf2a}{nomPort};
+00083         connect(\hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{port}, SIGNAL(readyRead()), \textcolor{keyword}{this}, SLOT(\hyperlink{class_communication_a0b8edc96112e71e1ec4a28cc6309cbbc}{recevoirTrame}()));
+00084     \}
+00085     \textcolor{keywordflow}{else}
+00086     \{
+00087         qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"erreur ouverture du port"} << \hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{port}->error();
+00088     \}
+00089 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_communication_a0b8edc96112e71e1ec4a28cc6309cbbc}\label{class_communication_a0b8edc96112e71e1ec4a28cc6309cbbc}} 
+\index{Communication@{Communication}!recevoir\+Trame@{recevoir\+Trame}}
+\index{recevoir\+Trame@{recevoir\+Trame}!Communication@{Communication}}
+\paragraph{\texorpdfstring{recevoir\+Trame}{recevoirTrame}}
+{\footnotesize\ttfamily void Communication\+::recevoir\+Trame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Définition de la méthode recevoir\+Trame. 
+
+Méthode qui permet de recevoir une trame via le port série 
+
+Définition à la ligne \hyperlink{_communication_8cpp_source_l00119}{119} du fichier \hyperlink{_communication_8cpp_source}{Communication.\+cpp}.
+
+
+
+Références \hyperlink{_communication_8h_source_l00067}{port}, \hyperlink{_communication_8cpp_source_l00158}{traiter\+Trame()}, \hyperlink{_communication_8h_source_l00068}{trame\+Brute}, et \hyperlink{_communication_8cpp_source_l00138}{verifier\+Trame()}.
+
+
+
+Référencé par \hyperlink{_communication_8cpp_source_l00078}{ouvrir\+Port()}.
+
+
+\begin{DoxyCode}
+00120 \{
+00121     \hyperlink{class_communication_a7a55775be5e16249315fe5faef4f13b4}{trameBrute} = \textcolor{stringliteral}{"\(\backslash\)0"};
+00122 
+00123     \textcolor{keywordflow}{while} (\hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{port}->waitForReadyRead(500))
+00124     \{
+00125         \hyperlink{class_communication_a7a55775be5e16249315fe5faef4f13b4}{trameBrute}.append(\hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{port}->readAll());
+00126     \}    
+00127 
+00128     \textcolor{keywordflow}{if}(\hyperlink{class_communication_a3958c8f275ff8d50dca85afe65c795d1}{verifierTrame}(\hyperlink{class_communication_a7a55775be5e16249315fe5faef4f13b4}{trameBrute}))
+00129         \hyperlink{class_communication_ab4ff84d0fb69ffa990bc61939c95a093}{traiterTrame}(\hyperlink{class_communication_a7a55775be5e16249315fe5faef4f13b4}{trameBrute});
+00130 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_communication_a06a0f05f4555c6e3586e1800bbaa5e13}\label{class_communication_a06a0f05f4555c6e3586e1800bbaa5e13}} 
+\index{Communication@{Communication}!set\+Nom\+Port@{set\+Nom\+Port}}
+\index{set\+Nom\+Port@{set\+Nom\+Port}!Communication@{Communication}}
+\paragraph{\texorpdfstring{set\+Nom\+Port()}{setNomPort()}}
+{\footnotesize\ttfamily void Communication\+::set\+Nom\+Port (\begin{DoxyParamCaption}\item[{Q\+String}]{nouveau\+Port\+Serie }\end{DoxyParamCaption})}
+
+
+
+Définition de la méthode set\+Nom\+Port. 
+
+Méthode qui permet de définir le nom du port série à utiliser 
+\begin{DoxyParams}{Paramètres}
+{\em nouveau\+Port\+Serie} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{_communication_8cpp_source_l00096}{96} du fichier \hyperlink{_communication_8cpp_source}{Communication.\+cpp}.
+
+
+
+Références \hyperlink{_communication_8h_source_l00069}{nom\+Port}.
+
+
+\begin{DoxyCode}
+00097 \{
+00098     \hyperlink{class_communication_a5fa89ee1fc732871f3f8f177fb50bf2a}{nomPort} = nouveauPortSerie;
+00099     qDebug() << Q\_FUNC\_INFO << \hyperlink{class_communication_a5fa89ee1fc732871f3f8f177fb50bf2a}{nomPort};
+00100 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_communication_ab4ff84d0fb69ffa990bc61939c95a093}\label{class_communication_ab4ff84d0fb69ffa990bc61939c95a093}} 
+\index{Communication@{Communication}!traiter\+Trame@{traiter\+Trame}}
+\index{traiter\+Trame@{traiter\+Trame}!Communication@{Communication}}
+\paragraph{\texorpdfstring{traiter\+Trame()}{traiterTrame()}}
+{\footnotesize\ttfamily void Communication\+::traiter\+Trame (\begin{DoxyParamCaption}\item[{Q\+String}]{trame }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Définition de la méthode Traiter\+Trame. 
+
+Méthode qui signale le type de trame reçue 
+\begin{DoxyParams}{Paramètres}
+{\em trame} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{_communication_8cpp_source_l00158}{158} du fichier \hyperlink{_communication_8cpp_source}{Communication.\+cpp}.
+
+
+
+Références \hyperlink{_communication_8h_source_l00026}{D\+E\+L\+I\+M\+I\+T\+E\+U\+R\+\_\+\+C\+H\+A\+MP}, \hyperlink{_communication_8h_source_l00025}{E\+N\+\_\+\+T\+E\+TE}, \hyperlink{class_communication_a8beb7417ede75d0056b06788ef72d21b}{envoie\+Trame\+Etat()}, \hyperlink{class_communication_a9fb098f5b5cb8931efefc58984529119}{envoie\+Trame\+Ouverture()}, \hyperlink{class_communication_aaea5653e8aa1b50b4774caf65db21409}{envoie\+Trame\+Poids()}, \hyperlink{_communication_8h_source_l00031}{T\+R\+A\+M\+E\+\_\+\+E\+T\+AT}, \hyperlink{_communication_8h_source_l00030}{T\+R\+A\+M\+E\+\_\+\+O\+U\+V\+E\+R\+T\+U\+RE}, et \hyperlink{_communication_8h_source_l00032}{T\+R\+A\+M\+E\+\_\+\+P\+O\+I\+DS}.
+
+
+
+Référencé par \hyperlink{_communication_8cpp_source_l00119}{recevoir\+Trame()}.
+
+
+\begin{DoxyCode}
+00159 \{
+00160     \textcolor{keywordflow}{if}(trame.startsWith(\hyperlink{_communication_8h_add7c72d962d885317215f93ae8a9dc28}{EN\_TETE} + \hyperlink{_communication_8h_ac3d2c8b3b9dbc07cedf0bfa8a75d268f}{DELIMITEUR\_CHAMP} + 
+      \hyperlink{_communication_8h_ad49128d4b2d459f0d7f057b2e59fb2d5}{TRAME\_OUVERTURE} + \hyperlink{_communication_8h_ac3d2c8b3b9dbc07cedf0bfa8a75d268f}{DELIMITEUR\_CHAMP}))
+00161     \{
+00162         emit \hyperlink{class_communication_a9fb098f5b5cb8931efefc58984529119}{envoieTrameOuverture}(trame);
+00163     \}
+00164     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(trame.startsWith(\hyperlink{_communication_8h_add7c72d962d885317215f93ae8a9dc28}{EN\_TETE} + \hyperlink{_communication_8h_ac3d2c8b3b9dbc07cedf0bfa8a75d268f}{DELIMITEUR\_CHAMP} + 
+      \hyperlink{_communication_8h_a57c2e74056a9338d26f264703e2158d8}{TRAME\_ETAT} + \hyperlink{_communication_8h_ac3d2c8b3b9dbc07cedf0bfa8a75d268f}{DELIMITEUR\_CHAMP}))
+00165     \{
+00166         emit \hyperlink{class_communication_a8beb7417ede75d0056b06788ef72d21b}{envoieTrameEtat}(trame);
+00167     \}
+00168     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(trame.startsWith(\hyperlink{_communication_8h_add7c72d962d885317215f93ae8a9dc28}{EN\_TETE} + \hyperlink{_communication_8h_ac3d2c8b3b9dbc07cedf0bfa8a75d268f}{DELIMITEUR\_CHAMP} + 
+      \hyperlink{_communication_8h_a3a24fc54a5e48cb3eb9786ce61933a6c}{TRAME\_POIDS} + \hyperlink{_communication_8h_ac3d2c8b3b9dbc07cedf0bfa8a75d268f}{DELIMITEUR\_CHAMP}))
+00169     \{
+00170         emit \hyperlink{class_communication_aaea5653e8aa1b50b4774caf65db21409}{envoieTramePoids}(trame);
+00171     \}
+00172 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_communication_a3958c8f275ff8d50dca85afe65c795d1}\label{class_communication_a3958c8f275ff8d50dca85afe65c795d1}} 
+\index{Communication@{Communication}!verifier\+Trame@{verifier\+Trame}}
+\index{verifier\+Trame@{verifier\+Trame}!Communication@{Communication}}
+\paragraph{\texorpdfstring{verifier\+Trame()}{verifierTrame()}}
+{\footnotesize\ttfamily bool Communication\+::verifier\+Trame (\begin{DoxyParamCaption}\item[{Q\+String}]{trame }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Définition de la méthode verifier\+Trame. 
+
+Méthode qui vérifie si la trame respecte le protocole 
+\begin{DoxyParams}{Paramètres}
+{\em trame} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un booleen qui indique si la trame est correct ou nom 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{_communication_8cpp_source_l00138}{138} du fichier \hyperlink{_communication_8cpp_source}{Communication.\+cpp}.
+
+
+
+Références \hyperlink{_communication_8h_source_l00027}{D\+E\+L\+I\+M\+I\+T\+E\+U\+R\+\_\+\+F\+IN}, et \hyperlink{_communication_8h_source_l00025}{E\+N\+\_\+\+T\+E\+TE}.
+
+
+
+Référencé par \hyperlink{_communication_8cpp_source_l00119}{recevoir\+Trame()}.
+
+
+\begin{DoxyCode}
+00139 \{
+00140     qDebug() << Q\_FUNC\_INFO << trame;
+00141     \textcolor{keywordflow}{if}(!trame.startsWith(\hyperlink{_communication_8h_add7c72d962d885317215f93ae8a9dc28}{EN\_TETE}))
+00142     \{
+00143         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00144     \}
+00145     \textcolor{keywordflow}{if}(!trame.endsWith(\hyperlink{_communication_8h_aafcc0c7b4996f7783c9f4e766a233487}{DELIMITEUR\_FIN}))
+00146     \{
+00147         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00148     \}
+00149 
+00150     \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00151 \}
+\end{DoxyCode}
+
+
+\subsubsection{Documentation des données membres}
+\mbox{\Hypertarget{class_communication_a5fa89ee1fc732871f3f8f177fb50bf2a}\label{class_communication_a5fa89ee1fc732871f3f8f177fb50bf2a}} 
+\index{Communication@{Communication}!nom\+Port@{nom\+Port}}
+\index{nom\+Port@{nom\+Port}!Communication@{Communication}}
+\paragraph{\texorpdfstring{nom\+Port}{nomPort}}
+{\footnotesize\ttfamily Q\+String Communication\+::nom\+Port\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Variable qui contient le nom du port serie. 
+
+
+
+Définition à la ligne \hyperlink{_communication_8h_source_l00069}{69} du fichier \hyperlink{_communication_8h_source}{Communication.\+h}.
+
+
+
+Référencé par \hyperlink{_communication_8cpp_source_l00063}{configurer\+Port()}, \hyperlink{_communication_8cpp_source_l00078}{ouvrir\+Port()}, et \hyperlink{_communication_8cpp_source_l00096}{set\+Nom\+Port()}.
+
+\mbox{\Hypertarget{class_communication_aff7d55208f31232fbdc1dcec488908f1}\label{class_communication_aff7d55208f31232fbdc1dcec488908f1}} 
+\index{Communication@{Communication}!port@{port}}
+\index{port@{port}!Communication@{Communication}}
+\paragraph{\texorpdfstring{port}{port}}
+{\footnotesize\ttfamily Q\+Serial\+Port$\ast$ Communication\+::port\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Variable pointeur sur le port. 
+
+
+
+Définition à la ligne \hyperlink{_communication_8h_source_l00067}{67} du fichier \hyperlink{_communication_8h_source}{Communication.\+h}.
+
+
+
+Référencé par \hyperlink{_communication_8cpp_source_l00053}{arreter\+Communication\+Port()}, \hyperlink{_communication_8cpp_source_l00063}{configurer\+Port()}, \hyperlink{_communication_8cpp_source_l00107}{envoyer\+Trame()}, \hyperlink{_communication_8cpp_source_l00078}{ouvrir\+Port()}, \hyperlink{_communication_8cpp_source_l00119}{recevoir\+Trame()}, et \hyperlink{_communication_8cpp_source_l00032}{$\sim$\+Communication()}.
+
+\mbox{\Hypertarget{class_communication_a7a55775be5e16249315fe5faef4f13b4}\label{class_communication_a7a55775be5e16249315fe5faef4f13b4}} 
+\index{Communication@{Communication}!trame\+Brute@{trame\+Brute}}
+\index{trame\+Brute@{trame\+Brute}!Communication@{Communication}}
+\paragraph{\texorpdfstring{trame\+Brute}{trameBrute}}
+{\footnotesize\ttfamily Q\+String Communication\+::trame\+Brute\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Variable qui contient la trame brute. 
+
+
+
+Définition à la ligne \hyperlink{_communication_8h_source_l00068}{68} du fichier \hyperlink{_communication_8h_source}{Communication.\+h}.
+
+
+
+Référencé par \hyperlink{_communication_8cpp_source_l00119}{recevoir\+Trame()}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_communication_8h}{Communication.\+h}\item 
+\hyperlink{_communication_8cpp}{Communication.\+cpp}\end{DoxyCompactItemize}

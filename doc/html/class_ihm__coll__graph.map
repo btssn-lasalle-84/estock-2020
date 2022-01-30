@@ -1,0 +1,11 @@
+<map id="Ihm" name="Ihm">
+<area shape="rect" id="node3" href="$class_supervision.html" title="La classe Supervision permet de superviser l&#39;ensemble de l&#39;application. " alt="" coords="541,681,744,1081"/>
+<area shape="rect" id="node2" href="$class_q_main_window.html" title="{QMainWindow\n||}" alt="" coords="1107,86,1213,163"/>
+<area shape="rect" id="node4" href="$class_q_object.html" title="{QObject\n||}" alt="" coords="417,86,487,163"/>
+<area shape="rect" id="node5" href="$class_communication.html" title="La classe Communication permet de communiquer avec le port série. " alt="" coords="539,329,747,597"/>
+<area shape="rect" id="node6" href="$class_armoire.html" title="La classe Armoire traite les articles. " alt="" coords="771,329,938,597"/>
+<area shape="rect" id="node8" href="$class_utilisateur.html" title="La classe Utilisateur gère les données relative à l&#39;utilisateur. " alt="" coords="5,336,181,589"/>
+<area shape="rect" id="node9" href="$class_code_barre.html" title="Déclaration de la classe CodeBarre. " alt="" coords="205,417,317,509"/>
+<area shape="rect" id="node10" href="$class_rfid.html" title="La classe Rfid traite la trame reçue d&#39;un lecteur Rfid. " alt="" coords="341,373,464,553"/>
+<area shape="rect" id="node7" href="$class_bdd.html" title="Déclaration de la classe utilisant la base de données. " alt="" coords="861,5,995,244"/>
+</map>

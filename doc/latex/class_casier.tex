@@ -1,0 +1,258 @@
+\hypertarget{class_casier}{}\subsection{Référence de la classe Casier}
+\label{class_casier}\index{Casier@{Casier}}
+
+
+La classe \hyperlink{class_casier}{Casier} gère le casier contenant des articles.  
+
+
+
+
+{\ttfamily \#include $<$Casier.\+h$>$}
+
+
+
+Graphe de collaboration de Casier\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=160pt]{class_casier__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_casier_aed1cd4435ff913a68b69d8119481bb8f}{Casier} (int \hyperlink{class_casier_a17aa23e73b177559266a9fb17f63b812}{numero}, Q\+Widget $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em Définition de la méthode \hyperlink{class_casier}{Casier}. \end{DoxyCompactList}\item 
+bool \hyperlink{class_casier_ab26fd4da845423355835da8d445ed5dd}{est\+Ouvert} () const
+\begin{DoxyCompactList}\small\item\em Définition de la méthode est\+Ouvert. \end{DoxyCompactList}\item 
+int \hyperlink{class_casier_a061b024a2733a5bb1dfcc43bb0022707}{get\+Numero} () const
+\begin{DoxyCompactList}\small\item\em Définition de la méthode get\+Numero. \end{DoxyCompactList}\item 
+void \hyperlink{class_casier_ac4b0de3ba58dc2bab52b049b278f4f90}{ouvrir} ()
+\begin{DoxyCompactList}\small\item\em Définition de la méthode ouvrir. \end{DoxyCompactList}\item 
+\hyperlink{class_casier_a4aebc2219ccd4612cf79413904bb9340}{$\sim$\+Casier} ()
+\begin{DoxyCompactList}\small\item\em Définition du destructeur de la classe \hyperlink{class_casier}{Casier}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_casier_a17aa23e73b177559266a9fb17f63b812}{numero}
+\item 
+bool \hyperlink{class_casier_afe544ed1a87ce714a9fbbe16126669e4}{ouvert}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Description détaillée}
+La classe \hyperlink{class_casier}{Casier} gère le casier contenant des articles. 
+
+\begin{DoxyAuthor}{Auteur}
+Tranchat Joffrey 
+
+Legger Pierre-\/\+Antoine
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+samedi 28 Mars 2020 
+\end{DoxyDate}
+
+
+Définition à la ligne \hyperlink{_casier_8h_source_l00032}{32} du fichier \hyperlink{_casier_8h_source}{Casier.\+h}.
+
+
+
+\subsubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{class_casier_aed1cd4435ff913a68b69d8119481bb8f}\label{class_casier_aed1cd4435ff913a68b69d8119481bb8f}} 
+\index{Casier@{Casier}!Casier@{Casier}}
+\index{Casier@{Casier}!Casier@{Casier}}
+\paragraph{\texorpdfstring{Casier()}{Casier()}}
+{\footnotesize\ttfamily Casier\+::\+Casier (\begin{DoxyParamCaption}\item[{int}]{numero,  }\item[{Q\+Widget $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Définition de la méthode \hyperlink{class_casier}{Casier}. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em numero} & \\
+\hline
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+initialise un objet \hyperlink{class_casier}{Casier} \begin{DoxyRefDesc}{A faire}
+\item[\hyperlink{todo__todo000001}{A faire}]Définir une constante pour une taille minimum du casier dans l\textquotesingle{}I\+HM \end{DoxyRefDesc}
+
+
+\begin{DoxyRefDesc}{A faire}
+\item[\hyperlink{todo__todo000002}{A faire}]Gérer les différentes couleurs de fond par rapport à l\textquotesingle{}état (ouvert/fermé, vide, ...) \end{DoxyRefDesc}
+
+
+\begin{DoxyRefDesc}{A faire}
+\item[\hyperlink{todo__todo000003}{A faire}]Connecter signal/slot si nécessaire \end{DoxyRefDesc}
+
+
+Définition à la ligne \hyperlink{_casier_8cpp_source_l00023}{23} du fichier \hyperlink{_casier_8cpp_source}{Casier.\+cpp}.
+
+
+
+Références \hyperlink{_casier_8h_source_l00044}{numero}.
+
+
+\begin{DoxyCode}
+00023                                           : \hyperlink{class_q_push_button}{QPushButton}(parent), 
+      \hyperlink{class_casier_a17aa23e73b177559266a9fb17f63b812}{numero}(\hyperlink{class_casier_a17aa23e73b177559266a9fb17f63b812}{numero}), \hyperlink{class_casier_afe544ed1a87ce714a9fbbe16126669e4}{ouvert}(\textcolor{keyword}{false})
+00024 \{
+00025     qDebug() << Q\_FUNC\_INFO << \hyperlink{class_casier_a17aa23e73b177559266a9fb17f63b812}{numero};
+00026     setText(\textcolor{stringliteral}{"Casier "} + QString::number(numero));
+00027 
+00031     setMaximumHeight(100);
+00032     setContentsMargins(10, 0, 10, 0); \textcolor{comment}{// Marges : Gauche Haut Droite Bas}
+00036 \textcolor{comment}{}    \textcolor{comment}{//setStyleSheet("background-color: rgb(85, 85, 85);");}
+00037     \textcolor{comment}{//setStyleSheet("background-color: rgb(239, 41, 41);");}
+00038     setStyleSheet(\textcolor{stringliteral}{"background-color: rgb(115, 210, 22);"});
+00039 
+00044 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_casier_a4aebc2219ccd4612cf79413904bb9340}\label{class_casier_a4aebc2219ccd4612cf79413904bb9340}} 
+\index{Casier@{Casier}!````~Casier@{$\sim$\+Casier}}
+\index{````~Casier@{$\sim$\+Casier}!Casier@{Casier}}
+\paragraph{\texorpdfstring{$\sim$\+Casier()}{~Casier()}}
+{\footnotesize\ttfamily Casier\+::$\sim$\+Casier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Définition du destructeur de la classe \hyperlink{class_casier}{Casier}. 
+
+Détruit un objet \hyperlink{class_casier}{Casier} 
+
+Définition à la ligne \hyperlink{_casier_8cpp_source_l00050}{50} du fichier \hyperlink{_casier_8cpp_source}{Casier.\+cpp}.
+
+
+
+Références \hyperlink{_casier_8h_source_l00044}{numero}.
+
+
+\begin{DoxyCode}
+00051 \{
+00052     qDebug() << Q\_FUNC\_INFO << \hyperlink{class_casier_a17aa23e73b177559266a9fb17f63b812}{numero};
+00053 \}
+\end{DoxyCode}
+
+
+\subsubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{class_casier_ab26fd4da845423355835da8d445ed5dd}\label{class_casier_ab26fd4da845423355835da8d445ed5dd}} 
+\index{Casier@{Casier}!est\+Ouvert@{est\+Ouvert}}
+\index{est\+Ouvert@{est\+Ouvert}!Casier@{Casier}}
+\paragraph{\texorpdfstring{est\+Ouvert()}{estOuvert()}}
+{\footnotesize\ttfamily bool Casier\+::est\+Ouvert (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Définition de la méthode est\+Ouvert. 
+
+renvoie l\textquotesingle{}état ouvert/fermer du casier \begin{DoxyReturn}{Renvoie}
+état du casier 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{_casier_8cpp_source_l00070}{70} du fichier \hyperlink{_casier_8cpp_source}{Casier.\+cpp}.
+
+
+
+Références \hyperlink{_casier_8h_source_l00045}{ouvert}.
+
+
+\begin{DoxyCode}
+00071 \{
+00072     \textcolor{keywordflow}{return} \hyperlink{class_casier_afe544ed1a87ce714a9fbbe16126669e4}{ouvert};
+00073 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_casier_a061b024a2733a5bb1dfcc43bb0022707}\label{class_casier_a061b024a2733a5bb1dfcc43bb0022707}} 
+\index{Casier@{Casier}!get\+Numero@{get\+Numero}}
+\index{get\+Numero@{get\+Numero}!Casier@{Casier}}
+\paragraph{\texorpdfstring{get\+Numero()}{getNumero()}}
+{\footnotesize\ttfamily int Casier\+::get\+Numero (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Définition de la méthode get\+Numero. 
+
+renvoie le numero du caiser \begin{DoxyReturn}{Renvoie}
+numero du casier 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{_casier_8cpp_source_l00060}{60} du fichier \hyperlink{_casier_8cpp_source}{Casier.\+cpp}.
+
+
+
+Références \hyperlink{_casier_8h_source_l00044}{numero}.
+
+
+
+Référencé par \hyperlink{_ihm_8cpp_source_l00087}{Ihm\+::placer\+Casier()}.
+
+
+\begin{DoxyCode}
+00061 \{
+00062     \textcolor{keywordflow}{return} \hyperlink{class_casier_a17aa23e73b177559266a9fb17f63b812}{numero};
+00063 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_casier_ac4b0de3ba58dc2bab52b049b278f4f90}\label{class_casier_ac4b0de3ba58dc2bab52b049b278f4f90}} 
+\index{Casier@{Casier}!ouvrir@{ouvrir}}
+\index{ouvrir@{ouvrir}!Casier@{Casier}}
+\paragraph{\texorpdfstring{ouvrir()}{ouvrir()}}
+{\footnotesize\ttfamily void Casier\+::ouvrir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Définition de la méthode ouvrir. 
+
+envoie la trame d\textquotesingle{}ouverture du casier \begin{DoxyRefDesc}{A faire}
+\item[\hyperlink{todo__todo000004}{A faire}]Envoyer trame ouverture \end{DoxyRefDesc}
+
+
+Définition à la ligne \hyperlink{_casier_8cpp_source_l00079}{79} du fichier \hyperlink{_casier_8cpp_source}{Casier.\+cpp}.
+
+
+\begin{DoxyCode}
+00080 \{
+00084 \}
+\end{DoxyCode}
+
+
+\subsubsection{Documentation des données membres}
+\mbox{\Hypertarget{class_casier_a17aa23e73b177559266a9fb17f63b812}\label{class_casier_a17aa23e73b177559266a9fb17f63b812}} 
+\index{Casier@{Casier}!numero@{numero}}
+\index{numero@{numero}!Casier@{Casier}}
+\paragraph{\texorpdfstring{numero}{numero}}
+{\footnotesize\ttfamily int Casier\+::numero\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Définition à la ligne \hyperlink{_casier_8h_source_l00044}{44} du fichier \hyperlink{_casier_8h_source}{Casier.\+h}.
+
+
+
+Référencé par \hyperlink{_casier_8cpp_source_l00023}{Casier()}, \hyperlink{_casier_8cpp_source_l00060}{get\+Numero()}, et \hyperlink{_casier_8cpp_source_l00050}{$\sim$\+Casier()}.
+
+\mbox{\Hypertarget{class_casier_afe544ed1a87ce714a9fbbe16126669e4}\label{class_casier_afe544ed1a87ce714a9fbbe16126669e4}} 
+\index{Casier@{Casier}!ouvert@{ouvert}}
+\index{ouvert@{ouvert}!Casier@{Casier}}
+\paragraph{\texorpdfstring{ouvert}{ouvert}}
+{\footnotesize\ttfamily bool Casier\+::ouvert\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Définition à la ligne \hyperlink{_casier_8h_source_l00045}{45} du fichier \hyperlink{_casier_8h_source}{Casier.\+h}.
+
+
+
+Référencé par \hyperlink{_casier_8cpp_source_l00070}{est\+Ouvert()}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_casier_8h}{Casier.\+h}\item 
+\hyperlink{_casier_8cpp}{Casier.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projet e-stok:  Fichier source de Communication.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="customdoxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="icone_estock.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Projet e-stok
+   &#160;<span id="projectnumber">0.2</span>
+   </div>
+   <div id="projectbrief">BTS SNIR LaSalle Avignon 2020</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_communication_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Communication.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_communication_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef COMMUNICATION_H</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define COMMUNICATION_H</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QObject&gt;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;QString&gt;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;QSerialPort&gt;</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">//#define SERIAL_PORT_NAME &quot;/dev/se&quot;</span></div><div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="_communication_8h.html#a8542e30f71d5d41f405c329f0e9bafd7">   22</a></span>&#160;<span class="preprocessor">#define SERIAL_PORT_NAME &quot;/dev/ttyUSB0&quot;</span></div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">// Protocole e-stock</span></div><div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="_communication_8h.html#add7c72d962d885317215f93ae8a9dc28">   25</a></span>&#160;<span class="preprocessor">#define EN_TETE             QString(&quot;CASIERS&quot;)</span></div><div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="_communication_8h.html#ac3d2c8b3b9dbc07cedf0bfa8a75d268f">   26</a></span>&#160;<span class="preprocessor">#define DELIMITEUR_CHAMP    QString(&quot;;&quot;)</span></div><div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="_communication_8h.html#aafcc0c7b4996f7783c9f4e766a233487">   27</a></span>&#160;<span class="preprocessor">#define DELIMITEUR_FIN      QString(&quot;\r\n&quot;)</span></div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">// Types de trames</span></div><div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="_communication_8h.html#ad49128d4b2d459f0d7f057b2e59fb2d5">   30</a></span>&#160;<span class="preprocessor">#define TRAME_OUVERTURE     QString(&quot;1&quot;)</span></div><div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="_communication_8h.html#a57c2e74056a9338d26f264703e2158d8">   31</a></span>&#160;<span class="preprocessor">#define TRAME_ETAT          QString(&quot;2&quot;)</span></div><div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="_communication_8h.html#a3a24fc54a5e48cb3eb9786ce61933a6c">   32</a></span>&#160;<span class="preprocessor">#define TRAME_POIDS         QString(&quot;3&quot;)</span></div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div><div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_communication.html">   46</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_communication.html">Communication</a> : <span class="keyword">public</span> <a class="code" href="class_q_object.html">QObject</a></div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    Q_OBJECT</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="class_communication.html#a56cf4b262e592bcae1d987c3dd00487f">Communication</a>(<a class="code" href="class_q_object.html">QObject</a> *parent = <span class="keyword">nullptr</span>);</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="class_communication.html#a75ba08ce908d45251e28e4c1db94e6f4">~Communication</a>();</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_communication.html#a8fe8d15efd2590a1061a015f5f761924">demarrerCommunicationPort</a>();</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_communication.html#aa447a2fe9e2e5c2467a0816865a77340">arreterCommunicationPort</a>();</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_communication.html#ae39284eac0920a3d11c085b48c6234da">configurerPort</a>();</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_communication.html#ad5969603a6b7232d0227a461fd479251">ouvrirPort</a>();</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_communication.html#a06a0f05f4555c6e3586e1800bbaa5e13">setNomPort</a>(QString nouveauPortSerie);</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_communication.html#a53c26abe4c16ff155a15929dd5ad07cf">envoyerTrame</a>(QString trame);</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_communication.html#ab8f5efe1d44805be0081e986b2687a12">envoyerRequetePoids</a>(QString numeroCasier = 0);</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">public</span> slots:</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_communication.html#a0b8edc96112e71e1ec4a28cc6309cbbc">recevoirTrame</a>();</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="class_communication.html#aff7d55208f31232fbdc1dcec488908f1">   67</a></span>&#160;     QSerialPort *<a class="code" href="class_communication.html#aff7d55208f31232fbdc1dcec488908f1">port</a>; </div><div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="class_communication.html#a7a55775be5e16249315fe5faef4f13b4">   68</a></span>&#160;     QString <a class="code" href="class_communication.html#a7a55775be5e16249315fe5faef4f13b4">trameBrute</a>; </div><div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="class_communication.html#a5fa89ee1fc732871f3f8f177fb50bf2a">   69</a></span>&#160;     QString <a class="code" href="class_communication.html#a5fa89ee1fc732871f3f8f177fb50bf2a">nomPort</a>; </div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;     <span class="keywordtype">bool</span> <a class="code" href="class_communication.html#a3958c8f275ff8d50dca85afe65c795d1">verifierTrame</a>(QString trame);</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;     <span class="keywordtype">void</span> <a class="code" href="class_communication.html#ab4ff84d0fb69ffa990bc61939c95a093">traiterTrame</a>(QString trame);</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;signals:</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;     <span class="keywordtype">void</span> <a class="code" href="class_communication.html#a9fb098f5b5cb8931efefc58984529119">envoieTrameOuverture</a>(QString trame);</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;     <span class="keywordtype">void</span> <a class="code" href="class_communication.html#a8beb7417ede75d0056b06788ef72d21b">envoieTrameEtat</a>(QString trame);</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;     <span class="keywordtype">void</span> <a class="code" href="class_communication.html#aaea5653e8aa1b50b4774caf65db21409">envoieTramePoids</a>(QString trame);</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;};</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#endif // COMMUNICATION_H</span></div><div class="ttc" id="class_communication_html_ab4ff84d0fb69ffa990bc61939c95a093"><div class="ttname"><a href="class_communication.html#ab4ff84d0fb69ffa990bc61939c95a093">Communication::traiterTrame</a></div><div class="ttdeci">void traiterTrame(QString trame)</div><div class="ttdoc">Définition de la méthode TraiterTrame. </div><div class="ttdef"><b>Definition:</b> <a href="_communication_8cpp_source.html#l00158">Communication.cpp:158</a></div></div>
+<div class="ttc" id="class_communication_html_a8beb7417ede75d0056b06788ef72d21b"><div class="ttname"><a href="class_communication.html#a8beb7417ede75d0056b06788ef72d21b">Communication::envoieTrameEtat</a></div><div class="ttdeci">void envoieTrameEtat(QString trame)</div></div>
+<div class="ttc" id="class_communication_html_a75ba08ce908d45251e28e4c1db94e6f4"><div class="ttname"><a href="class_communication.html#a75ba08ce908d45251e28e4c1db94e6f4">Communication::~Communication</a></div><div class="ttdeci">~Communication()</div><div class="ttdoc">Destructeur de la classe Communication. </div><div class="ttdef"><b>Definition:</b> <a href="_communication_8cpp_source.html#l00032">Communication.cpp:32</a></div></div>
+<div class="ttc" id="class_communication_html_a3958c8f275ff8d50dca85afe65c795d1"><div class="ttname"><a href="class_communication.html#a3958c8f275ff8d50dca85afe65c795d1">Communication::verifierTrame</a></div><div class="ttdeci">bool verifierTrame(QString trame)</div><div class="ttdoc">Définition de la méthode verifierTrame. </div><div class="ttdef"><b>Definition:</b> <a href="_communication_8cpp_source.html#l00138">Communication.cpp:138</a></div></div>
+<div class="ttc" id="class_communication_html_aa447a2fe9e2e5c2467a0816865a77340"><div class="ttname"><a href="class_communication.html#aa447a2fe9e2e5c2467a0816865a77340">Communication::arreterCommunicationPort</a></div><div class="ttdeci">void arreterCommunicationPort()</div><div class="ttdoc">Définition de la méthode arreterCommunicationPort. </div><div class="ttdef"><b>Definition:</b> <a href="_communication_8cpp_source.html#l00053">Communication.cpp:53</a></div></div>
+<div class="ttc" id="class_communication_html_a7a55775be5e16249315fe5faef4f13b4"><div class="ttname"><a href="class_communication.html#a7a55775be5e16249315fe5faef4f13b4">Communication::trameBrute</a></div><div class="ttdeci">QString trameBrute</div><div class="ttdoc">Variable qui contient la trame brute. </div><div class="ttdef"><b>Definition:</b> <a href="_communication_8h_source.html#l00068">Communication.h:68</a></div></div>
+<div class="ttc" id="class_communication_html_a5fa89ee1fc732871f3f8f177fb50bf2a"><div class="ttname"><a href="class_communication.html#a5fa89ee1fc732871f3f8f177fb50bf2a">Communication::nomPort</a></div><div class="ttdeci">QString nomPort</div><div class="ttdoc">Variable qui contient le nom du port serie. </div><div class="ttdef"><b>Definition:</b> <a href="_communication_8h_source.html#l00069">Communication.h:69</a></div></div>
+<div class="ttc" id="class_communication_html_aff7d55208f31232fbdc1dcec488908f1"><div class="ttname"><a href="class_communication.html#aff7d55208f31232fbdc1dcec488908f1">Communication::port</a></div><div class="ttdeci">QSerialPort * port</div><div class="ttdoc">Variable pointeur sur le port. </div><div class="ttdef"><b>Definition:</b> <a href="_communication_8h_source.html#l00067">Communication.h:67</a></div></div>
+<div class="ttc" id="class_communication_html_ad5969603a6b7232d0227a461fd479251"><div class="ttname"><a href="class_communication.html#ad5969603a6b7232d0227a461fd479251">Communication::ouvrirPort</a></div><div class="ttdeci">void ouvrirPort()</div><div class="ttdoc">Définition de la métohde ouvrirPort. </div><div class="ttdef"><b>Definition:</b> <a href="_communication_8cpp_source.html#l00078">Communication.cpp:78</a></div></div>
+<div class="ttc" id="class_communication_html_a53c26abe4c16ff155a15929dd5ad07cf"><div class="ttname"><a href="class_communication.html#a53c26abe4c16ff155a15929dd5ad07cf">Communication::envoyerTrame</a></div><div class="ttdeci">void envoyerTrame(QString trame)</div><div class="ttdoc">Définition de la méthode envoyerTrame. </div><div class="ttdef"><b>Definition:</b> <a href="_communication_8cpp_source.html#l00107">Communication.cpp:107</a></div></div>
+<div class="ttc" id="class_communication_html_a0b8edc96112e71e1ec4a28cc6309cbbc"><div class="ttname"><a href="class_communication.html#a0b8edc96112e71e1ec4a28cc6309cbbc">Communication::recevoirTrame</a></div><div class="ttdeci">void recevoirTrame()</div><div class="ttdoc">Définition de la méthode recevoirTrame. </div><div class="ttdef"><b>Definition:</b> <a href="_communication_8cpp_source.html#l00119">Communication.cpp:119</a></div></div>
+<div class="ttc" id="class_communication_html_a06a0f05f4555c6e3586e1800bbaa5e13"><div class="ttname"><a href="class_communication.html#a06a0f05f4555c6e3586e1800bbaa5e13">Communication::setNomPort</a></div><div class="ttdeci">void setNomPort(QString nouveauPortSerie)</div><div class="ttdoc">Définition de la méthode setNomPort. </div><div class="ttdef"><b>Definition:</b> <a href="_communication_8cpp_source.html#l00096">Communication.cpp:96</a></div></div>
+<div class="ttc" id="class_communication_html_a9fb098f5b5cb8931efefc58984529119"><div class="ttname"><a href="class_communication.html#a9fb098f5b5cb8931efefc58984529119">Communication::envoieTrameOuverture</a></div><div class="ttdeci">void envoieTrameOuverture(QString trame)</div></div>
+<div class="ttc" id="class_communication_html_aaea5653e8aa1b50b4774caf65db21409"><div class="ttname"><a href="class_communication.html#aaea5653e8aa1b50b4774caf65db21409">Communication::envoieTramePoids</a></div><div class="ttdeci">void envoieTramePoids(QString trame)</div></div>
+<div class="ttc" id="class_communication_html"><div class="ttname"><a href="class_communication.html">Communication</a></div><div class="ttdoc">La classe Communication permet de communiquer avec le port série. </div><div class="ttdef"><b>Definition:</b> <a href="_communication_8h_source.html#l00046">Communication.h:46</a></div></div>
+<div class="ttc" id="class_q_object_html"><div class="ttname"><a href="class_q_object.html">QObject</a></div></div>
+<div class="ttc" id="class_communication_html_a8fe8d15efd2590a1061a015f5f761924"><div class="ttname"><a href="class_communication.html#a8fe8d15efd2590a1061a015f5f761924">Communication::demarrerCommunicationPort</a></div><div class="ttdeci">void demarrerCommunicationPort()</div><div class="ttdoc">Définition de la méthode demarrerCommunicationPort. </div><div class="ttdef"><b>Definition:</b> <a href="_communication_8cpp_source.html#l00042">Communication.cpp:42</a></div></div>
+<div class="ttc" id="class_communication_html_ae39284eac0920a3d11c085b48c6234da"><div class="ttname"><a href="class_communication.html#ae39284eac0920a3d11c085b48c6234da">Communication::configurerPort</a></div><div class="ttdeci">void configurerPort()</div><div class="ttdoc">Définition de la méthode configurerPort. </div><div class="ttdef"><b>Definition:</b> <a href="_communication_8cpp_source.html#l00063">Communication.cpp:63</a></div></div>
+<div class="ttc" id="class_communication_html_a56cf4b262e592bcae1d987c3dd00487f"><div class="ttname"><a href="class_communication.html#a56cf4b262e592bcae1d987c3dd00487f">Communication::Communication</a></div><div class="ttdeci">Communication(QObject *parent=nullptr)</div><div class="ttdoc">Constructeur de la classe Communication. </div><div class="ttdef"><b>Definition:</b> <a href="_communication_8cpp_source.html#l00023">Communication.cpp:23</a></div></div>
+<div class="ttc" id="class_communication_html_ab8f5efe1d44805be0081e986b2687a12"><div class="ttname"><a href="class_communication.html#ab8f5efe1d44805be0081e986b2687a12">Communication::envoyerRequetePoids</a></div><div class="ttdeci">void envoyerRequetePoids(QString numeroCasier=0)</div><div class="ttdoc">Définition de la méthode envoyerRequetePoids. </div><div class="ttdef"><b>Definition:</b> <a href="_communication_8cpp_source.html#l00179">Communication.cpp:179</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+<!--Généré le Mardi 7 Avril 2020 19:30:05 pour Projet e-stok par &#160;<a href="http://www.doxygen.org/index.html">-->
+<img class="footer" src="lasalle-logo.png" alt="La Salle Avignon"/>
+<b>Campus La Salle Avignon</b> - 9 Rue Notre Dame des 7 douleurs - BP 50165 - 84008 Avignon
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

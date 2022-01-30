@@ -1,0 +1,85 @@
+\hypertarget{_rfid_8cpp_source}{}\subsection{Rfid.\+cpp}
+\label{_rfid_8cpp_source}\index{Rfid.\+cpp@{Rfid.\+cpp}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include "\hyperlink{_rfid_8h}{Rfid.h}"}
+00002 \textcolor{preprocessor}{#include <QDebug>}
+00003 
+\Hypertarget{_rfid_8cpp_source_l00022}\hyperlink{class_rfid_aa00c7163ce0e3fda6596353d40a458a9}{00022} \hyperlink{class_rfid_aa00c7163ce0e3fda6596353d40a458a9}{Rfid::Rfid}(\hyperlink{class_q_object}{QObject} *parent) : \hyperlink{class_q_object}{QObject}(parent), badge(\textcolor{stringliteral}{""})
+00023 \{
+00024 \}
+00025 
+\Hypertarget{_rfid_8cpp_source_l00031}\hyperlink{class_rfid_a563836053a71a9fdc566a812da0cf5c1}{00031} \hyperlink{class_rfid_a563836053a71a9fdc566a812da0cf5c1}{Rfid::~Rfid}()
+00032 \{
+00033 
+00034 \}
+00035 
+\Hypertarget{_rfid_8cpp_source_l00043}\hyperlink{class_rfid_afb99366646ac75b7e1d28302d38bf4f2}{00043} QString \hyperlink{class_rfid_afb99366646ac75b7e1d28302d38bf4f2}{Rfid::corrigerBadge}(QString \hyperlink{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}{badge})
+00044 \{
+00045     QString badgeCorrige = \textcolor{stringliteral}{""};
+00046 
+00047     \textcolor{keywordflow}{if}(!badge.isEmpty())
+00048     \{
+00049         \textcolor{comment}{// effectue les remplacements des touches QWERTY en touches AZERTY}
+00050         badgeCorrige = badge.replace(QString::fromUtf8(\textcolor{stringliteral}{"Q"}), \textcolor{stringliteral}{"A"});
+00051         badgeCorrige = badge.replace(QString::fromUtf8(\textcolor{stringliteral}{"W"}), \textcolor{stringliteral}{"Z"});
+00052         badgeCorrige = badge.replace(QString::fromUtf8(\textcolor{stringliteral}{"q"}), \textcolor{stringliteral}{"q"});
+00053         badgeCorrige = badge.replace(QString::fromUtf8(\textcolor{stringliteral}{"w"}), \textcolor{stringliteral}{"z"});
+00054         badgeCorrige = badge.replace(QString::fromUtf8(\textcolor{stringliteral}{"M"}), \textcolor{stringliteral}{":"});
+00055         badgeCorrige = badge.replace(QString::fromUtf8(\textcolor{stringliteral}{"à"}), \textcolor{stringliteral}{"0"});
+00056         badgeCorrige = badge.replace(QString::fromUtf8(\textcolor{stringliteral}{"&"}), \textcolor{stringliteral}{"1"});
+00057         badgeCorrige = badge.replace(QString::fromUtf8(\textcolor{stringliteral}{"é"}), \textcolor{stringliteral}{"2"});
+00058         badgeCorrige = badge.replace(QString::fromUtf8(\textcolor{stringliteral}{"\(\backslash\)""}), \textcolor{stringliteral}{"3"});
+00059         badgeCorrige = badge.replace(QString::fromUtf8(\textcolor{stringliteral}{"'"}), \textcolor{stringliteral}{"4"});
+00060         badgeCorrige = badge.replace(QString::fromUtf8(\textcolor{stringliteral}{"("}), \textcolor{stringliteral}{"5"});
+00061         badgeCorrige = badge.replace(QString::fromUtf8(\textcolor{stringliteral}{"-"}), \textcolor{stringliteral}{"6"});
+00062         badgeCorrige = badge.replace(QString::fromUtf8(\textcolor{stringliteral}{"è"}), \textcolor{stringliteral}{"7"});
+00063         badgeCorrige = badge.replace(QString::fromUtf8(\textcolor{stringliteral}{"\_"}), \textcolor{stringliteral}{"8"});
+00064         badgeCorrige = badge.replace(QString::fromUtf8(\textcolor{stringliteral}{"ç"}), \textcolor{stringliteral}{"9"});
+00065     \}
+00066     \textcolor{keywordflow}{return} badgeCorrige;
+00067 \}
+00068 
+\Hypertarget{_rfid_8cpp_source_l00075}\hyperlink{class_rfid_a51021c0899dab1d5fb08e3dd6d93e425}{00075} \textcolor{keywordtype}{void} \hyperlink{class_rfid_a51021c0899dab1d5fb08e3dd6d93e425}{Rfid::setBadge}(QString \hyperlink{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}{badge})
+00076 \{
+00077     this->badge = \hyperlink{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}{badge};
+00078 \}
+00079 
+\Hypertarget{_rfid_8cpp_source_l00086}\hyperlink{class_rfid_ac79b994b32bf7a7cbad9d9988e721564}{00086} \textcolor{keywordtype}{void} \hyperlink{class_rfid_ac79b994b32bf7a7cbad9d9988e721564}{Rfid::setUid}(QString \hyperlink{class_rfid_a157b71d282a7e067c65b431dbae6c6c8}{uid})
+00087 \{
+00088     this->uid = \hyperlink{class_rfid_a157b71d282a7e067c65b431dbae6c6c8}{uid};
+00089 \}
+00090 
+\Hypertarget{_rfid_8cpp_source_l00097}\hyperlink{class_rfid_a5b4f31b235afebee620e42c52ab60213}{00097} \textcolor{keywordtype}{void} \hyperlink{class_rfid_a5b4f31b235afebee620e42c52ab60213}{Rfid::traiterBadge}(QString trameBadge)
+00098 \{
+00099     \textcolor{comment}{/*}
+00100 \textcolor{comment}{     * Format trame reçue : RFID:xxxxxxxx}
+00101 \textcolor{comment}{     * xxxxxxxx -> uid du badge}
+00102 \textcolor{comment}{     */}
+00103     \hyperlink{class_rfid_a51021c0899dab1d5fb08e3dd6d93e425}{setBadge}(\hyperlink{class_rfid_afb99366646ac75b7e1d28302d38bf4f2}{corrigerBadge}(trameBadge));    
+00104 
+00105 \textcolor{preprocessor}{    #ifdef DEBUG\_RFID}
+00106         qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"Badge"} << \hyperlink{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}{badge};
+00107 \textcolor{preprocessor}{    #endif}
+00108 
+00109     \textcolor{comment}{// Vérifier si la trame est valide}
+00110     \textcolor{keywordflow}{if}(badge.startsWith(\textcolor{stringliteral}{"RFID:"}))
+00111     \{
+00112         \hyperlink{class_rfid_a884e849f175045d78587e1e09a87cb00}{extraireUid}();
+00113 
+00114         emit \hyperlink{class_rfid_a76990ba3147098e80ac6fc67af6439d1}{nouveauUidBadge}(\hyperlink{class_rfid_a157b71d282a7e067c65b431dbae6c6c8}{uid});
+00115 \textcolor{preprocessor}{        #ifdef DEBUG\_RFID}
+00116             qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"UID"} << \hyperlink{class_rfid_a157b71d282a7e067c65b431dbae6c6c8}{uid};
+00117 \textcolor{preprocessor}{        #endif}
+00118     \}
+00119     \textcolor{keywordflow}{else}
+00120     \{
+00121         emit \hyperlink{class_rfid_a896a20a2fbe2ac7d842456a1161717cb}{erreurBadgeInvalide}(\hyperlink{_rfid_8h_aad43c23a448ffc828e0b6014cfaf980a}{ERREUR\_BADGE\_INVALIDE});
+00122     \}
+00123 \}
+00124 
+\Hypertarget{_rfid_8cpp_source_l00130}\hyperlink{class_rfid_a884e849f175045d78587e1e09a87cb00}{00130} \textcolor{keywordtype}{void} \hyperlink{class_rfid_a884e849f175045d78587e1e09a87cb00}{Rfid::extraireUid}()
+00131 \{
+00132     \hyperlink{class_rfid_ac79b994b32bf7a7cbad9d9988e721564}{setUid}(\hyperlink{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}{badge}.section(\textcolor{charliteral}{':'},1,1));
+00133 \}
+\end{DoxyCode}

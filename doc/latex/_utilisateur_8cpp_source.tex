@@ -1,0 +1,54 @@
+\hypertarget{_utilisateur_8cpp_source}{}\subsection{Utilisateur.\+cpp}
+\label{_utilisateur_8cpp_source}\index{Utilisateur.\+cpp@{Utilisateur.\+cpp}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include "\hyperlink{_utilisateur_8h}{Utilisateur.h}"}
+00002 \textcolor{preprocessor}{#include <QDebug>}
+00003 
+\Hypertarget{_utilisateur_8cpp_source_l00022}\hyperlink{class_utilisateur_a89e539739c5f6c6790909ac5fc5729b8}{00022} \hyperlink{class_utilisateur_a89e539739c5f6c6790909ac5fc5729b8}{Utilisateur::Utilisateur}(\hyperlink{class_q_object}{QObject} *parent) : 
+      \hyperlink{class_q_object}{QObject}(parent)
+00023 \{
+00024 \textcolor{preprocessor}{    #ifdef DEBUG\_UTILISATEUR}
+00025         qDebug() << Q\_FUNC\_INFO;
+00026 \textcolor{preprocessor}{    #endif}
+00027     \hyperlink{class_utilisateur_ae1763e7a52c82c63506bc4160cdabb20}{idUtilisateur} = \textcolor{stringliteral}{""};
+00028     \hyperlink{class_utilisateur_a042947e8b86637d1eb012c3fc89a959e}{idProfil} = \textcolor{stringliteral}{""};
+00029     \hyperlink{class_utilisateur_a13c3425772da1d5501e6fe4a2f2b8194}{idGroupe} = \textcolor{stringliteral}{""};
+00030     \hyperlink{class_utilisateur_a1096e809aca4b7cf453a7af93cb72502}{nom} = \textcolor{stringliteral}{""};
+00031     \hyperlink{class_utilisateur_a1dd0779807b19298f30f39d9c371170f}{prenom} = \textcolor{stringliteral}{""};
+00032     \hyperlink{class_utilisateur_a898cd6f5a64d733ad49a8a74388326cd}{dateValidite} = \textcolor{stringliteral}{""};
+00033     \hyperlink{class_utilisateur_a1e79e47202a2c716346f47adbbeb2511}{identifiant} = \textcolor{stringliteral}{""};
+00034     \hyperlink{class_utilisateur_a4f6a17d0fb5c231bcb414396236a056f}{motDePasse} = \textcolor{stringliteral}{""};
+00035     \hyperlink{class_utilisateur_a77b48aa9d1f0ec04c69d45476897fec6}{badge} = \textcolor{stringliteral}{""};
+00036     \hyperlink{class_utilisateur_a2f45443ce5277a5e6baefe5121e66555}{email} = \textcolor{stringliteral}{""};
+00037 \}
+00038 
+\Hypertarget{_utilisateur_8cpp_source_l00045}\hyperlink{class_utilisateur_a6bfd9ef83e910946f3cf3b6e0fcca343}{00045} \hyperlink{class_utilisateur_a89e539739c5f6c6790909ac5fc5729b8}{Utilisateur::Utilisateur}(QStringList donnees, \hyperlink{class_q_object}{QObject} *parent) : 
+      \hyperlink{class_q_object}{QObject}(parent)
+00046 \{
+00047 \textcolor{preprocessor}{    #ifdef DEBUG\_UTILISATEUR}
+00048         qDebug() << Q\_FUNC\_INFO << donnees;
+00049 \textcolor{preprocessor}{    #endif}
+00050     \hyperlink{class_utilisateur_ae1763e7a52c82c63506bc4160cdabb20}{idUtilisateur} = donnees.at(\hyperlink{_utilisateur_8h_a2ee8bc4f44f3f2562a41638ec1d84ffcaf3d5820c10eaf883bc549062f87b1d29}{TABLE\_UTILISATEUR\_ID\_UTILISATEUR}
+      );
+00051     \hyperlink{class_utilisateur_a042947e8b86637d1eb012c3fc89a959e}{idProfil} = donnees.at(\hyperlink{_utilisateur_8h_a2ee8bc4f44f3f2562a41638ec1d84ffca4cc2b30f6bc705490fc4190e0d8668cc}{TABLE\_UTILISATEUR\_ID\_PROFIL});
+00052     \hyperlink{class_utilisateur_a13c3425772da1d5501e6fe4a2f2b8194}{idGroupe} = donnees.at(\hyperlink{_utilisateur_8h_a2ee8bc4f44f3f2562a41638ec1d84ffcaafd6ac7708481835f0c9aa3dbcddd1e8}{TABLE\_UTILISATEUR\_ID\_GROUPE});
+00053     \hyperlink{class_utilisateur_a1096e809aca4b7cf453a7af93cb72502}{nom} = donnees.at(\hyperlink{_utilisateur_8h_a2ee8bc4f44f3f2562a41638ec1d84ffca79ab7400bfc906a77d1f56988349ebd4}{TABLE\_UTILISATEUR\_NOM});
+00054     \hyperlink{class_utilisateur_a1dd0779807b19298f30f39d9c371170f}{prenom} = donnees.at(\hyperlink{_utilisateur_8h_a2ee8bc4f44f3f2562a41638ec1d84ffcab8ef43f3428ce1b6a50b1f15e6771d75}{TABLE\_UTILISATEUR\_PRENOM});
+00055     \hyperlink{class_utilisateur_a898cd6f5a64d733ad49a8a74388326cd}{dateValidite} = donnees.at(\hyperlink{_utilisateur_8h_a2ee8bc4f44f3f2562a41638ec1d84ffca1a0604e4b99c353c04b8ee64a2524cca}{TABLE\_UTILISATEUR\_DATE\_VALIDITE});
+00056     \hyperlink{class_utilisateur_a1e79e47202a2c716346f47adbbeb2511}{identifiant} = donnees.at(\hyperlink{_utilisateur_8h_a2ee8bc4f44f3f2562a41638ec1d84ffca00d7c04c0ac35952230b782d3cdb4942}{TABLE\_UTILISATEUR\_IDENTIFIANT});
+00057     \hyperlink{class_utilisateur_a4f6a17d0fb5c231bcb414396236a056f}{motDePasse} = donnees.at(\hyperlink{_utilisateur_8h_a2ee8bc4f44f3f2562a41638ec1d84ffca09688a0481708cf5d77cd6a438d12623}{TABLE\_UTILISATEUR\_MOT\_DE\_PASSE});
+00058     \hyperlink{class_utilisateur_a77b48aa9d1f0ec04c69d45476897fec6}{badge} = donnees.at(\hyperlink{_utilisateur_8h_a2ee8bc4f44f3f2562a41638ec1d84ffca9d0825de5c0afa69202e7773e7e10d1f}{TABLE\_UTILISATEUR\_BADGE});
+00059     \hyperlink{class_utilisateur_a2f45443ce5277a5e6baefe5121e66555}{email} = donnees.at(\hyperlink{_utilisateur_8h_a2ee8bc4f44f3f2562a41638ec1d84ffca64c38d44af4e843f5930551e5ac1733f}{TABLE\_UTILISATEUR\_EMAIL});
+00060 \}
+00061 
+\Hypertarget{_utilisateur_8cpp_source_l00067}\hyperlink{class_utilisateur_a6631539ceecd6140fe525eb91485537b}{00067} \hyperlink{class_utilisateur_a6631539ceecd6140fe525eb91485537b}{Utilisateur::~Utilisateur}()
+00068 \{
+00069 
+00070 \}
+00071 
+\Hypertarget{_utilisateur_8cpp_source_l00078}\hyperlink{class_utilisateur_af944ac02cca7914480e20f46c4dd0e56}{00078} QString \hyperlink{class_utilisateur_af944ac02cca7914480e20f46c4dd0e56}{Utilisateur::getIdentifiantUtilisateur}()
+00079 \{
+00080     \textcolor{keywordflow}{return} \hyperlink{class_utilisateur_a1096e809aca4b7cf453a7af93cb72502}{nom} + \textcolor{stringliteral}{" "} + \hyperlink{class_utilisateur_a1dd0779807b19298f30f39d9c371170f}{prenom};
+00081 \}
+\end{DoxyCode}

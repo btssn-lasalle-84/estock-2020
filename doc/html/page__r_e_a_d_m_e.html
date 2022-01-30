@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projet e-stok: README</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="customdoxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="icone_estock.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Projet e-stok
+   &#160;<span id="projectnumber">0.2</span>
+   </div>
+   <div id="projectbrief">BTS SNIR LaSalle Avignon 2020</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('page__r_e_a_d_m_e.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">README </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="toc"><h3>Table des matières</h3>
+<ul><li class="level1"><a href="#projet">Projet</a><ul><li class="level2"><a href="#presentation">Présentation</a></li>
+<li class="level2"><a href="#bdd">Base de données MySQL</a></li>
+<li class="level2"><a href="#recette">Recette</a></li>
+<li class="level2"><a href="#informations">Informations</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="textblock"><h1><a class="anchor" id="projet"></a>
+Projet</h1>
+<h2><a class="anchor" id="presentation"></a>
+Présentation</h2>
+<p><b>e-stock</b> est un système de gestion de stock automatisé qui permettra :</p>
+<ul>
+<li>de contrôler et gérer l'utilisation de produits stockés dans une armoire sensible</li>
+<li>d'assurer la traçabilité de l'attribution du matériel et des consommables stockés</li>
+<li>de sécuriser l'accès par un contrôle d'accès par badge RFID</li>
+</ul>
+<p>Une armoire sera composée de 8 casiers maximum. Chaque casier sera équipé :</p>
+<ul>
+<li>d'une gâche électrique afin d'assurer son ouverture/fermeture ;</li>
+<li>d'une balance pour assurer le comptage automatique des articles.</li>
+</ul>
+<p>Le comptage automatique de la quantité est déterminé en fonction du poids unitaire et du poids mesuré sur la balance.</p>
+<p>Un lecteur de badge RFID est intégré à chaque armoire pour contrôler l'accès. L'exploitation de l'armoire ​ e-stock​ est possible à partir de l'écran tactile intégré.</p>
+<p>On distinguera deux type d'articles :</p>
+<ul>
+<li>les « consommables » qui sortent définitivement du stock</li>
+<li>les « empruntables » qui peuvent être restitués après leur utilisation</li>
+</ul>
+<h2><a class="anchor" id="bdd"></a>
+Base de données MySQL</h2>
+<div class="image">
+<img src="e-stock-v0.4.png" alt="e-stock-v0.4.png"/>
+</div>
+<div class="fragment"><div class="line">DROP DATABASE IF EXISTS `e-stock`;</div><div class="line">CREATE DATABASE IF NOT EXISTS `e-stock`;</div><div class="line">USE `e-stock`;</div><div class="line"></div><div class="line">-- Création du compte d&#39;accès à la base de données e-stock</div><div class="line">-- CREATE USER &#39;estock&#39;@&#39;%&#39; IDENTIFIED BY &#39;password&#39;;</div><div class="line">-- GRANT ALL PRIVILEGES ON `e-stock`.* TO &#39;estock&#39;@&#39;%&#39;;</div><div class="line">-- FLUSH PRIVILEGES;</div><div class="line">-- --------------------------------------------------------</div><div class="line"></div><div class="line">CREATE TABLE IF NOT EXISTS `Profil` (</div><div class="line">  `idProfil` int(11) NOT NULL AUTO_INCREMENT,</div><div class="line">  `Nom` varchar(64) NOT NULL,</div><div class="line">  PRIMARY KEY (`idProfil`)</div><div class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8;</div><div class="line"></div><div class="line">INSERT INTO `Profil` (`Nom`) VALUES</div><div class="line">(&#39;Administrateur&#39;),</div><div class="line">(&#39;Gestionnaire&#39;),</div><div class="line">(&#39;Utilisateur&#39;);</div><div class="line"></div><div class="line">-- --------------------------------------------------------</div><div class="line"></div><div class="line">CREATE TABLE IF NOT EXISTS `Groupe` (</div><div class="line">  `idGroupe` int(11) NOT NULL AUTO_INCREMENT,</div><div class="line">  `Nom` varchar(64) NOT NULL,</div><div class="line">  PRIMARY KEY (`idGroupe`),</div><div class="line">  CONSTRAINT Unique_Groupe UNIQUE (`Nom`)</div><div class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8;</div><div class="line"></div><div class="line">-- --------------------------------------------------------</div><div class="line"></div><div class="line">INSERT INTO `Groupe` (`Nom`) VALUES</div><div class="line">(&#39;PROFESSEUR&#39;),</div><div class="line">(&#39;1-BTS-SN&#39;),</div><div class="line">(&#39;T-BTS-SN&#39;);</div><div class="line"></div><div class="line">-- --------------------------------------------------------</div><div class="line"></div><div class="line">CREATE TABLE IF NOT EXISTS `Utilisateur` (</div><div class="line">  `idUtilisateur` int(11) NOT NULL AUTO_INCREMENT,</div><div class="line">  `idProfil` int(11) NOT NULL,</div><div class="line">  `idGroupe` int(11) NOT NULL,</div><div class="line">  `Nom` varchar(64) NOT NULL,</div><div class="line">  `Prenom` varchar(64) NOT NULL,</div><div class="line">  `DateValidite` date NOT NULL,</div><div class="line">  `Identifiant` varchar(255) DEFAULT NULL,</div><div class="line">  `MotDePasse` varchar(255) DEFAULT NULL,</div><div class="line">  `Badge` varchar(11) NOT NULL,</div><div class="line">  `Email` varchar(64) NOT NULL,  </div><div class="line">  PRIMARY KEY (`idUtilisateur`),</div><div class="line">--  CONSTRAINT Unique_Utilisateur UNIQUE (`Badge`),</div><div class="line">  CONSTRAINT Utilisateur_fk_1 FOREIGN KEY (`idProfil`) REFERENCES Profil(`idProfil`) ON DELETE CASCADE,</div><div class="line">  CONSTRAINT Utilisateur_fk_2 FOREIGN KEY (`idGroupe`) REFERENCES Groupe(`idGroupe`) ON DELETE CASCADE</div><div class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8;</div><div class="line"></div><div class="line">-- --------------------------------------------------------</div><div class="line"></div><div class="line">CREATE TABLE IF NOT EXISTS `Armoire` (</div><div class="line">  `idArmoire` int(11) NOT NULL,</div><div class="line">  `Nom` varchar(255) NOT NULL,</div><div class="line">  `Description` varchar(255) DEFAULT NULL,</div><div class="line">  `nbCasiers` int(11) NOT NULL DEFAULT 8,</div><div class="line">  PRIMARY KEY (`idArmoire`)</div><div class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8;</div><div class="line"></div><div class="line">INSERT INTO `Armoire` (`idArmoire`,`Nom`,`Description`,`nbCasiers`) VALUES(&#39;1&#39;,&#39;B22&#39;,&#39;Atelier&#39;,&#39;2&#39;);</div><div class="line"></div><div class="line">-- --------------------------------------------------------</div><div class="line"></div><div class="line">CREATE TABLE IF NOT EXISTS `Type` (</div><div class="line">  `idType` int(11) NOT NULL AUTO_INCREMENT,</div><div class="line">  `Nom` varchar(64) NOT NULL,</div><div class="line">  PRIMARY KEY (`idType`)</div><div class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8;</div><div class="line"></div><div class="line">INSERT INTO `Type` (`Nom`) VALUES</div><div class="line">(&#39;Equipement&#39;),</div><div class="line">(&#39;Consommable&#39;);</div><div class="line"></div><div class="line">-- --------------------------------------------------------</div><div class="line"></div><div class="line">CREATE TABLE IF NOT EXISTS `Unite` (</div><div class="line">  `idUnite` int(11) NOT NULL AUTO_INCREMENT,</div><div class="line">  `Nom` varchar(64) NOT NULL,</div><div class="line">  PRIMARY KEY (`idUnite`)</div><div class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8;</div><div class="line"></div><div class="line">INSERT INTO `Unite` (`Nom`) VALUES</div><div class="line">(&#39;Metre&#39;),</div><div class="line">(&#39;Piece&#39;),</div><div class="line">(&#39;Pourcentage&#39;),</div><div class="line">(&#39;Poids g&#39;),</div><div class="line">(&#39;Poids kg&#39;);</div><div class="line"></div><div class="line">-- --------------------------------------------------------</div><div class="line"></div><div class="line">CREATE TABLE IF NOT EXISTS `Comptage` (</div><div class="line">  `idComptage` int(11) NOT NULL AUTO_INCREMENT,</div><div class="line">  `Nom` varchar(64) NOT NULL,</div><div class="line">  PRIMARY KEY (`idComptage`)</div><div class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8;</div><div class="line"></div><div class="line">INSERT INTO `Comptage` (`Nom`) VALUES</div><div class="line">(&#39;Aucun&#39;),</div><div class="line">(&#39;Automatique&#39;),</div><div class="line">(&#39;CodeBarre&#39;);</div><div class="line"></div><div class="line">-- --------------------------------------------------------</div><div class="line"></div><div class="line">CREATE TABLE IF NOT EXISTS `Action` (</div><div class="line">  `idAction` int(11) NOT NULL AUTO_INCREMENT,</div><div class="line">  `Nom` varchar(64) NOT NULL,</div><div class="line">  PRIMARY KEY (`idAction`)</div><div class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8;</div><div class="line"></div><div class="line">INSERT INTO `Action` (`Nom`) VALUES</div><div class="line">(&#39;Entree&#39;),</div><div class="line">(&#39;Sortie&#39;);</div><div class="line"></div><div class="line">-- --------------------------------------------------------</div><div class="line"></div><div class="line">CREATE TABLE IF NOT EXISTS `Article` (</div><div class="line">  `idArticle` int(11) NOT NULL AUTO_INCREMENT,</div><div class="line">  `idType` int(11) NOT NULL,  </div><div class="line">  --   `Type` enum(&#39;Equipement&#39;,&#39;Consommable&#39;),</div><div class="line">  `Nom` varchar(255) NOT NULL,</div><div class="line">  `Code` varchar(255) NOT NULL,</div><div class="line">  `Designation` varchar(255) NOT NULL,</div><div class="line">  `Poids` int(11) NOT NULL,  </div><div class="line">  PRIMARY KEY (`idArticle`),</div><div class="line">  CONSTRAINT Article_fk_1 FOREIGN KEY (`idType`) REFERENCES Type(`idType`) ON DELETE CASCADE</div><div class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8;</div><div class="line"></div><div class="line">-- --------------------------------------------------------</div><div class="line"></div><div class="line">CREATE TABLE IF NOT EXISTS `Stock` (</div><div class="line">  `idStock` int(11) NOT NULL AUTO_INCREMENT,</div><div class="line">  `idArticle` int(11) NOT NULL,</div><div class="line">  `idComptage` int(11) NOT NULL,</div><div class="line">  `idUnite` int(11) NOT NULL,</div><div class="line">  `Quantite` int(11) DEFAULT 0,</div><div class="line">  `Disponible` int(11) DEFAULT 0,</div><div class="line">  `Tare` int(11) NOT NULL,  </div><div class="line">  `numeroCasier` int(11) NOT NULL,</div><div class="line">  PRIMARY KEY (`idStock`),</div><div class="line">  CONSTRAINT Unique_NumeroCasier UNIQUE (`numeroCasier`),</div><div class="line">  CONSTRAINT Stock_fk_2 FOREIGN KEY (`idArticle`) REFERENCES Article(`idArticle`) ON DELETE CASCADE,</div><div class="line">  CONSTRAINT Stock_fk_3 FOREIGN KEY (`idComptage`) REFERENCES Comptage(`idComptage`) ON DELETE CASCADE,</div><div class="line">  CONSTRAINT Stock_fk_4 FOREIGN KEY (`idUnite`) REFERENCES Unite(`idUnite`) ON DELETE CASCADE</div><div class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8;</div><div class="line"></div><div class="line">-- --------------------------------------------------------</div><div class="line"></div><div class="line">CREATE TABLE IF NOT EXISTS `Mouvement` (</div><div class="line">  `idMouvement` int(11) NOT NULL AUTO_INCREMENT, </div><div class="line">  `idUtilisateur` int(11) NOT NULL,</div><div class="line">  `idStock` int(11) NOT NULL,</div><div class="line">  `idAction` int(11) NOT NULL,</div><div class="line">  --   `Action` enum(&#39;Entree&#39;,&#39;Sortie&#39;),</div><div class="line">  `Quantite` int(11) NOT NULL,</div><div class="line">  `Horodatage` datetime NOT NULL,</div><div class="line">  PRIMARY KEY (`idMouvement`),</div><div class="line">  CONSTRAINT Mouvement_fk_1 FOREIGN KEY (`idUtilisateur`) REFERENCES Utilisateur(`idUtilisateur`) ON DELETE CASCADE,</div><div class="line">  CONSTRAINT Mouvement_fk_2 FOREIGN KEY (`idStock`) REFERENCES Stock(`idStock`) ON DELETE CASCADE,</div><div class="line">  CONSTRAINT Mouvement_fk_3 FOREIGN KEY (`idAction`) REFERENCES Action(`idAction`) ON DELETE CASCADE</div><div class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8;</div></div><!-- fragment --><h2><a class="anchor" id="recette"></a>
+Recette</h2>
+<ul>
+<li>Pierre-Antoine Legger<ul>
+<li>S'authentifier</li>
+<li>Rechercher un article</li>
+<li>Consulter le stock</li>
+<li>Communiquer avec le SE pour :<ul>
+<li>Commander l'ouverture/fermeture des casiers</li>
+<li>Afficher l'état ouvert/fermé des casiers</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Joffrey Tranchat<ul>
+<li>Prendre et rapporter un article</li>
+<li>Mettre à jour le stock et les mouvements</li>
+<li>Consulter les mouvements</li>
+<li>Communiquer avec le SE pour :</li>
+<li>Récupérer les pesées des casiers</li>
+<li>Assurer le comptage automatique</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="informations"></a>
+Informations</h2>
+<dl class="section author"><dt>Auteur</dt><dd>Pierre-Antoine Legger <a href="#" onclick="location.href='mai'+'lto:'+'pie'+'rr'+'ean'+'to'+'ine'+'le'+'gge'+'r@'+'gma'+'il'+'.co'+'m'; return false;">pierr<span style="display: none;">.nosp@m.</span>eant<span style="display: none;">.nosp@m.</span>oinel<span style="display: none;">.nosp@m.</span>egge<span style="display: none;">.nosp@m.</span>r@gma<span style="display: none;">.nosp@m.</span>il.c<span style="display: none;">.nosp@m.</span>om</a> </dd>
+<dd>
+Joffrey Tranchat <a href="#" onclick="location.href='mai'+'lto:'+'jof'+'fr'+'ey.'+'tr'+'anc'+'ha'+'t@g'+'ma'+'il.'+'co'+'m'; return false;">joffr<span style="display: none;">.nosp@m.</span>ey.t<span style="display: none;">.nosp@m.</span>ranch<span style="display: none;">.nosp@m.</span>at@g<span style="display: none;">.nosp@m.</span>mail.<span style="display: none;">.nosp@m.</span>com</a> </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2020 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.2 </dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a href="https://svn.riouxsvn.com/e-stock">https://svn.riouxsvn.com/e-stock</a> </dd></dl>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+<!--Généré le Mardi 7 Avril 2020 19:30:05 pour Projet e-stok par &#160;<a href="http://www.doxygen.org/index.html">-->
+<img class="footer" src="lasalle-logo.png" alt="La Salle Avignon"/>
+<b>Campus La Salle Avignon</b> - 9 Rue Notre Dame des 7 douleurs - BP 50165 - 84008 Avignon
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

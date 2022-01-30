@@ -1,0 +1,40 @@
+\hypertarget{_casier_8cpp_source}{}\subsection{Casier.\+cpp}
+\label{_casier_8cpp_source}\index{Casier.\+cpp@{Casier.\+cpp}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include "\hyperlink{_casier_8h}{Casier.h}"}
+00002 
+\Hypertarget{_casier_8cpp_source_l00023}\hyperlink{class_casier_aed1cd4435ff913a68b69d8119481bb8f}{00023} \hyperlink{class_casier_aed1cd4435ff913a68b69d8119481bb8f}{Casier::Casier}(\textcolor{keywordtype}{int} numero, QWidget *parent) : \hyperlink{class_q_push_button}{QPushButton}(parent), numero(numero),
+       ouvert(false)
+00024 \{
+00025     qDebug() << Q\_FUNC\_INFO << \hyperlink{class_casier_a17aa23e73b177559266a9fb17f63b812}{numero};
+00026     setText(\textcolor{stringliteral}{"Casier "} + QString::number(numero));
+00027 
+00031     setMaximumHeight(100);
+00032     setContentsMargins(10, 0, 10, 0); \textcolor{comment}{// Marges : Gauche Haut Droite Bas}
+00036 \textcolor{comment}{}    \textcolor{comment}{//setStyleSheet("background-color: rgb(85, 85, 85);");}
+00037     \textcolor{comment}{//setStyleSheet("background-color: rgb(239, 41, 41);");}
+00038     setStyleSheet(\textcolor{stringliteral}{"background-color: rgb(115, 210, 22);"});
+00039 
+00044 \}
+00045 
+\Hypertarget{_casier_8cpp_source_l00050}\hyperlink{class_casier_a4aebc2219ccd4612cf79413904bb9340}{00050} \hyperlink{class_casier_a4aebc2219ccd4612cf79413904bb9340}{Casier::~Casier}()
+00051 \{
+00052     qDebug() << Q\_FUNC\_INFO << \hyperlink{class_casier_a17aa23e73b177559266a9fb17f63b812}{numero};
+00053 \}
+00054 
+\Hypertarget{_casier_8cpp_source_l00060}\hyperlink{class_casier_a061b024a2733a5bb1dfcc43bb0022707}{00060} \textcolor{keywordtype}{int} \hyperlink{class_casier_a061b024a2733a5bb1dfcc43bb0022707}{Casier::getNumero}()\textcolor{keyword}{ const}
+00061 \textcolor{keyword}{}\{
+00062     \textcolor{keywordflow}{return} \hyperlink{class_casier_a17aa23e73b177559266a9fb17f63b812}{numero};
+00063 \}
+00064 
+\Hypertarget{_casier_8cpp_source_l00070}\hyperlink{class_casier_ab26fd4da845423355835da8d445ed5dd}{00070} \textcolor{keywordtype}{bool} \hyperlink{class_casier_ab26fd4da845423355835da8d445ed5dd}{Casier::estOuvert}()\textcolor{keyword}{ const}
+00071 \textcolor{keyword}{}\{
+00072     \textcolor{keywordflow}{return} \hyperlink{class_casier_afe544ed1a87ce714a9fbbe16126669e4}{ouvert};
+00073 \}
+00074 
+\Hypertarget{_casier_8cpp_source_l00079}\hyperlink{class_casier_ac4b0de3ba58dc2bab52b049b278f4f90}{00079} \textcolor{keywordtype}{void} \hyperlink{class_casier_ac4b0de3ba58dc2bab52b049b278f4f90}{Casier::ouvrir}()
+00080 \{
+00084 \}
+00085 
+\end{DoxyCode}

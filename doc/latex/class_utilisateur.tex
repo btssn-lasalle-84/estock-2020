@@ -1,0 +1,406 @@
+\hypertarget{class_utilisateur}{}\subsection{Référence de la classe Utilisateur}
+\label{class_utilisateur}\index{Utilisateur@{Utilisateur}}
+
+
+La classe \hyperlink{class_utilisateur}{Utilisateur} gère les données relative à l\textquotesingle{}utilisateur.  
+
+
+
+
+{\ttfamily \#include $<$Utilisateur.\+h$>$}
+
+
+
+Graphe de collaboration de Utilisateur\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{class_utilisateur__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+Q\+String \hyperlink{class_utilisateur_af944ac02cca7914480e20f46c4dd0e56}{get\+Identifiant\+Utilisateur} ()
+\begin{DoxyCompactList}\small\item\em Définition de la méthode get\+Identifiant\+Utilisateur. \end{DoxyCompactList}\item 
+\hyperlink{class_utilisateur_a89e539739c5f6c6790909ac5fc5729b8}{Utilisateur} (\hyperlink{class_q_object}{Q\+Object} $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe \hyperlink{class_utilisateur}{Utilisateur}. \end{DoxyCompactList}\item 
+\hyperlink{class_utilisateur_a6bfd9ef83e910946f3cf3b6e0fcca343}{Utilisateur} (Q\+String\+List donnees, \hyperlink{class_q_object}{Q\+Object} $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe \hyperlink{class_utilisateur}{Utilisateur}. \end{DoxyCompactList}\item 
+\hyperlink{class_utilisateur_a6631539ceecd6140fe525eb91485537b}{$\sim$\+Utilisateur} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe \hyperlink{class_utilisateur}{Utilisateur}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+Q\+String \hyperlink{class_utilisateur_a77b48aa9d1f0ec04c69d45476897fec6}{badge}
+\begin{DoxyCompactList}\small\item\em badge de l\textquotesingle{}utilisateur connecté \end{DoxyCompactList}\item 
+Q\+String \hyperlink{class_utilisateur_a898cd6f5a64d733ad49a8a74388326cd}{date\+Validite}
+\begin{DoxyCompactList}\small\item\em date\+Validite du compte \end{DoxyCompactList}\item 
+Q\+String \hyperlink{class_utilisateur_a2f45443ce5277a5e6baefe5121e66555}{email}
+\begin{DoxyCompactList}\small\item\em email de l\textquotesingle{}utilisateur connecté \end{DoxyCompactList}\item 
+Q\+String \hyperlink{class_utilisateur_a1e79e47202a2c716346f47adbbeb2511}{identifiant}
+\begin{DoxyCompactList}\small\item\em identifiant de l\textquotesingle{}utilisateur connecté \end{DoxyCompactList}\item 
+Q\+String \hyperlink{class_utilisateur_a13c3425772da1d5501e6fe4a2f2b8194}{id\+Groupe}
+\begin{DoxyCompactList}\small\item\em id\+Groupe de l\textquotesingle{}utilisateur connecté \end{DoxyCompactList}\item 
+Q\+String \hyperlink{class_utilisateur_a042947e8b86637d1eb012c3fc89a959e}{id\+Profil}
+\begin{DoxyCompactList}\small\item\em id\+Profil de l\textquotesingle{}utilisateur connecté \end{DoxyCompactList}\item 
+Q\+String \hyperlink{class_utilisateur_ae1763e7a52c82c63506bc4160cdabb20}{id\+Utilisateur}
+\begin{DoxyCompactList}\small\item\em id\+Utilisateur de l\textquotesingle{}utilisateur connecté \end{DoxyCompactList}\item 
+Q\+String \hyperlink{class_utilisateur_a4f6a17d0fb5c231bcb414396236a056f}{mot\+De\+Passe}
+\begin{DoxyCompactList}\small\item\em mot\+De\+Passe de l\textquotesingle{}utilisateur connecté \end{DoxyCompactList}\item 
+Q\+String \hyperlink{class_utilisateur_a1096e809aca4b7cf453a7af93cb72502}{nom}
+\begin{DoxyCompactList}\small\item\em nom de l\textquotesingle{}utilisateur connecté \end{DoxyCompactList}\item 
+Q\+String \hyperlink{class_utilisateur_a1dd0779807b19298f30f39d9c371170f}{prenom}
+\begin{DoxyCompactList}\small\item\em prenom de l\textquotesingle{}utilisateur connecté \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Description détaillée}
+La classe \hyperlink{class_utilisateur}{Utilisateur} gère les données relative à l\textquotesingle{}utilisateur. 
+
+\begin{DoxyAuthor}{Auteur}
+Legger Pierre-\/\+Antoine
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+mercredi 04 Mars 2020 
+\end{DoxyDate}
+
+
+Définition à la ligne \hyperlink{_utilisateur_8h_source_l00052}{52} du fichier \hyperlink{_utilisateur_8h_source}{Utilisateur.\+h}.
+
+
+
+\subsubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{class_utilisateur_a89e539739c5f6c6790909ac5fc5729b8}\label{class_utilisateur_a89e539739c5f6c6790909ac5fc5729b8}} 
+\index{Utilisateur@{Utilisateur}!Utilisateur@{Utilisateur}}
+\index{Utilisateur@{Utilisateur}!Utilisateur@{Utilisateur}}
+\paragraph{\texorpdfstring{Utilisateur()}{Utilisateur()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Utilisateur\+::\+Utilisateur (\begin{DoxyParamCaption}\item[{\hyperlink{class_q_object}{Q\+Object} $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+Constructeur de la classe \hyperlink{class_utilisateur}{Utilisateur}. 
+
+Initialise un objet \hyperlink{class_utilisateur}{Utilisateur} 
+\begin{DoxyParams}{Paramètres}
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{_utilisateur_8cpp_source_l00022}{22} du fichier \hyperlink{_utilisateur_8cpp_source}{Utilisateur.\+cpp}.
+
+
+
+Références \hyperlink{_utilisateur_8h_source_l00075}{badge}, \hyperlink{_utilisateur_8h_source_l00072}{date\+Validite}, \hyperlink{_utilisateur_8h_source_l00076}{email}, \hyperlink{_utilisateur_8h_source_l00073}{identifiant}, \hyperlink{_utilisateur_8h_source_l00069}{id\+Groupe}, \hyperlink{_utilisateur_8h_source_l00068}{id\+Profil}, \hyperlink{_utilisateur_8h_source_l00067}{id\+Utilisateur}, \hyperlink{_utilisateur_8h_source_l00074}{mot\+De\+Passe}, \hyperlink{_utilisateur_8h_source_l00070}{nom}, et \hyperlink{_utilisateur_8h_source_l00071}{prenom}.
+
+
+\begin{DoxyCode}
+00022                                         : \hyperlink{class_q_object}{QObject}(parent)
+00023 \{
+00024 \textcolor{preprocessor}{    #ifdef DEBUG\_UTILISATEUR}
+00025         qDebug() << Q\_FUNC\_INFO;
+00026 \textcolor{preprocessor}{    #endif}
+00027     \hyperlink{class_utilisateur_ae1763e7a52c82c63506bc4160cdabb20}{idUtilisateur} = \textcolor{stringliteral}{""};
+00028     \hyperlink{class_utilisateur_a042947e8b86637d1eb012c3fc89a959e}{idProfil} = \textcolor{stringliteral}{""};
+00029     \hyperlink{class_utilisateur_a13c3425772da1d5501e6fe4a2f2b8194}{idGroupe} = \textcolor{stringliteral}{""};
+00030     \hyperlink{class_utilisateur_a1096e809aca4b7cf453a7af93cb72502}{nom} = \textcolor{stringliteral}{""};
+00031     \hyperlink{class_utilisateur_a1dd0779807b19298f30f39d9c371170f}{prenom} = \textcolor{stringliteral}{""};
+00032     \hyperlink{class_utilisateur_a898cd6f5a64d733ad49a8a74388326cd}{dateValidite} = \textcolor{stringliteral}{""};
+00033     \hyperlink{class_utilisateur_a1e79e47202a2c716346f47adbbeb2511}{identifiant} = \textcolor{stringliteral}{""};
+00034     \hyperlink{class_utilisateur_a4f6a17d0fb5c231bcb414396236a056f}{motDePasse} = \textcolor{stringliteral}{""};
+00035     \hyperlink{class_utilisateur_a77b48aa9d1f0ec04c69d45476897fec6}{badge} = \textcolor{stringliteral}{""};
+00036     \hyperlink{class_utilisateur_a2f45443ce5277a5e6baefe5121e66555}{email} = \textcolor{stringliteral}{""};
+00037 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_utilisateur_a6bfd9ef83e910946f3cf3b6e0fcca343}\label{class_utilisateur_a6bfd9ef83e910946f3cf3b6e0fcca343}} 
+\index{Utilisateur@{Utilisateur}!Utilisateur@{Utilisateur}}
+\index{Utilisateur@{Utilisateur}!Utilisateur@{Utilisateur}}
+\paragraph{\texorpdfstring{Utilisateur()}{Utilisateur()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Utilisateur\+::\+Utilisateur (\begin{DoxyParamCaption}\item[{Q\+String\+List}]{donnees,  }\item[{\hyperlink{class_q_object}{Q\+Object} $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+Constructeur de la classe \hyperlink{class_utilisateur}{Utilisateur}. 
+
+Initialise un objet \hyperlink{class_utilisateur}{Utilisateur} 
+\begin{DoxyParams}{Paramètres}
+{\em donnees} & \\
+\hline
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{_utilisateur_8cpp_source_l00045}{45} du fichier \hyperlink{_utilisateur_8cpp_source}{Utilisateur.\+cpp}.
+
+
+
+Références \hyperlink{_utilisateur_8h_source_l00075}{badge}, \hyperlink{_utilisateur_8h_source_l00072}{date\+Validite}, \hyperlink{_utilisateur_8h_source_l00076}{email}, \hyperlink{_utilisateur_8h_source_l00073}{identifiant}, \hyperlink{_utilisateur_8h_source_l00069}{id\+Groupe}, \hyperlink{_utilisateur_8h_source_l00068}{id\+Profil}, \hyperlink{_utilisateur_8h_source_l00067}{id\+Utilisateur}, \hyperlink{_utilisateur_8h_source_l00074}{mot\+De\+Passe}, \hyperlink{_utilisateur_8h_source_l00070}{nom}, \hyperlink{_utilisateur_8h_source_l00071}{prenom}, \hyperlink{_utilisateur_8h_source_l00035}{T\+A\+B\+L\+E\+\_\+\+U\+T\+I\+L\+I\+S\+A\+T\+E\+U\+R\+\_\+\+B\+A\+D\+GE}, \hyperlink{_utilisateur_8h_source_l00032}{T\+A\+B\+L\+E\+\_\+\+U\+T\+I\+L\+I\+S\+A\+T\+E\+U\+R\+\_\+\+D\+A\+T\+E\+\_\+\+V\+A\+L\+I\+D\+I\+TE}, \hyperlink{_utilisateur_8h_source_l00036}{T\+A\+B\+L\+E\+\_\+\+U\+T\+I\+L\+I\+S\+A\+T\+E\+U\+R\+\_\+\+E\+M\+A\+IL}, \hyperlink{_utilisateur_8h_source_l00029}{T\+A\+B\+L\+E\+\_\+\+U\+T\+I\+L\+I\+S\+A\+T\+E\+U\+R\+\_\+\+I\+D\+\_\+\+G\+R\+O\+U\+PE}, \hyperlink{_utilisateur_8h_source_l00028}{T\+A\+B\+L\+E\+\_\+\+U\+T\+I\+L\+I\+S\+A\+T\+E\+U\+R\+\_\+\+I\+D\+\_\+\+P\+R\+O\+F\+IL}, \hyperlink{_utilisateur_8h_source_l00027}{T\+A\+B\+L\+E\+\_\+\+U\+T\+I\+L\+I\+S\+A\+T\+E\+U\+R\+\_\+\+I\+D\+\_\+\+U\+T\+I\+L\+I\+S\+A\+T\+E\+UR}, \hyperlink{_utilisateur_8h_source_l00033}{T\+A\+B\+L\+E\+\_\+\+U\+T\+I\+L\+I\+S\+A\+T\+E\+U\+R\+\_\+\+I\+D\+E\+N\+T\+I\+F\+I\+A\+NT}, \hyperlink{_utilisateur_8h_source_l00034}{T\+A\+B\+L\+E\+\_\+\+U\+T\+I\+L\+I\+S\+A\+T\+E\+U\+R\+\_\+\+M\+O\+T\+\_\+\+D\+E\+\_\+\+P\+A\+S\+SE}, \hyperlink{_utilisateur_8h_source_l00030}{T\+A\+B\+L\+E\+\_\+\+U\+T\+I\+L\+I\+S\+A\+T\+E\+U\+R\+\_\+\+N\+OM}, et \hyperlink{_utilisateur_8h_source_l00031}{T\+A\+B\+L\+E\+\_\+\+U\+T\+I\+L\+I\+S\+A\+T\+E\+U\+R\+\_\+\+P\+R\+E\+N\+OM}.
+
+
+\begin{DoxyCode}
+00045                                                              : \hyperlink{class_q_object}{QObject}(parent)
+00046 \{
+00047 \textcolor{preprocessor}{    #ifdef DEBUG\_UTILISATEUR}
+00048         qDebug() << Q\_FUNC\_INFO << donnees;
+00049 \textcolor{preprocessor}{    #endif}
+00050     \hyperlink{class_utilisateur_ae1763e7a52c82c63506bc4160cdabb20}{idUtilisateur} = donnees.at(\hyperlink{_utilisateur_8h_a2ee8bc4f44f3f2562a41638ec1d84ffcaf3d5820c10eaf883bc549062f87b1d29}{TABLE\_UTILISATEUR\_ID\_UTILISATEUR}
+      );
+00051     \hyperlink{class_utilisateur_a042947e8b86637d1eb012c3fc89a959e}{idProfil} = donnees.at(\hyperlink{_utilisateur_8h_a2ee8bc4f44f3f2562a41638ec1d84ffca4cc2b30f6bc705490fc4190e0d8668cc}{TABLE\_UTILISATEUR\_ID\_PROFIL});
+00052     \hyperlink{class_utilisateur_a13c3425772da1d5501e6fe4a2f2b8194}{idGroupe} = donnees.at(\hyperlink{_utilisateur_8h_a2ee8bc4f44f3f2562a41638ec1d84ffcaafd6ac7708481835f0c9aa3dbcddd1e8}{TABLE\_UTILISATEUR\_ID\_GROUPE});
+00053     \hyperlink{class_utilisateur_a1096e809aca4b7cf453a7af93cb72502}{nom} = donnees.at(\hyperlink{_utilisateur_8h_a2ee8bc4f44f3f2562a41638ec1d84ffca79ab7400bfc906a77d1f56988349ebd4}{TABLE\_UTILISATEUR\_NOM});
+00054     \hyperlink{class_utilisateur_a1dd0779807b19298f30f39d9c371170f}{prenom} = donnees.at(\hyperlink{_utilisateur_8h_a2ee8bc4f44f3f2562a41638ec1d84ffcab8ef43f3428ce1b6a50b1f15e6771d75}{TABLE\_UTILISATEUR\_PRENOM});
+00055     \hyperlink{class_utilisateur_a898cd6f5a64d733ad49a8a74388326cd}{dateValidite} = donnees.at(\hyperlink{_utilisateur_8h_a2ee8bc4f44f3f2562a41638ec1d84ffca1a0604e4b99c353c04b8ee64a2524cca}{TABLE\_UTILISATEUR\_DATE\_VALIDITE});
+00056     \hyperlink{class_utilisateur_a1e79e47202a2c716346f47adbbeb2511}{identifiant} = donnees.at(\hyperlink{_utilisateur_8h_a2ee8bc4f44f3f2562a41638ec1d84ffca00d7c04c0ac35952230b782d3cdb4942}{TABLE\_UTILISATEUR\_IDENTIFIANT});
+00057     \hyperlink{class_utilisateur_a4f6a17d0fb5c231bcb414396236a056f}{motDePasse} = donnees.at(\hyperlink{_utilisateur_8h_a2ee8bc4f44f3f2562a41638ec1d84ffca09688a0481708cf5d77cd6a438d12623}{TABLE\_UTILISATEUR\_MOT\_DE\_PASSE});
+00058     \hyperlink{class_utilisateur_a77b48aa9d1f0ec04c69d45476897fec6}{badge} = donnees.at(\hyperlink{_utilisateur_8h_a2ee8bc4f44f3f2562a41638ec1d84ffca9d0825de5c0afa69202e7773e7e10d1f}{TABLE\_UTILISATEUR\_BADGE});
+00059     \hyperlink{class_utilisateur_a2f45443ce5277a5e6baefe5121e66555}{email} = donnees.at(\hyperlink{_utilisateur_8h_a2ee8bc4f44f3f2562a41638ec1d84ffca64c38d44af4e843f5930551e5ac1733f}{TABLE\_UTILISATEUR\_EMAIL});
+00060 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_utilisateur_a6631539ceecd6140fe525eb91485537b}\label{class_utilisateur_a6631539ceecd6140fe525eb91485537b}} 
+\index{Utilisateur@{Utilisateur}!````~Utilisateur@{$\sim$\+Utilisateur}}
+\index{````~Utilisateur@{$\sim$\+Utilisateur}!Utilisateur@{Utilisateur}}
+\paragraph{\texorpdfstring{$\sim$\+Utilisateur()}{~Utilisateur()}}
+{\footnotesize\ttfamily Utilisateur\+::$\sim$\+Utilisateur (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructeur de la classe \hyperlink{class_utilisateur}{Utilisateur}. 
+
+Détruit un objet \hyperlink{class_utilisateur}{Utilisateur} 
+
+Définition à la ligne \hyperlink{_utilisateur_8cpp_source_l00067}{67} du fichier \hyperlink{_utilisateur_8cpp_source}{Utilisateur.\+cpp}.
+
+
+\begin{DoxyCode}
+00068 \{
+00069 
+00070 \}
+\end{DoxyCode}
+
+
+\subsubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{class_utilisateur_af944ac02cca7914480e20f46c4dd0e56}\label{class_utilisateur_af944ac02cca7914480e20f46c4dd0e56}} 
+\index{Utilisateur@{Utilisateur}!get\+Identifiant\+Utilisateur@{get\+Identifiant\+Utilisateur}}
+\index{get\+Identifiant\+Utilisateur@{get\+Identifiant\+Utilisateur}!Utilisateur@{Utilisateur}}
+\paragraph{\texorpdfstring{get\+Identifiant\+Utilisateur()}{getIdentifiantUtilisateur()}}
+{\footnotesize\ttfamily Q\+String Utilisateur\+::get\+Identifiant\+Utilisateur (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Définition de la méthode get\+Identifiant\+Utilisateur. 
+
+retourne les identifiant de l\textquotesingle{}utilisateur \begin{DoxyReturn}{Renvoie}
+les identifiants 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{_utilisateur_8cpp_source_l00078}{78} du fichier \hyperlink{_utilisateur_8cpp_source}{Utilisateur.\+cpp}.
+
+
+
+Références \hyperlink{_utilisateur_8h_source_l00070}{nom}, et \hyperlink{_utilisateur_8h_source_l00071}{prenom}.
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00256}{Supervision\+::connecter\+Utilisateur()}.
+
+
+\begin{DoxyCode}
+00079 \{
+00080     \textcolor{keywordflow}{return} \hyperlink{class_utilisateur_a1096e809aca4b7cf453a7af93cb72502}{nom} + \textcolor{stringliteral}{" "} + \hyperlink{class_utilisateur_a1dd0779807b19298f30f39d9c371170f}{prenom};
+00081 \}
+\end{DoxyCode}
+
+
+\subsubsection{Documentation des données membres}
+\mbox{\Hypertarget{class_utilisateur_a77b48aa9d1f0ec04c69d45476897fec6}\label{class_utilisateur_a77b48aa9d1f0ec04c69d45476897fec6}} 
+\index{Utilisateur@{Utilisateur}!badge@{badge}}
+\index{badge@{badge}!Utilisateur@{Utilisateur}}
+\paragraph{\texorpdfstring{badge}{badge}}
+{\footnotesize\ttfamily Q\+String Utilisateur\+::badge\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+badge de l\textquotesingle{}utilisateur connecté 
+
+
+
+Définition à la ligne \hyperlink{_utilisateur_8h_source_l00075}{75} du fichier \hyperlink{_utilisateur_8h_source}{Utilisateur.\+h}.
+
+
+
+Référencé par \hyperlink{_utilisateur_8cpp_source_l00022}{Utilisateur()}.
+
+\mbox{\Hypertarget{class_utilisateur_a898cd6f5a64d733ad49a8a74388326cd}\label{class_utilisateur_a898cd6f5a64d733ad49a8a74388326cd}} 
+\index{Utilisateur@{Utilisateur}!date\+Validite@{date\+Validite}}
+\index{date\+Validite@{date\+Validite}!Utilisateur@{Utilisateur}}
+\paragraph{\texorpdfstring{date\+Validite}{dateValidite}}
+{\footnotesize\ttfamily Q\+String Utilisateur\+::date\+Validite\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+date\+Validite du compte 
+
+
+
+Définition à la ligne \hyperlink{_utilisateur_8h_source_l00072}{72} du fichier \hyperlink{_utilisateur_8h_source}{Utilisateur.\+h}.
+
+
+
+Référencé par \hyperlink{_utilisateur_8cpp_source_l00022}{Utilisateur()}.
+
+\mbox{\Hypertarget{class_utilisateur_a2f45443ce5277a5e6baefe5121e66555}\label{class_utilisateur_a2f45443ce5277a5e6baefe5121e66555}} 
+\index{Utilisateur@{Utilisateur}!email@{email}}
+\index{email@{email}!Utilisateur@{Utilisateur}}
+\paragraph{\texorpdfstring{email}{email}}
+{\footnotesize\ttfamily Q\+String Utilisateur\+::email\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+email de l\textquotesingle{}utilisateur connecté 
+
+
+
+Définition à la ligne \hyperlink{_utilisateur_8h_source_l00076}{76} du fichier \hyperlink{_utilisateur_8h_source}{Utilisateur.\+h}.
+
+
+
+Référencé par \hyperlink{_utilisateur_8cpp_source_l00022}{Utilisateur()}.
+
+\mbox{\Hypertarget{class_utilisateur_a1e79e47202a2c716346f47adbbeb2511}\label{class_utilisateur_a1e79e47202a2c716346f47adbbeb2511}} 
+\index{Utilisateur@{Utilisateur}!identifiant@{identifiant}}
+\index{identifiant@{identifiant}!Utilisateur@{Utilisateur}}
+\paragraph{\texorpdfstring{identifiant}{identifiant}}
+{\footnotesize\ttfamily Q\+String Utilisateur\+::identifiant\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+identifiant de l\textquotesingle{}utilisateur connecté 
+
+
+
+Définition à la ligne \hyperlink{_utilisateur_8h_source_l00073}{73} du fichier \hyperlink{_utilisateur_8h_source}{Utilisateur.\+h}.
+
+
+
+Référencé par \hyperlink{_utilisateur_8cpp_source_l00022}{Utilisateur()}.
+
+\mbox{\Hypertarget{class_utilisateur_a13c3425772da1d5501e6fe4a2f2b8194}\label{class_utilisateur_a13c3425772da1d5501e6fe4a2f2b8194}} 
+\index{Utilisateur@{Utilisateur}!id\+Groupe@{id\+Groupe}}
+\index{id\+Groupe@{id\+Groupe}!Utilisateur@{Utilisateur}}
+\paragraph{\texorpdfstring{id\+Groupe}{idGroupe}}
+{\footnotesize\ttfamily Q\+String Utilisateur\+::id\+Groupe\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+id\+Groupe de l\textquotesingle{}utilisateur connecté 
+
+
+
+Définition à la ligne \hyperlink{_utilisateur_8h_source_l00069}{69} du fichier \hyperlink{_utilisateur_8h_source}{Utilisateur.\+h}.
+
+
+
+Référencé par \hyperlink{_utilisateur_8cpp_source_l00022}{Utilisateur()}.
+
+\mbox{\Hypertarget{class_utilisateur_a042947e8b86637d1eb012c3fc89a959e}\label{class_utilisateur_a042947e8b86637d1eb012c3fc89a959e}} 
+\index{Utilisateur@{Utilisateur}!id\+Profil@{id\+Profil}}
+\index{id\+Profil@{id\+Profil}!Utilisateur@{Utilisateur}}
+\paragraph{\texorpdfstring{id\+Profil}{idProfil}}
+{\footnotesize\ttfamily Q\+String Utilisateur\+::id\+Profil\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+id\+Profil de l\textquotesingle{}utilisateur connecté 
+
+
+
+Définition à la ligne \hyperlink{_utilisateur_8h_source_l00068}{68} du fichier \hyperlink{_utilisateur_8h_source}{Utilisateur.\+h}.
+
+
+
+Référencé par \hyperlink{_utilisateur_8cpp_source_l00022}{Utilisateur()}.
+
+\mbox{\Hypertarget{class_utilisateur_ae1763e7a52c82c63506bc4160cdabb20}\label{class_utilisateur_ae1763e7a52c82c63506bc4160cdabb20}} 
+\index{Utilisateur@{Utilisateur}!id\+Utilisateur@{id\+Utilisateur}}
+\index{id\+Utilisateur@{id\+Utilisateur}!Utilisateur@{Utilisateur}}
+\paragraph{\texorpdfstring{id\+Utilisateur}{idUtilisateur}}
+{\footnotesize\ttfamily Q\+String Utilisateur\+::id\+Utilisateur\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+id\+Utilisateur de l\textquotesingle{}utilisateur connecté 
+
+
+
+Définition à la ligne \hyperlink{_utilisateur_8h_source_l00067}{67} du fichier \hyperlink{_utilisateur_8h_source}{Utilisateur.\+h}.
+
+
+
+Référencé par \hyperlink{_utilisateur_8cpp_source_l00022}{Utilisateur()}.
+
+\mbox{\Hypertarget{class_utilisateur_a4f6a17d0fb5c231bcb414396236a056f}\label{class_utilisateur_a4f6a17d0fb5c231bcb414396236a056f}} 
+\index{Utilisateur@{Utilisateur}!mot\+De\+Passe@{mot\+De\+Passe}}
+\index{mot\+De\+Passe@{mot\+De\+Passe}!Utilisateur@{Utilisateur}}
+\paragraph{\texorpdfstring{mot\+De\+Passe}{motDePasse}}
+{\footnotesize\ttfamily Q\+String Utilisateur\+::mot\+De\+Passe\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+mot\+De\+Passe de l\textquotesingle{}utilisateur connecté 
+
+
+
+Définition à la ligne \hyperlink{_utilisateur_8h_source_l00074}{74} du fichier \hyperlink{_utilisateur_8h_source}{Utilisateur.\+h}.
+
+
+
+Référencé par \hyperlink{_utilisateur_8cpp_source_l00022}{Utilisateur()}.
+
+\mbox{\Hypertarget{class_utilisateur_a1096e809aca4b7cf453a7af93cb72502}\label{class_utilisateur_a1096e809aca4b7cf453a7af93cb72502}} 
+\index{Utilisateur@{Utilisateur}!nom@{nom}}
+\index{nom@{nom}!Utilisateur@{Utilisateur}}
+\paragraph{\texorpdfstring{nom}{nom}}
+{\footnotesize\ttfamily Q\+String Utilisateur\+::nom\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+nom de l\textquotesingle{}utilisateur connecté 
+
+
+
+Définition à la ligne \hyperlink{_utilisateur_8h_source_l00070}{70} du fichier \hyperlink{_utilisateur_8h_source}{Utilisateur.\+h}.
+
+
+
+Référencé par \hyperlink{_utilisateur_8cpp_source_l00078}{get\+Identifiant\+Utilisateur()}, et \hyperlink{_utilisateur_8cpp_source_l00022}{Utilisateur()}.
+
+\mbox{\Hypertarget{class_utilisateur_a1dd0779807b19298f30f39d9c371170f}\label{class_utilisateur_a1dd0779807b19298f30f39d9c371170f}} 
+\index{Utilisateur@{Utilisateur}!prenom@{prenom}}
+\index{prenom@{prenom}!Utilisateur@{Utilisateur}}
+\paragraph{\texorpdfstring{prenom}{prenom}}
+{\footnotesize\ttfamily Q\+String Utilisateur\+::prenom\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+prenom de l\textquotesingle{}utilisateur connecté 
+
+
+
+Définition à la ligne \hyperlink{_utilisateur_8h_source_l00071}{71} du fichier \hyperlink{_utilisateur_8h_source}{Utilisateur.\+h}.
+
+
+
+Référencé par \hyperlink{_utilisateur_8cpp_source_l00078}{get\+Identifiant\+Utilisateur()}, et \hyperlink{_utilisateur_8cpp_source_l00022}{Utilisateur()}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_utilisateur_8h}{Utilisateur.\+h}\item 
+\hyperlink{_utilisateur_8cpp}{Utilisateur.\+cpp}\end{DoxyCompactItemize}

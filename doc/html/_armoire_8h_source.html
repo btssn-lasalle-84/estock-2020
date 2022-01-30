@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projet e-stok:  Fichier source de Armoire.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="customdoxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="icone_estock.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Projet e-stok
+   &#160;<span id="projectnumber">0.2</span>
+   </div>
+   <div id="projectbrief">BTS SNIR LaSalle Avignon 2020</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_armoire_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Armoire.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_armoire_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ARMOIRE_H</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define ARMOIRE_H</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;QObject&gt;</span></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;QString&gt;</span></div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;QDebug&gt;</span></div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div><div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="_armoire_8h.html#a15e7936003b0c10a4cf49799119463ab">   21</a></span>&#160;<span class="preprocessor">#define DEBUG_ARMOIRE</span></div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div><div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="_armoire_8h.html#a8c8e83929e4df868beea17eda4fb5dad">   27</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="_armoire_8h.html#a8c8e83929e4df868beea17eda4fb5dad">ChampArmoire</a></div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div><div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="_armoire_8h.html#a8c8e83929e4df868beea17eda4fb5dada167bbea3f9d799583c77d0a6b12ed99e">   29</a></span>&#160;    <a class="code" href="_armoire_8h.html#a8c8e83929e4df868beea17eda4fb5dada167bbea3f9d799583c77d0a6b12ed99e">TABLE_ARMOIRE_ID_ARMOIRE</a>,</div><div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="_armoire_8h.html#a8c8e83929e4df868beea17eda4fb5dadaed87f53039b2f5f5401a4b4c9ea8a706">   30</a></span>&#160;    <a class="code" href="_armoire_8h.html#a8c8e83929e4df868beea17eda4fb5dadaed87f53039b2f5f5401a4b4c9ea8a706">TABLE_ARMOIRE_NOM</a>,</div><div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="_armoire_8h.html#a8c8e83929e4df868beea17eda4fb5dadaa46613f3c7eb048c8392fb780e801cc8">   31</a></span>&#160;    <a class="code" href="_armoire_8h.html#a8c8e83929e4df868beea17eda4fb5dadaa46613f3c7eb048c8392fb780e801cc8">TABLE_ARMOIRE_DESCRIPTION</a>,</div><div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="_armoire_8h.html#a8c8e83929e4df868beea17eda4fb5dada92634af3316ad54be209ef14cc8a8981">   32</a></span>&#160;    <a class="code" href="_armoire_8h.html#a8c8e83929e4df868beea17eda4fb5dada92634af3316ad54be209ef14cc8a8981">TABLE_ARMOIRE_NB_CASIERS</a></div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">class </span><a class="code" href="class_bdd.html">Bdd</a>;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div><div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="class_armoire.html">   49</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_armoire.html">Armoire</a> : <span class="keyword">public</span> <a class="code" href="class_q_object.html">QObject</a></div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    Q_OBJECT</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="class_armoire.html#a5db260c682a9d2688afc0efbd5be8d14">Armoire</a>(<a class="code" href="class_q_object.html">QObject</a> *parent = <span class="keyword">nullptr</span>);</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="class_armoire.html#a0f506a879391a987f12f59a23f60634e">~Armoire</a>();</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_armoire.html#a1c5266f9e4b01c0d2e1d244d2f11fffd">recupererArmoire</a>(QString <a class="code" href="class_armoire.html#a131caceb7d4b90cb7761851757e80f57">idArmoire</a>=<span class="stringliteral">&quot;1&quot;</span>);</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    QStringList <a class="code" href="class_armoire.html#a3e4d2ffc2fb91dd24d1160305ad36555">getInformations</a>();</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    QString <a class="code" href="class_armoire.html#a1a76e497170632b30f9821b396d53cec">getIdArmoire</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    QString <a class="code" href="class_armoire.html#a0045e45e0c9a465af765667344ce8bee">getNom</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    QString <a class="code" href="class_armoire.html#a19af26aa7dedd03202d2484744dcad76">getDescripton</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    QString <a class="code" href="class_armoire.html#aa94faaf53b6da5139a22a2ab21d4cf12">getNbCasiers</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    QString <a class="code" href="class_armoire.html#a706def736570580d7e5e3d2e29321c66">getAdresseIPArmoire</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="class_armoire.html#a555f656018e7b600987128cdc792e320">   65</a></span>&#160;    <a class="code" href="class_bdd.html">Bdd</a> *<a class="code" href="class_armoire.html#a555f656018e7b600987128cdc792e320">bdd</a>;                   </div><div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="class_armoire.html#a131caceb7d4b90cb7761851757e80f57">   66</a></span>&#160;    QString <a class="code" href="class_armoire.html#a131caceb7d4b90cb7761851757e80f57">idArmoire</a>;          </div><div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="class_armoire.html#a1de028da0fa3f085e2feaad8311d8795">   67</a></span>&#160;    QString <a class="code" href="class_armoire.html#a1de028da0fa3f085e2feaad8311d8795">nom</a>;                </div><div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="class_armoire.html#aa18be328693d7602439c779e30156c02">   68</a></span>&#160;    QString <a class="code" href="class_armoire.html#aa18be328693d7602439c779e30156c02">description</a>;        </div><div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="class_armoire.html#a9c4e926b7cddb13d097b75b3f5ef3de8">   69</a></span>&#160;    QString <a class="code" href="class_armoire.html#a9c4e926b7cddb13d097b75b3f5ef3de8">nbCasiers</a>;          </div><div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="class_armoire.html#ab96bd042aa78eaefba0aefb860684ca6">   70</a></span>&#160;    QString <a class="code" href="class_armoire.html#ab96bd042aa78eaefba0aefb860684ca6">adresseIPArmoire</a>;   </div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    QString <a class="code" href="class_armoire.html#abc30649cc7d4f3c0cefcc54894aeb406">lireAdresseIP</a>();</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;signals:</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_armoire.html#a1fc00ceaa842f579ee31c532a9b01508">informationsArmoire</a>(QStringList);</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;};</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#endif // ARMOIRE_H</span></div><div class="ttc" id="_armoire_8h_html_a8c8e83929e4df868beea17eda4fb5dadaed87f53039b2f5f5401a4b4c9ea8a706"><div class="ttname"><a href="_armoire_8h.html#a8c8e83929e4df868beea17eda4fb5dadaed87f53039b2f5f5401a4b4c9ea8a706">TABLE_ARMOIRE_NOM</a></div><div class="ttdef"><b>Definition:</b> <a href="_armoire_8h_source.html#l00030">Armoire.h:30</a></div></div>
+<div class="ttc" id="_armoire_8h_html_a8c8e83929e4df868beea17eda4fb5dad"><div class="ttname"><a href="_armoire_8h.html#a8c8e83929e4df868beea17eda4fb5dad">ChampArmoire</a></div><div class="ttdeci">ChampArmoire</div><div class="ttdoc">Définit les différents champs de la table Armoire. </div><div class="ttdef"><b>Definition:</b> <a href="_armoire_8h_source.html#l00027">Armoire.h:27</a></div></div>
+<div class="ttc" id="class_armoire_html_a131caceb7d4b90cb7761851757e80f57"><div class="ttname"><a href="class_armoire.html#a131caceb7d4b90cb7761851757e80f57">Armoire::idArmoire</a></div><div class="ttdeci">QString idArmoire</div><div class="ttdoc">l&amp;#39;id de l&amp;#39;armoire </div><div class="ttdef"><b>Definition:</b> <a href="_armoire_8h_source.html#l00066">Armoire.h:66</a></div></div>
+<div class="ttc" id="class_armoire_html_aa94faaf53b6da5139a22a2ab21d4cf12"><div class="ttname"><a href="class_armoire.html#aa94faaf53b6da5139a22a2ab21d4cf12">Armoire::getNbCasiers</a></div><div class="ttdeci">QString getNbCasiers() const</div><div class="ttdoc">Définition de la méthode getNbCasiers. </div><div class="ttdef"><b>Definition:</b> <a href="_armoire_8cpp_source.html#l00127">Armoire.cpp:127</a></div></div>
+<div class="ttc" id="class_armoire_html_aa18be328693d7602439c779e30156c02"><div class="ttname"><a href="class_armoire.html#aa18be328693d7602439c779e30156c02">Armoire::description</a></div><div class="ttdeci">QString description</div><div class="ttdoc">la description de l&amp;#39;armoire </div><div class="ttdef"><b>Definition:</b> <a href="_armoire_8h_source.html#l00068">Armoire.h:68</a></div></div>
+<div class="ttc" id="class_armoire_html_a19af26aa7dedd03202d2484744dcad76"><div class="ttname"><a href="class_armoire.html#a19af26aa7dedd03202d2484744dcad76">Armoire::getDescripton</a></div><div class="ttdeci">QString getDescripton() const</div><div class="ttdoc">Définition de la méthode getDescripton. </div><div class="ttdef"><b>Definition:</b> <a href="_armoire_8cpp_source.html#l00116">Armoire.cpp:116</a></div></div>
+<div class="ttc" id="class_armoire_html_a3e4d2ffc2fb91dd24d1160305ad36555"><div class="ttname"><a href="class_armoire.html#a3e4d2ffc2fb91dd24d1160305ad36555">Armoire::getInformations</a></div><div class="ttdeci">QStringList getInformations()</div><div class="ttdoc">Définition de la méthode getInformations. </div><div class="ttdef"><b>Definition:</b> <a href="_armoire_8cpp_source.html#l00078">Armoire.cpp:78</a></div></div>
+<div class="ttc" id="class_armoire_html_a1c5266f9e4b01c0d2e1d244d2f11fffd"><div class="ttname"><a href="class_armoire.html#a1c5266f9e4b01c0d2e1d244d2f11fffd">Armoire::recupererArmoire</a></div><div class="ttdeci">void recupererArmoire(QString idArmoire=&quot;1&quot;)</div><div class="ttdoc">Définition de la méthode recupererArmoire. </div><div class="ttdef"><b>Definition:</b> <a href="_armoire_8cpp_source.html#l00049">Armoire.cpp:49</a></div></div>
+<div class="ttc" id="class_armoire_html_a1fc00ceaa842f579ee31c532a9b01508"><div class="ttname"><a href="class_armoire.html#a1fc00ceaa842f579ee31c532a9b01508">Armoire::informationsArmoire</a></div><div class="ttdeci">void informationsArmoire(QStringList)</div></div>
+<div class="ttc" id="_armoire_8h_html_a8c8e83929e4df868beea17eda4fb5dada167bbea3f9d799583c77d0a6b12ed99e"><div class="ttname"><a href="_armoire_8h.html#a8c8e83929e4df868beea17eda4fb5dada167bbea3f9d799583c77d0a6b12ed99e">TABLE_ARMOIRE_ID_ARMOIRE</a></div><div class="ttdef"><b>Definition:</b> <a href="_armoire_8h_source.html#l00029">Armoire.h:29</a></div></div>
+<div class="ttc" id="class_armoire_html_a0045e45e0c9a465af765667344ce8bee"><div class="ttname"><a href="class_armoire.html#a0045e45e0c9a465af765667344ce8bee">Armoire::getNom</a></div><div class="ttdeci">QString getNom() const</div><div class="ttdoc">Définition de la méthode getNom. </div><div class="ttdef"><b>Definition:</b> <a href="_armoire_8cpp_source.html#l00105">Armoire.cpp:105</a></div></div>
+<div class="ttc" id="class_armoire_html_a1a76e497170632b30f9821b396d53cec"><div class="ttname"><a href="class_armoire.html#a1a76e497170632b30f9821b396d53cec">Armoire::getIdArmoire</a></div><div class="ttdeci">QString getIdArmoire() const</div><div class="ttdoc">Définition de la méthode getIdArmoire. </div><div class="ttdef"><b>Definition:</b> <a href="_armoire_8cpp_source.html#l00094">Armoire.cpp:94</a></div></div>
+<div class="ttc" id="_armoire_8h_html_a8c8e83929e4df868beea17eda4fb5dada92634af3316ad54be209ef14cc8a8981"><div class="ttname"><a href="_armoire_8h.html#a8c8e83929e4df868beea17eda4fb5dada92634af3316ad54be209ef14cc8a8981">TABLE_ARMOIRE_NB_CASIERS</a></div><div class="ttdef"><b>Definition:</b> <a href="_armoire_8h_source.html#l00032">Armoire.h:32</a></div></div>
+<div class="ttc" id="_armoire_8h_html_a8c8e83929e4df868beea17eda4fb5dadaa46613f3c7eb048c8392fb780e801cc8"><div class="ttname"><a href="_armoire_8h.html#a8c8e83929e4df868beea17eda4fb5dadaa46613f3c7eb048c8392fb780e801cc8">TABLE_ARMOIRE_DESCRIPTION</a></div><div class="ttdef"><b>Definition:</b> <a href="_armoire_8h_source.html#l00031">Armoire.h:31</a></div></div>
+<div class="ttc" id="class_armoire_html_ab96bd042aa78eaefba0aefb860684ca6"><div class="ttname"><a href="class_armoire.html#ab96bd042aa78eaefba0aefb860684ca6">Armoire::adresseIPArmoire</a></div><div class="ttdeci">QString adresseIPArmoire</div><div class="ttdoc">l&amp;#39;adresse IP de la Raspberry Pi </div><div class="ttdef"><b>Definition:</b> <a href="_armoire_8h_source.html#l00070">Armoire.h:70</a></div></div>
+<div class="ttc" id="class_armoire_html_a9c4e926b7cddb13d097b75b3f5ef3de8"><div class="ttname"><a href="class_armoire.html#a9c4e926b7cddb13d097b75b3f5ef3de8">Armoire::nbCasiers</a></div><div class="ttdeci">QString nbCasiers</div><div class="ttdoc">le nombre de casiers dans l&amp;#39;armoire </div><div class="ttdef"><b>Definition:</b> <a href="_armoire_8h_source.html#l00069">Armoire.h:69</a></div></div>
+<div class="ttc" id="class_q_object_html"><div class="ttname"><a href="class_q_object.html">QObject</a></div></div>
+<div class="ttc" id="class_armoire_html_abc30649cc7d4f3c0cefcc54894aeb406"><div class="ttname"><a href="class_armoire.html#abc30649cc7d4f3c0cefcc54894aeb406">Armoire::lireAdresseIP</a></div><div class="ttdeci">QString lireAdresseIP()</div><div class="ttdoc">Définition de la méthode lireAdresseIP. </div><div class="ttdef"><b>Definition:</b> <a href="_armoire_8cpp_source.html#l00149">Armoire.cpp:149</a></div></div>
+<div class="ttc" id="class_armoire_html_a5db260c682a9d2688afc0efbd5be8d14"><div class="ttname"><a href="class_armoire.html#a5db260c682a9d2688afc0efbd5be8d14">Armoire::Armoire</a></div><div class="ttdeci">Armoire(QObject *parent=nullptr)</div><div class="ttdoc">Définition du constructeur de la classe Armoire. </div><div class="ttdef"><b>Definition:</b> <a href="_armoire_8cpp_source.html#l00022">Armoire.cpp:22</a></div></div>
+<div class="ttc" id="class_armoire_html"><div class="ttname"><a href="class_armoire.html">Armoire</a></div><div class="ttdoc">La classe Armoire traite les articles. </div><div class="ttdef"><b>Definition:</b> <a href="_armoire_8h_source.html#l00049">Armoire.h:49</a></div></div>
+<div class="ttc" id="class_bdd_html"><div class="ttname"><a href="class_bdd.html">Bdd</a></div><div class="ttdoc">Déclaration de la classe utilisant la base de données. </div><div class="ttdef"><b>Definition:</b> <a href="_bdd_8h_source.html#l00042">Bdd.h:42</a></div></div>
+<div class="ttc" id="class_armoire_html_a1de028da0fa3f085e2feaad8311d8795"><div class="ttname"><a href="class_armoire.html#a1de028da0fa3f085e2feaad8311d8795">Armoire::nom</a></div><div class="ttdeci">QString nom</div><div class="ttdoc">le nom de l&amp;#39;armoire </div><div class="ttdef"><b>Definition:</b> <a href="_armoire_8h_source.html#l00067">Armoire.h:67</a></div></div>
+<div class="ttc" id="class_armoire_html_a706def736570580d7e5e3d2e29321c66"><div class="ttname"><a href="class_armoire.html#a706def736570580d7e5e3d2e29321c66">Armoire::getAdresseIPArmoire</a></div><div class="ttdeci">QString getAdresseIPArmoire() const</div><div class="ttdoc">Définition de la méthode getAdresseIPArmoire. </div><div class="ttdef"><b>Definition:</b> <a href="_armoire_8cpp_source.html#l00138">Armoire.cpp:138</a></div></div>
+<div class="ttc" id="class_armoire_html_a0f506a879391a987f12f59a23f60634e"><div class="ttname"><a href="class_armoire.html#a0f506a879391a987f12f59a23f60634e">Armoire::~Armoire</a></div><div class="ttdeci">~Armoire()</div><div class="ttdoc">Définition du destructeur de la classe Armoire. </div><div class="ttdef"><b>Definition:</b> <a href="_armoire_8cpp_source.html#l00036">Armoire.cpp:36</a></div></div>
+<div class="ttc" id="class_armoire_html_a555f656018e7b600987128cdc792e320"><div class="ttname"><a href="class_armoire.html#a555f656018e7b600987128cdc792e320">Armoire::bdd</a></div><div class="ttdeci">Bdd * bdd</div><div class="ttdoc">association d&amp;#39;un objet Bdd (accès à la base de données) </div><div class="ttdef"><b>Definition:</b> <a href="_armoire_8h_source.html#l00065">Armoire.h:65</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+<!--Généré le Mardi 7 Avril 2020 19:30:05 pour Projet e-stok par &#160;<a href="http://www.doxygen.org/index.html">-->
+<img class="footer" src="lasalle-logo.png" alt="La Salle Avignon"/>
+<b>Campus La Salle Avignon</b> - 9 Rue Notre Dame des 7 douleurs - BP 50165 - 84008 Avignon
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

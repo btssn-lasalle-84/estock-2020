@@ -1,0 +1,792 @@
+\hypertarget{class_bdd}{}\subsection{Référence de la classe Bdd}
+\label{class_bdd}\index{Bdd@{Bdd}}
+
+
+Déclaration de la classe utilisant la base de données.  
+
+
+
+
+{\ttfamily \#include $<$Bdd.\+h$>$}
+
+
+
+Graphe de collaboration de Bdd\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=221pt]{class_bdd__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_bdd_a1a234e773787295f521d66685149176b}{connecter} ()
+\begin{DoxyCompactList}\small\item\em Définition méthose \hyperlink{class_bdd_a1a234e773787295f521d66685149176b}{connecter()} \end{DoxyCompactList}\item 
+bool \hyperlink{class_bdd_afeb7ee6793705cb94a94560fd53e3e9d}{est\+Connecte} ()
+\begin{DoxyCompactList}\small\item\em retourne l\textquotesingle{}état de connexion à la base de données \end{DoxyCompactList}\item 
+bool \hyperlink{class_bdd_ab6ae645b4b54ce5df8dc9b422fb39faa}{executer} (Q\+String requete)
+\begin{DoxyCompactList}\small\item\em exécute une requête S\+QL de type U\+P\+D\+A\+TE, I\+N\+S\+E\+RT et D\+E\+L\+E\+TE \end{DoxyCompactList}\item 
+bool \hyperlink{class_bdd_a8f25d29d309041bbf875700db0efd97b}{recuperer} (Q\+String requete, Q\+String \&donnees)
+\begin{DoxyCompactList}\small\item\em exécute une requête S\+QL de type S\+E\+L\+E\+CT et récupère un champ d\textquotesingle{}un seul enregistrement \end{DoxyCompactList}\item 
+bool \hyperlink{class_bdd_a397b32b8bc612aadf95bf0595e37ec7c}{recuperer} (Q\+String requete, Q\+String\+List \&donnees)
+\begin{DoxyCompactList}\small\item\em exécute une requête S\+QL de type S\+E\+L\+E\+CT et récupère plusieurs champs d\textquotesingle{}un seul enregistrement \end{DoxyCompactList}\item 
+bool \hyperlink{class_bdd_ae155534b5b1a9daa94ee2106fcf0f37d}{recuperer} (Q\+String requete, Q\+Vector$<$ Q\+String $>$ \&donnees)
+\begin{DoxyCompactList}\small\item\em exécute une requête S\+QL de type S\+E\+L\+E\+CT et récupère un seul champ de plusieurs enregistrements \end{DoxyCompactList}\item 
+bool \hyperlink{class_bdd_a482cd502a23b933712400044e1ba3e37}{recuperer} (Q\+String requete, Q\+Vector$<$ Q\+String\+List $>$ \&donnees)
+\begin{DoxyCompactList}\small\item\em exécute une requête S\+QL de type S\+E\+L\+E\+CT et récupère plusieurs champs de plusieurs enregistrements \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{class_bdd_af89fa3ffa107c7859a3964bf032cfdb7}{detruire\+Instance} ()
+\begin{DoxyCompactList}\small\item\em Définition méthode \hyperlink{class_bdd_af89fa3ffa107c7859a3964bf032cfdb7}{detruire\+Instance()} \end{DoxyCompactList}\item 
+static \hyperlink{class_bdd}{Bdd} $\ast$ \hyperlink{class_bdd_a6f55c29d593da12ca31fad02f5adfe24}{get\+Instance} ()
+\begin{DoxyCompactList}\small\item\em Définition méthode \hyperlink{class_bdd_a6f55c29d593da12ca31fad02f5adfe24}{get\+Instance()} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Fonctions membres privées}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_bdd_a5306aeacb2baa3be8d4d3f8326527f60}{Bdd} ()
+\begin{DoxyCompactList}\small\item\em Définition du constructeur de la classe \hyperlink{class_bdd}{Bdd}. \end{DoxyCompactList}\item 
+\hyperlink{class_bdd_a5029277f27f8cfcf9d8603fb331a15dd}{$\sim$\+Bdd} ()
+\begin{DoxyCompactList}\small\item\em Définition du destructeur de la classe \hyperlink{class_bdd}{Bdd}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+Q\+Sql\+Database \hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db}
+\begin{DoxyCompactList}\small\item\em pour la connexion à la base de données My\+S\+QL \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Attributs privés statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_bdd}{Bdd} $\ast$ \hyperlink{class_bdd_a09bd3b3a31feedf3dd42a507e0249213}{bdd} = N\+U\+LL
+\begin{DoxyCompactList}\small\item\em pointeur sur l\textquotesingle{}instance unique \end{DoxyCompactList}\item 
+static int \hyperlink{class_bdd_a9fb6aa118a28c27307f27fd7662e462d}{nb\+Acces} = 0
+\begin{DoxyCompactList}\small\item\em compte le nombre d\textquotesingle{}accès à l\textquotesingle{}instance unique \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Description détaillée}
+Déclaration de la classe utilisant la base de données. 
+
+\begin{DoxyAuthor}{Auteur}
+Legger Pierre-\/\+Antoine 
+
+Tranchat Joffrey
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+Vendredi 14 Février 
+\end{DoxyDate}
+
+
+Définition à la ligne \hyperlink{_bdd_8h_source_l00042}{42} du fichier \hyperlink{_bdd_8h_source}{Bdd.\+h}.
+
+
+
+\subsubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{class_bdd_a5306aeacb2baa3be8d4d3f8326527f60}\label{class_bdd_a5306aeacb2baa3be8d4d3f8326527f60}} 
+\index{Bdd@{Bdd}!Bdd@{Bdd}}
+\index{Bdd@{Bdd}!Bdd@{Bdd}}
+\paragraph{\texorpdfstring{Bdd()}{Bdd()}}
+{\footnotesize\ttfamily Bdd\+::\+Bdd (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Définition du constructeur de la classe \hyperlink{class_bdd}{Bdd}. 
+
+initialise le type My\+S\+QL pour la connexion à la base de données 
+
+Définition à la ligne \hyperlink{_bdd_8cpp_source_l00027}{27} du fichier \hyperlink{_bdd_8cpp_source}{Bdd.\+cpp}.
+
+
+
+Références \hyperlink{_bdd_8h_source_l00063}{db}.
+
+
+
+Référencé par \hyperlink{_bdd_8cpp_source_l00053}{get\+Instance()}.
+
+
+\begin{DoxyCode}
+00028 \{
+00029 \textcolor{preprocessor}{    #ifdef DEBUG\_BDD}
+00030     qDebug() << Q\_FUNC\_INFO;
+00031 \textcolor{preprocessor}{    #endif}
+00032     \hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db} = QSqlDatabase::addDatabase(\textcolor{stringliteral}{"QMYSQL"});
+00033 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bdd_a5029277f27f8cfcf9d8603fb331a15dd}\label{class_bdd_a5029277f27f8cfcf9d8603fb331a15dd}} 
+\index{Bdd@{Bdd}!````~Bdd@{$\sim$\+Bdd}}
+\index{````~Bdd@{$\sim$\+Bdd}!Bdd@{Bdd}}
+\paragraph{\texorpdfstring{$\sim$\+Bdd()}{~Bdd()}}
+{\footnotesize\ttfamily Bdd\+::$\sim$\+Bdd (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Définition du destructeur de la classe \hyperlink{class_bdd}{Bdd}. 
+
+destructeur de la classe \hyperlink{class_bdd}{Bdd} 
+
+Définition à la ligne \hyperlink{_bdd_8cpp_source_l00040}{40} du fichier \hyperlink{_bdd_8cpp_source}{Bdd.\+cpp}.
+
+
+\begin{DoxyCode}
+00041 \{
+00042 \textcolor{preprocessor}{    #ifdef DEBUG\_BDD}
+00043     qDebug() << Q\_FUNC\_INFO;
+00044 \textcolor{preprocessor}{    #endif}
+00045 \}
+\end{DoxyCode}
+
+
+\subsubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{class_bdd_a1a234e773787295f521d66685149176b}\label{class_bdd_a1a234e773787295f521d66685149176b}} 
+\index{Bdd@{Bdd}!connecter@{connecter}}
+\index{connecter@{connecter}!Bdd@{Bdd}}
+\paragraph{\texorpdfstring{connecter()}{connecter()}}
+{\footnotesize\ttfamily bool Bdd\+::connecter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Définition méthose \hyperlink{class_bdd_a1a234e773787295f521d66685149176b}{connecter()} 
+
+permet de se connecter à la base de données \begin{DoxyReturn}{Renvoie}
+boolean 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{_bdd_8cpp_source_l00093}{93} du fichier \hyperlink{_bdd_8cpp_source}{Bdd.\+cpp}.
+
+
+
+Références \hyperlink{_bdd_8h_source_l00013}{D\+A\+T\+A\+B\+A\+S\+E\+N\+A\+ME}, \hyperlink{_bdd_8h_source_l00063}{db}, \hyperlink{_bdd_8h_source_l00010}{H\+O\+S\+T\+N\+A\+ME}, \hyperlink{_bdd_8h_source_l00012}{P\+A\+S\+S\+W\+O\+RD}, et \hyperlink{_bdd_8h_source_l00011}{U\+S\+E\+R\+N\+A\+ME}.
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00036}{Supervision\+::\+Supervision()}.
+
+
+\begin{DoxyCode}
+00094 \{
+00095     \textcolor{keywordflow}{if}(!\hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db}.isOpen())
+00096     \{
+00097         \hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db}.setHostName(\hyperlink{_bdd_8h_a63ebf0552e7b4b8f37af87147904ffce}{HOSTNAME});
+00098         \hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db}.setUserName(\hyperlink{_bdd_8h_a3a747cf18fa28f0de7920de0f89f5144}{USERNAME});
+00099         \hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db}.setPassword(\hyperlink{_bdd_8h_a9e8538fad4eee548302ad9f60e6d47ca}{PASSWORD});
+00100         \hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db}.setDatabaseName(\hyperlink{_bdd_8h_aed52a1560b7fbe28f212643a9be8a139}{DATABASENAME});
+00101 
+00102 \textcolor{preprocessor}{        #ifdef DEBUG\_BDD}
+00103         qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"HostName"} << \hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db}.hostName();
+00104         qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"UserName"} << \hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db}.userName();
+00105         qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"DatabaseName"} << \hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db}.databaseName();
+00106 \textcolor{preprocessor}{        #endif}
+00107         \textcolor{keywordflow}{if}(\hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db}.open())
+00108         \{
+00109 \textcolor{preprocessor}{            #ifdef DEBUG\_BDD}
+00110             qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"connexion réussie à %1"}).arg(
+      \hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db}.hostName());
+00111 \textcolor{preprocessor}{            #endif}
+00112 
+00113             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00114         \}
+00115         \textcolor{keywordflow}{else}
+00116         \{
+00117             qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"erreur : impossible de se connecter à la base de
+       données !"});
+00118 
+00119             QMessageBox::critical(0, QString::fromUtf8(\textcolor{stringliteral}{"e-stock"}), QString::fromUtf8(\textcolor{stringliteral}{"Impossible de se
+       connecter à la base de données !"}));
+00120             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00121         \}
+00122 
+00123     \}
+00124     \textcolor{keywordflow}{else}
+00125         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00126 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bdd_af89fa3ffa107c7859a3964bf032cfdb7}\label{class_bdd_af89fa3ffa107c7859a3964bf032cfdb7}} 
+\index{Bdd@{Bdd}!detruire\+Instance@{detruire\+Instance}}
+\index{detruire\+Instance@{detruire\+Instance}!Bdd@{Bdd}}
+\paragraph{\texorpdfstring{detruire\+Instance()}{detruireInstance()}}
+{\footnotesize\ttfamily void Bdd\+::detruire\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Définition méthode \hyperlink{class_bdd_af89fa3ffa107c7859a3964bf032cfdb7}{detruire\+Instance()} 
+
+détruit l\textquotesingle{}instance de la \hyperlink{class_bdd}{Bdd} si elle existe et si personne l\textquotesingle{}utilise 
+
+Définition à la ligne \hyperlink{_bdd_8cpp_source_l00073}{73} du fichier \hyperlink{_bdd_8cpp_source}{Bdd.\+cpp}.
+
+
+
+Références \hyperlink{_bdd_8h_source_l00064}{bdd}, et \hyperlink{_bdd_8h_source_l00065}{nb\+Acces}.
+
+
+
+Référencé par \hyperlink{_armoire_8cpp_source_l00036}{Armoire\+::$\sim$\+Armoire()}.
+
+
+\begin{DoxyCode}
+00074 \{
+00075     \textcolor{keywordflow}{if}(\hyperlink{class_bdd_a09bd3b3a31feedf3dd42a507e0249213}{bdd} != NULL)
+00076     \{
+00077         \hyperlink{class_bdd_a9fb6aa118a28c27307f27fd7662e462d}{nbAcces}--;
+00078 \textcolor{preprocessor}{        #ifdef DEBUG\_BASEDEDONNEES}
+00079         qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"nbAcces"} << \hyperlink{class_bdd_a9fb6aa118a28c27307f27fd7662e462d}{nbAcces};
+00080 \textcolor{preprocessor}{        #endif}
+00081 
+00082         \textcolor{keywordflow}{if}(nbAcces == 0)
+00083             \textcolor{keyword}{delete} \hyperlink{class_bdd_a09bd3b3a31feedf3dd42a507e0249213}{bdd};
+00084     \}
+00085 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bdd_afeb7ee6793705cb94a94560fd53e3e9d}\label{class_bdd_afeb7ee6793705cb94a94560fd53e3e9d}} 
+\index{Bdd@{Bdd}!est\+Connecte@{est\+Connecte}}
+\index{est\+Connecte@{est\+Connecte}!Bdd@{Bdd}}
+\paragraph{\texorpdfstring{est\+Connecte()}{estConnecte()}}
+{\footnotesize\ttfamily bool Bdd\+::est\+Connecte (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+retourne l\textquotesingle{}état de connexion à la base de données 
+
+retourne l\textquotesingle{}état de connexion à la base de données \begin{DoxyReturn}{Renvoie}
+boolean true si connecté à la base de données sinon false 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{_bdd_8cpp_source_l00134}{134} du fichier \hyperlink{_bdd_8cpp_source}{Bdd.\+cpp}.
+
+
+
+Références \hyperlink{_bdd_8h_source_l00063}{db}.
+
+
+\begin{DoxyCode}
+00135 \{
+00136     \textcolor{keywordflow}{return} \hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db}.isOpen();
+00137 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bdd_ab6ae645b4b54ce5df8dc9b422fb39faa}\label{class_bdd_ab6ae645b4b54ce5df8dc9b422fb39faa}} 
+\index{Bdd@{Bdd}!executer@{executer}}
+\index{executer@{executer}!Bdd@{Bdd}}
+\paragraph{\texorpdfstring{executer()}{executer()}}
+{\footnotesize\ttfamily bool Bdd\+::executer (\begin{DoxyParamCaption}\item[{Q\+String}]{requete }\end{DoxyParamCaption})}
+
+
+
+exécute une requête S\+QL de type U\+P\+D\+A\+TE, I\+N\+S\+E\+RT et D\+E\+L\+E\+TE 
+
+exécute une requête S\+QL de type U\+P\+D\+A\+TE, I\+N\+S\+E\+RT et D\+E\+L\+E\+TE 
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\tt in}  & {\em requete} & une requête S\+QL de type U\+P\+D\+A\+TE, I\+N\+S\+E\+RT et D\+E\+L\+E\+TE \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+boolean true si la requête a été exécutée avec succès sinon false 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{_bdd_8cpp_source_l00146}{146} du fichier \hyperlink{_bdd_8cpp_source}{Bdd.\+cpp}.
+
+
+
+Références \hyperlink{_bdd_8h_source_l00063}{db}.
+
+
+
+Référencé par \hyperlink{_article_8cpp_source_l00329}{Article\+::mettre\+A\+Jour\+Quantite()}, et \hyperlink{_supervision_8cpp_source_l00141}{Supervision\+::verifier\+Authentification\+Identifiant()}.
+
+
+\begin{DoxyCode}
+00147 \{
+00148     QSqlQuery r;
+00149     \textcolor{keywordtype}{bool} retour;
+00150 
+00151     \textcolor{keywordflow}{if}(\hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db}.isOpen())
+00152     \{
+00153         \textcolor{keywordflow}{if}(requete.contains(\textcolor{stringliteral}{"UPDATE"}) || requete.contains(\textcolor{stringliteral}{"INSERT"}) || requete.contains(\textcolor{stringliteral}{"DELETE"}))
+00154         \{
+00155             retour = r.exec(requete);
+00156 \textcolor{preprocessor}{            #ifdef DEBUG\_BASEDEDONNEES}
+00157             qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Retour %1 pour la requete : %2"}).arg(
+      QString::number(retour)).arg(requete);
+00158 \textcolor{preprocessor}{            #endif}
+00159             \textcolor{keywordflow}{if}(retour)
+00160             \{
+00161                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00162             \}
+00163             \textcolor{keywordflow}{else}
+00164             \{
+00165                 qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Erreur : %1 pour la requête %2"}).arg(r.
+      lastError().text()).arg(requete);
+00166                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00167             \}
+00168         \}
+00169         \textcolor{keywordflow}{else}
+00170         \{
+00171             qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Erreur : requête %1 non autorisée !"}).arg(requete
+      );
+00172             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00173         \}
+00174     \}
+00175     \textcolor{keywordflow}{else}
+00176         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00177 
+00178 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bdd_a6f55c29d593da12ca31fad02f5adfe24}\label{class_bdd_a6f55c29d593da12ca31fad02f5adfe24}} 
+\index{Bdd@{Bdd}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!Bdd@{Bdd}}
+\paragraph{\texorpdfstring{get\+Instance()}{getInstance()}}
+{\footnotesize\ttfamily \hyperlink{class_bdd}{Bdd} $\ast$ Bdd\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Définition méthode \hyperlink{class_bdd_a6f55c29d593da12ca31fad02f5adfe24}{get\+Instance()} 
+
+permet l\textquotesingle{}instanciation d\textquotesingle{}un objet \hyperlink{class_bdd}{Bdd} en vérifiant qu\textquotesingle{}il n\textquotesingle{}en existe pas déja un \begin{DoxyReturn}{Renvoie}
+bdd l\textquotesingle{}instance unique 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{_bdd_8cpp_source_l00053}{53} du fichier \hyperlink{_bdd_8cpp_source}{Bdd.\+cpp}.
+
+
+
+Références \hyperlink{_bdd_8cpp_source_l00027}{Bdd()}, \hyperlink{_bdd_8h_source_l00064}{bdd}, et \hyperlink{_bdd_8h_source_l00065}{nb\+Acces}.
+
+
+
+Référencé par \hyperlink{_armoire_8cpp_source_l00022}{Armoire\+::\+Armoire()}, et \hyperlink{_supervision_8cpp_source_l00036}{Supervision\+::\+Supervision()}.
+
+
+\begin{DoxyCode}
+00054 \{
+00055     \textcolor{keywordflow}{if}(\hyperlink{class_bdd_a09bd3b3a31feedf3dd42a507e0249213}{bdd} == NULL)
+00056         \hyperlink{class_bdd_a09bd3b3a31feedf3dd42a507e0249213}{bdd} = \textcolor{keyword}{new} \hyperlink{class_bdd_a5306aeacb2baa3be8d4d3f8326527f60}{Bdd}();
+00057 
+00058     \hyperlink{class_bdd_a9fb6aa118a28c27307f27fd7662e462d}{nbAcces}++;
+00059 
+00060 \textcolor{preprocessor}{    #ifdef DEBUG\_BDD}
+00061     qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"nbAcces"} << \hyperlink{class_bdd_a9fb6aa118a28c27307f27fd7662e462d}{nbAcces};
+00062 \textcolor{preprocessor}{    #endif}
+00063 
+00064     \textcolor{keywordflow}{return} \hyperlink{class_bdd_a09bd3b3a31feedf3dd42a507e0249213}{bdd};
+00065 
+00066 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bdd_a8f25d29d309041bbf875700db0efd97b}\label{class_bdd_a8f25d29d309041bbf875700db0efd97b}} 
+\index{Bdd@{Bdd}!recuperer@{recuperer}}
+\index{recuperer@{recuperer}!Bdd@{Bdd}}
+\paragraph{\texorpdfstring{recuperer()}{recuperer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily bool Bdd\+::recuperer (\begin{DoxyParamCaption}\item[{Q\+String}]{requete,  }\item[{Q\+String \&}]{donnees }\end{DoxyParamCaption})}
+
+
+
+exécute une requête S\+QL de type S\+E\+L\+E\+CT et récupère un champ d\textquotesingle{}un seul enregistrement 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\tt in}  & {\em requete} & une requête S\+QL de type S\+E\+L\+E\+CT \\
+\hline
+\mbox{\tt out}  & {\em donnees} & le champ Q\+String récupéré \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+boolean true si la requête a été exécutée avec succès sinon false 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{_bdd_8cpp_source_l00187}{187} du fichier \hyperlink{_bdd_8cpp_source}{Bdd.\+cpp}.
+
+
+
+Références \hyperlink{_bdd_8h_source_l00063}{db}.
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00305}{Supervision\+::rechercher\+Article()}, \hyperlink{_armoire_8cpp_source_l00049}{Armoire\+::recuperer\+Armoire()}, \hyperlink{_article_8cpp_source_l00050}{Article\+::recuperer\+Donnees\+Article()}, \hyperlink{_article_8cpp_source_l00103}{Article\+::recuperer\+Donnees\+Article\+Par\+Nom()}, \hyperlink{_article_8cpp_source_l00156}{Article\+::recuperer\+Donnees\+Article\+Par\+Numero\+Casier()}, \hyperlink{_supervision_8cpp_source_l00165}{Supervision\+::recuperer\+Donnees\+Utilisateur()}, \hyperlink{_article_8cpp_source_l00202}{Article\+::recuperer\+Nombre\+Casiers\+Pour\+Id\+Article()}, \hyperlink{_article_8cpp_source_l00218}{Article\+::recuperer\+Nombre\+Casiers\+Pour\+Nom\+Article()}, \hyperlink{_article_8cpp_source_l00234}{Article\+::recuperer\+Numero\+Casier\+Pour\+Id\+Article()}, et \hyperlink{_article_8cpp_source_l00250}{Article\+::recuperer\+Numero\+Casier\+Pour\+Nom\+Article()}.
+
+
+\begin{DoxyCode}
+00188 \{
+00189     QSqlQuery r;
+00190     \textcolor{keywordtype}{bool} retour;
+00191 
+00192     \textcolor{keywordflow}{if}(\hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db}.isOpen())
+00193     \{
+00194         \textcolor{keywordflow}{if}(requete.contains(\textcolor{stringliteral}{"SELECT"}))
+00195         \{
+00196             retour = r.exec(requete);
+00197 \textcolor{preprocessor}{            #ifdef DEBUG\_BASEDEDONNEES}
+00198             qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Retour %1 pour la requete : %2"}).arg(
+      QString::number(retour)).arg(requete);
+00199 \textcolor{preprocessor}{            #endif}
+00200             \textcolor{keywordflow}{if}(retour)
+00201             \{
+00202                 \textcolor{comment}{// on se positionne sur l'enregistrement}
+00203                 r.first();
+00204 
+00205                 \textcolor{comment}{// on vérifie l'état de l'enregistrement retourné}
+00206                 \textcolor{keywordflow}{if}(!r.isValid())
+00207                 \{
+00208 \textcolor{preprocessor}{                    #ifdef DEBUG\_BASEDEDONNEES}
+00209                     qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Résultat non valide !"});
+00210 \textcolor{preprocessor}{                    #endif}
+00211                     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00212                 \}
+00213 
+00214                 \textcolor{comment}{// on récupère sous forme de QString la valeur du champ}
+00215                 \textcolor{keywordflow}{if}(r.isNull(0))
+00216                 \{
+00217 \textcolor{preprocessor}{                    #ifdef DEBUG\_BASEDEDONNEES}
+00218                     qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Aucun résultat !"});
+00219 \textcolor{preprocessor}{                    #endif}
+00220                     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00221                 \}
+00222                 donnees = r.value(0).toString();
+00223 \textcolor{preprocessor}{                #ifdef DEBUG\_BASEDEDONNEES}
+00224                 qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"Enregistrement -> "} << donnees;
+00225 \textcolor{preprocessor}{                #endif}
+00226                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00227             \}
+00228             \textcolor{keywordflow}{else}
+00229             \{
+00230                 qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Erreur : %1 pour la requête %2"}).arg(r.
+      lastError().text()).arg(requete);
+00231                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00232             \}
+00233         \}
+00234         \textcolor{keywordflow}{else}
+00235         \{
+00236             qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Erreur : requête %1 non autorisée !"}).arg(requete
+      );
+00237             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00238         \}
+00239     \}
+00240     \textcolor{keywordflow}{else}
+00241         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00242 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bdd_a397b32b8bc612aadf95bf0595e37ec7c}\label{class_bdd_a397b32b8bc612aadf95bf0595e37ec7c}} 
+\index{Bdd@{Bdd}!recuperer@{recuperer}}
+\index{recuperer@{recuperer}!Bdd@{Bdd}}
+\paragraph{\texorpdfstring{recuperer()}{recuperer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily bool Bdd\+::recuperer (\begin{DoxyParamCaption}\item[{Q\+String}]{requete,  }\item[{Q\+String\+List \&}]{donnees }\end{DoxyParamCaption})}
+
+
+
+exécute une requête S\+QL de type S\+E\+L\+E\+CT et récupère plusieurs champs d\textquotesingle{}un seul enregistrement 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\tt in}  & {\em requete} & une requête S\+QL de type S\+E\+L\+E\+CT \\
+\hline
+\mbox{\tt out}  & {\em donnees} & plusieurs champs d\textquotesingle{}un seul enregistrement dans un Q\+String\+List \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+boolean true si la requête a été exécutée avec succès sinon false 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{_bdd_8cpp_source_l00251}{251} du fichier \hyperlink{_bdd_8cpp_source}{Bdd.\+cpp}.
+
+
+
+Références \hyperlink{_bdd_8h_source_l00063}{db}.
+
+
+\begin{DoxyCode}
+00252 \{
+00253     QSqlQuery r;
+00254     \textcolor{keywordtype}{bool} retour;
+00255 
+00256     \textcolor{keywordflow}{if}(\hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db}.isOpen())
+00257     \{
+00258         \textcolor{keywordflow}{if}(requete.contains(\textcolor{stringliteral}{"SELECT"}))
+00259         \{
+00260             retour = r.exec(requete);
+00261 \textcolor{preprocessor}{            #ifdef DEBUG\_BASEDEDONNEES}
+00262             qDebug() << QString::fromUtf8(\textcolor{stringliteral}{"Retour %1 pour la requete : %2"}).arg(QString::number(retour)).
+      arg(requete);
+00263 \textcolor{preprocessor}{            #endif}
+00264             \textcolor{keywordflow}{if}(retour)
+00265             \{
+00266                 \textcolor{comment}{// on se positionne sur l'enregistrement}
+00267                 r.first();
+00268 
+00269                 \textcolor{comment}{// on vérifie l'état de l'enregistrement retourné}
+00270                 \textcolor{keywordflow}{if}(!r.isValid())
+00271                 \{
+00272 \textcolor{preprocessor}{                    #ifdef DEBUG\_BASEDEDONNEES}
+00273                     qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Résultat non valide !"});
+00274 \textcolor{preprocessor}{                    #endif}
+00275                     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00276                 \}
+00277 
+00278                 \textcolor{comment}{// on récupère sous forme de QString la valeur de tous les champs sélectionnés}
+00279                 \textcolor{comment}{// et on les stocke dans une liste de QString}
+00280                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<r.record().count();i++)
+00281                     \textcolor{keywordflow}{if}(!r.isNull(i))
+00282                         donnees << r.value(i).toString();
+00283 \textcolor{preprocessor}{                #ifdef DEBUG\_BASEDEDONNEES}
+00284                 qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"Enregistrement -> "} << donnees;
+00285 \textcolor{preprocessor}{                #endif}
+00286                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00287             \}
+00288             \textcolor{keywordflow}{else}
+00289             \{
+00290                 qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Erreur : %1 pour la requête %2"}).arg(r.
+      lastError().text()).arg(requete);
+00291                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00292             \}
+00293         \}
+00294         \textcolor{keywordflow}{else}
+00295         \{
+00296             qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Erreur : requête %1 non autorisée !"}).arg(requete
+      );
+00297             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00298         \}
+00299     \}
+00300     \textcolor{keywordflow}{else}
+00301         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00302 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bdd_ae155534b5b1a9daa94ee2106fcf0f37d}\label{class_bdd_ae155534b5b1a9daa94ee2106fcf0f37d}} 
+\index{Bdd@{Bdd}!recuperer@{recuperer}}
+\index{recuperer@{recuperer}!Bdd@{Bdd}}
+\paragraph{\texorpdfstring{recuperer()}{recuperer()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily bool Bdd\+::recuperer (\begin{DoxyParamCaption}\item[{Q\+String}]{requete,  }\item[{Q\+Vector$<$ Q\+String $>$ \&}]{donnees }\end{DoxyParamCaption})}
+
+
+
+exécute une requête S\+QL de type S\+E\+L\+E\+CT et récupère un seul champ de plusieurs enregistrements 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\tt in}  & {\em requete} & une requête S\+QL de type S\+E\+L\+E\+CT \\
+\hline
+\mbox{\tt out}  & {\em donnees} & un seul champ de plusieurs enregistrements dans un Q\+Vector de Q\+String \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+boolean true si la requête a été exécutée avec succès sinon false 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{_bdd_8cpp_source_l00311}{311} du fichier \hyperlink{_bdd_8cpp_source}{Bdd.\+cpp}.
+
+
+
+Références \hyperlink{_bdd_8h_source_l00063}{db}.
+
+
+\begin{DoxyCode}
+00312 \{
+00313     QSqlQuery r;
+00314     \textcolor{keywordtype}{bool} retour;
+00315     QString data;
+00316 
+00317     \textcolor{keywordflow}{if}(\hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db}.isOpen())
+00318     \{
+00319         \textcolor{keywordflow}{if}(requete.contains(\textcolor{stringliteral}{"SELECT"}))
+00320         \{
+00321             retour = r.exec(requete);
+00322 \textcolor{preprocessor}{            #ifdef DEBUG\_BASEDEDONNEES}
+00323             qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Retour %1 pour la requete : %2"}).arg(
+      QString::number(retour)).arg(requete);
+00324 \textcolor{preprocessor}{            #endif}
+00325             \textcolor{keywordflow}{if}(retour)
+00326             \{
+00327                 \textcolor{comment}{// pour chaque enregistrement}
+00328                 \textcolor{keywordflow}{while} ( r.next() )
+00329                 \{
+00330                     \textcolor{comment}{// on récupère sous forme de QString la valeur du champs sélectionné}
+00331                     data = r.value(0).toString();
+00332 
+00333 \textcolor{preprocessor}{                    #ifdef DEBUG\_BASEDEDONNEES}
+00334                     \textcolor{comment}{//qDebug() << Q\_FUNC\_INFO << "Enregistrement -> " << data;}
+00335 \textcolor{preprocessor}{                    #endif}
+00336 
+00337                     \textcolor{comment}{// on stocke l'enregistrement dans le QVector}
+00338                     donnees.push\_back(data);
+00339                 \}
+00340 \textcolor{preprocessor}{                #ifdef DEBUG\_BASEDEDONNEES}
+00341                 qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"Enregistrement -> "} << donnees;
+00342 \textcolor{preprocessor}{                #endif}
+00343                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00344             \}
+00345             \textcolor{keywordflow}{else}
+00346             \{
+00347                 qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Erreur : %1 pour la requête %2"}).arg(r.
+      lastError().text()).arg(requete);
+00348                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00349             \}
+00350         \}
+00351         \textcolor{keywordflow}{else}
+00352         \{
+00353             qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Erreur : requête %1 non autorisée !"}).arg(requete
+      );
+00354             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00355         \}
+00356     \}
+00357     \textcolor{keywordflow}{else}
+00358         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00359 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bdd_a482cd502a23b933712400044e1ba3e37}\label{class_bdd_a482cd502a23b933712400044e1ba3e37}} 
+\index{Bdd@{Bdd}!recuperer@{recuperer}}
+\index{recuperer@{recuperer}!Bdd@{Bdd}}
+\paragraph{\texorpdfstring{recuperer()}{recuperer()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily bool Bdd\+::recuperer (\begin{DoxyParamCaption}\item[{Q\+String}]{requete,  }\item[{Q\+Vector$<$ Q\+String\+List $>$ \&}]{donnees }\end{DoxyParamCaption})}
+
+
+
+exécute une requête S\+QL de type S\+E\+L\+E\+CT et récupère plusieurs champs de plusieurs enregistrements 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\tt in}  & {\em requete} & une requête S\+QL de type S\+E\+L\+E\+CT \\
+\hline
+\mbox{\tt out}  & {\em donnees} & \+: plusieurs champs de plusieurs enregistrements dans un Q\+Vector de Q\+String\+List \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+boolean true si la requête a été exécutée avec succès sinon false 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{_bdd_8cpp_source_l00367}{367} du fichier \hyperlink{_bdd_8cpp_source}{Bdd.\+cpp}.
+
+
+
+Références \hyperlink{_bdd_8h_source_l00063}{db}.
+
+
+\begin{DoxyCode}
+00368 \{
+00369     QSqlQuery r;
+00370     \textcolor{keywordtype}{bool} retour;
+00371     QStringList data;
+00372 
+00373     \textcolor{keywordflow}{if}(\hyperlink{class_bdd_a8628c1686deda86999f86689c3e7268e}{db}.isOpen())
+00374     \{
+00375         \textcolor{keywordflow}{if}(requete.contains(\textcolor{stringliteral}{"SELECT"}))
+00376         \{
+00377             retour = r.exec(requete);
+00378 \textcolor{preprocessor}{            #ifdef DEBUG\_BASEDEDONNEES}
+00379             qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Retour %1 pour la requete : %2"}).arg(
+      QString::number(retour)).arg(requete);
+00380 \textcolor{preprocessor}{            #endif}
+00381             \textcolor{keywordflow}{if}(retour)
+00382             \{
+00383                 \textcolor{comment}{// pour chaque enregistrement}
+00384                 \textcolor{keywordflow}{while} ( r.next() )
+00385                 \{
+00386                     \textcolor{comment}{// on récupère sous forme de QString la valeur de tous les champs sélectionnés}
+00387                     \textcolor{comment}{// et on les stocke dans une liste de QString}
+00388                     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<r.record().count();i++)
+00389                         data << r.value(i).toString();
+00390 
+00391 \textcolor{preprocessor}{                    #ifdef DEBUG\_BASEDEDONNEES}
+00392                     \textcolor{comment}{//qDebug() << Q\_FUNC\_INFO << "Enregistrement -> " << data;}
+00393                     \textcolor{comment}{/*for(int i=0;i<r.record().count();i++)}
+00394 \textcolor{comment}{                        qDebug() << r.value(i).toString();*/}
+00395 \textcolor{preprocessor}{                    #endif}
+00396 
+00397                     \textcolor{comment}{// on stocke l'enregistrement dans le QVector}
+00398                     donnees.push\_back(data);
+00399 
+00400                     \textcolor{comment}{// on efface la liste de QString pour le prochain enregistrement}
+00401                     data.clear();
+00402                 \}
+00403 \textcolor{preprocessor}{                #ifdef DEBUG\_BASEDEDONNEES}
+00404                 qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"Enregistrement -> "} << donnees;
+00405 \textcolor{preprocessor}{                #endif}
+00406                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00407             \}
+00408             \textcolor{keywordflow}{else}
+00409             \{
+00410                 qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Erreur : %1 pour la requête %2"}).arg(r.
+      lastError().text()).arg(requete);
+00411                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00412             \}
+00413         \}
+00414         \textcolor{keywordflow}{else}
+00415         \{
+00416             qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Erreur : requête %1 non autorisée !"}).arg(requete
+      );
+00417             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00418         \}
+00419     \}
+00420     \textcolor{keywordflow}{else}
+00421         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00422 \}
+\end{DoxyCode}
+
+
+\subsubsection{Documentation des données membres}
+\mbox{\Hypertarget{class_bdd_a09bd3b3a31feedf3dd42a507e0249213}\label{class_bdd_a09bd3b3a31feedf3dd42a507e0249213}} 
+\index{Bdd@{Bdd}!bdd@{bdd}}
+\index{bdd@{bdd}!Bdd@{Bdd}}
+\paragraph{\texorpdfstring{bdd}{bdd}}
+{\footnotesize\ttfamily \hyperlink{class_bdd}{Bdd} $\ast$ Bdd\+::bdd = N\+U\+LL\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+pointeur sur l\textquotesingle{}instance unique 
+
+
+
+Définition à la ligne \hyperlink{_bdd_8h_source_l00064}{64} du fichier \hyperlink{_bdd_8h_source}{Bdd.\+h}.
+
+
+
+Référencé par \hyperlink{_bdd_8cpp_source_l00073}{detruire\+Instance()}, et \hyperlink{_bdd_8cpp_source_l00053}{get\+Instance()}.
+
+\mbox{\Hypertarget{class_bdd_a8628c1686deda86999f86689c3e7268e}\label{class_bdd_a8628c1686deda86999f86689c3e7268e}} 
+\index{Bdd@{Bdd}!db@{db}}
+\index{db@{db}!Bdd@{Bdd}}
+\paragraph{\texorpdfstring{db}{db}}
+{\footnotesize\ttfamily Q\+Sql\+Database Bdd\+::db\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+pour la connexion à la base de données My\+S\+QL 
+
+
+
+Définition à la ligne \hyperlink{_bdd_8h_source_l00063}{63} du fichier \hyperlink{_bdd_8h_source}{Bdd.\+h}.
+
+
+
+Référencé par \hyperlink{_bdd_8cpp_source_l00027}{Bdd()}, \hyperlink{_bdd_8cpp_source_l00093}{connecter()}, \hyperlink{_bdd_8cpp_source_l00134}{est\+Connecte()}, \hyperlink{_bdd_8cpp_source_l00146}{executer()}, et \hyperlink{_bdd_8cpp_source_l00187}{recuperer()}.
+
+\mbox{\Hypertarget{class_bdd_a9fb6aa118a28c27307f27fd7662e462d}\label{class_bdd_a9fb6aa118a28c27307f27fd7662e462d}} 
+\index{Bdd@{Bdd}!nb\+Acces@{nb\+Acces}}
+\index{nb\+Acces@{nb\+Acces}!Bdd@{Bdd}}
+\paragraph{\texorpdfstring{nb\+Acces}{nbAcces}}
+{\footnotesize\ttfamily int Bdd\+::nb\+Acces = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+compte le nombre d\textquotesingle{}accès à l\textquotesingle{}instance unique 
+
+
+
+Définition à la ligne \hyperlink{_bdd_8h_source_l00065}{65} du fichier \hyperlink{_bdd_8h_source}{Bdd.\+h}.
+
+
+
+Référencé par \hyperlink{_bdd_8cpp_source_l00073}{detruire\+Instance()}, et \hyperlink{_bdd_8cpp_source_l00053}{get\+Instance()}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_bdd_8h}{Bdd.\+h}\item 
+\hyperlink{_bdd_8cpp}{Bdd.\+cpp}\end{DoxyCompactItemize}

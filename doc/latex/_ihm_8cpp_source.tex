@@ -1,0 +1,293 @@
+\hypertarget{_ihm_8cpp_source}{}\subsection{Ihm.\+cpp}
+\label{_ihm_8cpp_source}\index{Ihm.\+cpp@{Ihm.\+cpp}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include "\hyperlink{_ihm_8h}{Ihm.h}"}
+00002 \textcolor{preprocessor}{#include "ui\_Ihm.h"}
+00003 \textcolor{preprocessor}{#include "\hyperlink{_supervision_8h}{Supervision.h}"}
+00004 \textcolor{preprocessor}{#include "\hyperlink{_armoire_8h}{Armoire.h}"}
+00005 \textcolor{preprocessor}{#include "\hyperlink{_casier_8h}{Casier.h}"}
+00006 \textcolor{preprocessor}{#include <QMessageBox>}
+00007 \textcolor{preprocessor}{#include <QDebug>}
+00008 \textcolor{preprocessor}{#include <QString>}
+00009 
+\Hypertarget{_ihm_8cpp_source_l00029}\hyperlink{class_ihm_a50a7a15775452923868348bdbe4fa51e}{00029} \hyperlink{class_ihm_a50a7a15775452923868348bdbe4fa51e}{Ihm::Ihm}(QWidget *parent) : \hyperlink{class_q_main_window}{QMainWindow}(parent), ui(new \hyperlink{namespace_ui}{Ui}::
+      \hyperlink{class_ihm}{Ihm}), supervision(new \hyperlink{class_supervision}{Supervision}(this))
+00030 \{
+00031     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->setupUi(\textcolor{keyword}{this});
+00032     \textcolor{comment}{// Suppression des parties inutile du QMainWindow}
+00033     \textcolor{keyword}{delete} \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->menuBar;
+00034     \textcolor{keyword}{delete} \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->mainToolBar;
+00035     \textcolor{keyword}{delete} \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->statusBar;
+00036 
+00037     \textcolor{comment}{// Affiche la fenêtre par défaut en plein écran}
+00038     \hyperlink{class_ihm_a08d82e976e48a2f8fced132a4ba22049}{allerFenetreBadge}();
+00039 
+00040     \textcolor{comment}{// Met la fenêtre en plein écran fenêtrer}
+00041     setWindowFlags(Qt::WindowStaysOnTopHint);
+00042     setWindowFlags(Qt::FramelessWindowHint);
+00043     \textcolor{comment}{// Pour la Raspberry Pi}
+00044     \textcolor{comment}{//showMaximized();}
+00045 
+00046     \textcolor{comment}{// Les deux types d'authentifiaction}
+00047     connect(\hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->lineBadge, SIGNAL(editingFinished()), \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_ihm_abf037b73a8416097f768dd6eb7e20e0e}{authentifierParBadge}()));
+00048     connect(\hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->pushSeConnecter, SIGNAL(clicked()), \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_ihm_afac914d96f4070dd7fd9e53d4b5989c1}{authentifierParIdentifiant}()));
+00049     connect(\hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->pushSeDeconnecter, SIGNAL(clicked()), \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_ihm_a4c4b8c870f639fba192a3c6eff52883d}{deconnecterUtilisateur}()));
+00050 
+00051     \textcolor{comment}{// Les deux fenêtres d'authentifiaction}
+00052     connect(\hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->pushParIdentifiant, SIGNAL(clicked()), \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_ihm_ac464b57ceab0451e8bbc56e40c1bb3a9}{allerFenetreIdentifiant}()));
+00053     connect(\hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->pushParBadge, SIGNAL(clicked()), \textcolor{keyword}{this}, SLOT(\hyperlink{class_ihm_a08d82e976e48a2f8fced132a4ba22049}{allerFenetreBadge}()));
+00054 
+00055     \textcolor{comment}{// Article}
+00056     connect(\hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->lineRecherche, SIGNAL(textChanged(QString)), \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_ihm_a3ef457d0b75d54ab131d97f7461daab6}{activerRecherche}()));
+00057     connect(\hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->pushRecherche, SIGNAL(clicked(\textcolor{keywordtype}{bool})), \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_ihm_a03b67c17f7bd3b8b2ef8d095f460a6b9}{rechercherArticle}()));
+00058 
+00059     \hyperlink{class_ihm_a454ab89ced1b27fcb42d550e443e780c}{supervision}->\hyperlink{class_supervision_a72bd93799fcf5423a5f0c5538d4ec892}{getInformationsArmoire}();
+00060     \hyperlink{class_ihm_a454ab89ced1b27fcb42d550e443e780c}{supervision}->\hyperlink{class_supervision_a558665fd7e7c44653907883afd9a58bf}{creerCasiers}();
+00061 \}
+00062 
+\Hypertarget{_ihm_8cpp_source_l00067}\hyperlink{class_ihm_add292ea9005bacd1de44dd1ed9ede5b9}{00067} \hyperlink{class_ihm_add292ea9005bacd1de44dd1ed9ede5b9}{Ihm::~Ihm}()
+00068 \{
+00069     \textcolor{keyword}{delete} \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui};
+00070 \}
+00071 
+\Hypertarget{_ihm_8cpp_source_l00077}\hyperlink{class_ihm_ab33d5d0a85d60a8d41bae11c34435d50}{00077} \textcolor{keywordtype}{void} \hyperlink{class_ihm_ab33d5d0a85d60a8d41bae11c34435d50}{Ihm::changerDeFenetre}(\textcolor{keywordtype}{int} fenetre)
+00078 \{
+00079     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->stackedWidget->setCurrentIndex(fenetre);
+00080 \}
+00081 
+\Hypertarget{_ihm_8cpp_source_l00087}\hyperlink{class_ihm_a4ba75b0606c75d616dab3afd67660fd4}{00087} \textcolor{keywordtype}{void} \hyperlink{class_ihm_a4ba75b0606c75d616dab3afd67660fd4}{Ihm::placerCasier}(\hyperlink{class_casier}{Casier} *casier)
+00088 \{
+00089     \textcolor{comment}{// pair/impair -> droite/gauche ?}
+00090     \textcolor{keywordtype}{int} numero = casier->\hyperlink{class_casier_a061b024a2733a5bb1dfcc43bb0022707}{getNumero}() - 1;
+00091     \textcolor{keywordflow}{if}((numero+1)%2)
+00092     \{
+00093         \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->gridLayoutCasiers->addWidget(casier, numero/2, 0, 1, 1);
+00094     \}
+00095     \textcolor{keywordflow}{else}
+00096     \{
+00097         \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->gridLayoutCasiers->addWidget(casier, numero/2, 1, 1, 1);
+00098     \}
+00099 \}
+00100 
+\Hypertarget{_ihm_8cpp_source_l00106}\hyperlink{class_ihm_a9baabf33ec07777144921013c354884e}{00106} \textcolor{keywordtype}{void} \hyperlink{class_ihm_a9baabf33ec07777144921013c354884e}{Ihm::afficherInformationsArmoire}(QStringList informationsArmoire)
+00107 \{
+00108 \textcolor{preprocessor}{    #ifdef DEBUG\_IHM}
+00109         qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"informationsArmoire"} << informationsArmoire;
+00110 \textcolor{preprocessor}{    #endif}
+00111     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelNomArmoire->setText(informationsArmoire.at(\hyperlink{_armoire_8h_a8c8e83929e4df868beea17eda4fb5dadaed87f53039b2f5f5401a4b4c9ea8a706}{TABLE\_ARMOIRE\_NOM}) + \textcolor{stringliteral}{" "} + 
+      informationsArmoire.at(\hyperlink{_armoire_8h_a8c8e83929e4df868beea17eda4fb5dadaa46613f3c7eb048c8392fb780e801cc8}{TABLE\_ARMOIRE\_DESCRIPTION}) + \textcolor{stringliteral}{" ("} + informationsArmoire.at(
+      \hyperlink{_armoire_8h_a8c8e83929e4df868beea17eda4fb5dada92634af3316ad54be209ef14cc8a8981}{TABLE\_ARMOIRE\_NB\_CASIERS}+1) + \textcolor{stringliteral}{")"});
+00112     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelNbCasiers->setText(informationsArmoire.at(
+      \hyperlink{_armoire_8h_a8c8e83929e4df868beea17eda4fb5dada92634af3316ad54be209ef14cc8a8981}{TABLE\_ARMOIRE\_NB\_CASIERS}));
+00113 \}
+00114 
+\Hypertarget{_ihm_8cpp_source_l00119}\hyperlink{class_ihm_abf037b73a8416097f768dd6eb7e20e0e}{00119} \textcolor{keywordtype}{void} \hyperlink{class_ihm_abf037b73a8416097f768dd6eb7e20e0e}{Ihm::authentifierParBadge}()
+00120 \{
+00121     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelErreurBadge->clear();
+00122 
+00123     \textcolor{keywordflow}{if}(\hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->lineBadge->text() != \textcolor{stringliteral}{""})
+00124     \{
+00125 \textcolor{preprocessor}{        #ifdef DEBUG\_IHM}
+00126             qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"Contenu brut badge"} << \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->lineBadge->text();
+00127 \textcolor{preprocessor}{        #endif}
+00128 
+00129         QString trameBadge = \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->lineBadge->text();
+00130         \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->lineBadge->clear();
+00131         emit \hyperlink{class_ihm_a15daf0d4cd7c9afd6c97788e54328133}{badgeDetecte}(trameBadge);
+00132     \}
+00133 \}
+00134 
+\Hypertarget{_ihm_8cpp_source_l00139}\hyperlink{class_ihm_afac914d96f4070dd7fd9e53d4b5989c1}{00139} \textcolor{keywordtype}{void} \hyperlink{class_ihm_afac914d96f4070dd7fd9e53d4b5989c1}{Ihm::authentifierParIdentifiant}()
+00140 \{
+00141     \textcolor{keywordflow}{if}(\hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->lineIdentifiant->text() != \textcolor{stringliteral}{""})
+00142     \{
+00143 \textcolor{preprocessor}{        #ifdef DEBUG\_IHM}
+00144             qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"Identifiant"} << \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->lineIdentifiant->text() << \textcolor{stringliteral}{"MotDePasse"} << 
+      \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->lineMotDePasse->text();
+00145 \textcolor{preprocessor}{        #endif}
+00146 
+00147         QString identifiant = \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->lineIdentifiant->text();
+00148         QString motDePasse = \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->lineMotDePasse->text();
+00149         \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->lineIdentifiant->clear();
+00150         \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->lineMotDePasse->clear();
+00151         emit \hyperlink{class_ihm_a7cbb2cb835ec643c0a673082d2956405}{identifiantDetecte}(identifiant, motDePasse);
+00152     \}
+00153 \}
+00154 
+\Hypertarget{_ihm_8cpp_source_l00159}\hyperlink{class_ihm_a4c4b8c870f639fba192a3c6eff52883d}{00159} \textcolor{keywordtype}{void} \hyperlink{class_ihm_a4c4b8c870f639fba192a3c6eff52883d}{Ihm::deconnecterUtilisateur}()
+00160 \{
+00161     \hyperlink{class_ihm_a454ab89ced1b27fcb42d550e443e780c}{supervision}->\hyperlink{class_supervision_a164a1ad89264ea252401818df325eab8}{deconnecterUtilisateur}();
+00162     \hyperlink{class_ihm_ab33d5d0a85d60a8d41bae11c34435d50}{changerDeFenetre}(\hyperlink{_ihm_8h_a280ed5a4ea1cf0cd4c224443fa33db12a1f316de8685375f757a120ce0fde7af2}{FENETRE\_BADGE});
+00163 \}
+00164 
+\Hypertarget{_ihm_8cpp_source_l00169}\hyperlink{class_ihm_a08d82e976e48a2f8fced132a4ba22049}{00169} \textcolor{keywordtype}{void} \hyperlink{class_ihm_a08d82e976e48a2f8fced132a4ba22049}{Ihm::allerFenetreBadge}()
+00170 \{
+00171     \hyperlink{class_ihm_ab33d5d0a85d60a8d41bae11c34435d50}{changerDeFenetre}(\hyperlink{_ihm_8h_a280ed5a4ea1cf0cd4c224443fa33db12a1f316de8685375f757a120ce0fde7af2}{FENETRE\_BADGE});
+00172     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->lineBadge->setFocus();
+00173 \}
+00174 
+\Hypertarget{_ihm_8cpp_source_l00180}\hyperlink{class_ihm_ac464b57ceab0451e8bbc56e40c1bb3a9}{00180} \textcolor{keywordtype}{void} \hyperlink{class_ihm_ac464b57ceab0451e8bbc56e40c1bb3a9}{Ihm::allerFenetreIdentifiant}()
+00181 \{
+00182     \hyperlink{class_ihm_ab33d5d0a85d60a8d41bae11c34435d50}{changerDeFenetre}(\hyperlink{_ihm_8h_a280ed5a4ea1cf0cd4c224443fa33db12ab4af46727ba2f30a07d0dbf72fe1c6f5}{FENETRE\_IDENTIFIANT});
+00183     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->lineIdentifiant->setFocus();
+00184 \}
+00185 
+\Hypertarget{_ihm_8cpp_source_l00190}\hyperlink{class_ihm_ad158f31ff15add856dfae37a5f40da27}{00190} \textcolor{keywordtype}{void} \hyperlink{class_ihm_ad158f31ff15add856dfae37a5f40da27}{Ihm::allerFenetreMenu}()
+00191 \{
+00192     \hyperlink{class_ihm_ab33d5d0a85d60a8d41bae11c34435d50}{changerDeFenetre}(\hyperlink{_ihm_8h_a280ed5a4ea1cf0cd4c224443fa33db12aab522f0c9f0507be961991070788221f}{FENETRE\_MENU});
+00193     \textcolor{comment}{// Initialisation widgets}
+00194     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->comboBoxArticle->clear();
+00195     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->comboBoxArticle->addItem(\textcolor{stringliteral}{"Sélectionner un article"});
+00196     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->pushRecherche->setEnabled(\textcolor{keyword}{false});
+00197     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->lineRecherche->setFocus();
+00198     \textcolor{comment}{// Lance une recherche de tous les articles}
+00199     emit \hyperlink{class_ihm_a3805ec42b0de42e9210b9561b08f3ecd}{rechercheArticle}(\textcolor{stringliteral}{""});
+00200 \}
+00201 
+00202 
+\Hypertarget{_ihm_8cpp_source_l00208}\hyperlink{class_ihm_afbfa4f7fcca1b18186a24f1204ae8bbb}{00208} \textcolor{keywordtype}{void} \hyperlink{class_ihm_afbfa4f7fcca1b18186a24f1204ae8bbb}{Ihm::afficherErreurBadge}(QString message)
+00209 \{
+00210     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelErreurBadge->setText(message);
+00211 \}
+00212 
+\Hypertarget{_ihm_8cpp_source_l00217}\hyperlink{class_ihm_ab6c01e8cc623695d7489be63a4309af7}{00217} \textcolor{keywordtype}{void} \hyperlink{class_ihm_ab6c01e8cc623695d7489be63a4309af7}{Ihm::afficherErreurDepassementQuantite}()
+00218 \{
+00219     QMessageBox::critical(\textcolor{keyword}{nullptr}, \hyperlink{_ihm_8h_a796bd7c6ba2e59281760fb155c6287e8}{APPLICATION}, QString::fromUtf8(
+      \hyperlink{_ihm_8h_a6f69dbaa1a7d36f46cb64b31933b0251}{MESSAGE\_ERREUR\_DEPASSEMENT\_QUANTITE}));
+00220 \}
+00221 
+\Hypertarget{_ihm_8cpp_source_l00228}\hyperlink{class_ihm_a70f9dcc2df7d4d05ab43a809efeeeb06}{00228} \textcolor{keywordtype}{void} \hyperlink{class_ihm_a70f9dcc2df7d4d05ab43a809efeeeb06}{Ihm::traiterDemandeDeConnexion}(\textcolor{keywordtype}{bool} reponse, QString message)
+00229 \{
+00230     \textcolor{keywordflow}{if}(reponse)
+00231     \{
+00232         \hyperlink{class_ihm_ad158f31ff15add856dfae37a5f40da27}{allerFenetreMenu}();
+00233     \}
+00234     \textcolor{keywordflow}{else}
+00235     \{
+00236         QMessageBox::critical(\textcolor{keyword}{nullptr}, \hyperlink{_ihm_8h_a796bd7c6ba2e59281760fb155c6287e8}{APPLICATION}, message);
+00237     \}
+00238 \}
+00239 
+\Hypertarget{_ihm_8cpp_source_l00244}\hyperlink{class_ihm_a3ef457d0b75d54ab131d97f7461daab6}{00244} \textcolor{keywordtype}{void} \hyperlink{class_ihm_a3ef457d0b75d54ab131d97f7461daab6}{Ihm::activerRecherche}()
+00245 \{
+00246     \textcolor{keywordflow}{if}(!\hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->lineRecherche->text().isEmpty())
+00247         \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->pushRecherche->setEnabled(\textcolor{keyword}{true});
+00248     \textcolor{keywordflow}{else}
+00249         \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->pushRecherche->setEnabled(\textcolor{keyword}{false});
+00250 \}
+00251 
+\Hypertarget{_ihm_8cpp_source_l00256}\hyperlink{class_ihm_a03b67c17f7bd3b8b2ef8d095f460a6b9}{00256} \textcolor{keywordtype}{void} \hyperlink{class_ihm_a03b67c17f7bd3b8b2ef8d095f460a6b9}{Ihm::rechercherArticle}()
+00257 \{
+00258     \textcolor{keywordflow}{if}(!\hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->lineRecherche->text().isEmpty())
+00259         \hyperlink{class_ihm_a454ab89ced1b27fcb42d550e443e780c}{supervision}->\hyperlink{class_supervision_af2df200be6727338110b81812703d0ae}{rechercherArticle}(\hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->lineRecherche->text());
+00260 \}
+00261 
+\Hypertarget{_ihm_8cpp_source_l00266}\hyperlink{class_ihm_acb37df89789d7c82be7336519091bc1f}{00266} \textcolor{keywordtype}{void} \hyperlink{class_ihm_acb37df89789d7c82be7336519091bc1f}{Ihm::effacerRechercheArticle}()
+00267 \{
+00268     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->lineRecherche->setText(\textcolor{stringliteral}{""});
+00269 \}
+00270 
+\Hypertarget{_ihm_8cpp_source_l00276}\hyperlink{class_ihm_a9b30cf664493a0089f95ec8b977a8f1e}{00276} \textcolor{keywordtype}{void} \hyperlink{class_ihm_a9b30cf664493a0089f95ec8b977a8f1e}{Ihm::mettreAJourListeArticles}(QVector<QStringList> articlesTrouves)
+00277 \{
+00278 \textcolor{preprocessor}{    #ifdef DEBUG\_IHM}
+00279         qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"articlesTrouves"} << articlesTrouves.size() << articlesTrouves;
+00280 \textcolor{preprocessor}{    #endif}
+00281     \hyperlink{class_ihm_ab632796a21015964c8d7615edb09261c}{creerListeArticles}(articlesTrouves);
+00282 
+00283     \hyperlink{class_ihm_acb37df89789d7c82be7336519091bc1f}{effacerRechercheArticle}();
+00284 \}
+00285 
+\Hypertarget{_ihm_8cpp_source_l00291}\hyperlink{class_ihm_ad9b83836021fc8542db033da186cc64c}{00291} \textcolor{keywordtype}{void} \hyperlink{class_ihm_ad9b83836021fc8542db033da186cc64c}{Ihm::selectionnerArticle}(\textcolor{keywordtype}{int} index)
+00292 \{
+00293 \textcolor{preprocessor}{    #ifdef DEBUG\_IHM}
+00294         qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"index"} << index << \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->comboBoxArticle->currentText();
+00295 \textcolor{preprocessor}{    #endif}
+00296 
+00297     \hyperlink{class_ihm_a454ab89ced1b27fcb42d550e443e780c}{supervision}->\hyperlink{class_supervision_a2efb7e4dabe2664c9cfd41d703b6250c}{selectionnerArticle}(\hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->comboBoxArticle->currentText());
+00298 \}
+00299 
+\Hypertarget{_ihm_8cpp_source_l00305}\hyperlink{class_ihm_aca73421fd372dc490c12f77e3bbdf00c}{00305} \textcolor{keywordtype}{void} \hyperlink{class_ihm_aca73421fd372dc490c12f77e3bbdf00c}{Ihm::afficherDonneesArticleSelectionne}(QStringList 
+      donneesArticle)
+00306 \{
+00307     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelCasier->setText(\textcolor{stringliteral}{"Casier :"});
+00308     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelQuantiteNombre->setText(donneesArticle.at(\hyperlink{_ihm_8h_ac91f014239536b9bb49d4265ca91d0d5}{ARTICLE\_QUANTITE}));
+00309     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelDisponibleNombre->setText(donneesArticle.at(\hyperlink{_ihm_8h_a2c5f129a41ff7dac8fa0d97af2d1efd5}{ARTICLE\_DISPONIBLE}));
+00310     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelCasierNombre->setText(donneesArticle.at(\hyperlink{_ihm_8h_a7935787ef2fa7206f347feff73167ce6}{NUMERO\_CASIERS}));
+00311 \}
+00312 
+\Hypertarget{_ihm_8cpp_source_l00318}\hyperlink{class_ihm_af3569c42ee3f9cd38580d01a07212e44}{00318} \textcolor{keywordtype}{void} \hyperlink{class_ihm_aca73421fd372dc490c12f77e3bbdf00c}{Ihm::afficherDonneesArticleSelectionne}(QVector<QStringList> 
+      donneesArticle)
+00319 \{
+00320     \textcolor{keywordflow}{if}(donneesArticle.size() <= 0)
+00321         \textcolor{keywordflow}{return};
+00322     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} articleQuantite = 0;
+00323     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} articleDisponible = 0;
+00324     QString casiersQuantite;
+00325     QString casiersDisponible;
+00326     QString casiers;
+00327     \textcolor{keywordtype}{int} nombreCasiers = donneesArticle.size();
+00328 
+00329     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < nombreCasiers; i++)
+00330     \{
+00331 \textcolor{preprocessor}{        #ifdef DEBUG\_IHM}
+00332             qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"disponible"} << (donneesArticle[i].at(
+      \hyperlink{_ihm_8h_a2c5f129a41ff7dac8fa0d97af2d1efd5}{ARTICLE\_DISPONIBLE})).toUInt();
+00333             qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"articleDisponible"} << articleDisponible;
+00334             qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"quantite"} << (donneesArticle[i].at(
+      \hyperlink{_ihm_8h_ac91f014239536b9bb49d4265ca91d0d5}{ARTICLE\_QUANTITE})).toUInt();
+00335             qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"articleQuantite"} << articleQuantite;
+00336 \textcolor{preprocessor}{        #endif}
+00337         articleDisponible += (donneesArticle[i].at(\hyperlink{_ihm_8h_a2c5f129a41ff7dac8fa0d97af2d1efd5}{ARTICLE\_DISPONIBLE})).toUInt();
+00338         articleQuantite += (donneesArticle[i].at(\hyperlink{_ihm_8h_ac91f014239536b9bb49d4265ca91d0d5}{ARTICLE\_QUANTITE})).toUInt();
+00339 
+00340         \textcolor{keywordflow}{if}(i == 0)
+00341         \{
+00342             casiers = donneesArticle[i].at(\hyperlink{_ihm_8h_a7935787ef2fa7206f347feff73167ce6}{NUMERO\_CASIERS});
+00343             casiersDisponible = QString(\textcolor{stringliteral}{" ("}) + donneesArticle[i].at(
+      \hyperlink{_ihm_8h_a2c5f129a41ff7dac8fa0d97af2d1efd5}{ARTICLE\_DISPONIBLE});
+00344             casiersQuantite = QString(\textcolor{stringliteral}{" ("}) + donneesArticle[i].at(
+      \hyperlink{_ihm_8h_ac91f014239536b9bb49d4265ca91d0d5}{ARTICLE\_QUANTITE});
+00345         \}
+00346         \textcolor{keywordflow}{else}
+00347         \{
+00348             casiers += \textcolor{stringliteral}{" et "} + donneesArticle[i].at(\hyperlink{_ihm_8h_a7935787ef2fa7206f347feff73167ce6}{NUMERO\_CASIERS});
+00349             casiersDisponible += QString(\textcolor{stringliteral}{" et "}) + donneesArticle[i].at(
+      \hyperlink{_ihm_8h_a2c5f129a41ff7dac8fa0d97af2d1efd5}{ARTICLE\_DISPONIBLE});
+00350             casiersQuantite += QString(\textcolor{stringliteral}{" et "}) + donneesArticle[i].at(
+      \hyperlink{_ihm_8h_ac91f014239536b9bb49d4265ca91d0d5}{ARTICLE\_QUANTITE});
+00351         \}
+00352     \}
+00353     casiersDisponible += QString(\textcolor{stringliteral}{")"});
+00354     casiersQuantite += QString(\textcolor{stringliteral}{")"});
+00355 
+00356     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelCasier->setText(\textcolor{stringliteral}{"Casiers :"});
+00357     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelQuantiteNombre->setText(QString::number(articleQuantite) + casiersQuantite);
+00358     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelDisponibleNombre->setText(QString::number(articleDisponible) + casiersDisponible);
+00359     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelCasierNombre->setText(casiers);
+00360 \}
+00361 
+\Hypertarget{_ihm_8cpp_source_l00367}\hyperlink{class_ihm_ab632796a21015964c8d7615edb09261c}{00367} \textcolor{keywordtype}{void} \hyperlink{class_ihm_ab632796a21015964c8d7615edb09261c}{Ihm::creerListeArticles}(\textcolor{keyword}{const} QVector<QStringList> &articlesTrouves)
+00368 \{
+00369     disconnect(\hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->comboBoxArticle, SIGNAL(currentIndexChanged(\textcolor{keywordtype}{int})), \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_ihm_ad9b83836021fc8542db033da186cc64c}{selectionnerArticle}(\textcolor{keywordtype}{int})));
+00370     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->comboBoxArticle->clear();
+00371 
+00372     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->comboBoxArticle->addItem(\textcolor{stringliteral}{"Sélectionner un article"});
+00373     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0 ; i < articlesTrouves.size() ; i++)
+00374     \{
+00375         \textcolor{keywordflow}{if}(\hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->comboBoxArticle->findText(articlesTrouves[i].at(2)) == -1)
+00376         \{
+00377             \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->comboBoxArticle->addItem(articlesTrouves[i].at(2));
+00378         \}
+00379     \}
+00380     connect(\hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->comboBoxArticle, SIGNAL(currentIndexChanged(\textcolor{keywordtype}{int})), \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_ihm_ad9b83836021fc8542db033da186cc64c}{selectionnerArticle}(\textcolor{keywordtype}{int})));
+00381 \}
+\end{DoxyCode}

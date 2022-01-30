@@ -1,0 +1,88 @@
+\hypertarget{_article_8h_source}{}\subsection{Article.\+h}
+\label{_article_8h_source}\index{Article.\+h@{Article.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef ARTICLE\_H}
+00002 \textcolor{preprocessor}{#define ARTICLE\_H}
+00003 
+00004 
+00018 \textcolor{preprocessor}{#include <QObject>}
+00019 \textcolor{preprocessor}{#include <QString>}
+00020 \textcolor{preprocessor}{#include <QDebug>}
+00021 
+\Hypertarget{_article_8h_source_l00022}\hyperlink{_article_8h_aaa66534d9250aa1182a3ab29a6c6bef2}{00022} \textcolor{preprocessor}{#define DEBUG\_ARTICLE}
+00023 
+\Hypertarget{_article_8h_source_l00029}\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6}{00029} \textcolor{keyword}{enum} \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6}{ChampArticle}
+00030 \{
+\Hypertarget{_article_8h_source_l00031}\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6acfb8962aaa35363f43d27a9f6f1ae265}{00031}     \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6acfb8962aaa35363f43d27a9f6f1ae265}{TABLE\_ARTICLE\_ID\_STOCK},
+\Hypertarget{_article_8h_source_l00032}\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a9282e68cff8aecde470ad5004f0e5ebb}{00032}     \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a9282e68cff8aecde470ad5004f0e5ebb}{TABLE\_ARTICLE\_ID\_ARTICLE},
+\Hypertarget{_article_8h_source_l00033}\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a7a309a358c54f9ea482a222d0cb4d135}{00033}     \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a7a309a358c54f9ea482a222d0cb4d135}{TABLE\_ARTICLE\_NOM\_ARTICLE},
+\Hypertarget{_article_8h_source_l00034}\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a57d25aaddbe360d849497b01b865599c}{00034}     \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a57d25aaddbe360d849497b01b865599c}{TABLE\_ARTICLE\_ID\_TYPE},
+\Hypertarget{_article_8h_source_l00035}\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a7644b9669e82ebdf66baef0dff84f46c}{00035}     \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a7644b9669e82ebdf66baef0dff84f46c}{TABLE\_ARTICLE\_NOM\_TYPE},
+\Hypertarget{_article_8h_source_l00036}\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6ad0cf55fa9bf7bc4a120c207ba2712860}{00036}     \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6ad0cf55fa9bf7bc4a120c207ba2712860}{TABLE\_ARTICLE\_ID\_COMPTAGE},
+\Hypertarget{_article_8h_source_l00037}\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a525a8c35de3d4035d3db311a090a0509}{00037}     \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a525a8c35de3d4035d3db311a090a0509}{TABLE\_ARTICLE\_NOM\_COMPTAGE},
+\Hypertarget{_article_8h_source_l00038}\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a00db8f6a07d38794d43ec1c40514bf6e}{00038}     \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a00db8f6a07d38794d43ec1c40514bf6e}{TABLE\_ARTICLE\_CODE\_BARRE},
+\Hypertarget{_article_8h_source_l00039}\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6ade71fc2eebb11113817148897a1867be}{00039}     \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6ade71fc2eebb11113817148897a1867be}{TABLE\_ARTICLE\_DESIGNATION},
+\Hypertarget{_article_8h_source_l00040}\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a7273e06be37f8ea80b1c9c16224ebb86}{00040}     \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a7273e06be37f8ea80b1c9c16224ebb86}{TABLE\_ARTICLE\_QUANTITE},
+\Hypertarget{_article_8h_source_l00041}\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a105c98cbf3533c6bd74eb706c5d524d6}{00041}     \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a105c98cbf3533c6bd74eb706c5d524d6}{TABLE\_ARTICLE\_DISPONIBLE},
+\Hypertarget{_article_8h_source_l00042}\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a8e65e0dbe78b66152adb0ffd76dd2ece}{00042}     \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a8e65e0dbe78b66152adb0ffd76dd2ece}{TABLE\_ARTICLE\_POIDS},
+\Hypertarget{_article_8h_source_l00043}\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a970d883b74adb323da887e30bef922f5}{00043}     \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a970d883b74adb323da887e30bef922f5}{TABLE\_ARTICLE\_TARE},
+\Hypertarget{_article_8h_source_l00044}\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6aa27f54cec32c08b45beaf39f1259ae92}{00044}     \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6aa27f54cec32c08b45beaf39f1259ae92}{TABLE\_ARTICLE\_ID\_UNITE},
+\Hypertarget{_article_8h_source_l00045}\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6abc2184dab6c03e59872ced7183608174}{00045}     \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6abc2184dab6c03e59872ced7183608174}{TABLE\_ARTICLE\_NOM\_UNITE},
+\Hypertarget{_article_8h_source_l00046}\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a43ae9bea39dd3f12e8732bcd2d7c0223}{00046}     \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a43ae9bea39dd3f12e8732bcd2d7c0223}{TABLE\_ARTICLE\_NUMERO\_CASIER}
+00047 \};
+00048 
+00049 \textcolor{keyword}{class }\hyperlink{class_bdd}{Bdd};
+00050 
+\Hypertarget{_article_8h_source_l00063}\hyperlink{class_article}{00063} \textcolor{keyword}{class }\hyperlink{class_article}{Article} : \textcolor{keyword}{public} \hyperlink{class_q_object}{QObject}
+00064 \{
+00065     Q\_OBJECT
+00066 \textcolor{keyword}{public}:
+00067     \hyperlink{class_article_a27b5b7af25138f7a465215be3a9deca4}{Article}(\hyperlink{class_q_object}{QObject} *parent = \textcolor{keyword}{nullptr});
+00068     \hyperlink{class_article_a5c429e49b30104b1069044d0e1a6aa1a}{~Article}();
+00069 
+00070     \textcolor{keywordtype}{bool} \hyperlink{class_article_ae657464da12790b763659ca98a948f50}{recupererDonneesArticle}(QString \hyperlink{class_article_a9f2f7a04139f26accec145066a5aacae}{idArticle}, \textcolor{keywordtype}{int} numCasier=0);
+00071     \textcolor{keywordtype}{bool} \hyperlink{class_article_a6eab145b46f5e1786c5ddf669ffabb6e}{recupererDonneesArticleParNom}(QString 
+      \hyperlink{class_article_a0ba6c08f7dd54e4b7caf673ecd6b41a6}{nomArticle}, \textcolor{keywordtype}{int} numCasier=0);
+00072     \textcolor{keywordtype}{bool} \hyperlink{class_article_a5d8241c703f142bbc8b011f867fd953f}{recupererDonneesArticleParNumeroCasier}(QString 
+      \hyperlink{class_article_a4b8dd9598cc16200c60c7f55196fc26d}{numeroCasier});
+00073     \textcolor{keyword}{static} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \hyperlink{class_article_a537f0aa471a7466425b6abf6c34058d6}{recupererNombreCasiersPourIdArticle}(QString 
+      idArticle);
+00074     \textcolor{keyword}{static} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \hyperlink{class_article_acdd796ad55a7fde0c229c8c2df7050cc}{recupererNombreCasiersPourNomArticle}(QString 
+      nomArticle);
+00075     \textcolor{keyword}{static} QVector<QString> \hyperlink{class_article_aa7aeaee7858b50714e9c022899b9b82d}{recupererNumeroCasierPourIdArticle}(QString 
+      idArticle);
+00076     \textcolor{keyword}{static} QVector<QString> \hyperlink{class_article_aa311f3d149340622383c418444aa65a4}{recupererNumeroCasierPourNomArticle}(QString 
+      nomArticle);
+00077 
+00078     QString \textcolor{keyword}{get}(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6}{ChampArticle} champ);
+00079     \textcolor{keywordtype}{void} \hyperlink{class_article_a5777f36d74974ff21e712a9875c2d8bf}{mettreAJourQuantite}(QString \hyperlink{class_article_a0870104453080b43bc271346217a864b}{quantite});
+00080 
+00081 \textcolor{keyword}{private}:
+\Hypertarget{_article_8h_source_l00082}\hyperlink{class_article_a7221cec4212d86d74f479b9ee683ee8a}{00082}     \textcolor{keyword}{static} \hyperlink{class_bdd}{Bdd} *\hyperlink{class_article_a7221cec4212d86d74f479b9ee683ee8a}{bdd};        
+\Hypertarget{_article_8h_source_l00083}\hyperlink{class_article_afb7785930598d5fbdafb707acdd3eec1}{00083}     QString \hyperlink{class_article_afb7785930598d5fbdafb707acdd3eec1}{idStock};        
+\Hypertarget{_article_8h_source_l00084}\hyperlink{class_article_a9f2f7a04139f26accec145066a5aacae}{00084}     QString \hyperlink{class_article_a9f2f7a04139f26accec145066a5aacae}{idArticle};      
+\Hypertarget{_article_8h_source_l00085}\hyperlink{class_article_a0ba6c08f7dd54e4b7caf673ecd6b41a6}{00085}     QString \hyperlink{class_article_a0ba6c08f7dd54e4b7caf673ecd6b41a6}{nomArticle};     
+\Hypertarget{_article_8h_source_l00086}\hyperlink{class_article_a1586203d0eb334a3298ca719f924083d}{00086}     QString \hyperlink{class_article_a1586203d0eb334a3298ca719f924083d}{idType};         
+\Hypertarget{_article_8h_source_l00087}\hyperlink{class_article_a06489a7445495277e44c7179b7cf8bbc}{00087}     QString \hyperlink{class_article_a06489a7445495277e44c7179b7cf8bbc}{nomType};        
+\Hypertarget{_article_8h_source_l00088}\hyperlink{class_article_adc8cef4c963c0fcc6d486dab4bd60e17}{00088}     QString \hyperlink{class_article_adc8cef4c963c0fcc6d486dab4bd60e17}{idComptage};     
+\Hypertarget{_article_8h_source_l00089}\hyperlink{class_article_a1953a03d4505797952054141dbb2e327}{00089}     QString \hyperlink{class_article_a1953a03d4505797952054141dbb2e327}{nomComptage};    
+\Hypertarget{_article_8h_source_l00090}\hyperlink{class_article_a28db45ee4a48155c297be5c7c2eb54b9}{00090}     QString \hyperlink{class_article_a28db45ee4a48155c297be5c7c2eb54b9}{codeBarre};      
+\Hypertarget{_article_8h_source_l00091}\hyperlink{class_article_a46a953cc2b35c8d868b27e8fa21c7a3a}{00091}     QString \hyperlink{class_article_a46a953cc2b35c8d868b27e8fa21c7a3a}{designation};    
+\Hypertarget{_article_8h_source_l00092}\hyperlink{class_article_a0870104453080b43bc271346217a864b}{00092}     QString \hyperlink{class_article_a0870104453080b43bc271346217a864b}{quantite};       
+\Hypertarget{_article_8h_source_l00093}\hyperlink{class_article_ac361aa1f57e32243854735e84c6891e2}{00093}     QString \hyperlink{class_article_ac361aa1f57e32243854735e84c6891e2}{disponible};     
+\Hypertarget{_article_8h_source_l00094}\hyperlink{class_article_ac42217ed32ef1466b099f3e4a6a913f0}{00094}     QString \hyperlink{class_article_ac42217ed32ef1466b099f3e4a6a913f0}{poidsArticle};   
+\Hypertarget{_article_8h_source_l00095}\hyperlink{class_article_abacf2d29d4b2e3e7b49256bc48d5fe64}{00095}     QString \hyperlink{class_article_abacf2d29d4b2e3e7b49256bc48d5fe64}{tare};           
+\Hypertarget{_article_8h_source_l00096}\hyperlink{class_article_a702cff16cb9cd0774383ceba81d83869}{00096}     QString \hyperlink{class_article_a702cff16cb9cd0774383ceba81d83869}{idUnite};        
+\Hypertarget{_article_8h_source_l00097}\hyperlink{class_article_a43a20e248e57150af0546c9f4b6b74c3}{00097}     QString \hyperlink{class_article_a43a20e248e57150af0546c9f4b6b74c3}{nomUnite};       
+\Hypertarget{_article_8h_source_l00098}\hyperlink{class_article_a4b8dd9598cc16200c60c7f55196fc26d}{00098}     QString \hyperlink{class_article_a4b8dd9598cc16200c60c7f55196fc26d}{numeroCasier};   
+00099 
+00100 \textcolor{keyword}{private} slots:    
+00101 
+00102 signals:    
+00103 
+00104 \textcolor{keyword}{public} slots:
+00105 \};
+00106 
+00107 \textcolor{preprocessor}{#endif // ARTICLE\_H}
+\end{DoxyCode}

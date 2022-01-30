@@ -1,0 +1,314 @@
+\hypertarget{_article_8cpp_source}{}\subsection{Article.\+cpp}
+\label{_article_8cpp_source}\index{Article.\+cpp@{Article.\+cpp}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include "\hyperlink{_article_8h}{Article.h}"}
+00002 \textcolor{preprocessor}{#include "\hyperlink{_bdd_8h}{Bdd.h}"}
+00003 \textcolor{preprocessor}{#include <QtMath>}
+00004 
+00017 \hyperlink{class_bdd}{Bdd}* Article::bdd = \hyperlink{class_bdd_a6f55c29d593da12ca31fad02f5adfe24}{Bdd::getInstance}();
+00018 
+\Hypertarget{_article_8cpp_source_l00024}\hyperlink{class_article_a27b5b7af25138f7a465215be3a9deca4}{00024} \hyperlink{class_article_a27b5b7af25138f7a465215be3a9deca4}{Article::Article}(\hyperlink{class_q_object}{QObject} *parent) : \hyperlink{class_q_object}{QObject}(parent)
+00025 \{
+00026 \textcolor{preprocessor}{    #ifdef DEBUG\_ARTICLE}
+00027         qDebug() << Q\_FUNC\_INFO;
+00028 \textcolor{preprocessor}{    #endif}
+00029     \textcolor{comment}{//bdd = Bdd::getInstance();}
+00030 \}
+00031 
+\Hypertarget{_article_8cpp_source_l00036}\hyperlink{class_article_a5c429e49b30104b1069044d0e1a6aa1a}{00036} \hyperlink{class_article_a5c429e49b30104b1069044d0e1a6aa1a}{Article::~Article}()
+00037 \{
+00038     \textcolor{comment}{//Bdd::detruireInstance();}
+00039 \textcolor{preprocessor}{    #ifdef DEBUG\_ARTICLE}
+00040         qDebug() << Q\_FUNC\_INFO;
+00041 \textcolor{preprocessor}{    #endif}
+00042 \}
+00043 
+\Hypertarget{_article_8cpp_source_l00050}\hyperlink{class_article_ae657464da12790b763659ca98a948f50}{00050} \textcolor{keywordtype}{bool} \hyperlink{class_article_ae657464da12790b763659ca98a948f50}{Article::recupererDonneesArticle}(QString 
+      \hyperlink{class_article_a9f2f7a04139f26accec145066a5aacae}{idArticle}, \textcolor{keywordtype}{int} numCasier)
+00051 \{
+00052     \textcolor{keywordflow}{if}(idArticle.isEmpty())
+00053         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00054 
+00055     QString requeteBDD;
+00056 
+00057     \textcolor{keywordflow}{if}(numCasier == 0)
+00058     \{
+00059         requeteBDD = \textcolor{stringliteral}{"SELECT Stock.idStock, Article.idArticle, Article.Nom AS Article, Type.idType,
+       Type.nom AS Type, Comptage.idComptage, Comptage.Nom AS Comptage, Article.Code, Article.Designation, Stock.Quantite,
+       Stock.Disponible, Article.Poids, Stock.Tare, Unite.idUnite, Unite.Nom, Stock.numeroCasier FROM Stock INNER
+       JOIN Article ON Article.idArticle=Stock.idArticle INNER JOIN Type ON Type.idType=Article.idType INNER JOIN
+       Comptage ON Comptage.idComptage=Stock.idComptage INNER JOIN Unite ON Unite.idUnite=Stock.idUnite WHERE
+       Article.idArticle = '"} + idArticle + \textcolor{stringliteral}{"'"};
+00060     \}
+00061     \textcolor{keywordflow}{else}
+00062     \{
+00063         requeteBDD = \textcolor{stringliteral}{"SELECT Stock.idStock, Article.idArticle, Article.Nom AS Article, Type.idType,
+       Type.nom AS Type, Comptage.idComptage, Comptage.Nom AS Comptage, Article.Code, Article.Designation, Stock.Quantite,
+       Stock.Disponible, Article.Poids, Stock.Tare, Unite.idUnite, Unite.Nom, Stock.numeroCasier FROM Stock INNER
+       JOIN Article ON Article.idArticle=Stock.idArticle INNER JOIN Type ON Type.idType=Article.idType INNER JOIN
+       Comptage ON Comptage.idComptage=Stock.idComptage INNER JOIN Unite ON Unite.idUnite=Stock.idUnite WHERE
+       Article.idArticle = '"} + idArticle + \textcolor{stringliteral}{"' AND Stock.numeroCasier = '"} + numCasier + \textcolor{stringliteral}{"'"};
+00064     \}
+00065 
+00066     QStringList donnees; \textcolor{comment}{// un seul casier pour cet article}
+00067     \hyperlink{class_article_a7221cec4212d86d74f479b9ee683ee8a}{bdd}->\hyperlink{class_bdd_a8f25d29d309041bbf875700db0efd97b}{recuperer}(requeteBDD, donnees);
+00068 
+00069 \textcolor{preprocessor}{    #ifdef DEBUG\_ARTICLE}
+00070         qDebug() << Q\_FUNC\_INFO << donnees;
+00071 \textcolor{preprocessor}{    #endif}
+00072 
+00073     \textcolor{keywordflow}{if}(donnees.size() > 0)
+00074     \{
+00075         this->\hyperlink{class_article_afb7785930598d5fbdafb707acdd3eec1}{idStock} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6acfb8962aaa35363f43d27a9f6f1ae265}{TABLE\_ARTICLE\_ID\_STOCK});
+00076         this->idArticle = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a9282e68cff8aecde470ad5004f0e5ebb}{TABLE\_ARTICLE\_ID\_ARTICLE});
+00077         this->\hyperlink{class_article_a0ba6c08f7dd54e4b7caf673ecd6b41a6}{nomArticle} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a7a309a358c54f9ea482a222d0cb4d135}{TABLE\_ARTICLE\_NOM\_ARTICLE});
+00078         this->\hyperlink{class_article_a1586203d0eb334a3298ca719f924083d}{idType} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a57d25aaddbe360d849497b01b865599c}{TABLE\_ARTICLE\_ID\_TYPE});
+00079         this->\hyperlink{class_article_a06489a7445495277e44c7179b7cf8bbc}{nomType} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a7644b9669e82ebdf66baef0dff84f46c}{TABLE\_ARTICLE\_NOM\_TYPE});
+00080         this->\hyperlink{class_article_adc8cef4c963c0fcc6d486dab4bd60e17}{idComptage} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6ad0cf55fa9bf7bc4a120c207ba2712860}{TABLE\_ARTICLE\_ID\_COMPTAGE});
+00081         this->\hyperlink{class_article_a1953a03d4505797952054141dbb2e327}{nomComptage} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a525a8c35de3d4035d3db311a090a0509}{TABLE\_ARTICLE\_NOM\_COMPTAGE});
+00082         this->\hyperlink{class_article_a28db45ee4a48155c297be5c7c2eb54b9}{codeBarre} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a00db8f6a07d38794d43ec1c40514bf6e}{TABLE\_ARTICLE\_CODE\_BARRE});
+00083         this->\hyperlink{class_article_a46a953cc2b35c8d868b27e8fa21c7a3a}{designation} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6ade71fc2eebb11113817148897a1867be}{TABLE\_ARTICLE\_DESIGNATION});
+00084         this->\hyperlink{class_article_a0870104453080b43bc271346217a864b}{quantite} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a7273e06be37f8ea80b1c9c16224ebb86}{TABLE\_ARTICLE\_QUANTITE});
+00085         this->\hyperlink{class_article_ac361aa1f57e32243854735e84c6891e2}{disponible} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a105c98cbf3533c6bd74eb706c5d524d6}{TABLE\_ARTICLE\_DISPONIBLE});
+00086         this->\hyperlink{class_article_ac42217ed32ef1466b099f3e4a6a913f0}{poidsArticle} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a8e65e0dbe78b66152adb0ffd76dd2ece}{TABLE\_ARTICLE\_POIDS});
+00087         this->\hyperlink{class_article_abacf2d29d4b2e3e7b49256bc48d5fe64}{tare} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a970d883b74adb323da887e30bef922f5}{TABLE\_ARTICLE\_TARE});
+00088         this->\hyperlink{class_article_a702cff16cb9cd0774383ceba81d83869}{idUnite} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6aa27f54cec32c08b45beaf39f1259ae92}{TABLE\_ARTICLE\_ID\_UNITE});
+00089         this->\hyperlink{class_article_a43a20e248e57150af0546c9f4b6b74c3}{nomUnite} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6abc2184dab6c03e59872ced7183608174}{TABLE\_ARTICLE\_NOM\_UNITE});
+00090         this->\hyperlink{class_article_a4b8dd9598cc16200c60c7f55196fc26d}{numeroCasier} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a43ae9bea39dd3f12e8732bcd2d7c0223}{TABLE\_ARTICLE\_NUMERO\_CASIER})
+      ;
+00091         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00092     \}
+00093 
+00094     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00095 \}
+00096 
+\Hypertarget{_article_8cpp_source_l00103}\hyperlink{class_article_a6eab145b46f5e1786c5ddf669ffabb6e}{00103} \textcolor{keywordtype}{bool} \hyperlink{class_article_a6eab145b46f5e1786c5ddf669ffabb6e}{Article::recupererDonneesArticleParNom}(QString 
+      \hyperlink{class_article_a0ba6c08f7dd54e4b7caf673ecd6b41a6}{nomArticle}, \textcolor{keywordtype}{int} numCasier)
+00104 \{
+00105     \textcolor{keywordflow}{if}(nomArticle.isEmpty())
+00106         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00107 
+00108     QString requeteBDD;
+00109 
+00110     \textcolor{keywordflow}{if}(numCasier == 0)
+00111     \{
+00112         requeteBDD = \textcolor{stringliteral}{"SELECT Stock.idStock, Article.idArticle, Article.Nom AS Article, Type.idType,
+       Type.nom AS Type, Comptage.idComptage, Comptage.Nom AS Comptage, Article.Code, Article.Designation, Stock.Quantite,
+       Stock.Disponible, Article.Poids, Stock.Tare, Unite.idUnite, Unite.Nom, Stock.numeroCasier FROM Stock INNER
+       JOIN Article ON Article.idArticle=Stock.idArticle INNER JOIN Type ON Type.idType=Article.idType INNER JOIN
+       Comptage ON Comptage.idComptage=Stock.idComptage INNER JOIN Unite ON Unite.idUnite=Stock.idUnite WHERE
+       Article.Nom = '"} + nomArticle + \textcolor{stringliteral}{"'"};
+00113     \}
+00114     \textcolor{keywordflow}{else}
+00115     \{
+00116         requeteBDD = \textcolor{stringliteral}{"SELECT Stock.idStock, Article.idArticle, Article.Nom AS Article, Type.idType,
+       Type.nom AS Type, Comptage.idComptage, Comptage.Nom AS Comptage, Article.Code, Article.Designation, Stock.Quantite,
+       Stock.Disponible, Article.Poids, Stock.Tare, Unite.idUnite, Unite.Nom, Stock.numeroCasier FROM Stock INNER
+       JOIN Article ON Article.idArticle=Stock.idArticle INNER JOIN Type ON Type.idType=Article.idType INNER JOIN
+       Comptage ON Comptage.idComptage=Stock.idComptage INNER JOIN Unite ON Unite.idUnite=Stock.idUnite WHERE
+       Article.Nom = '"} + nomArticle + \textcolor{stringliteral}{"' AND Stock.numeroCasier = '"} + numCasier + \textcolor{stringliteral}{"'"};
+00117     \}
+00118 
+00119     QStringList donnees; \textcolor{comment}{// un seul casier pour cet article}
+00120     \hyperlink{class_article_a7221cec4212d86d74f479b9ee683ee8a}{bdd}->\hyperlink{class_bdd_a8f25d29d309041bbf875700db0efd97b}{recuperer}(requeteBDD, donnees);
+00121 
+00122 \textcolor{preprocessor}{    #ifdef DEBUG\_ARTICLE}
+00123         qDebug() << Q\_FUNC\_INFO << donnees;
+00124 \textcolor{preprocessor}{    #endif}
+00125 
+00126     \textcolor{keywordflow}{if}(donnees.size() > 0)
+00127     \{
+00128         this->\hyperlink{class_article_afb7785930598d5fbdafb707acdd3eec1}{idStock} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6acfb8962aaa35363f43d27a9f6f1ae265}{TABLE\_ARTICLE\_ID\_STOCK});
+00129         this->\hyperlink{class_article_a9f2f7a04139f26accec145066a5aacae}{idArticle} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a9282e68cff8aecde470ad5004f0e5ebb}{TABLE\_ARTICLE\_ID\_ARTICLE});
+00130         this->nomArticle = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a7a309a358c54f9ea482a222d0cb4d135}{TABLE\_ARTICLE\_NOM\_ARTICLE});
+00131         this->\hyperlink{class_article_a1586203d0eb334a3298ca719f924083d}{idType} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a57d25aaddbe360d849497b01b865599c}{TABLE\_ARTICLE\_ID\_TYPE});
+00132         this->\hyperlink{class_article_a06489a7445495277e44c7179b7cf8bbc}{nomType} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a7644b9669e82ebdf66baef0dff84f46c}{TABLE\_ARTICLE\_NOM\_TYPE});
+00133         this->\hyperlink{class_article_adc8cef4c963c0fcc6d486dab4bd60e17}{idComptage} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6ad0cf55fa9bf7bc4a120c207ba2712860}{TABLE\_ARTICLE\_ID\_COMPTAGE});
+00134         this->\hyperlink{class_article_a1953a03d4505797952054141dbb2e327}{nomComptage} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a525a8c35de3d4035d3db311a090a0509}{TABLE\_ARTICLE\_NOM\_COMPTAGE});
+00135         this->\hyperlink{class_article_a28db45ee4a48155c297be5c7c2eb54b9}{codeBarre} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a00db8f6a07d38794d43ec1c40514bf6e}{TABLE\_ARTICLE\_CODE\_BARRE});
+00136         this->\hyperlink{class_article_a46a953cc2b35c8d868b27e8fa21c7a3a}{designation} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6ade71fc2eebb11113817148897a1867be}{TABLE\_ARTICLE\_DESIGNATION});
+00137         this->\hyperlink{class_article_a0870104453080b43bc271346217a864b}{quantite} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a7273e06be37f8ea80b1c9c16224ebb86}{TABLE\_ARTICLE\_QUANTITE});
+00138         this->\hyperlink{class_article_ac361aa1f57e32243854735e84c6891e2}{disponible} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a105c98cbf3533c6bd74eb706c5d524d6}{TABLE\_ARTICLE\_DISPONIBLE});
+00139         this->\hyperlink{class_article_ac42217ed32ef1466b099f3e4a6a913f0}{poidsArticle} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a8e65e0dbe78b66152adb0ffd76dd2ece}{TABLE\_ARTICLE\_POIDS});
+00140         this->\hyperlink{class_article_abacf2d29d4b2e3e7b49256bc48d5fe64}{tare} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a970d883b74adb323da887e30bef922f5}{TABLE\_ARTICLE\_TARE});
+00141         this->\hyperlink{class_article_a702cff16cb9cd0774383ceba81d83869}{idUnite} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6aa27f54cec32c08b45beaf39f1259ae92}{TABLE\_ARTICLE\_ID\_UNITE});
+00142         this->\hyperlink{class_article_a43a20e248e57150af0546c9f4b6b74c3}{nomUnite} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6abc2184dab6c03e59872ced7183608174}{TABLE\_ARTICLE\_NOM\_UNITE});
+00143         this->\hyperlink{class_article_a4b8dd9598cc16200c60c7f55196fc26d}{numeroCasier} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a43ae9bea39dd3f12e8732bcd2d7c0223}{TABLE\_ARTICLE\_NUMERO\_CASIER})
+      ;
+00144         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00145     \}
+00146 
+00147     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00148 \}
+00149 
+\Hypertarget{_article_8cpp_source_l00156}\hyperlink{class_article_a5d8241c703f142bbc8b011f867fd953f}{00156} \textcolor{keywordtype}{bool} \hyperlink{class_article_a5d8241c703f142bbc8b011f867fd953f}{Article::recupererDonneesArticleParNumeroCasier}(QString
+       \hyperlink{class_article_a4b8dd9598cc16200c60c7f55196fc26d}{numeroCasier})
+00157 \{
+00158     \textcolor{keywordflow}{if}(numeroCasier.isEmpty())
+00159         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00160 
+00161     QString requeteBDD;
+00162 
+00163     requeteBDD = \textcolor{stringliteral}{"SELECT Stock.idStock, Article.idArticle, Article.Nom AS Article, Type.idType, Type.nom AS
+       Type, Comptage.idComptage, Comptage.Nom AS Comptage, Article.Code, Article.Designation, Stock.Quantite,
+       Stock.Disponible, Article.Poids, Stock.Tare, Unite.idUnite, Unite.Nom, Stock.numeroCasier FROM Stock INNER JOIN
+       Article ON Article.idArticle=Stock.idArticle INNER JOIN Type ON Type.idType=Article.idType INNER JOIN
+       Comptage ON Comptage.idComptage=Stock.idComptage INNER JOIN Unite ON Unite.idUnite=Stock.idUnite WHERE
+       Stock.numeroCasier = '"} + numeroCasier + \textcolor{stringliteral}{"'"};
+00164 
+00165     QStringList donnees;
+00166     \hyperlink{class_article_a7221cec4212d86d74f479b9ee683ee8a}{bdd}->\hyperlink{class_bdd_a8f25d29d309041bbf875700db0efd97b}{recuperer}(requeteBDD, donnees);
+00167 
+00168 \textcolor{preprocessor}{    #ifdef DEBUG\_ARTICLE}
+00169         qDebug() << Q\_FUNC\_INFO << donnees;
+00170 \textcolor{preprocessor}{    #endif}
+00171 
+00172     \textcolor{keywordflow}{if}(donnees.size() > 0)
+00173     \{
+00174         this->\hyperlink{class_article_afb7785930598d5fbdafb707acdd3eec1}{idStock} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6acfb8962aaa35363f43d27a9f6f1ae265}{TABLE\_ARTICLE\_ID\_STOCK});
+00175         this->\hyperlink{class_article_a9f2f7a04139f26accec145066a5aacae}{idArticle} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a9282e68cff8aecde470ad5004f0e5ebb}{TABLE\_ARTICLE\_ID\_ARTICLE});
+00176         this->\hyperlink{class_article_a0ba6c08f7dd54e4b7caf673ecd6b41a6}{nomArticle} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a7a309a358c54f9ea482a222d0cb4d135}{TABLE\_ARTICLE\_NOM\_ARTICLE});
+00177         this->\hyperlink{class_article_a1586203d0eb334a3298ca719f924083d}{idType} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a57d25aaddbe360d849497b01b865599c}{TABLE\_ARTICLE\_ID\_TYPE});
+00178         this->\hyperlink{class_article_a06489a7445495277e44c7179b7cf8bbc}{nomType} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a7644b9669e82ebdf66baef0dff84f46c}{TABLE\_ARTICLE\_NOM\_TYPE});
+00179         this->\hyperlink{class_article_adc8cef4c963c0fcc6d486dab4bd60e17}{idComptage} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6ad0cf55fa9bf7bc4a120c207ba2712860}{TABLE\_ARTICLE\_ID\_COMPTAGE});
+00180         this->\hyperlink{class_article_a1953a03d4505797952054141dbb2e327}{nomComptage} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a525a8c35de3d4035d3db311a090a0509}{TABLE\_ARTICLE\_NOM\_COMPTAGE});
+00181         this->\hyperlink{class_article_a28db45ee4a48155c297be5c7c2eb54b9}{codeBarre} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a00db8f6a07d38794d43ec1c40514bf6e}{TABLE\_ARTICLE\_CODE\_BARRE});
+00182         this->\hyperlink{class_article_a46a953cc2b35c8d868b27e8fa21c7a3a}{designation} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6ade71fc2eebb11113817148897a1867be}{TABLE\_ARTICLE\_DESIGNATION});
+00183         this->\hyperlink{class_article_a0870104453080b43bc271346217a864b}{quantite} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a7273e06be37f8ea80b1c9c16224ebb86}{TABLE\_ARTICLE\_QUANTITE});
+00184         this->\hyperlink{class_article_ac361aa1f57e32243854735e84c6891e2}{disponible} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a105c98cbf3533c6bd74eb706c5d524d6}{TABLE\_ARTICLE\_DISPONIBLE});
+00185         this->\hyperlink{class_article_ac42217ed32ef1466b099f3e4a6a913f0}{poidsArticle} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a8e65e0dbe78b66152adb0ffd76dd2ece}{TABLE\_ARTICLE\_POIDS});
+00186         this->\hyperlink{class_article_abacf2d29d4b2e3e7b49256bc48d5fe64}{tare} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a970d883b74adb323da887e30bef922f5}{TABLE\_ARTICLE\_TARE});
+00187         this->\hyperlink{class_article_a702cff16cb9cd0774383ceba81d83869}{idUnite} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6aa27f54cec32c08b45beaf39f1259ae92}{TABLE\_ARTICLE\_ID\_UNITE});
+00188         this->\hyperlink{class_article_a43a20e248e57150af0546c9f4b6b74c3}{nomUnite} = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6abc2184dab6c03e59872ced7183608174}{TABLE\_ARTICLE\_NOM\_UNITE});
+00189         this->numeroCasier = donnees.at(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a43ae9bea39dd3f12e8732bcd2d7c0223}{TABLE\_ARTICLE\_NUMERO\_CASIER});
+00190         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00191     \}
+00192 
+00193     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00194 \}
+00195 
+\Hypertarget{_article_8cpp_source_l00202}\hyperlink{class_article_a537f0aa471a7466425b6abf6c34058d6}{00202} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \hyperlink{class_article_a537f0aa471a7466425b6abf6c34058d6}{Article::recupererNombreCasiersPourIdArticle}(
+      QString \hyperlink{class_article_a9f2f7a04139f26accec145066a5aacae}{idArticle})
+00203 \{
+00204     QString requete = \textcolor{stringliteral}{"SELECT COUNT(Stock.idArticle) FROM Stock INNER JOIN Article ON Stock.idArticle =
+       Article.idArticle WHERE Article.idArticle = '"} + idArticle + \textcolor{stringliteral}{"'"};
+00205 
+00206     QString donnees;
+00207     \hyperlink{class_article_a7221cec4212d86d74f479b9ee683ee8a}{bdd}->\hyperlink{class_bdd_a8f25d29d309041bbf875700db0efd97b}{recuperer}(requete, donnees);
+00208 
+00209     \textcolor{keywordflow}{return} donnees.toUInt();
+00210 \}
+00211 
+\Hypertarget{_article_8cpp_source_l00218}\hyperlink{class_article_acdd796ad55a7fde0c229c8c2df7050cc}{00218} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \hyperlink{class_article_acdd796ad55a7fde0c229c8c2df7050cc}{Article::recupererNombreCasiersPourNomArticle}(
+      QString \hyperlink{class_article_a0ba6c08f7dd54e4b7caf673ecd6b41a6}{nomArticle})
+00219 \{
+00220     QString requete = \textcolor{stringliteral}{"SELECT COUNT(Stock.idArticle) FROM Stock INNER JOIN Article ON Stock.idArticle =
+       Article.idArticle WHERE Article.Nom = '"} + nomArticle + \textcolor{stringliteral}{"'"};
+00221 
+00222     QString donnees;
+00223     \hyperlink{class_article_a7221cec4212d86d74f479b9ee683ee8a}{bdd}->\hyperlink{class_bdd_a8f25d29d309041bbf875700db0efd97b}{recuperer}(requete, donnees);
+00224 
+00225     \textcolor{keywordflow}{return} donnees.toUInt();
+00226 \}
+00227 
+\Hypertarget{_article_8cpp_source_l00234}\hyperlink{class_article_aa7aeaee7858b50714e9c022899b9b82d}{00234} QVector<QString> \hyperlink{class_article_aa7aeaee7858b50714e9c022899b9b82d}{Article::recupererNumeroCasierPourIdArticle}(
+      QString \hyperlink{class_article_a9f2f7a04139f26accec145066a5aacae}{idArticle})
+00235 \{
+00236     QString requete = \textcolor{stringliteral}{"SELECT Stock.numeroCasier FROM Stock INNER JOIN Article ON
+       Article.idArticle=Stock.idArticle INNER JOIN Type ON Type.idType=Article.idType INNER JOIN Comptage ON
+       Comptage.idComptage=Stock.idComptage INNER JOIN Unite ON Unite.idUnite=Stock.idUnite WHERE Article.idArticle = '"} + idArticle + \textcolor{stringliteral}{"'"};
+00237 
+00238     QVector<QString> donnees;
+00239     \hyperlink{class_article_a7221cec4212d86d74f479b9ee683ee8a}{bdd}->\hyperlink{class_bdd_a8f25d29d309041bbf875700db0efd97b}{recuperer}(requete, donnees);
+00240 
+00241     \textcolor{keywordflow}{return} donnees;
+00242 \}
+00243 
+\Hypertarget{_article_8cpp_source_l00250}\hyperlink{class_article_aa311f3d149340622383c418444aa65a4}{00250} QVector<QString> \hyperlink{class_article_aa311f3d149340622383c418444aa65a4}{Article::recupererNumeroCasierPourNomArticle}(
+      QString \hyperlink{class_article_a0ba6c08f7dd54e4b7caf673ecd6b41a6}{nomArticle})
+00251 \{
+00252     QString requete = \textcolor{stringliteral}{"SELECT Stock.numeroCasier FROM Stock INNER JOIN Article ON
+       Article.idArticle=Stock.idArticle INNER JOIN Type ON Type.idType=Article.idType INNER JOIN Comptage ON
+       Comptage.idComptage=Stock.idComptage INNER JOIN Unite ON Unite.idUnite=Stock.idUnite WHERE Article.Nom = '"} + nomArticle + \textcolor{stringliteral}{"'"};
+00253 
+00254     QVector<QString> donnees;
+00255     \hyperlink{class_article_a7221cec4212d86d74f479b9ee683ee8a}{bdd}->\hyperlink{class_bdd_a8f25d29d309041bbf875700db0efd97b}{recuperer}(requete, donnees);
+00256 
+00257     \textcolor{keywordflow}{return} donnees;
+00258 \}
+00259 
+\Hypertarget{_article_8cpp_source_l00266}\hyperlink{class_article_a81e89d4821991a69277f3a0f8e88a001}{00266} QString \hyperlink{class_article_a81e89d4821991a69277f3a0f8e88a001}{Article::get}(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6}{ChampArticle} champ)
+00267 \{
+00268     \textcolor{keywordflow}{switch}(champ)
+00269     \{
+00270         \textcolor{keywordflow}{case} \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6acfb8962aaa35363f43d27a9f6f1ae265}{TABLE\_ARTICLE\_ID\_STOCK}:
+00271             \textcolor{keywordflow}{return} this->\hyperlink{class_article_afb7785930598d5fbdafb707acdd3eec1}{idStock};
+00272             \textcolor{keywordflow}{break};
+00273         \textcolor{keywordflow}{case} \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a9282e68cff8aecde470ad5004f0e5ebb}{TABLE\_ARTICLE\_ID\_ARTICLE}:
+00274             \textcolor{keywordflow}{return} this->\hyperlink{class_article_a9f2f7a04139f26accec145066a5aacae}{idArticle};
+00275             \textcolor{keywordflow}{break};
+00276         \textcolor{keywordflow}{case} \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a7a309a358c54f9ea482a222d0cb4d135}{TABLE\_ARTICLE\_NOM\_ARTICLE}:
+00277             \textcolor{keywordflow}{return} this->\hyperlink{class_article_a0ba6c08f7dd54e4b7caf673ecd6b41a6}{nomArticle};
+00278             \textcolor{keywordflow}{break};
+00279         \textcolor{keywordflow}{case} \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a57d25aaddbe360d849497b01b865599c}{TABLE\_ARTICLE\_ID\_TYPE}:
+00280             \textcolor{keywordflow}{return} this->\hyperlink{class_article_a1586203d0eb334a3298ca719f924083d}{idType};
+00281             \textcolor{keywordflow}{break};
+00282         \textcolor{keywordflow}{case} \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a7644b9669e82ebdf66baef0dff84f46c}{TABLE\_ARTICLE\_NOM\_TYPE}:
+00283             \textcolor{keywordflow}{return} this->\hyperlink{class_article_a06489a7445495277e44c7179b7cf8bbc}{nomType};
+00284             \textcolor{keywordflow}{break};
+00285         \textcolor{keywordflow}{case} \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6ad0cf55fa9bf7bc4a120c207ba2712860}{TABLE\_ARTICLE\_ID\_COMPTAGE}:
+00286             \textcolor{keywordflow}{return} this->\hyperlink{class_article_adc8cef4c963c0fcc6d486dab4bd60e17}{idComptage};
+00287             \textcolor{keywordflow}{break};
+00288         \textcolor{keywordflow}{case} \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a525a8c35de3d4035d3db311a090a0509}{TABLE\_ARTICLE\_NOM\_COMPTAGE}:
+00289             \textcolor{keywordflow}{return} this->\hyperlink{class_article_a1953a03d4505797952054141dbb2e327}{nomComptage};
+00290             \textcolor{keywordflow}{break};
+00291         \textcolor{keywordflow}{case} \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a00db8f6a07d38794d43ec1c40514bf6e}{TABLE\_ARTICLE\_CODE\_BARRE}:
+00292             \textcolor{keywordflow}{return} this->\hyperlink{class_article_a28db45ee4a48155c297be5c7c2eb54b9}{codeBarre};
+00293             \textcolor{keywordflow}{break};
+00294         \textcolor{keywordflow}{case} \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6ade71fc2eebb11113817148897a1867be}{TABLE\_ARTICLE\_DESIGNATION}:
+00295             \textcolor{keywordflow}{return} this->\hyperlink{class_article_a46a953cc2b35c8d868b27e8fa21c7a3a}{designation};
+00296             \textcolor{keywordflow}{break};
+00297         \textcolor{keywordflow}{case} \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a7273e06be37f8ea80b1c9c16224ebb86}{TABLE\_ARTICLE\_QUANTITE}:
+00298             \textcolor{keywordflow}{return} this->\hyperlink{class_article_a0870104453080b43bc271346217a864b}{quantite};
+00299             \textcolor{keywordflow}{break};
+00300         \textcolor{keywordflow}{case} \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a105c98cbf3533c6bd74eb706c5d524d6}{TABLE\_ARTICLE\_DISPONIBLE}:
+00301             \textcolor{keywordflow}{return} this->\hyperlink{class_article_ac361aa1f57e32243854735e84c6891e2}{disponible};
+00302             \textcolor{keywordflow}{break};
+00303         \textcolor{keywordflow}{case} \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a8e65e0dbe78b66152adb0ffd76dd2ece}{TABLE\_ARTICLE\_POIDS}:
+00304             \textcolor{keywordflow}{return} this->\hyperlink{class_article_ac42217ed32ef1466b099f3e4a6a913f0}{poidsArticle};
+00305             \textcolor{keywordflow}{break};
+00306         \textcolor{keywordflow}{case} \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a970d883b74adb323da887e30bef922f5}{TABLE\_ARTICLE\_TARE}:
+00307             \textcolor{keywordflow}{return} this->\hyperlink{class_article_abacf2d29d4b2e3e7b49256bc48d5fe64}{tare};
+00308             \textcolor{keywordflow}{break};
+00309         \textcolor{keywordflow}{case} \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6aa27f54cec32c08b45beaf39f1259ae92}{TABLE\_ARTICLE\_ID\_UNITE}:
+00310             \textcolor{keywordflow}{return} this->\hyperlink{class_article_a702cff16cb9cd0774383ceba81d83869}{idUnite};
+00311             \textcolor{keywordflow}{break};
+00312         \textcolor{keywordflow}{case} \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6abc2184dab6c03e59872ced7183608174}{TABLE\_ARTICLE\_NOM\_UNITE}:
+00313             \textcolor{keywordflow}{return} this->\hyperlink{class_article_a43a20e248e57150af0546c9f4b6b74c3}{nomUnite};
+00314             \textcolor{keywordflow}{break};
+00315         \textcolor{keywordflow}{case} \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a43ae9bea39dd3f12e8732bcd2d7c0223}{TABLE\_ARTICLE\_NUMERO\_CASIER}:
+00316             \textcolor{keywordflow}{return} this->\hyperlink{class_article_a4b8dd9598cc16200c60c7f55196fc26d}{numeroCasier};
+00317             \textcolor{keywordflow}{break};
+00318         \textcolor{keywordflow}{default}:
+00319             qDebug() << Q\_FUNC\_INFO << champ << \textcolor{stringliteral}{"champ inconnu"};
+00320     \}
+00321     \textcolor{keywordflow}{return} QString(\textcolor{stringliteral}{""});
+00322 \}
+00323 
+\Hypertarget{_article_8cpp_source_l00329}\hyperlink{class_article_a5777f36d74974ff21e712a9875c2d8bf}{00329} \textcolor{keywordtype}{void} \hyperlink{class_article_a5777f36d74974ff21e712a9875c2d8bf}{Article::mettreAJourQuantite}(QString \hyperlink{class_article_a0870104453080b43bc271346217a864b}{quantite})
+00330 \{
+00331     \textcolor{keywordflow}{if}(\hyperlink{class_article_a9f2f7a04139f26accec145066a5aacae}{idArticle}.isEmpty())
+00332         \textcolor{keywordflow}{return};
+00333     \textcolor{keywordflow}{if}(this->quantite != quantite)
+00334     \{
+00335 \textcolor{preprocessor}{        #ifdef DEBUG\_ARTICLE}
+00336             qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"quantite"} << \hyperlink{class_article_a0870104453080b43bc271346217a864b}{quantite};
+00337 \textcolor{preprocessor}{        #endif}
+00338         this->quantite = \hyperlink{class_article_a0870104453080b43bc271346217a864b}{quantite};
+00339         QString requete = \textcolor{stringliteral}{"UPDATE Stock SET Disponible ="} + quantite + \textcolor{stringliteral}{" WHERE idArticle ="} + 
+      \hyperlink{class_article_a9f2f7a04139f26accec145066a5aacae}{idArticle} + \textcolor{stringliteral}{";"};
+00340         \hyperlink{class_article_a7221cec4212d86d74f479b9ee683ee8a}{bdd}->\hyperlink{class_bdd_ab6ae645b4b54ce5df8dc9b422fb39faa}{executer}(requete);
+00341     \}
+00342 \}
+\end{DoxyCode}

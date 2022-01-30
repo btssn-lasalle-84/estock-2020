@@ -1,0 +1,391 @@
+\hypertarget{class_rfid}{}\subsection{Référence de la classe Rfid}
+\label{class_rfid}\index{Rfid@{Rfid}}
+
+
+La classe \hyperlink{class_rfid}{Rfid} traite la trame reçue d\textquotesingle{}un lecteur \hyperlink{class_rfid}{Rfid}.  
+
+
+
+
+{\ttfamily \#include $<$Rfid.\+h$>$}
+
+
+
+Graphe de collaboration de Rfid\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{class_rfid__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Signaux}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_rfid_a896a20a2fbe2ac7d842456a1161717cb}{erreur\+Badge\+Invalide} (Q\+String message)
+\item 
+void \hyperlink{class_rfid_a76990ba3147098e80ac6fc67af6439d1}{nouveau\+Uid\+Badge} (Q\+String \hyperlink{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}{badge})
+\end{DoxyCompactItemize}
+\subsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+Q\+String \hyperlink{class_rfid_afb99366646ac75b7e1d28302d38bf4f2}{corriger\+Badge} (Q\+String \hyperlink{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}{badge})
+\begin{DoxyCompactList}\small\item\em Définition de la méthode \hyperlink{class_rfid_afb99366646ac75b7e1d28302d38bf4f2}{corriger\+Badge(\+Q\+String badge)} \end{DoxyCompactList}\item 
+\hyperlink{class_rfid_aa00c7163ce0e3fda6596353d40a458a9}{Rfid} (\hyperlink{class_q_object}{Q\+Object} $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Définition du constructeur de la classe \hyperlink{class_rfid}{Rfid}. \end{DoxyCompactList}\item 
+void \hyperlink{class_rfid_a51021c0899dab1d5fb08e3dd6d93e425}{set\+Badge} (Q\+String \hyperlink{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}{badge})
+\begin{DoxyCompactList}\small\item\em Définition de la méthode \hyperlink{class_rfid_a51021c0899dab1d5fb08e3dd6d93e425}{set\+Badge(\+Q\+String badge)} \end{DoxyCompactList}\item 
+void \hyperlink{class_rfid_ac79b994b32bf7a7cbad9d9988e721564}{set\+Uid} (Q\+String \hyperlink{class_rfid_a157b71d282a7e067c65b431dbae6c6c8}{uid})
+\begin{DoxyCompactList}\small\item\em Définition de la méthode \hyperlink{class_rfid_ac79b994b32bf7a7cbad9d9988e721564}{set\+Uid(\+Q\+String uid)} \end{DoxyCompactList}\item 
+\hyperlink{class_rfid_a563836053a71a9fdc566a812da0cf5c1}{$\sim$\+Rfid} ()
+\begin{DoxyCompactList}\small\item\em Définition du destructeur de la classe \hyperlink{class_rfid}{Rfid}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Connecteurs privés}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_rfid_a5b4f31b235afebee620e42c52ab60213}{traiter\+Badge} (Q\+String trame\+Badge)
+\begin{DoxyCompactList}\small\item\em Définition de la méthode \hyperlink{class_rfid_a5b4f31b235afebee620e42c52ab60213}{Rfid\+::traiter\+Badge(\+Q\+String trame\+Badge)} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Fonctions membres privées}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_rfid_a884e849f175045d78587e1e09a87cb00}{extraire\+Uid} ()
+\begin{DoxyCompactList}\small\item\em Définition de la méthode \hyperlink{class_rfid_a884e849f175045d78587e1e09a87cb00}{Rfid\+::extraire\+Uid()} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+Q\+String \hyperlink{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}{badge}
+\begin{DoxyCompactList}\small\item\em trame reçue d\textquotesingle{}un badge \end{DoxyCompactList}\item 
+Q\+String \hyperlink{class_rfid_a157b71d282a7e067c65b431dbae6c6c8}{uid}
+\begin{DoxyCompactList}\small\item\em l\textquotesingle{}U\+ID extrait de la trame badge \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Description détaillée}
+La classe \hyperlink{class_rfid}{Rfid} traite la trame reçue d\textquotesingle{}un lecteur \hyperlink{class_rfid}{Rfid}. 
+
+\begin{DoxyAuthor}{Auteur}
+Legger Pierre-\/\+Antoine
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+Mercredi 4 Mars 2020 
+\end{DoxyDate}
+
+
+Définition à la ligne \hyperlink{_rfid_8h_source_l00035}{35} du fichier \hyperlink{_rfid_8h_source}{Rfid.\+h}.
+
+
+
+\subsubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{class_rfid_aa00c7163ce0e3fda6596353d40a458a9}\label{class_rfid_aa00c7163ce0e3fda6596353d40a458a9}} 
+\index{Rfid@{Rfid}!Rfid@{Rfid}}
+\index{Rfid@{Rfid}!Rfid@{Rfid}}
+\paragraph{\texorpdfstring{Rfid()}{Rfid()}}
+{\footnotesize\ttfamily Rfid\+::\+Rfid (\begin{DoxyParamCaption}\item[{\hyperlink{class_q_object}{Q\+Object} $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+Définition du constructeur de la classe \hyperlink{class_rfid}{Rfid}. 
+
+Initialise un objet \hyperlink{class_rfid}{Rfid} 
+\begin{DoxyParams}{Paramètres}
+{\em parent} & l\textquotesingle{}objet \hyperlink{class_q_object}{Q\+Object} parent \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{_rfid_8cpp_source_l00022}{22} du fichier \hyperlink{_rfid_8cpp_source}{Rfid.\+cpp}.
+
+
+\begin{DoxyCode}
+00022                           : \hyperlink{class_q_object}{QObject}(parent), \hyperlink{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}{badge}(\textcolor{stringliteral}{""})
+00023 \{
+00024 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_rfid_a563836053a71a9fdc566a812da0cf5c1}\label{class_rfid_a563836053a71a9fdc566a812da0cf5c1}} 
+\index{Rfid@{Rfid}!````~Rfid@{$\sim$\+Rfid}}
+\index{````~Rfid@{$\sim$\+Rfid}!Rfid@{Rfid}}
+\paragraph{\texorpdfstring{$\sim$\+Rfid()}{~Rfid()}}
+{\footnotesize\ttfamily Rfid\+::$\sim$\+Rfid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Définition du destructeur de la classe \hyperlink{class_rfid}{Rfid}. 
+
+Détruitun objet \hyperlink{class_rfid}{Rfid} 
+
+Définition à la ligne \hyperlink{_rfid_8cpp_source_l00031}{31} du fichier \hyperlink{_rfid_8cpp_source}{Rfid.\+cpp}.
+
+
+\begin{DoxyCode}
+00032 \{
+00033 
+00034 \}
+\end{DoxyCode}
+
+
+\subsubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{class_rfid_afb99366646ac75b7e1d28302d38bf4f2}\label{class_rfid_afb99366646ac75b7e1d28302d38bf4f2}} 
+\index{Rfid@{Rfid}!corriger\+Badge@{corriger\+Badge}}
+\index{corriger\+Badge@{corriger\+Badge}!Rfid@{Rfid}}
+\paragraph{\texorpdfstring{corriger\+Badge()}{corrigerBadge()}}
+{\footnotesize\ttfamily Q\+String Rfid\+::corriger\+Badge (\begin{DoxyParamCaption}\item[{Q\+String}]{badge }\end{DoxyParamCaption})}
+
+
+
+Définition de la méthode \hyperlink{class_rfid_afb99366646ac75b7e1d28302d38bf4f2}{corriger\+Badge(\+Q\+String badge)} 
+
+La trame reçue provient de l\textquotesingle{}émulation d\textquotesingle{}un clavier Q\+W\+E\+R\+TY qu\textquotesingle{}il faut traduire en A\+Z\+E\+R\+TY 
+\begin{DoxyParams}{Paramètres}
+{\em badge} & la trame badge en format Q\+W\+E\+R\+TY \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+la trame badge en format A\+Z\+E\+R\+TY 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{_rfid_8cpp_source_l00043}{43} du fichier \hyperlink{_rfid_8cpp_source}{Rfid.\+cpp}.
+
+
+
+Référencé par \hyperlink{_rfid_8cpp_source_l00097}{traiter\+Badge()}.
+
+
+\begin{DoxyCode}
+00044 \{
+00045     QString badgeCorrige = \textcolor{stringliteral}{""};
+00046 
+00047     \textcolor{keywordflow}{if}(!\hyperlink{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}{badge}.isEmpty())
+00048     \{
+00049         \textcolor{comment}{// effectue les remplacements des touches QWERTY en touches AZERTY}
+00050         badgeCorrige = \hyperlink{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}{badge}.replace(QString::fromUtf8(\textcolor{stringliteral}{"Q"}), \textcolor{stringliteral}{"A"});
+00051         badgeCorrige = \hyperlink{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}{badge}.replace(QString::fromUtf8(\textcolor{stringliteral}{"W"}), \textcolor{stringliteral}{"Z"});
+00052         badgeCorrige = \hyperlink{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}{badge}.replace(QString::fromUtf8(\textcolor{stringliteral}{"q"}), \textcolor{stringliteral}{"q"});
+00053         badgeCorrige = \hyperlink{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}{badge}.replace(QString::fromUtf8(\textcolor{stringliteral}{"w"}), \textcolor{stringliteral}{"z"});
+00054         badgeCorrige = \hyperlink{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}{badge}.replace(QString::fromUtf8(\textcolor{stringliteral}{"M"}), \textcolor{stringliteral}{":"});
+00055         badgeCorrige = \hyperlink{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}{badge}.replace(QString::fromUtf8(\textcolor{stringliteral}{"à"}), \textcolor{stringliteral}{"0"});
+00056         badgeCorrige = \hyperlink{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}{badge}.replace(QString::fromUtf8(\textcolor{stringliteral}{"&"}), \textcolor{stringliteral}{"1"});
+00057         badgeCorrige = \hyperlink{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}{badge}.replace(QString::fromUtf8(\textcolor{stringliteral}{"é"}), \textcolor{stringliteral}{"2"});
+00058         badgeCorrige = \hyperlink{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}{badge}.replace(QString::fromUtf8(\textcolor{stringliteral}{"\(\backslash\)""}), \textcolor{stringliteral}{"3"});
+00059         badgeCorrige = \hyperlink{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}{badge}.replace(QString::fromUtf8(\textcolor{stringliteral}{"'"}), \textcolor{stringliteral}{"4"});
+00060         badgeCorrige = \hyperlink{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}{badge}.replace(QString::fromUtf8(\textcolor{stringliteral}{"("}), \textcolor{stringliteral}{"5"});
+00061         badgeCorrige = \hyperlink{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}{badge}.replace(QString::fromUtf8(\textcolor{stringliteral}{"-"}), \textcolor{stringliteral}{"6"});
+00062         badgeCorrige = \hyperlink{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}{badge}.replace(QString::fromUtf8(\textcolor{stringliteral}{"è"}), \textcolor{stringliteral}{"7"});
+00063         badgeCorrige = \hyperlink{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}{badge}.replace(QString::fromUtf8(\textcolor{stringliteral}{"\_"}), \textcolor{stringliteral}{"8"});
+00064         badgeCorrige = \hyperlink{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}{badge}.replace(QString::fromUtf8(\textcolor{stringliteral}{"ç"}), \textcolor{stringliteral}{"9"});
+00065     \}
+00066     \textcolor{keywordflow}{return} badgeCorrige;
+00067 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_rfid_a896a20a2fbe2ac7d842456a1161717cb}\label{class_rfid_a896a20a2fbe2ac7d842456a1161717cb}} 
+\index{Rfid@{Rfid}!erreur\+Badge\+Invalide@{erreur\+Badge\+Invalide}}
+\index{erreur\+Badge\+Invalide@{erreur\+Badge\+Invalide}!Rfid@{Rfid}}
+\paragraph{\texorpdfstring{erreur\+Badge\+Invalide}{erreurBadgeInvalide}}
+{\footnotesize\ttfamily void Rfid\+::erreur\+Badge\+Invalide (\begin{DoxyParamCaption}\item[{Q\+String}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Référencé par \hyperlink{_rfid_8cpp_source_l00097}{traiter\+Badge()}.
+
+\mbox{\Hypertarget{class_rfid_a884e849f175045d78587e1e09a87cb00}\label{class_rfid_a884e849f175045d78587e1e09a87cb00}} 
+\index{Rfid@{Rfid}!extraire\+Uid@{extraire\+Uid}}
+\index{extraire\+Uid@{extraire\+Uid}!Rfid@{Rfid}}
+\paragraph{\texorpdfstring{extraire\+Uid()}{extraireUid()}}
+{\footnotesize\ttfamily void Rfid\+::extraire\+Uid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Définition de la méthode \hyperlink{class_rfid_a884e849f175045d78587e1e09a87cb00}{Rfid\+::extraire\+Uid()} 
+
+Extrait l\textquotesingle{}U\+ID de la trame badge 
+
+Définition à la ligne \hyperlink{_rfid_8cpp_source_l00130}{130} du fichier \hyperlink{_rfid_8cpp_source}{Rfid.\+cpp}.
+
+
+
+Références \hyperlink{_rfid_8h_source_l00056}{badge}, et \hyperlink{_rfid_8cpp_source_l00086}{set\+Uid()}.
+
+
+
+Référencé par \hyperlink{_rfid_8cpp_source_l00097}{traiter\+Badge()}.
+
+
+\begin{DoxyCode}
+00131 \{
+00132     \hyperlink{class_rfid_ac79b994b32bf7a7cbad9d9988e721564}{setUid}(\hyperlink{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}{badge}.section(\textcolor{charliteral}{':'},1,1));
+00133 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_rfid_a76990ba3147098e80ac6fc67af6439d1}\label{class_rfid_a76990ba3147098e80ac6fc67af6439d1}} 
+\index{Rfid@{Rfid}!nouveau\+Uid\+Badge@{nouveau\+Uid\+Badge}}
+\index{nouveau\+Uid\+Badge@{nouveau\+Uid\+Badge}!Rfid@{Rfid}}
+\paragraph{\texorpdfstring{nouveau\+Uid\+Badge}{nouveauUidBadge}}
+{\footnotesize\ttfamily void Rfid\+::nouveau\+Uid\+Badge (\begin{DoxyParamCaption}\item[{Q\+String}]{badge }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Référencé par \hyperlink{_rfid_8cpp_source_l00097}{traiter\+Badge()}.
+
+\mbox{\Hypertarget{class_rfid_a51021c0899dab1d5fb08e3dd6d93e425}\label{class_rfid_a51021c0899dab1d5fb08e3dd6d93e425}} 
+\index{Rfid@{Rfid}!set\+Badge@{set\+Badge}}
+\index{set\+Badge@{set\+Badge}!Rfid@{Rfid}}
+\paragraph{\texorpdfstring{set\+Badge()}{setBadge()}}
+{\footnotesize\ttfamily void Rfid\+::set\+Badge (\begin{DoxyParamCaption}\item[{Q\+String}]{badge }\end{DoxyParamCaption})}
+
+
+
+Définition de la méthode \hyperlink{class_rfid_a51021c0899dab1d5fb08e3dd6d93e425}{set\+Badge(\+Q\+String badge)} 
+
+Accesseur set de l\textquotesingle{}attribut badge 
+\begin{DoxyParams}{Paramètres}
+{\em badge} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{_rfid_8cpp_source_l00075}{75} du fichier \hyperlink{_rfid_8cpp_source}{Rfid.\+cpp}.
+
+
+
+Références \hyperlink{_rfid_8h_source_l00056}{badge}.
+
+
+
+Référencé par \hyperlink{_rfid_8cpp_source_l00097}{traiter\+Badge()}.
+
+
+\begin{DoxyCode}
+00076 \{
+00077     this->\hyperlink{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}{badge} = \hyperlink{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}{badge};
+00078 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_rfid_ac79b994b32bf7a7cbad9d9988e721564}\label{class_rfid_ac79b994b32bf7a7cbad9d9988e721564}} 
+\index{Rfid@{Rfid}!set\+Uid@{set\+Uid}}
+\index{set\+Uid@{set\+Uid}!Rfid@{Rfid}}
+\paragraph{\texorpdfstring{set\+Uid()}{setUid()}}
+{\footnotesize\ttfamily void Rfid\+::set\+Uid (\begin{DoxyParamCaption}\item[{Q\+String}]{uid }\end{DoxyParamCaption})}
+
+
+
+Définition de la méthode \hyperlink{class_rfid_ac79b994b32bf7a7cbad9d9988e721564}{set\+Uid(\+Q\+String uid)} 
+
+Accesseur set de l\textquotesingle{}attribut uid 
+\begin{DoxyParams}{Paramètres}
+{\em uid} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{_rfid_8cpp_source_l00086}{86} du fichier \hyperlink{_rfid_8cpp_source}{Rfid.\+cpp}.
+
+
+
+Références \hyperlink{_rfid_8h_source_l00057}{uid}.
+
+
+
+Référencé par \hyperlink{_rfid_8cpp_source_l00130}{extraire\+Uid()}.
+
+
+\begin{DoxyCode}
+00087 \{
+00088     this->\hyperlink{class_rfid_a157b71d282a7e067c65b431dbae6c6c8}{uid} = \hyperlink{class_rfid_a157b71d282a7e067c65b431dbae6c6c8}{uid};
+00089 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_rfid_a5b4f31b235afebee620e42c52ab60213}\label{class_rfid_a5b4f31b235afebee620e42c52ab60213}} 
+\index{Rfid@{Rfid}!traiter\+Badge@{traiter\+Badge}}
+\index{traiter\+Badge@{traiter\+Badge}!Rfid@{Rfid}}
+\paragraph{\texorpdfstring{traiter\+Badge}{traiterBadge}}
+{\footnotesize\ttfamily void Rfid\+::traiter\+Badge (\begin{DoxyParamCaption}\item[{Q\+String}]{trame\+Badge }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Définition de la méthode \hyperlink{class_rfid_a5b4f31b235afebee620e42c52ab60213}{Rfid\+::traiter\+Badge(\+Q\+String trame\+Badge)} 
+
+Extrait l\textquotesingle{}U\+ID d\textquotesingle{}une trame badge valide 
+\begin{DoxyParams}{Paramètres}
+{\em trame\+Badge} & la trame reçue du lecteur \hyperlink{class_rfid}{Rfid} \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{_rfid_8cpp_source_l00097}{97} du fichier \hyperlink{_rfid_8cpp_source}{Rfid.\+cpp}.
+
+
+
+Références \hyperlink{_rfid_8h_source_l00056}{badge}, \hyperlink{_rfid_8cpp_source_l00043}{corriger\+Badge()}, \hyperlink{_rfid_8h_source_l00018}{E\+R\+R\+E\+U\+R\+\_\+\+B\+A\+D\+G\+E\+\_\+\+I\+N\+V\+A\+L\+I\+DE}, \hyperlink{class_rfid_a896a20a2fbe2ac7d842456a1161717cb}{erreur\+Badge\+Invalide()}, \hyperlink{_rfid_8cpp_source_l00130}{extraire\+Uid()}, \hyperlink{class_rfid_a76990ba3147098e80ac6fc67af6439d1}{nouveau\+Uid\+Badge()}, \hyperlink{_rfid_8cpp_source_l00075}{set\+Badge()}, et \hyperlink{_rfid_8h_source_l00057}{uid}.
+
+
+\begin{DoxyCode}
+00098 \{
+00099     \textcolor{comment}{/*}
+00100 \textcolor{comment}{     * Format trame reçue : RFID:xxxxxxxx}
+00101 \textcolor{comment}{     * xxxxxxxx -> uid du badge}
+00102 \textcolor{comment}{     */}
+00103     \hyperlink{class_rfid_a51021c0899dab1d5fb08e3dd6d93e425}{setBadge}(\hyperlink{class_rfid_afb99366646ac75b7e1d28302d38bf4f2}{corrigerBadge}(trameBadge));    
+00104 
+00105 \textcolor{preprocessor}{    #ifdef DEBUG\_RFID}
+00106         qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"Badge"} << \hyperlink{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}{badge};
+00107 \textcolor{preprocessor}{    #endif}
+00108 
+00109     \textcolor{comment}{// Vérifier si la trame est valide}
+00110     \textcolor{keywordflow}{if}(badge.startsWith(\textcolor{stringliteral}{"RFID:"}))
+00111     \{
+00112         \hyperlink{class_rfid_a884e849f175045d78587e1e09a87cb00}{extraireUid}();
+00113 
+00114         emit \hyperlink{class_rfid_a76990ba3147098e80ac6fc67af6439d1}{nouveauUidBadge}(\hyperlink{class_rfid_a157b71d282a7e067c65b431dbae6c6c8}{uid});
+00115 \textcolor{preprocessor}{        #ifdef DEBUG\_RFID}
+00116             qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"UID"} << \hyperlink{class_rfid_a157b71d282a7e067c65b431dbae6c6c8}{uid};
+00117 \textcolor{preprocessor}{        #endif}
+00118     \}
+00119     \textcolor{keywordflow}{else}
+00120     \{
+00121         emit \hyperlink{class_rfid_a896a20a2fbe2ac7d842456a1161717cb}{erreurBadgeInvalide}(\hyperlink{_rfid_8h_aad43c23a448ffc828e0b6014cfaf980a}{ERREUR\_BADGE\_INVALIDE});
+00122     \}
+00123 \}
+\end{DoxyCode}
+
+
+\subsubsection{Documentation des données membres}
+\mbox{\Hypertarget{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}\label{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}} 
+\index{Rfid@{Rfid}!badge@{badge}}
+\index{badge@{badge}!Rfid@{Rfid}}
+\paragraph{\texorpdfstring{badge}{badge}}
+{\footnotesize\ttfamily Q\+String Rfid\+::badge\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+trame reçue d\textquotesingle{}un badge 
+
+
+
+Définition à la ligne \hyperlink{_rfid_8h_source_l00056}{56} du fichier \hyperlink{_rfid_8h_source}{Rfid.\+h}.
+
+
+
+Référencé par \hyperlink{_rfid_8cpp_source_l00130}{extraire\+Uid()}, \hyperlink{_rfid_8cpp_source_l00075}{set\+Badge()}, et \hyperlink{_rfid_8cpp_source_l00097}{traiter\+Badge()}.
+
+\mbox{\Hypertarget{class_rfid_a157b71d282a7e067c65b431dbae6c6c8}\label{class_rfid_a157b71d282a7e067c65b431dbae6c6c8}} 
+\index{Rfid@{Rfid}!uid@{uid}}
+\index{uid@{uid}!Rfid@{Rfid}}
+\paragraph{\texorpdfstring{uid}{uid}}
+{\footnotesize\ttfamily Q\+String Rfid\+::uid\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+l\textquotesingle{}U\+ID extrait de la trame badge 
+
+
+
+Définition à la ligne \hyperlink{_rfid_8h_source_l00057}{57} du fichier \hyperlink{_rfid_8h_source}{Rfid.\+h}.
+
+
+
+Référencé par \hyperlink{_rfid_8cpp_source_l00086}{set\+Uid()}, et \hyperlink{_rfid_8cpp_source_l00097}{traiter\+Badge()}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_rfid_8h}{Rfid.\+h}\item 
+\hyperlink{_rfid_8cpp}{Rfid.\+cpp}\end{DoxyCompactItemize}

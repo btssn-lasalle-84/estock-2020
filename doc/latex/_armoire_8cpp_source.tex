@@ -1,0 +1,122 @@
+\hypertarget{_armoire_8cpp_source}{}\subsection{Armoire.\+cpp}
+\label{_armoire_8cpp_source}\index{Armoire.\+cpp@{Armoire.\+cpp}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include "\hyperlink{_armoire_8h}{Armoire.h}"}
+00002 \textcolor{preprocessor}{#include "\hyperlink{_bdd_8h}{Bdd.h}"}
+00003 \textcolor{preprocessor}{#include <QNetworkInterface>}
+00004 
+\Hypertarget{_armoire_8cpp_source_l00022}\hyperlink{class_armoire_a5db260c682a9d2688afc0efbd5be8d14}{00022} \hyperlink{class_armoire_a5db260c682a9d2688afc0efbd5be8d14}{Armoire::Armoire}(\hyperlink{class_q_object}{QObject} *parent) : \hyperlink{class_q_object}{QObject}(parent)
+00023 \{
+00024 \textcolor{preprocessor}{    #ifdef DEBUG\_ARMOIRE}
+00025         qDebug() << Q\_FUNC\_INFO;
+00026 \textcolor{preprocessor}{    #endif}
+00027     \hyperlink{class_armoire_a555f656018e7b600987128cdc792e320}{bdd} = \hyperlink{class_bdd_a6f55c29d593da12ca31fad02f5adfe24}{Bdd::getInstance}();
+00028     \hyperlink{class_armoire_ab96bd042aa78eaefba0aefb860684ca6}{adresseIPArmoire} = \hyperlink{class_armoire_abc30649cc7d4f3c0cefcc54894aeb406}{lireAdresseIP}();
+00029     \hyperlink{class_armoire_a1c5266f9e4b01c0d2e1d244d2f11fffd}{recupererArmoire}();
+00030 \}
+00031 
+\Hypertarget{_armoire_8cpp_source_l00036}\hyperlink{class_armoire_a0f506a879391a987f12f59a23f60634e}{00036} \hyperlink{class_armoire_a0f506a879391a987f12f59a23f60634e}{Armoire::~Armoire}()
+00037 \{
+00038     \hyperlink{class_bdd_af89fa3ffa107c7859a3964bf032cfdb7}{Bdd::detruireInstance}();
+00039 \textcolor{preprocessor}{    #ifdef DEBUG\_ARMOIRE}
+00040         qDebug() << Q\_FUNC\_INFO;
+00041 \textcolor{preprocessor}{    #endif}
+00042 \}
+00043 
+\Hypertarget{_armoire_8cpp_source_l00049}\hyperlink{class_armoire_a1c5266f9e4b01c0d2e1d244d2f11fffd}{00049} \textcolor{keywordtype}{void} \hyperlink{class_armoire_a1c5266f9e4b01c0d2e1d244d2f11fffd}{Armoire::recupererArmoire}(QString \hyperlink{class_armoire_a131caceb7d4b90cb7761851757e80f57}{idArmoire})
+00050 \{
+00051     QString requeteBDD;
+00052 
+00053     \textcolor{keywordflow}{if}(!idArmoire.isEmpty()) \textcolor{comment}{// par id}
+00054     \{
+00055         requeteBDD = \textcolor{stringliteral}{"SELECT * from Armoire where idArmoire = '"} + idArmoire + \textcolor{stringliteral}{"'"};
+00056         QStringList donnees;
+00057         \hyperlink{class_armoire_a555f656018e7b600987128cdc792e320}{bdd}->\hyperlink{class_bdd_a8f25d29d309041bbf875700db0efd97b}{recuperer}(requeteBDD, donnees);
+00058 
+00059 \textcolor{preprocessor}{        #ifdef DEBUG\_ARMOIRE}
+00060             qDebug() << Q\_FUNC\_INFO << donnees;
+00061 \textcolor{preprocessor}{        #endif}
+00062 
+00063         \textcolor{keywordflow}{if}(donnees.size() > 0)
+00064         \{
+00065             this->idArmoire = donnees.at(\hyperlink{_armoire_8h_a8c8e83929e4df868beea17eda4fb5dada167bbea3f9d799583c77d0a6b12ed99e}{TABLE\_ARMOIRE\_ID\_ARMOIRE});
+00066             \hyperlink{class_armoire_a1de028da0fa3f085e2feaad8311d8795}{nom} = donnees.at(\hyperlink{_armoire_8h_a8c8e83929e4df868beea17eda4fb5dadaed87f53039b2f5f5401a4b4c9ea8a706}{TABLE\_ARMOIRE\_NOM});
+00067             \hyperlink{class_armoire_aa18be328693d7602439c779e30156c02}{description} = donnees.at(\hyperlink{_armoire_8h_a8c8e83929e4df868beea17eda4fb5dadaa46613f3c7eb048c8392fb780e801cc8}{TABLE\_ARMOIRE\_DESCRIPTION});
+00068             \hyperlink{class_armoire_a9c4e926b7cddb13d097b75b3f5ef3de8}{nbCasiers} = donnees.at(\hyperlink{_armoire_8h_a8c8e83929e4df868beea17eda4fb5dada92634af3316ad54be209ef14cc8a8981}{TABLE\_ARMOIRE\_NB\_CASIERS});
+00069         \}
+00070     \}    
+00071 \}
+00072 
+\Hypertarget{_armoire_8cpp_source_l00078}\hyperlink{class_armoire_a3e4d2ffc2fb91dd24d1160305ad36555}{00078} QStringList \hyperlink{class_armoire_a3e4d2ffc2fb91dd24d1160305ad36555}{Armoire::getInformations}()
+00079 \{
+00080     QStringList informations;
+00081 
+00082     informations << \hyperlink{class_armoire_a131caceb7d4b90cb7761851757e80f57}{idArmoire} << \hyperlink{class_armoire_a1de028da0fa3f085e2feaad8311d8795}{nom} << \hyperlink{class_armoire_aa18be328693d7602439c779e30156c02}{description} << 
+      \hyperlink{class_armoire_a9c4e926b7cddb13d097b75b3f5ef3de8}{nbCasiers} << \hyperlink{class_armoire_ab96bd042aa78eaefba0aefb860684ca6}{adresseIPArmoire};
+00083 
+00084     emit \hyperlink{class_armoire_a1fc00ceaa842f579ee31c532a9b01508}{informationsArmoire}(informations);
+00085 
+00086     \textcolor{keywordflow}{return} informations;
+00087 \}
+00088 
+\Hypertarget{_armoire_8cpp_source_l00094}\hyperlink{class_armoire_a1a76e497170632b30f9821b396d53cec}{00094} QString \hyperlink{class_armoire_a1a76e497170632b30f9821b396d53cec}{Armoire::getIdArmoire}()\textcolor{keyword}{ const}
+00095 \textcolor{keyword}{}\{
+00096     \textcolor{keywordflow}{return} \hyperlink{class_armoire_a131caceb7d4b90cb7761851757e80f57}{idArmoire};
+00097 \}
+00098 
+\Hypertarget{_armoire_8cpp_source_l00105}\hyperlink{class_armoire_a0045e45e0c9a465af765667344ce8bee}{00105} QString \hyperlink{class_armoire_a0045e45e0c9a465af765667344ce8bee}{Armoire::getNom}()\textcolor{keyword}{ const}
+00106 \textcolor{keyword}{}\{
+00107     \textcolor{keywordflow}{return} \hyperlink{class_armoire_a1de028da0fa3f085e2feaad8311d8795}{nom};
+00108 \}
+00109 
+\Hypertarget{_armoire_8cpp_source_l00116}\hyperlink{class_armoire_a19af26aa7dedd03202d2484744dcad76}{00116} QString \hyperlink{class_armoire_a19af26aa7dedd03202d2484744dcad76}{Armoire::getDescripton}()\textcolor{keyword}{ const}
+00117 \textcolor{keyword}{}\{
+00118     \textcolor{keywordflow}{return} \hyperlink{class_armoire_aa18be328693d7602439c779e30156c02}{description};
+00119 \}
+00120 
+\Hypertarget{_armoire_8cpp_source_l00127}\hyperlink{class_armoire_aa94faaf53b6da5139a22a2ab21d4cf12}{00127} QString \hyperlink{class_armoire_aa94faaf53b6da5139a22a2ab21d4cf12}{Armoire::getNbCasiers}()\textcolor{keyword}{ const}
+00128 \textcolor{keyword}{}\{
+00129     \textcolor{keywordflow}{return} \hyperlink{class_armoire_a9c4e926b7cddb13d097b75b3f5ef3de8}{nbCasiers};
+00130 \}
+00131 
+\Hypertarget{_armoire_8cpp_source_l00138}\hyperlink{class_armoire_a706def736570580d7e5e3d2e29321c66}{00138} QString \hyperlink{class_armoire_a706def736570580d7e5e3d2e29321c66}{Armoire::getAdresseIPArmoire}()\textcolor{keyword}{ const}
+00139 \textcolor{keyword}{}\{
+00140     \textcolor{keywordflow}{return} \hyperlink{class_armoire_ab96bd042aa78eaefba0aefb860684ca6}{adresseIPArmoire};
+00141 \}
+00142 
+\Hypertarget{_armoire_8cpp_source_l00149}\hyperlink{class_armoire_abc30649cc7d4f3c0cefcc54894aeb406}{00149} QString \hyperlink{class_armoire_abc30649cc7d4f3c0cefcc54894aeb406}{Armoire::lireAdresseIP}()
+00150 \{
+00151     QStringList adresses;
+00152     \textcolor{keywordflow}{foreach}(QHostAddress adresse, QNetworkInterface::allAddresses())
+00153     \{
+00154         \textcolor{comment}{// Filtre les adresses localhost ...}
+00155         \textcolor{keywordflow}{if}(adresse != QHostAddress::LocalHostIPv6
+00156            && adresse != QHostAddress::LocalHost
+00157            \textcolor{comment}{// ... APIPA ...}
+00158            && !adresse.isInSubnet(QHostAddress::parseSubnet(\textcolor{stringliteral}{"169.254.0.0/16"}))
+00159            \textcolor{comment}{// ... Lien Local IPv6}
+00160            && !adresse.isInSubnet(QHostAddress::parseSubnet(\textcolor{stringliteral}{"FE80::/64"})))
+00161         \{
+00162             qDebug() << Q\_FUNC\_INFO << adresse.toString();
+00163             adresses << adresse.toString();
+00164         \}
+00165     \}
+00166 
+00167     \textcolor{keywordflow}{foreach}(QString adresse, adresses)
+00168     \{
+00169 \textcolor{preprocessor}{        #ifdef DEBUG\_ARMOIRE}
+00170             qDebug() << Q\_FUNC\_INFO << adresse;
+00171 \textcolor{preprocessor}{        #endif}
+00172         \textcolor{keywordflow}{if}(adresse.contains(\textcolor{stringliteral}{"192."}))
+00173             \textcolor{keywordflow}{return} adresse;
+00174     \}
+00175 
+00176     \textcolor{comment}{/*if(adresses.count() > 0)}
+00177 \textcolor{comment}{    \{}
+00178 \textcolor{comment}{        return adresses.at(0);}
+00179 \textcolor{comment}{    \}*/}
+00180 
+00181     \textcolor{keywordflow}{return} QString(\textcolor{stringliteral}{""});
+00182 \}
+\end{DoxyCode}

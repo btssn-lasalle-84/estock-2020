@@ -1,0 +1,41 @@
+\hypertarget{_rfid_8h_source}{}\subsection{Rfid.\+h}
+\label{_rfid_8h_source}\index{Rfid.\+h@{Rfid.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef RFID\_H}
+00002 \textcolor{preprocessor}{#define RFID\_H}
+00003 
+00017 \textcolor{comment}{//#define DEBUG\_RFID}
+\Hypertarget{_rfid_8h_source_l00018}\hyperlink{_rfid_8h_aad43c23a448ffc828e0b6014cfaf980a}{00018} \textcolor{preprocessor}{#define ERREUR\_BADGE\_INVALIDE "Erreur badge invalide" }
+00019 \textcolor{preprocessor}{}
+00020 \textcolor{preprocessor}{#include <QObject>}
+00021 
+\Hypertarget{_rfid_8h_source_l00035}\hyperlink{class_rfid}{00035} \textcolor{keyword}{class }\hyperlink{class_rfid}{Rfid} : \textcolor{keyword}{public} \hyperlink{class_q_object}{QObject}
+00036 \{
+00037     Q\_OBJECT
+00038 
+00039 \textcolor{keyword}{public}:
+00040     \hyperlink{class_rfid_aa00c7163ce0e3fda6596353d40a458a9}{Rfid}(\hyperlink{class_q_object}{QObject} *parent = \textcolor{keyword}{nullptr});
+00041     \hyperlink{class_rfid_a563836053a71a9fdc566a812da0cf5c1}{~Rfid}();
+00042 
+00043     QString \hyperlink{class_rfid_afb99366646ac75b7e1d28302d38bf4f2}{corrigerBadge}(QString \hyperlink{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}{badge});
+00044 
+00045     \textcolor{keywordtype}{void} \hyperlink{class_rfid_a51021c0899dab1d5fb08e3dd6d93e425}{setBadge}(QString badge);
+00046     \textcolor{keywordtype}{void} \hyperlink{class_rfid_ac79b994b32bf7a7cbad9d9988e721564}{setUid}(QString \hyperlink{class_rfid_a157b71d282a7e067c65b431dbae6c6c8}{uid});
+00047 
+00048 \textcolor{keyword}{private} slots:
+00049     \textcolor{keywordtype}{void} \hyperlink{class_rfid_a5b4f31b235afebee620e42c52ab60213}{traiterBadge}(QString trameBadge);
+00050 
+00051 signals:
+00052     \textcolor{keywordtype}{void} \hyperlink{class_rfid_a896a20a2fbe2ac7d842456a1161717cb}{erreurBadgeInvalide}(QString message);
+00053     \textcolor{keywordtype}{void} \hyperlink{class_rfid_a76990ba3147098e80ac6fc67af6439d1}{nouveauUidBadge}(QString badge);
+00054 
+00055 \textcolor{keyword}{private}:
+\Hypertarget{_rfid_8h_source_l00056}\hyperlink{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}{00056}     QString \hyperlink{class_rfid_ac634cd26ffbe1c6da3967dc4af53b734}{badge}; 
+\Hypertarget{_rfid_8h_source_l00057}\hyperlink{class_rfid_a157b71d282a7e067c65b431dbae6c6c8}{00057}     QString \hyperlink{class_rfid_a157b71d282a7e067c65b431dbae6c6c8}{uid}; 
+00058 
+00059     \textcolor{keywordtype}{void} \hyperlink{class_rfid_a884e849f175045d78587e1e09a87cb00}{extraireUid}();
+00060 \};
+00061 
+00062 \textcolor{preprocessor}{#endif // RFID\_H}
+\end{DoxyCode}

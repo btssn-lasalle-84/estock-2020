@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projet e-stok:  Fichier source de Casier.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="customdoxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="icone_estock.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Projet e-stok
+   &#160;<span id="projectnumber">0.2</span>
+   </div>
+   <div id="projectbrief">BTS SNIR LaSalle Avignon 2020</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_casier_8cpp_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Casier.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_casier_8cpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_casier_8h.html">Casier.h</a>&quot;</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_casier.html#aed1cd4435ff913a68b69d8119481bb8f">   23</a></span>&#160;<a class="code" href="class_casier.html#aed1cd4435ff913a68b69d8119481bb8f">Casier::Casier</a>(<span class="keywordtype">int</span> numero, QWidget *parent) : <a class="code" href="class_q_push_button.html">QPushButton</a>(parent), numero(numero), ouvert(false)</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    qDebug() &lt;&lt; Q_FUNC_INFO &lt;&lt; <a class="code" href="class_casier.html#a17aa23e73b177559266a9fb17f63b812">numero</a>;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    setText(<span class="stringliteral">&quot;Casier &quot;</span> + QString::number(numero));</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    setMaximumHeight(100);</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    setContentsMargins(10, 0, 10, 0); <span class="comment">// Marges : Gauche Haut Droite Bas</span></div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment"></span>    <span class="comment">//setStyleSheet(&quot;background-color: rgb(85, 85, 85);&quot;);</span></div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">//setStyleSheet(&quot;background-color: rgb(239, 41, 41);&quot;);</span></div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    setStyleSheet(<span class="stringliteral">&quot;background-color: rgb(115, 210, 22);&quot;</span>);</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div><div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="class_casier.html#a4aebc2219ccd4612cf79413904bb9340">   50</a></span>&#160;<a class="code" href="class_casier.html#a4aebc2219ccd4612cf79413904bb9340">Casier::~Casier</a>()</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    qDebug() &lt;&lt; Q_FUNC_INFO &lt;&lt; <a class="code" href="class_casier.html#a17aa23e73b177559266a9fb17f63b812">numero</a>;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div><div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="class_casier.html#a061b024a2733a5bb1dfcc43bb0022707">   60</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="class_casier.html#a061b024a2733a5bb1dfcc43bb0022707">Casier::getNumero</a>()<span class="keyword"> const</span></div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword"></span>{</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="class_casier.html#a17aa23e73b177559266a9fb17f63b812">numero</a>;</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div><div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="class_casier.html#ab26fd4da845423355835da8d445ed5dd">   70</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_casier.html#ab26fd4da845423355835da8d445ed5dd">Casier::estOuvert</a>()<span class="keyword"> const</span></div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword"></span>{</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="class_casier.html#afe544ed1a87ce714a9fbbe16126669e4">ouvert</a>;</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div><div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="class_casier.html#ac4b0de3ba58dc2bab52b049b278f4f90">   79</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_casier.html#ac4b0de3ba58dc2bab52b049b278f4f90">Casier::ouvrir</a>()</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;{</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div><div class="ttc" id="_casier_8h_html"><div class="ttname"><a href="_casier_8h.html">Casier.h</a></div><div class="ttdoc">Déclaration de la classe Casier. </div></div>
+<div class="ttc" id="class_casier_html_a17aa23e73b177559266a9fb17f63b812"><div class="ttname"><a href="class_casier.html#a17aa23e73b177559266a9fb17f63b812">Casier::numero</a></div><div class="ttdeci">int numero</div><div class="ttdef"><b>Definition:</b> <a href="_casier_8h_source.html#l00044">Casier.h:44</a></div></div>
+<div class="ttc" id="class_casier_html_ac4b0de3ba58dc2bab52b049b278f4f90"><div class="ttname"><a href="class_casier.html#ac4b0de3ba58dc2bab52b049b278f4f90">Casier::ouvrir</a></div><div class="ttdeci">void ouvrir()</div><div class="ttdoc">Définition de la méthode ouvrir. </div><div class="ttdef"><b>Definition:</b> <a href="_casier_8cpp_source.html#l00079">Casier.cpp:79</a></div></div>
+<div class="ttc" id="class_casier_html_afe544ed1a87ce714a9fbbe16126669e4"><div class="ttname"><a href="class_casier.html#afe544ed1a87ce714a9fbbe16126669e4">Casier::ouvert</a></div><div class="ttdeci">bool ouvert</div><div class="ttdef"><b>Definition:</b> <a href="_casier_8h_source.html#l00045">Casier.h:45</a></div></div>
+<div class="ttc" id="class_casier_html_ab26fd4da845423355835da8d445ed5dd"><div class="ttname"><a href="class_casier.html#ab26fd4da845423355835da8d445ed5dd">Casier::estOuvert</a></div><div class="ttdeci">bool estOuvert() const</div><div class="ttdoc">Définition de la méthode estOuvert. </div><div class="ttdef"><b>Definition:</b> <a href="_casier_8cpp_source.html#l00070">Casier.cpp:70</a></div></div>
+<div class="ttc" id="class_casier_html_a061b024a2733a5bb1dfcc43bb0022707"><div class="ttname"><a href="class_casier.html#a061b024a2733a5bb1dfcc43bb0022707">Casier::getNumero</a></div><div class="ttdeci">int getNumero() const</div><div class="ttdoc">Définition de la méthode getNumero. </div><div class="ttdef"><b>Definition:</b> <a href="_casier_8cpp_source.html#l00060">Casier.cpp:60</a></div></div>
+<div class="ttc" id="class_casier_html_a4aebc2219ccd4612cf79413904bb9340"><div class="ttname"><a href="class_casier.html#a4aebc2219ccd4612cf79413904bb9340">Casier::~Casier</a></div><div class="ttdeci">~Casier()</div><div class="ttdoc">Définition du destructeur de la classe Casier. </div><div class="ttdef"><b>Definition:</b> <a href="_casier_8cpp_source.html#l00050">Casier.cpp:50</a></div></div>
+<div class="ttc" id="class_q_push_button_html"><div class="ttname"><a href="class_q_push_button.html">QPushButton</a></div></div>
+<div class="ttc" id="class_casier_html_aed1cd4435ff913a68b69d8119481bb8f"><div class="ttname"><a href="class_casier.html#aed1cd4435ff913a68b69d8119481bb8f">Casier::Casier</a></div><div class="ttdeci">Casier(int numero, QWidget *parent=0)</div><div class="ttdoc">Définition de la méthode Casier. </div><div class="ttdef"><b>Definition:</b> <a href="_casier_8cpp_source.html#l00023">Casier.cpp:23</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+<!--Généré le Mardi 7 Avril 2020 19:30:05 pour Projet e-stok par &#160;<a href="http://www.doxygen.org/index.html">-->
+<img class="footer" src="lasalle-logo.png" alt="La Salle Avignon"/>
+<b>Campus La Salle Avignon</b> - 9 Rue Notre Dame des 7 douleurs - BP 50165 - 84008 Avignon
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

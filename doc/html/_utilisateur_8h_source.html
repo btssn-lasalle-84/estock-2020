@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projet e-stok:  Fichier source de Utilisateur.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="customdoxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="icone_estock.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Projet e-stok
+   &#160;<span id="projectnumber">0.2</span>
+   </div>
+   <div id="projectbrief">BTS SNIR LaSalle Avignon 2020</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_utilisateur_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Utilisateur.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_utilisateur_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef UTILISATEUR_H</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define UTILISATEUR_H</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;QObject&gt;</span></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">//#define DEBUG_UTILISATEUR</span></div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div><div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="_utilisateur_8h.html#a2ee8bc4f44f3f2562a41638ec1d84ffc">   25</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="_utilisateur_8h.html#a2ee8bc4f44f3f2562a41638ec1d84ffc">ChampsUtilisateur</a></div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div><div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="_utilisateur_8h.html#a2ee8bc4f44f3f2562a41638ec1d84ffcaf3d5820c10eaf883bc549062f87b1d29">   27</a></span>&#160;    <a class="code" href="_utilisateur_8h.html#a2ee8bc4f44f3f2562a41638ec1d84ffcaf3d5820c10eaf883bc549062f87b1d29">TABLE_UTILISATEUR_ID_UTILISATEUR</a>,       </div><div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="_utilisateur_8h.html#a2ee8bc4f44f3f2562a41638ec1d84ffca4cc2b30f6bc705490fc4190e0d8668cc">   28</a></span>&#160;    <a class="code" href="_utilisateur_8h.html#a2ee8bc4f44f3f2562a41638ec1d84ffca4cc2b30f6bc705490fc4190e0d8668cc">TABLE_UTILISATEUR_ID_PROFIL</a>,            </div><div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="_utilisateur_8h.html#a2ee8bc4f44f3f2562a41638ec1d84ffcaafd6ac7708481835f0c9aa3dbcddd1e8">   29</a></span>&#160;    <a class="code" href="_utilisateur_8h.html#a2ee8bc4f44f3f2562a41638ec1d84ffcaafd6ac7708481835f0c9aa3dbcddd1e8">TABLE_UTILISATEUR_ID_GROUPE</a>,            </div><div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="_utilisateur_8h.html#a2ee8bc4f44f3f2562a41638ec1d84ffca79ab7400bfc906a77d1f56988349ebd4">   30</a></span>&#160;    <a class="code" href="_utilisateur_8h.html#a2ee8bc4f44f3f2562a41638ec1d84ffca79ab7400bfc906a77d1f56988349ebd4">TABLE_UTILISATEUR_NOM</a>,                  </div><div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="_utilisateur_8h.html#a2ee8bc4f44f3f2562a41638ec1d84ffcab8ef43f3428ce1b6a50b1f15e6771d75">   31</a></span>&#160;    <a class="code" href="_utilisateur_8h.html#a2ee8bc4f44f3f2562a41638ec1d84ffcab8ef43f3428ce1b6a50b1f15e6771d75">TABLE_UTILISATEUR_PRENOM</a>,               </div><div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="_utilisateur_8h.html#a2ee8bc4f44f3f2562a41638ec1d84ffca1a0604e4b99c353c04b8ee64a2524cca">   32</a></span>&#160;    <a class="code" href="_utilisateur_8h.html#a2ee8bc4f44f3f2562a41638ec1d84ffca1a0604e4b99c353c04b8ee64a2524cca">TABLE_UTILISATEUR_DATE_VALIDITE</a>,        </div><div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="_utilisateur_8h.html#a2ee8bc4f44f3f2562a41638ec1d84ffca00d7c04c0ac35952230b782d3cdb4942">   33</a></span>&#160;    <a class="code" href="_utilisateur_8h.html#a2ee8bc4f44f3f2562a41638ec1d84ffca00d7c04c0ac35952230b782d3cdb4942">TABLE_UTILISATEUR_IDENTIFIANT</a>,          </div><div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="_utilisateur_8h.html#a2ee8bc4f44f3f2562a41638ec1d84ffca09688a0481708cf5d77cd6a438d12623">   34</a></span>&#160;    <a class="code" href="_utilisateur_8h.html#a2ee8bc4f44f3f2562a41638ec1d84ffca09688a0481708cf5d77cd6a438d12623">TABLE_UTILISATEUR_MOT_DE_PASSE</a>,         </div><div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="_utilisateur_8h.html#a2ee8bc4f44f3f2562a41638ec1d84ffca9d0825de5c0afa69202e7773e7e10d1f">   35</a></span>&#160;    <a class="code" href="_utilisateur_8h.html#a2ee8bc4f44f3f2562a41638ec1d84ffca9d0825de5c0afa69202e7773e7e10d1f">TABLE_UTILISATEUR_BADGE</a>,                </div><div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="_utilisateur_8h.html#a2ee8bc4f44f3f2562a41638ec1d84ffca64c38d44af4e843f5930551e5ac1733f">   36</a></span>&#160;    <a class="code" href="_utilisateur_8h.html#a2ee8bc4f44f3f2562a41638ec1d84ffca64c38d44af4e843f5930551e5ac1733f">TABLE_UTILISATEUR_EMAIL</a>                 </div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;};</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div><div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="class_utilisateur.html">   52</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_utilisateur.html">Utilisateur</a> : <span class="keyword">public</span> <a class="code" href="class_q_object.html">QObject</a></div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    Q_OBJECT</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="class_utilisateur.html#a89e539739c5f6c6790909ac5fc5729b8">Utilisateur</a>(<a class="code" href="class_q_object.html">QObject</a> *parent = <span class="keyword">nullptr</span>);</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="class_utilisateur.html#a89e539739c5f6c6790909ac5fc5729b8">Utilisateur</a>(QStringList donnees, <a class="code" href="class_q_object.html">QObject</a> *parent = <span class="keyword">nullptr</span>);</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="class_utilisateur.html#a6631539ceecd6140fe525eb91485537b">~Utilisateur</a>();</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    QString <a class="code" href="class_utilisateur.html#af944ac02cca7914480e20f46c4dd0e56">getIdentifiantUtilisateur</a>();</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">private</span> slots:</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;signals:</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="class_utilisateur.html#ae1763e7a52c82c63506bc4160cdabb20">   67</a></span>&#160;     QString <a class="code" href="class_utilisateur.html#ae1763e7a52c82c63506bc4160cdabb20">idUtilisateur</a>; </div><div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="class_utilisateur.html#a042947e8b86637d1eb012c3fc89a959e">   68</a></span>&#160;     QString <a class="code" href="class_utilisateur.html#a042947e8b86637d1eb012c3fc89a959e">idProfil</a>;      </div><div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="class_utilisateur.html#a13c3425772da1d5501e6fe4a2f2b8194">   69</a></span>&#160;     QString <a class="code" href="class_utilisateur.html#a13c3425772da1d5501e6fe4a2f2b8194">idGroupe</a>;      </div><div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="class_utilisateur.html#a1096e809aca4b7cf453a7af93cb72502">   70</a></span>&#160;     QString <a class="code" href="class_utilisateur.html#a1096e809aca4b7cf453a7af93cb72502">nom</a>;           </div><div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="class_utilisateur.html#a1dd0779807b19298f30f39d9c371170f">   71</a></span>&#160;     QString <a class="code" href="class_utilisateur.html#a1dd0779807b19298f30f39d9c371170f">prenom</a>;        </div><div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="class_utilisateur.html#a898cd6f5a64d733ad49a8a74388326cd">   72</a></span>&#160;     QString <a class="code" href="class_utilisateur.html#a898cd6f5a64d733ad49a8a74388326cd">dateValidite</a>;  </div><div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="class_utilisateur.html#a1e79e47202a2c716346f47adbbeb2511">   73</a></span>&#160;     QString <a class="code" href="class_utilisateur.html#a1e79e47202a2c716346f47adbbeb2511">identifiant</a>;   </div><div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="class_utilisateur.html#a4f6a17d0fb5c231bcb414396236a056f">   74</a></span>&#160;     QString <a class="code" href="class_utilisateur.html#a4f6a17d0fb5c231bcb414396236a056f">motDePasse</a>;    </div><div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="class_utilisateur.html#a77b48aa9d1f0ec04c69d45476897fec6">   75</a></span>&#160;     QString <a class="code" href="class_utilisateur.html#a77b48aa9d1f0ec04c69d45476897fec6">badge</a>;         </div><div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="class_utilisateur.html#a2f45443ce5277a5e6baefe5121e66555">   76</a></span>&#160;     QString <a class="code" href="class_utilisateur.html#a2f45443ce5277a5e6baefe5121e66555">email</a>;         </div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;};</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#endif // UTILISATEUR_H</span></div><div class="ttc" id="class_utilisateur_html_af944ac02cca7914480e20f46c4dd0e56"><div class="ttname"><a href="class_utilisateur.html#af944ac02cca7914480e20f46c4dd0e56">Utilisateur::getIdentifiantUtilisateur</a></div><div class="ttdeci">QString getIdentifiantUtilisateur()</div><div class="ttdoc">Définition de la méthode getIdentifiantUtilisateur. </div><div class="ttdef"><b>Definition:</b> <a href="_utilisateur_8cpp_source.html#l00078">Utilisateur.cpp:78</a></div></div>
+<div class="ttc" id="class_utilisateur_html_ae1763e7a52c82c63506bc4160cdabb20"><div class="ttname"><a href="class_utilisateur.html#ae1763e7a52c82c63506bc4160cdabb20">Utilisateur::idUtilisateur</a></div><div class="ttdeci">QString idUtilisateur</div><div class="ttdoc">idUtilisateur de l&amp;#39;utilisateur connecté </div><div class="ttdef"><b>Definition:</b> <a href="_utilisateur_8h_source.html#l00067">Utilisateur.h:67</a></div></div>
+<div class="ttc" id="_utilisateur_8h_html_a2ee8bc4f44f3f2562a41638ec1d84ffcab8ef43f3428ce1b6a50b1f15e6771d75"><div class="ttname"><a href="_utilisateur_8h.html#a2ee8bc4f44f3f2562a41638ec1d84ffcab8ef43f3428ce1b6a50b1f15e6771d75">TABLE_UTILISATEUR_PRENOM</a></div><div class="ttdoc">Emplacment du prenom. </div><div class="ttdef"><b>Definition:</b> <a href="_utilisateur_8h_source.html#l00031">Utilisateur.h:31</a></div></div>
+<div class="ttc" id="_utilisateur_8h_html_a2ee8bc4f44f3f2562a41638ec1d84ffcaafd6ac7708481835f0c9aa3dbcddd1e8"><div class="ttname"><a href="_utilisateur_8h.html#a2ee8bc4f44f3f2562a41638ec1d84ffcaafd6ac7708481835f0c9aa3dbcddd1e8">TABLE_UTILISATEUR_ID_GROUPE</a></div><div class="ttdoc">Emplacment de l&amp;#39;idGroupe. </div><div class="ttdef"><b>Definition:</b> <a href="_utilisateur_8h_source.html#l00029">Utilisateur.h:29</a></div></div>
+<div class="ttc" id="class_utilisateur_html_a4f6a17d0fb5c231bcb414396236a056f"><div class="ttname"><a href="class_utilisateur.html#a4f6a17d0fb5c231bcb414396236a056f">Utilisateur::motDePasse</a></div><div class="ttdeci">QString motDePasse</div><div class="ttdoc">motDePasse de l&amp;#39;utilisateur connecté </div><div class="ttdef"><b>Definition:</b> <a href="_utilisateur_8h_source.html#l00074">Utilisateur.h:74</a></div></div>
+<div class="ttc" id="_utilisateur_8h_html_a2ee8bc4f44f3f2562a41638ec1d84ffcaf3d5820c10eaf883bc549062f87b1d29"><div class="ttname"><a href="_utilisateur_8h.html#a2ee8bc4f44f3f2562a41638ec1d84ffcaf3d5820c10eaf883bc549062f87b1d29">TABLE_UTILISATEUR_ID_UTILISATEUR</a></div><div class="ttdoc">Emplacment de l&amp;#39;idUtilisateur. </div><div class="ttdef"><b>Definition:</b> <a href="_utilisateur_8h_source.html#l00027">Utilisateur.h:27</a></div></div>
+<div class="ttc" id="_utilisateur_8h_html_a2ee8bc4f44f3f2562a41638ec1d84ffca9d0825de5c0afa69202e7773e7e10d1f"><div class="ttname"><a href="_utilisateur_8h.html#a2ee8bc4f44f3f2562a41638ec1d84ffca9d0825de5c0afa69202e7773e7e10d1f">TABLE_UTILISATEUR_BADGE</a></div><div class="ttdoc">Emplacment du badge. </div><div class="ttdef"><b>Definition:</b> <a href="_utilisateur_8h_source.html#l00035">Utilisateur.h:35</a></div></div>
+<div class="ttc" id="class_utilisateur_html_a898cd6f5a64d733ad49a8a74388326cd"><div class="ttname"><a href="class_utilisateur.html#a898cd6f5a64d733ad49a8a74388326cd">Utilisateur::dateValidite</a></div><div class="ttdeci">QString dateValidite</div><div class="ttdoc">dateValidite du compte </div><div class="ttdef"><b>Definition:</b> <a href="_utilisateur_8h_source.html#l00072">Utilisateur.h:72</a></div></div>
+<div class="ttc" id="class_utilisateur_html_a6631539ceecd6140fe525eb91485537b"><div class="ttname"><a href="class_utilisateur.html#a6631539ceecd6140fe525eb91485537b">Utilisateur::~Utilisateur</a></div><div class="ttdeci">~Utilisateur()</div><div class="ttdoc">Destructeur de la classe Utilisateur. </div><div class="ttdef"><b>Definition:</b> <a href="_utilisateur_8cpp_source.html#l00067">Utilisateur.cpp:67</a></div></div>
+<div class="ttc" id="_utilisateur_8h_html_a2ee8bc4f44f3f2562a41638ec1d84ffca1a0604e4b99c353c04b8ee64a2524cca"><div class="ttname"><a href="_utilisateur_8h.html#a2ee8bc4f44f3f2562a41638ec1d84ffca1a0604e4b99c353c04b8ee64a2524cca">TABLE_UTILISATEUR_DATE_VALIDITE</a></div><div class="ttdoc">Emplacment de la date de validite. </div><div class="ttdef"><b>Definition:</b> <a href="_utilisateur_8h_source.html#l00032">Utilisateur.h:32</a></div></div>
+<div class="ttc" id="class_utilisateur_html_a1dd0779807b19298f30f39d9c371170f"><div class="ttname"><a href="class_utilisateur.html#a1dd0779807b19298f30f39d9c371170f">Utilisateur::prenom</a></div><div class="ttdeci">QString prenom</div><div class="ttdoc">prenom de l&amp;#39;utilisateur connecté </div><div class="ttdef"><b>Definition:</b> <a href="_utilisateur_8h_source.html#l00071">Utilisateur.h:71</a></div></div>
+<div class="ttc" id="class_utilisateur_html_a2f45443ce5277a5e6baefe5121e66555"><div class="ttname"><a href="class_utilisateur.html#a2f45443ce5277a5e6baefe5121e66555">Utilisateur::email</a></div><div class="ttdeci">QString email</div><div class="ttdoc">email de l&amp;#39;utilisateur connecté </div><div class="ttdef"><b>Definition:</b> <a href="_utilisateur_8h_source.html#l00076">Utilisateur.h:76</a></div></div>
+<div class="ttc" id="_utilisateur_8h_html_a2ee8bc4f44f3f2562a41638ec1d84ffc"><div class="ttname"><a href="_utilisateur_8h.html#a2ee8bc4f44f3f2562a41638ec1d84ffc">ChampsUtilisateur</a></div><div class="ttdeci">ChampsUtilisateur</div><div class="ttdoc">Définit les différents champs de la table Utilisateur. </div><div class="ttdef"><b>Definition:</b> <a href="_utilisateur_8h_source.html#l00025">Utilisateur.h:25</a></div></div>
+<div class="ttc" id="_utilisateur_8h_html_a2ee8bc4f44f3f2562a41638ec1d84ffca4cc2b30f6bc705490fc4190e0d8668cc"><div class="ttname"><a href="_utilisateur_8h.html#a2ee8bc4f44f3f2562a41638ec1d84ffca4cc2b30f6bc705490fc4190e0d8668cc">TABLE_UTILISATEUR_ID_PROFIL</a></div><div class="ttdoc">Emplacment de L&amp;#39;idProfil. </div><div class="ttdef"><b>Definition:</b> <a href="_utilisateur_8h_source.html#l00028">Utilisateur.h:28</a></div></div>
+<div class="ttc" id="class_utilisateur_html_a89e539739c5f6c6790909ac5fc5729b8"><div class="ttname"><a href="class_utilisateur.html#a89e539739c5f6c6790909ac5fc5729b8">Utilisateur::Utilisateur</a></div><div class="ttdeci">Utilisateur(QObject *parent=nullptr)</div><div class="ttdoc">Constructeur de la classe Utilisateur. </div><div class="ttdef"><b>Definition:</b> <a href="_utilisateur_8cpp_source.html#l00022">Utilisateur.cpp:22</a></div></div>
+<div class="ttc" id="class_utilisateur_html_a77b48aa9d1f0ec04c69d45476897fec6"><div class="ttname"><a href="class_utilisateur.html#a77b48aa9d1f0ec04c69d45476897fec6">Utilisateur::badge</a></div><div class="ttdeci">QString badge</div><div class="ttdoc">badge de l&amp;#39;utilisateur connecté </div><div class="ttdef"><b>Definition:</b> <a href="_utilisateur_8h_source.html#l00075">Utilisateur.h:75</a></div></div>
+<div class="ttc" id="class_utilisateur_html_a042947e8b86637d1eb012c3fc89a959e"><div class="ttname"><a href="class_utilisateur.html#a042947e8b86637d1eb012c3fc89a959e">Utilisateur::idProfil</a></div><div class="ttdeci">QString idProfil</div><div class="ttdoc">idProfil de l&amp;#39;utilisateur connecté </div><div class="ttdef"><b>Definition:</b> <a href="_utilisateur_8h_source.html#l00068">Utilisateur.h:68</a></div></div>
+<div class="ttc" id="class_utilisateur_html"><div class="ttname"><a href="class_utilisateur.html">Utilisateur</a></div><div class="ttdoc">La classe Utilisateur gère les données relative à l&amp;#39;utilisateur. </div><div class="ttdef"><b>Definition:</b> <a href="_utilisateur_8h_source.html#l00052">Utilisateur.h:52</a></div></div>
+<div class="ttc" id="class_utilisateur_html_a13c3425772da1d5501e6fe4a2f2b8194"><div class="ttname"><a href="class_utilisateur.html#a13c3425772da1d5501e6fe4a2f2b8194">Utilisateur::idGroupe</a></div><div class="ttdeci">QString idGroupe</div><div class="ttdoc">idGroupe de l&amp;#39;utilisateur connecté </div><div class="ttdef"><b>Definition:</b> <a href="_utilisateur_8h_source.html#l00069">Utilisateur.h:69</a></div></div>
+<div class="ttc" id="class_utilisateur_html_a1e79e47202a2c716346f47adbbeb2511"><div class="ttname"><a href="class_utilisateur.html#a1e79e47202a2c716346f47adbbeb2511">Utilisateur::identifiant</a></div><div class="ttdeci">QString identifiant</div><div class="ttdoc">identifiant de l&amp;#39;utilisateur connecté </div><div class="ttdef"><b>Definition:</b> <a href="_utilisateur_8h_source.html#l00073">Utilisateur.h:73</a></div></div>
+<div class="ttc" id="_utilisateur_8h_html_a2ee8bc4f44f3f2562a41638ec1d84ffca64c38d44af4e843f5930551e5ac1733f"><div class="ttname"><a href="_utilisateur_8h.html#a2ee8bc4f44f3f2562a41638ec1d84ffca64c38d44af4e843f5930551e5ac1733f">TABLE_UTILISATEUR_EMAIL</a></div><div class="ttdoc">Emplacment du mail. </div><div class="ttdef"><b>Definition:</b> <a href="_utilisateur_8h_source.html#l00036">Utilisateur.h:36</a></div></div>
+<div class="ttc" id="class_q_object_html"><div class="ttname"><a href="class_q_object.html">QObject</a></div></div>
+<div class="ttc" id="_utilisateur_8h_html_a2ee8bc4f44f3f2562a41638ec1d84ffca09688a0481708cf5d77cd6a438d12623"><div class="ttname"><a href="_utilisateur_8h.html#a2ee8bc4f44f3f2562a41638ec1d84ffca09688a0481708cf5d77cd6a438d12623">TABLE_UTILISATEUR_MOT_DE_PASSE</a></div><div class="ttdoc">Emplacment du mot de passe. </div><div class="ttdef"><b>Definition:</b> <a href="_utilisateur_8h_source.html#l00034">Utilisateur.h:34</a></div></div>
+<div class="ttc" id="_utilisateur_8h_html_a2ee8bc4f44f3f2562a41638ec1d84ffca00d7c04c0ac35952230b782d3cdb4942"><div class="ttname"><a href="_utilisateur_8h.html#a2ee8bc4f44f3f2562a41638ec1d84ffca00d7c04c0ac35952230b782d3cdb4942">TABLE_UTILISATEUR_IDENTIFIANT</a></div><div class="ttdoc">Emplacment de l&amp;#39;identifiant. </div><div class="ttdef"><b>Definition:</b> <a href="_utilisateur_8h_source.html#l00033">Utilisateur.h:33</a></div></div>
+<div class="ttc" id="class_utilisateur_html_a1096e809aca4b7cf453a7af93cb72502"><div class="ttname"><a href="class_utilisateur.html#a1096e809aca4b7cf453a7af93cb72502">Utilisateur::nom</a></div><div class="ttdeci">QString nom</div><div class="ttdoc">nom de l&amp;#39;utilisateur connecté </div><div class="ttdef"><b>Definition:</b> <a href="_utilisateur_8h_source.html#l00070">Utilisateur.h:70</a></div></div>
+<div class="ttc" id="_utilisateur_8h_html_a2ee8bc4f44f3f2562a41638ec1d84ffca79ab7400bfc906a77d1f56988349ebd4"><div class="ttname"><a href="_utilisateur_8h.html#a2ee8bc4f44f3f2562a41638ec1d84ffca79ab7400bfc906a77d1f56988349ebd4">TABLE_UTILISATEUR_NOM</a></div><div class="ttdoc">Emplacment du nom. </div><div class="ttdef"><b>Definition:</b> <a href="_utilisateur_8h_source.html#l00030">Utilisateur.h:30</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+<!--Généré le Mardi 7 Avril 2020 19:30:05 pour Projet e-stok par &#160;<a href="http://www.doxygen.org/index.html">-->
+<img class="footer" src="lasalle-logo.png" alt="La Salle Avignon"/>
+<b>Campus La Salle Avignon</b> - 9 Rue Notre Dame des 7 douleurs - BP 50165 - 84008 Avignon
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

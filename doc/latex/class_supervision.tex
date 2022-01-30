@@ -1,0 +1,1286 @@
+\hypertarget{class_supervision}{}\subsection{Référence de la classe Supervision}
+\label{class_supervision}\index{Supervision@{Supervision}}
+
+
+La classe \hyperlink{class_supervision}{Supervision} permet de superviser l\textquotesingle{}ensemble de l\textquotesingle{}application.  
+
+
+
+
+{\ttfamily \#include $<$Supervision.\+h$>$}
+
+
+
+Graphe de collaboration de Supervision\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_supervision__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Connecteurs publics}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_supervision_af2df200be6727338110b81812703d0ae}{rechercher\+Article} (Q\+String recherche)
+\begin{DoxyCompactList}\small\item\em Définition de la méthode rechercher\+Article. \end{DoxyCompactList}\item 
+void \hyperlink{class_supervision_a2efb7e4dabe2664c9cfd41d703b6250c}{selectionner\+Article} (Q\+String nom\+Article)
+\begin{DoxyCompactList}\small\item\em Définition de la méthode selectionner\+Article. \end{DoxyCompactList}\item 
+void \hyperlink{class_supervision_ae72bdcb7d70bbb8e13cf61be95ee7c06}{traiter\+Trame\+Poids} (Q\+String trame)
+\begin{DoxyCompactList}\small\item\em Définition de la méthode traiter\+Trame\+Poids. \end{DoxyCompactList}\item 
+void \hyperlink{class_supervision_a07e7f0cd8b114182be56ebb5645e62fe}{verifier\+Authentification\+Badge} (Q\+String badge)
+\begin{DoxyCompactList}\small\item\em Définition de la méthode verifier\+Authentification\+Badge. \end{DoxyCompactList}\item 
+void \hyperlink{class_supervision_ac596674d302f1f747d65c8334aa1ced9}{verifier\+Authentification\+Identifiant} (Q\+String identifiant, Q\+String mot\+De\+Passe)
+\begin{DoxyCompactList}\small\item\em Définition de la méthode verifier\+Authentification\+Identifiant. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Signaux}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_supervision_a3023468d106abfe7dc697e61a63778ed}{articles\+Trouves} (Q\+Vector$<$ Q\+String\+List $>$)
+\item 
+void \hyperlink{class_supervision_ae486eafc331964e223c35ae2b54fa669}{donnees\+Article\+Selectionne} (Q\+Vector$<$ Q\+String\+List $>$)
+\item 
+void \hyperlink{class_supervision_ae01e53be90edf2656432c5da56331b9d}{donnees\+Article\+Selectionne} (Q\+String\+List)
+\item 
+void \hyperlink{class_supervision_a3fb19a3c16324a21af956fd272ca469d}{erreur\+Depassement\+Quantite} ()
+\item 
+void \hyperlink{class_supervision_a116ed6de0e9e3c9c94886235e9f6d6e8}{reponse\+Demande\+De\+Connexion} (bool, Q\+String)
+\end{DoxyCompactItemize}
+\subsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_supervision_a558665fd7e7c44653907883afd9a58bf}{creer\+Casiers} ()
+\begin{DoxyCompactList}\small\item\em Définition de la méthode creer\+Casiers. \end{DoxyCompactList}\item 
+void \hyperlink{class_supervision_a164a1ad89264ea252401818df325eab8}{deconnecter\+Utilisateur} ()
+\begin{DoxyCompactList}\small\item\em Méthode qui permet la déconnexion de l\textquotesingle{}utilisateur. \end{DoxyCompactList}\item 
+Q\+String\+List \hyperlink{class_supervision_a72bd93799fcf5423a5f0c5538d4ec892}{get\+Informations\+Armoire} ()
+\begin{DoxyCompactList}\small\item\em Définition de la méthode get\+Informations\+Armoire. \end{DoxyCompactList}\item 
+\hyperlink{class_supervision_af3f0ed8f5aadd6b4aa5e0eac2813d8c4}{Supervision} (\hyperlink{class_ihm}{Ihm} $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Définition du constructeur de la classe \hyperlink{class_supervision}{Supervision}. \end{DoxyCompactList}\item 
+\hyperlink{class_supervision_a5058e6aec3356006c8efe66bf223ec94}{$\sim$\+Supervision} ()
+\begin{DoxyCompactList}\small\item\em Définition du destructeur de \hyperlink{class_supervision}{Supervision}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Fonctions membres privées}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_supervision_ae6fc43cb8bdfd8045367c08d8e440359}{ajouter\+Donnees\+Article} (\hyperlink{class_article}{Article} $\ast$article, Q\+Vector$<$ Q\+String\+List $>$ \&donnees\+Article, Q\+String\+List \&donnees)
+\begin{DoxyCompactList}\small\item\em Définition de la méthode ajouter\+Donnees\+Article. \end{DoxyCompactList}\item 
+int \hyperlink{class_supervision_a16fde33340a8bc8b0936926cd6dc0657}{arrondir} (Q\+String arrondire)
+\begin{DoxyCompactList}\small\item\em Définition de la méthode arrondir. \end{DoxyCompactList}\item 
+int \hyperlink{class_supervision_a81b1b8960cb2857be4a6789cf27cd413}{compter} (Q\+String poid\+Article, Q\+String poid\+Total, Q\+String tare)
+\begin{DoxyCompactList}\small\item\em Définition de la méthode compter. \end{DoxyCompactList}\item 
+void \hyperlink{class_supervision_ac3bb2f3834b09a81ae9a767502ff693b}{connecter\+Signaux\+Slots} ()
+\begin{DoxyCompactList}\small\item\em Définition de la méthode connecter\+Signaux\+Slots. \end{DoxyCompactList}\item 
+void \hyperlink{class_supervision_a7c397ca5f79afa2709a657d7185dfbe1}{connecter\+Utilisateur} (Q\+String\+List \&donnees)
+\begin{DoxyCompactList}\small\item\em Définition de la méthode connecter\+Utilisateur. \end{DoxyCompactList}\item 
+void \hyperlink{class_supervision_ac58c5b922ce85af75c2233cd3265d201}{crypter\+Mot\+Depasse} (Q\+String \&mot\+De\+Passe)
+\begin{DoxyCompactList}\small\item\em Définition de la méthode crypter\+Mot\+Depasse. \end{DoxyCompactList}\item 
+Q\+String \hyperlink{class_supervision_a141a35024b0cb74636a8c6810a1ab26d}{extraire\+Numero\+Casier} (Q\+String trame)
+\begin{DoxyCompactList}\small\item\em Définition de la méthode extraire\+Numero\+Casier. \end{DoxyCompactList}\item 
+Q\+String \hyperlink{class_supervision_afdef41cd85f2ecfae9d1dc46f556a034}{extraire\+Poids} (Q\+String trame)
+\begin{DoxyCompactList}\small\item\em Définition de la méthode extraire\+Poids. \end{DoxyCompactList}\item 
+Q\+String\+List \hyperlink{class_supervision_a137b6c505742a4ada6ab38193eef01dd}{recuperer\+Donnees\+Utilisateur} (Q\+String requete\+B\+DD)
+\begin{DoxyCompactList}\small\item\em Définition de la méthode recuperer\+Donnees\+Utilisateur. \end{DoxyCompactList}\item 
+bool \hyperlink{class_supervision_acc886b933823993f1e3873582e05e690}{verifier\+Date\+Validite} (Q\+String string\+Date\+Validite)
+\begin{DoxyCompactList}\small\item\em Définition de la méthode verifier\+Date\+Validite. \end{DoxyCompactList}\item 
+bool \hyperlink{class_supervision_ae3400dad53c52bc09198e8d7f80e0e67}{verifier\+Donnees\+Utilisateur} (Q\+String\+List \&donnees)
+\begin{DoxyCompactList}\small\item\em Définition de la méthode verifier\+Donnees\+Utilisateur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_armoire}{Armoire} $\ast$ \hyperlink{class_supervision_a9f974b5c47899192395e539a0f11034c}{armoire}
+\begin{DoxyCompactList}\small\item\em association d\textquotesingle{}un objet \hyperlink{class_armoire}{Armoire} \end{DoxyCompactList}\item 
+\hyperlink{class_bdd}{Bdd} $\ast$ \hyperlink{class_supervision_ac9a970d4f511f2eed5da4aed037533ab}{bdd}
+\begin{DoxyCompactList}\small\item\em association d\textquotesingle{}un objet \hyperlink{class_bdd}{Bdd} (accès à la base de données) \end{DoxyCompactList}\item 
+Q\+Vector$<$ \hyperlink{class_casier}{Casier} $\ast$ $>$ \hyperlink{class_supervision_a3ac996538c83f3bd3df36095b0abb1b2}{casiers}
+\begin{DoxyCompactList}\small\item\em les casiers de l\textquotesingle{}armoire \end{DoxyCompactList}\item 
+\hyperlink{class_code_barre}{Code\+Barre} $\ast$ \hyperlink{class_supervision_ac01c57f7fd9d043ab46d439e55e426e5}{code\+Barre}
+\begin{DoxyCompactList}\small\item\em association d\textquotesingle{}un objet \hyperlink{class_code_barre}{Code\+Barre} \end{DoxyCompactList}\item 
+\hyperlink{class_communication}{Communication} $\ast$ \hyperlink{class_supervision_a045be64d74de4f7688574eec108220a5}{communication}
+\begin{DoxyCompactList}\small\item\em association d\textquotesingle{}un objet \hyperlink{class_communication}{Communication} \end{DoxyCompactList}\item 
+\hyperlink{class_ihm}{Ihm} $\ast$ \hyperlink{class_supervision_a5aa823c55bf1531497bbb8fdbc6c5528}{ihm}
+\begin{DoxyCompactList}\small\item\em association d\textquotesingle{}un objet \hyperlink{class_ihm}{Ihm} (fenêtre princiaple de l\textquotesingle{}application) \end{DoxyCompactList}\item 
+\hyperlink{class_rfid}{Rfid} $\ast$ \hyperlink{class_supervision_a3ec5986105208e9a2b02b7e97bf61090}{rfid}
+\begin{DoxyCompactList}\small\item\em association d\textquotesingle{}un objet \hyperlink{class_rfid}{Rfid} (le lecteur de badge) \end{DoxyCompactList}\item 
+\hyperlink{class_utilisateur}{Utilisateur} $\ast$ \hyperlink{class_supervision_a92384f2b12b2549cee988f83add8ad49}{utilisateur}
+\begin{DoxyCompactList}\small\item\em association d\textquotesingle{}un objet \hyperlink{class_utilisateur}{Utilisateur} (l\textquotesingle{}utilisateur authentifié) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Description détaillée}
+La classe \hyperlink{class_supervision}{Supervision} permet de superviser l\textquotesingle{}ensemble de l\textquotesingle{}application. 
+
+\begin{DoxyAuthor}{Auteur}
+Legger Pierre-\/\+Antoine 
+
+Tranchat Joffrey
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+Mercredi 12 Février 2020 
+\end{DoxyDate}
+
+
+Définition à la ligne \hyperlink{_supervision_8h_source_l00052}{52} du fichier \hyperlink{_supervision_8h_source}{Supervision.\+h}.
+
+
+
+\subsubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{class_supervision_af3f0ed8f5aadd6b4aa5e0eac2813d8c4}\label{class_supervision_af3f0ed8f5aadd6b4aa5e0eac2813d8c4}} 
+\index{Supervision@{Supervision}!Supervision@{Supervision}}
+\index{Supervision@{Supervision}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{Supervision()}{Supervision()}}
+{\footnotesize\ttfamily Supervision\+::\+Supervision (\begin{DoxyParamCaption}\item[{\hyperlink{class_ihm}{Ihm} $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+Définition du constructeur de la classe \hyperlink{class_supervision}{Supervision}. 
+
+Initialise la supervision 
+\begin{DoxyParams}{Paramètres}
+{\em parent} & l\textquotesingle{}objet \hyperlink{class_q_object}{Q\+Object} parent \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{_supervision_8cpp_source_l00036}{36} du fichier \hyperlink{_supervision_8cpp_source}{Supervision.\+cpp}.
+
+
+
+Références \hyperlink{_supervision_8h_source_l00084}{armoire}, \hyperlink{_supervision_8h_source_l00080}{bdd}, \hyperlink{_supervision_8h_source_l00083}{code\+Barre}, \hyperlink{_supervision_8h_source_l00085}{communication}, \hyperlink{_bdd_8cpp_source_l00093}{Bdd\+::connecter()}, \hyperlink{_supervision_8cpp_source_l00273}{connecter\+Signaux\+Slots()}, \hyperlink{_communication_8cpp_source_l00042}{Communication\+::demarrer\+Communication\+Port()}, \hyperlink{_communication_8cpp_source_l00179}{Communication\+::envoyer\+Requete\+Poids()}, \hyperlink{_bdd_8cpp_source_l00053}{Bdd\+::get\+Instance()}, \hyperlink{_supervision_8h_source_l00081}{rfid}, \hyperlink{_supervision_8cpp_source_l00370}{traiter\+Trame\+Poids()}, et \hyperlink{_supervision_8h_source_l00082}{utilisateur}.
+
+
+\begin{DoxyCode}
+00036                                     : \hyperlink{class_q_object}{QObject}(parent), \hyperlink{class_supervision_a5aa823c55bf1531497bbb8fdbc6c5528}{ihm}(parent)
+00037 \{
+00038     \textcolor{comment}{// Instancie les objets dont la classe Supervision coordonne les actions}
+00039     \hyperlink{class_supervision_ac9a970d4f511f2eed5da4aed037533ab}{bdd} = \hyperlink{class_bdd_a6f55c29d593da12ca31fad02f5adfe24}{Bdd::getInstance}();
+00040     \hyperlink{class_supervision_ac9a970d4f511f2eed5da4aed037533ab}{bdd}->\hyperlink{class_bdd_a1a234e773787295f521d66685149176b}{connecter}();
+00041     \hyperlink{class_supervision_ac01c57f7fd9d043ab46d439e55e426e5}{codeBarre} = \textcolor{keyword}{new} \hyperlink{class_code_barre}{CodeBarre}(\textcolor{keyword}{this});
+00042     \textcolor{comment}{//portSerie = new Communication(this);}
+00043     \hyperlink{class_supervision_a3ec5986105208e9a2b02b7e97bf61090}{rfid} = \textcolor{keyword}{new} \hyperlink{class_rfid}{Rfid}(\textcolor{keyword}{this});
+00044     \hyperlink{class_supervision_a92384f2b12b2549cee988f83add8ad49}{utilisateur} = \textcolor{keyword}{nullptr};
+00045     \hyperlink{class_supervision_a9f974b5c47899192395e539a0f11034c}{armoire} = \textcolor{keyword}{new} \hyperlink{class_armoire}{Armoire}(\textcolor{keyword}{this});    
+00046     \hyperlink{class_supervision_a045be64d74de4f7688574eec108220a5}{communication} = \textcolor{keyword}{new} \hyperlink{class_communication}{Communication}(\textcolor{keyword}{this});
+00047 
+00048     \hyperlink{class_supervision_ac3bb2f3834b09a81ae9a767502ff693b}{connecterSignauxSlots}();
+00049 
+00050     \hyperlink{class_supervision_a045be64d74de4f7688574eec108220a5}{communication}->\hyperlink{class_communication_a8fe8d15efd2590a1061a015f5f761924}{demarrerCommunicationPort}();
+00051 
+00052 \textcolor{preprocessor}{    #ifdef SUPERVISION\_TEST\_POIDS}
+00053         QString trameTest = \textcolor{stringliteral}{"CASIERS;3;1;2100"};
+00054         \hyperlink{class_supervision_ae72bdcb7d70bbb8e13cf61be95ee7c06}{traiterTramePoids}(trameTest);
+00055 \textcolor{preprocessor}{    #endif}
+00056 
+00057     \textcolor{comment}{//envoyer demande trame poids au démarrage pour mettre à jour le stock au démarrage}
+00058     \hyperlink{class_supervision_a045be64d74de4f7688574eec108220a5}{communication}->\hyperlink{class_communication_ab8f5efe1d44805be0081e986b2687a12}{envoyerRequetePoids}();
+00059 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_supervision_a5058e6aec3356006c8efe66bf223ec94}\label{class_supervision_a5058e6aec3356006c8efe66bf223ec94}} 
+\index{Supervision@{Supervision}!````~Supervision@{$\sim$\+Supervision}}
+\index{````~Supervision@{$\sim$\+Supervision}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{$\sim$\+Supervision()}{~Supervision()}}
+{\footnotesize\ttfamily Supervision\+::$\sim$\+Supervision (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Définition du destructeur de \hyperlink{class_supervision}{Supervision}. 
+
+Détruit un objet \hyperlink{class_supervision}{Supervision} 
+
+Définition à la ligne \hyperlink{_supervision_8cpp_source_l00066}{66} du fichier \hyperlink{_supervision_8cpp_source}{Supervision.\+cpp}.
+
+
+\begin{DoxyCode}
+00067 \{
+00068 
+00069 \}
+\end{DoxyCode}
+
+
+\subsubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{class_supervision_ae6fc43cb8bdfd8045367c08d8e440359}\label{class_supervision_ae6fc43cb8bdfd8045367c08d8e440359}} 
+\index{Supervision@{Supervision}!ajouter\+Donnees\+Article@{ajouter\+Donnees\+Article}}
+\index{ajouter\+Donnees\+Article@{ajouter\+Donnees\+Article}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{ajouter\+Donnees\+Article()}{ajouterDonneesArticle()}}
+{\footnotesize\ttfamily void Supervision\+::ajouter\+Donnees\+Article (\begin{DoxyParamCaption}\item[{\hyperlink{class_article}{Article} $\ast$}]{article,  }\item[{Q\+Vector$<$ Q\+String\+List $>$ \&}]{donnees\+Article,  }\item[{Q\+String\+List \&}]{donnees }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Définition de la méthode ajouter\+Donnees\+Article. 
+
+permet d\textquotesingle{}ajouter des données d\textquotesingle{}un article d\textquotesingle{}un casier 
+\begin{DoxyParams}{Paramètres}
+{\em article} & \\
+\hline
+{\em donnees\+Article} & \\
+\hline
+{\em donnees} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{_supervision_8cpp_source_l00508}{508} du fichier \hyperlink{_supervision_8cpp_source}{Supervision.\+cpp}.
+
+
+
+Références \hyperlink{_article_8cpp_source_l00266}{Article\+::get()}, \hyperlink{_article_8h_source_l00041}{T\+A\+B\+L\+E\+\_\+\+A\+R\+T\+I\+C\+L\+E\+\_\+\+D\+I\+S\+P\+O\+N\+I\+B\+LE}, \hyperlink{_article_8h_source_l00046}{T\+A\+B\+L\+E\+\_\+\+A\+R\+T\+I\+C\+L\+E\+\_\+\+N\+U\+M\+E\+R\+O\+\_\+\+C\+A\+S\+I\+ER}, et \hyperlink{_article_8h_source_l00040}{T\+A\+B\+L\+E\+\_\+\+A\+R\+T\+I\+C\+L\+E\+\_\+\+Q\+U\+A\+N\+T\+I\+TE}.
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00320}{selectionner\+Article()}.
+
+
+\begin{DoxyCode}
+00509 \{
+00510     donnees << article->\hyperlink{class_article_a81e89d4821991a69277f3a0f8e88a001}{get}(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a7273e06be37f8ea80b1c9c16224ebb86}{TABLE\_ARTICLE\_QUANTITE});
+00511     donnees << article->\hyperlink{class_article_a81e89d4821991a69277f3a0f8e88a001}{get}(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a105c98cbf3533c6bd74eb706c5d524d6}{TABLE\_ARTICLE\_DISPONIBLE});
+00512     donnees << article->\hyperlink{class_article_a81e89d4821991a69277f3a0f8e88a001}{get}(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a43ae9bea39dd3f12e8732bcd2d7c0223}{TABLE\_ARTICLE\_NUMERO\_CASIER});
+00513 
+00514     donneesArticle.push\_back(donnees);
+00515     donnees.clear();
+00516 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_supervision_a16fde33340a8bc8b0936926cd6dc0657}\label{class_supervision_a16fde33340a8bc8b0936926cd6dc0657}} 
+\index{Supervision@{Supervision}!arrondir@{arrondir}}
+\index{arrondir@{arrondir}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{arrondir()}{arrondir()}}
+{\footnotesize\ttfamily int Supervision\+::arrondir (\begin{DoxyParamCaption}\item[{Q\+String}]{arrondire }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Définition de la méthode arrondir. 
+
+permet d\textquotesingle{}arrondir 
+\begin{DoxyParams}{Paramètres}
+{\em arrondire} & le nombre à arrondir \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+le nombre arrondie sous forme d\textquotesingle{}un entier 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{_supervision_8cpp_source_l00492}{492} du fichier \hyperlink{_supervision_8cpp_source}{Supervision.\+cpp}.
+
+
+
+Références \hyperlink{_supervision_8h_source_l00026}{P\+R\+E\+C\+I\+S\+I\+ON}.
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00452}{compter()}.
+
+
+\begin{DoxyCode}
+00493 \{
+00494     \textcolor{keywordtype}{double} doubleArrondire = arrondire.toDouble();
+00495     QString strArrondire = QString::number(doubleArrondire, \textcolor{charliteral}{'f'}, \hyperlink{_supervision_8h_a9c7b069fee3c8184e14a7de8e5da2dc6}{PRECISION});
+00496     \textcolor{keywordtype}{int} doubleArrondie = strArrondire.toInt();
+00497 
+00498     \textcolor{keywordflow}{return} doubleArrondie;
+00499 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_supervision_a3023468d106abfe7dc697e61a63778ed}\label{class_supervision_a3023468d106abfe7dc697e61a63778ed}} 
+\index{Supervision@{Supervision}!articles\+Trouves@{articles\+Trouves}}
+\index{articles\+Trouves@{articles\+Trouves}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{articles\+Trouves}{articlesTrouves}}
+{\footnotesize\ttfamily void Supervision\+::articles\+Trouves (\begin{DoxyParamCaption}\item[{Q\+Vector$<$ Q\+String\+List $>$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00273}{connecter\+Signaux\+Slots()}, et \hyperlink{_supervision_8cpp_source_l00305}{rechercher\+Article()}.
+
+\mbox{\Hypertarget{class_supervision_a81b1b8960cb2857be4a6789cf27cd413}\label{class_supervision_a81b1b8960cb2857be4a6789cf27cd413}} 
+\index{Supervision@{Supervision}!compter@{compter}}
+\index{compter@{compter}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{compter()}{compter()}}
+{\footnotesize\ttfamily int Supervision\+::compter (\begin{DoxyParamCaption}\item[{Q\+String}]{poids\+Article,  }\item[{Q\+String}]{poids\+Total,  }\item[{Q\+String}]{tare }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Définition de la méthode compter. 
+
+assure le comptage automatique du nombre d\textquotesingle{}article présent dans le casier 
+\begin{DoxyParams}{Paramètres}
+{\em poids\+Article} & le poids total dans le casier \\
+\hline
+{\em poids\+Total} & le poids d\textquotesingle{}un article \\
+\hline
+{\em tare} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+la quantite d\textquotesingle{}article présent dans le casier sous forme d\textquotesingle{}un entier 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{_supervision_8cpp_source_l00452}{452} du fichier \hyperlink{_supervision_8cpp_source}{Supervision.\+cpp}.
+
+
+
+Références \hyperlink{_supervision_8cpp_source_l00492}{arrondir()}, et \hyperlink{_supervision_8h_source_l00026}{P\+R\+E\+C\+I\+S\+I\+ON}.
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00370}{traiter\+Trame\+Poids()}.
+
+
+\begin{DoxyCode}
+00453 \{
+00454     \textcolor{comment}{//arrondie et conversion en entier}
+00455     \textcolor{keywordtype}{int} intPoidsArticle = \hyperlink{class_supervision_a16fde33340a8bc8b0936926cd6dc0657}{arrondir}(poidsArticle);
+00456 
+00457 \textcolor{preprocessor}{    #ifdef DEBUG\_SUPERVISION}
+00458         qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"intPoidsArticle:"} << intPoidsArticle;
+00459 \textcolor{preprocessor}{    #endif}
+00460 
+00461     \textcolor{keywordtype}{int} intPoidsTotal = \hyperlink{class_supervision_a16fde33340a8bc8b0936926cd6dc0657}{arrondir}(poidsTotal);
+00462 
+00463 \textcolor{preprocessor}{    #ifdef DEBUG\_SUPERVISION}
+00464         qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"intPoidsTotal:"} << intPoidsTotal;
+00465 \textcolor{preprocessor}{    #endif}
+00466 
+00467     \textcolor{keywordtype}{int} intTare = \hyperlink{class_supervision_a16fde33340a8bc8b0936926cd6dc0657}{arrondir}(tare);
+00468 
+00469 \textcolor{preprocessor}{    #ifdef DEBUG\_SUPERVISION}
+00470         qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"tare:"} << intTare;
+00471 \textcolor{preprocessor}{    #endif}
+00472 
+00473     \textcolor{comment}{//comptage du nombre d'articles}
+00474 
+00475     \textcolor{keywordtype}{double} doubleNombreArticle = (intPoidsTotal - intTare) / intPoidsArticle;
+00476     QString strNombreArticle = QString::number(doubleNombreArticle, \textcolor{charliteral}{'f'}, 
+      \hyperlink{_supervision_8h_a9c7b069fee3c8184e14a7de8e5da2dc6}{PRECISION});
+00477     \textcolor{keywordtype}{int} nombreArticle = strNombreArticle.toInt();
+00478 
+00479 \textcolor{preprocessor}{    #ifdef DEBUG\_SUPERVISION}
+00480         qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"nombreArticle:"} << nombreArticle;
+00481 \textcolor{preprocessor}{    #endif}
+00482 
+00483     \textcolor{keywordflow}{return} nombreArticle;
+00484 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_supervision_ac3bb2f3834b09a81ae9a767502ff693b}\label{class_supervision_ac3bb2f3834b09a81ae9a767502ff693b}} 
+\index{Supervision@{Supervision}!connecter\+Signaux\+Slots@{connecter\+Signaux\+Slots}}
+\index{connecter\+Signaux\+Slots@{connecter\+Signaux\+Slots}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{connecter\+Signaux\+Slots()}{connecterSignauxSlots()}}
+{\footnotesize\ttfamily void Supervision\+::connecter\+Signaux\+Slots (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Définition de la méthode connecter\+Signaux\+Slots. 
+
+Etablie la connexion entre les diffrents signaux et slots 
+
+Définition à la ligne \hyperlink{_supervision_8cpp_source_l00273}{273} du fichier \hyperlink{_supervision_8cpp_source}{Supervision.\+cpp}.
+
+
+
+Références \hyperlink{_supervision_8h_source_l00084}{armoire}, \hyperlink{class_supervision_a3023468d106abfe7dc697e61a63778ed}{articles\+Trouves()}, \hyperlink{_supervision_8h_source_l00085}{communication}, \hyperlink{class_supervision_ae486eafc331964e223c35ae2b54fa669}{donnees\+Article\+Selectionne()}, \hyperlink{class_supervision_a3fb19a3c16324a21af956fd272ca469d}{erreur\+Depassement\+Quantite()}, \hyperlink{_supervision_8h_source_l00079}{ihm}, \hyperlink{_supervision_8cpp_source_l00305}{rechercher\+Article()}, \hyperlink{class_supervision_a116ed6de0e9e3c9c94886235e9f6d6e8}{reponse\+Demande\+De\+Connexion()}, \hyperlink{_supervision_8h_source_l00081}{rfid}, \hyperlink{_supervision_8cpp_source_l00320}{selectionner\+Article()}, \hyperlink{_supervision_8cpp_source_l00370}{traiter\+Trame\+Poids()}, \hyperlink{_supervision_8cpp_source_l00124}{verifier\+Authentification\+Badge()}, et \hyperlink{_supervision_8cpp_source_l00141}{verifier\+Authentification\+Identifiant()}.
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00036}{Supervision()}.
+
+
+\begin{DoxyCode}
+00274 \{
+00275     \textcolor{comment}{// Armoire}
+00276     connect(\hyperlink{class_supervision_a9f974b5c47899192395e539a0f11034c}{armoire}, SIGNAL(informationsArmoire(QStringList)), \hyperlink{class_supervision_a5aa823c55bf1531497bbb8fdbc6c5528}{ihm}, SLOT(
+      afficherInformationsArmoire(QStringList)));
+00277 
+00278     \textcolor{comment}{// Authentification Badge}
+00279     connect(\hyperlink{class_supervision_a5aa823c55bf1531497bbb8fdbc6c5528}{ihm}, SIGNAL(badgeDetecte(QString)), \hyperlink{class_supervision_a3ec5986105208e9a2b02b7e97bf61090}{rfid}, SLOT(traiterBadge(QString)));
+00280     connect(\hyperlink{class_supervision_a3ec5986105208e9a2b02b7e97bf61090}{rfid}, SIGNAL(erreurBadgeInvalide(QString)), \hyperlink{class_supervision_a5aa823c55bf1531497bbb8fdbc6c5528}{ihm}, SLOT(afficherErreurBadge(QString)));
+00281     connect(\hyperlink{class_supervision_a3ec5986105208e9a2b02b7e97bf61090}{rfid}, SIGNAL(nouveauUidBadge(QString)), \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_supervision_a07e7f0cd8b114182be56ebb5645e62fe}{verifierAuthentificationBadge}(QString)));
+00282 
+00283     \textcolor{comment}{// Authentification Identifiant}
+00284     connect(\hyperlink{class_supervision_a5aa823c55bf1531497bbb8fdbc6c5528}{ihm}, SIGNAL(identifiantDetecte(QString, QString)), \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_supervision_ac596674d302f1f747d65c8334aa1ced9}{verifierAuthentificationIdentifiant}(QString, QString)));
+00285 
+00286     \textcolor{comment}{// Authentification Utilisateur}
+00287     connect(\textcolor{keyword}{this}, SIGNAL(\hyperlink{class_supervision_a116ed6de0e9e3c9c94886235e9f6d6e8}{reponseDemandeDeConnexion}(\textcolor{keywordtype}{bool},QString)), 
+      \hyperlink{class_supervision_a5aa823c55bf1531497bbb8fdbc6c5528}{ihm}, SLOT(traiterDemandeDeConnexion(\textcolor{keywordtype}{bool},QString)));
+00288 
+00289     \textcolor{comment}{// Article}
+00290     connect(\hyperlink{class_supervision_a045be64d74de4f7688574eec108220a5}{communication}, SIGNAL(envoieTramePoids(QString)), \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_supervision_ae72bdcb7d70bbb8e13cf61be95ee7c06}{traiterTramePoids}(QString)));
+00291     connect(\hyperlink{class_supervision_a5aa823c55bf1531497bbb8fdbc6c5528}{ihm}, SIGNAL(rechercheArticle(QString)), \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_supervision_af2df200be6727338110b81812703d0ae}{rechercherArticle}(QString)));
+00292     connect(\textcolor{keyword}{this}, SIGNAL(\hyperlink{class_supervision_a3023468d106abfe7dc697e61a63778ed}{articlesTrouves}(QVector<QStringList>)), 
+      \hyperlink{class_supervision_a5aa823c55bf1531497bbb8fdbc6c5528}{ihm}, SLOT(mettreAJourListeArticles(QVector<QStringList>)));
+00293     connect(\hyperlink{class_supervision_a5aa823c55bf1531497bbb8fdbc6c5528}{ihm}, SIGNAL(articleSelectionne(QString)), \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_supervision_a2efb7e4dabe2664c9cfd41d703b6250c}{selectionnerArticle}(QString)));
+00294     connect(\textcolor{keyword}{this}, SIGNAL(\hyperlink{class_supervision_ae486eafc331964e223c35ae2b54fa669}{donneesArticleSelectionne}(QStringList)), 
+      \hyperlink{class_supervision_a5aa823c55bf1531497bbb8fdbc6c5528}{ihm}, SLOT(afficherDonneesArticleSelectionne(QStringList)));
+00295     connect(\textcolor{keyword}{this}, SIGNAL(\hyperlink{class_supervision_ae486eafc331964e223c35ae2b54fa669}{donneesArticleSelectionne}(QVector<QStringList>)), 
+      \hyperlink{class_supervision_a5aa823c55bf1531497bbb8fdbc6c5528}{ihm}, SLOT(afficherDonneesArticleSelectionne(QVector<QStringList>)));
+00296     connect(\textcolor{keyword}{this}, SIGNAL(\hyperlink{class_supervision_a3fb19a3c16324a21af956fd272ca469d}{erreurDepassementQuantite}()), 
+      \hyperlink{class_supervision_a5aa823c55bf1531497bbb8fdbc6c5528}{ihm}, SLOT(afficherErreurDepassementQuantite()));
+00297 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_supervision_a7c397ca5f79afa2709a657d7185dfbe1}\label{class_supervision_a7c397ca5f79afa2709a657d7185dfbe1}} 
+\index{Supervision@{Supervision}!connecter\+Utilisateur@{connecter\+Utilisateur}}
+\index{connecter\+Utilisateur@{connecter\+Utilisateur}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{connecter\+Utilisateur()}{connecterUtilisateur()}}
+{\footnotesize\ttfamily void Supervision\+::connecter\+Utilisateur (\begin{DoxyParamCaption}\item[{Q\+String\+List \&}]{donnees }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Définition de la méthode connecter\+Utilisateur. 
+
+Connecte l\textquotesingle{}utilisateur et le supprime si il en existe un 
+\begin{DoxyParams}{Paramètres}
+{\em donnees} & Plusieurs chaînes de caractères des données utilisateur \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{_supervision_8cpp_source_l00256}{256} du fichier \hyperlink{_supervision_8cpp_source}{Supervision.\+cpp}.
+
+
+
+Références \hyperlink{_supervision_8cpp_source_l00076}{deconnecter\+Utilisateur()}, \hyperlink{_utilisateur_8cpp_source_l00078}{Utilisateur\+::get\+Identifiant\+Utilisateur()}, et \hyperlink{_supervision_8h_source_l00082}{utilisateur}.
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00124}{verifier\+Authentification\+Badge()}, et \hyperlink{_supervision_8cpp_source_l00141}{verifier\+Authentification\+Identifiant()}.
+
+
+\begin{DoxyCode}
+00257 \{
+00258     \textcolor{keywordflow}{if}(\hyperlink{class_supervision_a92384f2b12b2549cee988f83add8ad49}{utilisateur} != \textcolor{keyword}{nullptr})
+00259     \{
+00260         \hyperlink{class_supervision_a164a1ad89264ea252401818df325eab8}{deconnecterUtilisateur}();
+00261     \}
+00262     \hyperlink{class_supervision_a92384f2b12b2549cee988f83add8ad49}{utilisateur} = \textcolor{keyword}{new} \hyperlink{class_utilisateur}{Utilisateur}(donnees, \textcolor{keyword}{this});
+00263 \textcolor{preprocessor}{    #ifdef DEBUG\_SUPERVISION}
+00264         qDebug() << Q\_FUNC\_INFO << \hyperlink{class_supervision_a92384f2b12b2549cee988f83add8ad49}{utilisateur}->
+      \hyperlink{class_utilisateur_af944ac02cca7914480e20f46c4dd0e56}{getIdentifiantUtilisateur}() << \textcolor{stringliteral}{"authentifié"};
+00265 \textcolor{preprocessor}{    #endif}
+00266 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_supervision_a558665fd7e7c44653907883afd9a58bf}\label{class_supervision_a558665fd7e7c44653907883afd9a58bf}} 
+\index{Supervision@{Supervision}!creer\+Casiers@{creer\+Casiers}}
+\index{creer\+Casiers@{creer\+Casiers}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{creer\+Casiers()}{creerCasiers()}}
+{\footnotesize\ttfamily void Supervision\+::creer\+Casiers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Définition de la méthode creer\+Casiers. 
+
+Méthode qui crée les casiers à gérer 
+
+Définition à la ligne \hyperlink{_supervision_8cpp_source_l00090}{90} du fichier \hyperlink{_supervision_8cpp_source}{Supervision.\+cpp}.
+
+
+
+Références \hyperlink{_supervision_8h_source_l00084}{armoire}, \hyperlink{_supervision_8h_source_l00086}{casiers}, \hyperlink{_armoire_8cpp_source_l00127}{Armoire\+::get\+Nb\+Casiers()}, \hyperlink{_supervision_8h_source_l00079}{ihm}, et \hyperlink{_ihm_8cpp_source_l00087}{Ihm\+::placer\+Casier()}.
+
+
+
+Référencé par \hyperlink{_ihm_8cpp_source_l00029}{Ihm\+::\+Ihm()}.
+
+
+\begin{DoxyCode}
+00091 \{
+00092     QString nbCasiers = \hyperlink{class_supervision_a9f974b5c47899192395e539a0f11034c}{armoire}->\hyperlink{class_armoire_aa94faaf53b6da5139a22a2ab21d4cf12}{getNbCasiers}();
+00093     qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"nbCasiers"} << nbCasiers;
+00094     \textcolor{keywordflow}{if}(!nbCasiers.isEmpty())
+00095     \{
+00096         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i < nbCasiers.toInt(); i++)
+00097         \{
+00098             \hyperlink{class_casier}{Casier}* casier = \textcolor{keyword}{new} \hyperlink{class_casier}{Casier}(i+1, \hyperlink{class_supervision_a5aa823c55bf1531497bbb8fdbc6c5528}{ihm});
+00099             \hyperlink{class_supervision_a3ac996538c83f3bd3df36095b0abb1b2}{casiers}.push\_back(casier);
+00100             \hyperlink{class_supervision_a5aa823c55bf1531497bbb8fdbc6c5528}{ihm}->\hyperlink{class_ihm_a4ba75b0606c75d616dab3afd67660fd4}{placerCasier}(casier);
+00101         \}
+00102     \}
+00103 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_supervision_ac58c5b922ce85af75c2233cd3265d201}\label{class_supervision_ac58c5b922ce85af75c2233cd3265d201}} 
+\index{Supervision@{Supervision}!crypter\+Mot\+Depasse@{crypter\+Mot\+Depasse}}
+\index{crypter\+Mot\+Depasse@{crypter\+Mot\+Depasse}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{crypter\+Mot\+Depasse()}{crypterMotDepasse()}}
+{\footnotesize\ttfamily void Supervision\+::crypter\+Mot\+Depasse (\begin{DoxyParamCaption}\item[{Q\+String \&}]{mot\+De\+Passe }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Définition de la méthode crypter\+Mot\+Depasse. 
+
+Crypte le mots de passe avec la méthode Md5 puis vers l\textquotesingle{}hexadécimal 
+\begin{DoxyParams}{Paramètres}
+{\em mot\+De\+Passe} & Chaîne de caractères du mot de passe \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{_supervision_8cpp_source_l00179}{179} du fichier \hyperlink{_supervision_8cpp_source}{Supervision.\+cpp}.
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00141}{verifier\+Authentification\+Identifiant()}.
+
+
+\begin{DoxyCode}
+00180 \{
+00181     \textcolor{keywordflow}{if}(!motDePasse.isEmpty())
+00182     \{
+00183     motDePasse = QString(QCryptographicHash::hash((motDePasse).toLatin1(), QCryptographicHash::Md5).toHex()
+      );
+00184     \}
+00185 
+00186 \textcolor{preprocessor}{    #ifdef DEBUG\_SUPERVISION}
+00187         qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"Mot de passe crypte"} << motDePasse;
+00188 \textcolor{preprocessor}{    #endif}
+00189 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_supervision_a164a1ad89264ea252401818df325eab8}\label{class_supervision_a164a1ad89264ea252401818df325eab8}} 
+\index{Supervision@{Supervision}!deconnecter\+Utilisateur@{deconnecter\+Utilisateur}}
+\index{deconnecter\+Utilisateur@{deconnecter\+Utilisateur}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{deconnecter\+Utilisateur()}{deconnecterUtilisateur()}}
+{\footnotesize\ttfamily void Supervision\+::deconnecter\+Utilisateur (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Méthode qui permet la déconnexion de l\textquotesingle{}utilisateur. 
+
+Supprime les données de l\textquotesingle{}utilisateur 
+
+Définition à la ligne \hyperlink{_supervision_8cpp_source_l00076}{76} du fichier \hyperlink{_supervision_8cpp_source}{Supervision.\+cpp}.
+
+
+
+Références \hyperlink{_supervision_8h_source_l00082}{utilisateur}.
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00256}{connecter\+Utilisateur()}, et \hyperlink{_ihm_8cpp_source_l00159}{Ihm\+::deconnecter\+Utilisateur()}.
+
+
+\begin{DoxyCode}
+00077 \{
+00078     \textcolor{keywordflow}{if}(\hyperlink{class_supervision_a92384f2b12b2549cee988f83add8ad49}{utilisateur} != \textcolor{keyword}{nullptr})
+00079     \{
+00080         \textcolor{keyword}{delete} \hyperlink{class_supervision_a92384f2b12b2549cee988f83add8ad49}{utilisateur};
+00081         \hyperlink{class_supervision_a92384f2b12b2549cee988f83add8ad49}{utilisateur} = \textcolor{keyword}{nullptr};
+00082     \}
+00083 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_supervision_ae486eafc331964e223c35ae2b54fa669}\label{class_supervision_ae486eafc331964e223c35ae2b54fa669}} 
+\index{Supervision@{Supervision}!donnees\+Article\+Selectionne@{donnees\+Article\+Selectionne}}
+\index{donnees\+Article\+Selectionne@{donnees\+Article\+Selectionne}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{donnees\+Article\+Selectionne}{donneesArticleSelectionne}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Supervision\+::donnees\+Article\+Selectionne (\begin{DoxyParamCaption}\item[{Q\+Vector$<$ Q\+String\+List $>$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00273}{connecter\+Signaux\+Slots()}, et \hyperlink{_supervision_8cpp_source_l00320}{selectionner\+Article()}.
+
+\mbox{\Hypertarget{class_supervision_ae01e53be90edf2656432c5da56331b9d}\label{class_supervision_ae01e53be90edf2656432c5da56331b9d}} 
+\index{Supervision@{Supervision}!donnees\+Article\+Selectionne@{donnees\+Article\+Selectionne}}
+\index{donnees\+Article\+Selectionne@{donnees\+Article\+Selectionne}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{donnees\+Article\+Selectionne}{donneesArticleSelectionne}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Supervision\+::donnees\+Article\+Selectionne (\begin{DoxyParamCaption}\item[{Q\+String\+List}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{class_supervision_a3fb19a3c16324a21af956fd272ca469d}\label{class_supervision_a3fb19a3c16324a21af956fd272ca469d}} 
+\index{Supervision@{Supervision}!erreur\+Depassement\+Quantite@{erreur\+Depassement\+Quantite}}
+\index{erreur\+Depassement\+Quantite@{erreur\+Depassement\+Quantite}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{erreur\+Depassement\+Quantite}{erreurDepassementQuantite}}
+{\footnotesize\ttfamily void Supervision\+::erreur\+Depassement\+Quantite (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00273}{connecter\+Signaux\+Slots()}, et \hyperlink{_supervision_8cpp_source_l00370}{traiter\+Trame\+Poids()}.
+
+\mbox{\Hypertarget{class_supervision_a141a35024b0cb74636a8c6810a1ab26d}\label{class_supervision_a141a35024b0cb74636a8c6810a1ab26d}} 
+\index{Supervision@{Supervision}!extraire\+Numero\+Casier@{extraire\+Numero\+Casier}}
+\index{extraire\+Numero\+Casier@{extraire\+Numero\+Casier}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{extraire\+Numero\+Casier()}{extraireNumeroCasier()}}
+{\footnotesize\ttfamily Q\+String Supervision\+::extraire\+Numero\+Casier (\begin{DoxyParamCaption}\item[{Q\+String}]{trame }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Définition de la méthode extraire\+Numero\+Casier. 
+
+extrait le numéro de casier de la trame 
+\begin{DoxyParams}{Paramètres}
+{\em trame} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+le numéro du casier 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{_supervision_8cpp_source_l00433}{433} du fichier \hyperlink{_supervision_8cpp_source}{Supervision.\+cpp}.
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00370}{traiter\+Trame\+Poids()}.
+
+
+\begin{DoxyCode}
+00434 \{
+00435     QString numCasier = trame.section(\textcolor{charliteral}{';'},2,2);
+00436 
+00437 \textcolor{preprocessor}{    #ifdef DEBUG\_SUPERVISION}
+00438         qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"numCasier:"} << numCasier;
+00439 \textcolor{preprocessor}{    #endif}
+00440 
+00441     \textcolor{keywordflow}{return} numCasier;
+00442 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_supervision_afdef41cd85f2ecfae9d1dc46f556a034}\label{class_supervision_afdef41cd85f2ecfae9d1dc46f556a034}} 
+\index{Supervision@{Supervision}!extraire\+Poids@{extraire\+Poids}}
+\index{extraire\+Poids@{extraire\+Poids}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{extraire\+Poids()}{extrairePoids()}}
+{\footnotesize\ttfamily Q\+String Supervision\+::extraire\+Poids (\begin{DoxyParamCaption}\item[{Q\+String}]{trame }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Définition de la méthode extraire\+Poids. 
+
+extrait le poids de l\textquotesingle{}article de la trame 
+\begin{DoxyParams}{Paramètres}
+{\em trame} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+le poids de l\textquotesingle{}article sous forme d\textquotesingle{}un Q\+String 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{_supervision_8cpp_source_l00415}{415} du fichier \hyperlink{_supervision_8cpp_source}{Supervision.\+cpp}.
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00370}{traiter\+Trame\+Poids()}.
+
+
+\begin{DoxyCode}
+00416 \{
+00417     QString poids = trame.section(\textcolor{charliteral}{';'},3,3);
+00418 
+00419 \textcolor{preprocessor}{    #ifdef DEBUG\_SUPERVISION}
+00420         qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"poids:"} << poids;
+00421 \textcolor{preprocessor}{    #endif}
+00422 
+00423     \textcolor{keywordflow}{return} poids;
+00424 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_supervision_a72bd93799fcf5423a5f0c5538d4ec892}\label{class_supervision_a72bd93799fcf5423a5f0c5538d4ec892}} 
+\index{Supervision@{Supervision}!get\+Informations\+Armoire@{get\+Informations\+Armoire}}
+\index{get\+Informations\+Armoire@{get\+Informations\+Armoire}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{get\+Informations\+Armoire()}{getInformationsArmoire()}}
+{\footnotesize\ttfamily Q\+String\+List Supervision\+::get\+Informations\+Armoire (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Définition de la méthode get\+Informations\+Armoire. 
+
+Récupère les informations (nom, ...) sur l\textquotesingle{}armoire \begin{DoxyReturn}{Renvoie}
+les informations (nom, ...) sur l\textquotesingle{}armoire sous la forme d\textquotesingle{}un Q\+String\+List 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{_supervision_8cpp_source_l00111}{111} du fichier \hyperlink{_supervision_8cpp_source}{Supervision.\+cpp}.
+
+
+
+Références \hyperlink{_supervision_8h_source_l00084}{armoire}, et \hyperlink{_armoire_8cpp_source_l00078}{Armoire\+::get\+Informations()}.
+
+
+
+Référencé par \hyperlink{_ihm_8cpp_source_l00029}{Ihm\+::\+Ihm()}.
+
+
+\begin{DoxyCode}
+00112 \{
+00113     QStringList informationsArmoire = \hyperlink{class_supervision_a9f974b5c47899192395e539a0f11034c}{armoire}->\hyperlink{class_armoire_a3e4d2ffc2fb91dd24d1160305ad36555}{getInformations}();
+00114 
+00115     \textcolor{keywordflow}{return} informationsArmoire;
+00116 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_supervision_af2df200be6727338110b81812703d0ae}\label{class_supervision_af2df200be6727338110b81812703d0ae}} 
+\index{Supervision@{Supervision}!rechercher\+Article@{rechercher\+Article}}
+\index{rechercher\+Article@{rechercher\+Article}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{rechercher\+Article}{rechercherArticle}}
+{\footnotesize\ttfamily void Supervision\+::rechercher\+Article (\begin{DoxyParamCaption}\item[{Q\+String}]{recherche }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Définition de la méthode rechercher\+Article. 
+
+Recherche un \hyperlink{class_article}{Article} 
+\begin{DoxyParams}{Paramètres}
+{\em recherche} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{_supervision_8cpp_source_l00305}{305} du fichier \hyperlink{_supervision_8cpp_source}{Supervision.\+cpp}.
+
+
+
+Références \hyperlink{class_supervision_a3023468d106abfe7dc697e61a63778ed}{articles\+Trouves()}, \hyperlink{_supervision_8h_source_l00080}{bdd}, et \hyperlink{_bdd_8cpp_source_l00187}{Bdd\+::recuperer()}.
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00273}{connecter\+Signaux\+Slots()}, et \hyperlink{_ihm_8cpp_source_l00256}{Ihm\+::rechercher\+Article()}.
+
+
+\begin{DoxyCode}
+00306 \{
+00307     QString requete = \textcolor{stringliteral}{"SELECT Stock.NumeroCasier, Article.idType, Article.Nom, Stock.Quantite,
+       Stock.Disponible, Article.Designation FROM Stock INNER JOIN Article ON Stock.idArticle = Article.idArticle WHERE
+       Article.Nom LIKE '%"} + recherche + \textcolor{stringliteral}{"%' OR Article.Code LIKE '%"} + recherche + \textcolor{stringliteral}{"%' OR Article.Designation LIKE '%"} +
+       recherche + \textcolor{stringliteral}{"%' ORDER BY Stock.NumeroCasier ASC"};
+00308 
+00309     QVector<QStringList> listeArticlesTrouves;
+00310     \hyperlink{class_supervision_ac9a970d4f511f2eed5da4aed037533ab}{bdd}->\hyperlink{class_bdd_a8f25d29d309041bbf875700db0efd97b}{recuperer}(requete, listeArticlesTrouves);
+00311 
+00312     emit \hyperlink{class_supervision_a3023468d106abfe7dc697e61a63778ed}{articlesTrouves}(listeArticlesTrouves);
+00313 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_supervision_a137b6c505742a4ada6ab38193eef01dd}\label{class_supervision_a137b6c505742a4ada6ab38193eef01dd}} 
+\index{Supervision@{Supervision}!recuperer\+Donnees\+Utilisateur@{recuperer\+Donnees\+Utilisateur}}
+\index{recuperer\+Donnees\+Utilisateur@{recuperer\+Donnees\+Utilisateur}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{recuperer\+Donnees\+Utilisateur()}{recupererDonneesUtilisateur()}}
+{\footnotesize\ttfamily Q\+String\+List Supervision\+::recuperer\+Donnees\+Utilisateur (\begin{DoxyParamCaption}\item[{Q\+String}]{requete\+B\+DD }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Définition de la méthode recuperer\+Donnees\+Utilisateur. 
+
+Récupére des données utilisateur dans la base de donnéess 
+\begin{DoxyParams}{Paramètres}
+{\em requete\+B\+DD} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+La liste des données utilisateur 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{_supervision_8cpp_source_l00165}{165} du fichier \hyperlink{_supervision_8cpp_source}{Supervision.\+cpp}.
+
+
+
+Références \hyperlink{_supervision_8h_source_l00080}{bdd}, et \hyperlink{_bdd_8cpp_source_l00187}{Bdd\+::recuperer()}.
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00124}{verifier\+Authentification\+Badge()}, et \hyperlink{_supervision_8cpp_source_l00141}{verifier\+Authentification\+Identifiant()}.
+
+
+\begin{DoxyCode}
+00166 \{
+00167     QStringList donnees;
+00168     \hyperlink{class_supervision_ac9a970d4f511f2eed5da4aed037533ab}{bdd}->\hyperlink{class_bdd_a8f25d29d309041bbf875700db0efd97b}{recuperer}(requeteBDD, donnees);
+00169 
+00170     \textcolor{keywordflow}{return} donnees;
+00171 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_supervision_a116ed6de0e9e3c9c94886235e9f6d6e8}\label{class_supervision_a116ed6de0e9e3c9c94886235e9f6d6e8}} 
+\index{Supervision@{Supervision}!reponse\+Demande\+De\+Connexion@{reponse\+Demande\+De\+Connexion}}
+\index{reponse\+Demande\+De\+Connexion@{reponse\+Demande\+De\+Connexion}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{reponse\+Demande\+De\+Connexion}{reponseDemandeDeConnexion}}
+{\footnotesize\ttfamily void Supervision\+::reponse\+Demande\+De\+Connexion (\begin{DoxyParamCaption}\item[{bool}]{,  }\item[{Q\+String}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00273}{connecter\+Signaux\+Slots()}, et \hyperlink{_supervision_8cpp_source_l00224}{verifier\+Donnees\+Utilisateur()}.
+
+\mbox{\Hypertarget{class_supervision_a2efb7e4dabe2664c9cfd41d703b6250c}\label{class_supervision_a2efb7e4dabe2664c9cfd41d703b6250c}} 
+\index{Supervision@{Supervision}!selectionner\+Article@{selectionner\+Article}}
+\index{selectionner\+Article@{selectionner\+Article}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{selectionner\+Article}{selectionnerArticle}}
+{\footnotesize\ttfamily void Supervision\+::selectionner\+Article (\begin{DoxyParamCaption}\item[{Q\+String}]{nom\+Article }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Définition de la méthode selectionner\+Article. 
+
+sélectionne un article 
+\begin{DoxyParams}{Paramètres}
+{\em nom\+Article} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{_supervision_8cpp_source_l00320}{320} du fichier \hyperlink{_supervision_8cpp_source}{Supervision.\+cpp}.
+
+
+
+Références \hyperlink{_supervision_8cpp_source_l00508}{ajouter\+Donnees\+Article()}, \hyperlink{class_supervision_ae486eafc331964e223c35ae2b54fa669}{donnees\+Article\+Selectionne()}, \hyperlink{_article_8cpp_source_l00103}{Article\+::recuperer\+Donnees\+Article\+Par\+Nom()}, \hyperlink{_article_8cpp_source_l00156}{Article\+::recuperer\+Donnees\+Article\+Par\+Numero\+Casier()}, \hyperlink{_article_8cpp_source_l00218}{Article\+::recuperer\+Nombre\+Casiers\+Pour\+Nom\+Article()}, et \hyperlink{_article_8cpp_source_l00250}{Article\+::recuperer\+Numero\+Casier\+Pour\+Nom\+Article()}.
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00273}{connecter\+Signaux\+Slots()}, et \hyperlink{_ihm_8cpp_source_l00291}{Ihm\+::selectionner\+Article()}.
+
+
+\begin{DoxyCode}
+00321 \{
+00322 \textcolor{preprocessor}{    #ifdef DEBUG\_SUPERVISION}
+00323         qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"Nom article"} << nomArticle;
+00324 \textcolor{preprocessor}{    #endif}
+00325 
+00326     \hyperlink{class_article}{Article} *article = \textcolor{keyword}{new} \hyperlink{class_article}{Article}(\textcolor{keyword}{this});
+00327     QVector<QStringList> donneesArticle;
+00328     QStringList donnees;
+00329 
+00330     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} nombreCasiers = \hyperlink{class_article_acdd796ad55a7fde0c229c8c2df7050cc}{Article::recupererNombreCasiersPourNomArticle}
+      (nomArticle);    
+00331 \textcolor{preprocessor}{    #ifdef DEBUG\_SUPERVISION}
+00332         qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"nombreCasiers"} << nombreCasiers;
+00333 \textcolor{preprocessor}{    #endif}
+00334 
+00335     \textcolor{keywordflow}{if}(nombreCasiers > 1)
+00336     \{
+00337         QVector<QString> numeroDesCasiers;
+00338 
+00339         numeroDesCasiers = \hyperlink{class_article_aa311f3d149340622383c418444aa65a4}{Article::recupererNumeroCasierPourNomArticle}
+      (nomArticle);
+00340 
+00341         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < numeroDesCasiers.size(); i++)
+00342         \{
+00343             article->\hyperlink{class_article_a5d8241c703f142bbc8b011f867fd953f}{recupererDonneesArticleParNumeroCasier}(
+      numeroDesCasiers[i]);
+00344             \hyperlink{class_supervision_ae6fc43cb8bdfd8045367c08d8e440359}{ajouterDonneesArticle}(article, donneesArticle, donnees);
+00345         \}
+00346 
+00347         \textcolor{keywordflow}{if}(!donneesArticle.isEmpty())
+00348         \{
+00349             emit \hyperlink{class_supervision_ae486eafc331964e223c35ae2b54fa669}{donneesArticleSelectionne}(donneesArticle);
+00350         \}
+00351     \}
+00352     \textcolor{keywordflow}{else}
+00353     \{
+00354         article->\hyperlink{class_article_a6eab145b46f5e1786c5ddf669ffabb6e}{recupererDonneesArticleParNom}(nomArticle);
+00355         \hyperlink{class_supervision_ae6fc43cb8bdfd8045367c08d8e440359}{ajouterDonneesArticle}(article, donneesArticle, donnees);
+00356 
+00357         \textcolor{keywordflow}{if}(!donneesArticle.isEmpty())
+00358         \{
+00359             emit \hyperlink{class_supervision_ae486eafc331964e223c35ae2b54fa669}{donneesArticleSelectionne}(donneesArticle.at(0));
+00360         \}
+00361     \}
+00362 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_supervision_ae72bdcb7d70bbb8e13cf61be95ee7c06}\label{class_supervision_ae72bdcb7d70bbb8e13cf61be95ee7c06}} 
+\index{Supervision@{Supervision}!traiter\+Trame\+Poids@{traiter\+Trame\+Poids}}
+\index{traiter\+Trame\+Poids@{traiter\+Trame\+Poids}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{traiter\+Trame\+Poids}{traiterTramePoids}}
+{\footnotesize\ttfamily void Supervision\+::traiter\+Trame\+Poids (\begin{DoxyParamCaption}\item[{Q\+String}]{trame }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Définition de la méthode traiter\+Trame\+Poids. 
+
+traite la trame poids reçue 
+\begin{DoxyParams}{Paramètres}
+{\em trame} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{_supervision_8cpp_source_l00370}{370} du fichier \hyperlink{_supervision_8cpp_source}{Supervision.\+cpp}.
+
+
+
+Références \hyperlink{_supervision_8cpp_source_l00452}{compter()}, \hyperlink{class_supervision_a3fb19a3c16324a21af956fd272ca469d}{erreur\+Depassement\+Quantite()}, \hyperlink{_supervision_8cpp_source_l00433}{extraire\+Numero\+Casier()}, \hyperlink{_supervision_8cpp_source_l00415}{extraire\+Poids()}, \hyperlink{_article_8cpp_source_l00266}{Article\+::get()}, \hyperlink{_article_8cpp_source_l00329}{Article\+::mettre\+A\+Jour\+Quantite()}, \hyperlink{_article_8cpp_source_l00156}{Article\+::recuperer\+Donnees\+Article\+Par\+Numero\+Casier()}, \hyperlink{_article_8h_source_l00041}{T\+A\+B\+L\+E\+\_\+\+A\+R\+T\+I\+C\+L\+E\+\_\+\+D\+I\+S\+P\+O\+N\+I\+B\+LE}, \hyperlink{_article_8h_source_l00033}{T\+A\+B\+L\+E\+\_\+\+A\+R\+T\+I\+C\+L\+E\+\_\+\+N\+O\+M\+\_\+\+A\+R\+T\+I\+C\+LE}, \hyperlink{_article_8h_source_l00042}{T\+A\+B\+L\+E\+\_\+\+A\+R\+T\+I\+C\+L\+E\+\_\+\+P\+O\+I\+DS}, \hyperlink{_article_8h_source_l00040}{T\+A\+B\+L\+E\+\_\+\+A\+R\+T\+I\+C\+L\+E\+\_\+\+Q\+U\+A\+N\+T\+I\+TE}, et \hyperlink{_article_8h_source_l00043}{T\+A\+B\+L\+E\+\_\+\+A\+R\+T\+I\+C\+L\+E\+\_\+\+T\+A\+RE}.
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00273}{connecter\+Signaux\+Slots()}, et \hyperlink{_supervision_8cpp_source_l00036}{Supervision()}.
+
+
+\begin{DoxyCode}
+00371 \{
+00372 \textcolor{preprocessor}{    #ifdef DEBUG\_SUPERVISION}
+00373         qDebug() << Q\_FUNC\_INFO << trame;
+00374 \textcolor{preprocessor}{    #endif    }
+00375 
+00376     QString numCasier = \hyperlink{class_supervision_a141a35024b0cb74636a8c6810a1ab26d}{extraireNumeroCasier}(trame);
+00377 
+00378     \hyperlink{class_article}{Article} *article = \textcolor{keyword}{new} \hyperlink{class_article}{Article}(\textcolor{keyword}{this});
+00379     \textcolor{keywordflow}{if}(article->\hyperlink{class_article_a5d8241c703f142bbc8b011f867fd953f}{recupererDonneesArticleParNumeroCasier}(numCasier))
+00380     \{
+00381 \textcolor{preprocessor}{        #ifdef DEBUG\_SUPERVISION}
+00382             qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"Article"} << article->\hyperlink{class_article_a81e89d4821991a69277f3a0f8e88a001}{get}(
+      \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a7a309a358c54f9ea482a222d0cb4d135}{TABLE\_ARTICLE\_NOM\_ARTICLE}) << article->\hyperlink{class_article_a81e89d4821991a69277f3a0f8e88a001}{get}(
+      \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a7273e06be37f8ea80b1c9c16224ebb86}{TABLE\_ARTICLE\_QUANTITE}) << article->\hyperlink{class_article_a81e89d4821991a69277f3a0f8e88a001}{get}(
+      \hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a105c98cbf3533c6bd74eb706c5d524d6}{TABLE\_ARTICLE\_DISPONIBLE});
+00383 \textcolor{preprocessor}{        #endif}
+00384 
+00385         \textcolor{keywordtype}{int} nombreArticle = \hyperlink{class_supervision_a81b1b8960cb2857be4a6789cf27cd413}{compter}(article->\hyperlink{class_article_a81e89d4821991a69277f3a0f8e88a001}{get}(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a8e65e0dbe78b66152adb0ffd76dd2ece}{TABLE\_ARTICLE\_POIDS}), 
+      \hyperlink{class_supervision_afdef41cd85f2ecfae9d1dc46f556a034}{extrairePoids}(trame), article->\hyperlink{class_article_a81e89d4821991a69277f3a0f8e88a001}{get}(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a970d883b74adb323da887e30bef922f5}{TABLE\_ARTICLE\_TARE}));
+00386 
+00387         QString strArticleQuantite = article->\hyperlink{class_article_a81e89d4821991a69277f3a0f8e88a001}{get}(\hyperlink{_article_8h_a159354683cfd6e1b578172fbe6490ab6a7273e06be37f8ea80b1c9c16224ebb86}{TABLE\_ARTICLE\_QUANTITE});
+00388 
+00389         \textcolor{keywordtype}{int} articleQuantite = strArticleQuantite.toInt();
+00390 
+00391         \textcolor{keywordflow}{if}(nombreArticle > articleQuantite)
+00392         \{
+00393             emit \hyperlink{class_supervision_a3fb19a3c16324a21af956fd272ca469d}{erreurDepassementQuantite}();
+00394         \}
+00395         \textcolor{keywordflow}{else}
+00396         \{
+00397             article->\hyperlink{class_article_a5777f36d74974ff21e712a9875c2d8bf}{mettreAJourQuantite}(QString::number(nombreArticle));
+00398         \}
+00399     \}
+00400     \textcolor{keywordflow}{else}
+00401     \{
+00402 \textcolor{preprocessor}{        #ifdef DEBUG\_SUPERVISION}
+00403             qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"Article introuvable !"};
+00404 \textcolor{preprocessor}{        #endif}
+00405     \}
+00406 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_supervision_a07e7f0cd8b114182be56ebb5645e62fe}\label{class_supervision_a07e7f0cd8b114182be56ebb5645e62fe}} 
+\index{Supervision@{Supervision}!verifier\+Authentification\+Badge@{verifier\+Authentification\+Badge}}
+\index{verifier\+Authentification\+Badge@{verifier\+Authentification\+Badge}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{verifier\+Authentification\+Badge}{verifierAuthentificationBadge}}
+{\footnotesize\ttfamily void Supervision\+::verifier\+Authentification\+Badge (\begin{DoxyParamCaption}\item[{Q\+String}]{badge }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Définition de la méthode verifier\+Authentification\+Badge. 
+
+Permet la vérification des données utilisateur par badge 
+\begin{DoxyParams}{Paramètres}
+{\em badge} & Chaîne de caractères de l\textquotesingle{}uid du badge \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{_supervision_8cpp_source_l00124}{124} du fichier \hyperlink{_supervision_8cpp_source}{Supervision.\+cpp}.
+
+
+
+Références \hyperlink{_supervision_8cpp_source_l00256}{connecter\+Utilisateur()}, \hyperlink{_supervision_8cpp_source_l00165}{recuperer\+Donnees\+Utilisateur()}, et \hyperlink{_supervision_8cpp_source_l00224}{verifier\+Donnees\+Utilisateur()}.
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00273}{connecter\+Signaux\+Slots()}.
+
+
+\begin{DoxyCode}
+00125 \{
+00126     QString requeteBDD = \textcolor{stringliteral}{"SELECT * from Utilisateur where Badge = '"} + badge + \textcolor{stringliteral}{"';"};
+00127     QStringList donnees = \hyperlink{class_supervision_a137b6c505742a4ada6ab38193eef01dd}{recupererDonneesUtilisateur}(requeteBDD);
+00128     \textcolor{keywordflow}{if}(\hyperlink{class_supervision_ae3400dad53c52bc09198e8d7f80e0e67}{verifierDonneesUtilisateur}(donnees))
+00129     \{
+00130         \hyperlink{class_supervision_a7c397ca5f79afa2709a657d7185dfbe1}{connecterUtilisateur}(donnees);
+00131     \}
+00132 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_supervision_ac596674d302f1f747d65c8334aa1ced9}\label{class_supervision_ac596674d302f1f747d65c8334aa1ced9}} 
+\index{Supervision@{Supervision}!verifier\+Authentification\+Identifiant@{verifier\+Authentification\+Identifiant}}
+\index{verifier\+Authentification\+Identifiant@{verifier\+Authentification\+Identifiant}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{verifier\+Authentification\+Identifiant}{verifierAuthentificationIdentifiant}}
+{\footnotesize\ttfamily void Supervision\+::verifier\+Authentification\+Identifiant (\begin{DoxyParamCaption}\item[{Q\+String}]{identifiant,  }\item[{Q\+String}]{mot\+De\+Passe }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Définition de la méthode verifier\+Authentification\+Identifiant. 
+
+Permet la vérification des données utilisateur par champs 
+\begin{DoxyParams}{Paramètres}
+{\em identifiant} & Chaîne de caractères de l\textquotesingle{}identifiant \\
+\hline
+{\em mot\+De\+Passe} & Chaîne de caractères du mot de passe \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{_supervision_8cpp_source_l00141}{141} du fichier \hyperlink{_supervision_8cpp_source}{Supervision.\+cpp}.
+
+
+
+Références \hyperlink{_supervision_8h_source_l00080}{bdd}, \hyperlink{_supervision_8cpp_source_l00256}{connecter\+Utilisateur()}, \hyperlink{_supervision_8cpp_source_l00179}{crypter\+Mot\+Depasse()}, \hyperlink{_bdd_8cpp_source_l00146}{Bdd\+::executer()}, \hyperlink{_supervision_8cpp_source_l00165}{recuperer\+Donnees\+Utilisateur()}, et \hyperlink{_supervision_8cpp_source_l00224}{verifier\+Donnees\+Utilisateur()}.
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00273}{connecter\+Signaux\+Slots()}.
+
+
+\begin{DoxyCode}
+00142 \{
+00143     this->\hyperlink{class_supervision_ac58c5b922ce85af75c2233cd3265d201}{crypterMotDepasse}(motDePasse);
+00144 
+00145 \textcolor{preprocessor}{    #ifdef CHANGE\_PASSWORD\_BEFORE}
+00146     QString requete = QString(\textcolor{stringliteral}{"UPDATE Utilisateur SET MotDePasse='%1' WHERE Identifiant='%2'"}).arg(
+      motDePasse).arg(identifiant);
+00147     \hyperlink{class_supervision_ac9a970d4f511f2eed5da4aed037533ab}{bdd}->\hyperlink{class_bdd_ab6ae645b4b54ce5df8dc9b422fb39faa}{executer}(requete);
+00148 \textcolor{preprocessor}{    #endif}
+00149 
+00150     QString requeteBDD = \textcolor{stringliteral}{"SELECT * from Utilisateur where Identifiant =  '"} + identifiant + \textcolor{stringliteral}{"' &&
+       MotDePasse = '"} + motDePasse + \textcolor{stringliteral}{"';"};
+00151     QStringList donnees = \hyperlink{class_supervision_a137b6c505742a4ada6ab38193eef01dd}{recupererDonneesUtilisateur}(requeteBDD);
+00152     \textcolor{keywordflow}{if}(\hyperlink{class_supervision_ae3400dad53c52bc09198e8d7f80e0e67}{verifierDonneesUtilisateur}(donnees))
+00153     \{
+00154         \hyperlink{class_supervision_a7c397ca5f79afa2709a657d7185dfbe1}{connecterUtilisateur}(donnees);
+00155     \}
+00156 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_supervision_acc886b933823993f1e3873582e05e690}\label{class_supervision_acc886b933823993f1e3873582e05e690}} 
+\index{Supervision@{Supervision}!verifier\+Date\+Validite@{verifier\+Date\+Validite}}
+\index{verifier\+Date\+Validite@{verifier\+Date\+Validite}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{verifier\+Date\+Validite()}{verifierDateValidite()}}
+{\footnotesize\ttfamily bool Supervision\+::verifier\+Date\+Validite (\begin{DoxyParamCaption}\item[{Q\+String}]{string\+Date\+Validite }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Définition de la méthode verifier\+Date\+Validite. 
+
+Permet de vérifier la date de validité 
+\begin{DoxyParams}{Paramètres}
+{\em string\+Date\+Validite} & Chaîne de caractères de la date de validité \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Si la date de validité est valide 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{_supervision_8cpp_source_l00198}{198} du fichier \hyperlink{_supervision_8cpp_source}{Supervision.\+cpp}.
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00224}{verifier\+Donnees\+Utilisateur()}.
+
+
+\begin{DoxyCode}
+00199 \{
+00200     \textcolor{comment}{// Verification de la date de validité}
+00201     QDate dateValidite = dateValidite.fromString(stringDateValidite,\textcolor{stringliteral}{"yyyy-MM-dd"});
+00202     QDate dateActuelle = QDate::currentDate();
+00203 
+00204 \textcolor{preprocessor}{    #ifdef DEBUG\_SUPERVISION}
+00205         qDebug() << \textcolor{stringliteral}{"Date actuelle"} << dateActuelle;
+00206         qDebug() << \textcolor{stringliteral}{"Date validité"} << dateValidite;
+00207 \textcolor{preprocessor}{    #endif}
+00208 
+00209     \textcolor{keywordflow}{if}(dateActuelle <= dateValidite)
+00210     \{
+00211         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00212     \}
+00213 
+00214     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00215 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_supervision_ae3400dad53c52bc09198e8d7f80e0e67}\label{class_supervision_ae3400dad53c52bc09198e8d7f80e0e67}} 
+\index{Supervision@{Supervision}!verifier\+Donnees\+Utilisateur@{verifier\+Donnees\+Utilisateur}}
+\index{verifier\+Donnees\+Utilisateur@{verifier\+Donnees\+Utilisateur}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{verifier\+Donnees\+Utilisateur()}{verifierDonneesUtilisateur()}}
+{\footnotesize\ttfamily bool Supervision\+::verifier\+Donnees\+Utilisateur (\begin{DoxyParamCaption}\item[{Q\+String\+List \&}]{donnees }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Définition de la méthode verifier\+Donnees\+Utilisateur. 
+
+Vérfie la date de validité et que les données ne sont pas vide sinon renvoie des erreurs 
+\begin{DoxyParams}{Paramètres}
+{\em donnees} & Chaîne de caractères de la date de validité \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Si la demande de connexion est autoriser 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{_supervision_8cpp_source_l00224}{224} du fichier \hyperlink{_supervision_8cpp_source}{Supervision.\+cpp}.
+
+
+
+Références \hyperlink{_ihm_8h_source_l00033}{M\+E\+S\+S\+A\+G\+E\+\_\+\+E\+R\+R\+E\+U\+R\+\_\+\+U\+T\+I\+L\+I\+S\+A\+T\+E\+U\+R\+\_\+\+D\+A\+T\+E\+\_\+\+N\+O\+N\+\_\+\+V\+A\+L\+I\+DE}, \hyperlink{_ihm_8h_source_l00032}{M\+E\+S\+S\+A\+G\+E\+\_\+\+E\+R\+R\+E\+U\+R\+\_\+\+U\+T\+I\+L\+I\+S\+A\+T\+E\+U\+R\+\_\+\+N\+O\+N\+\_\+\+V\+A\+L\+I\+DE}, \hyperlink{class_supervision_a116ed6de0e9e3c9c94886235e9f6d6e8}{reponse\+Demande\+De\+Connexion()}, \hyperlink{_utilisateur_8h_source_l00032}{T\+A\+B\+L\+E\+\_\+\+U\+T\+I\+L\+I\+S\+A\+T\+E\+U\+R\+\_\+\+D\+A\+T\+E\+\_\+\+V\+A\+L\+I\+D\+I\+TE}, et \hyperlink{_supervision_8cpp_source_l00198}{verifier\+Date\+Validite()}.
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00124}{verifier\+Authentification\+Badge()}, et \hyperlink{_supervision_8cpp_source_l00141}{verifier\+Authentification\+Identifiant()}.
+
+
+\begin{DoxyCode}
+00225 \{
+00226 \textcolor{preprocessor}{    #ifdef DEBUG\_SUPERVISON}
+00227         qDebug() << Q\_FUNC\_INFO << donnees;
+00228 \textcolor{preprocessor}{    #endif}
+00229 
+00230     \textcolor{keywordflow}{if}(!donnees.isEmpty())
+00231     \{
+00232         \textcolor{keywordflow}{if}(\hyperlink{class_supervision_acc886b933823993f1e3873582e05e690}{verifierDateValidite}(donnees.at(
+      \hyperlink{_utilisateur_8h_a2ee8bc4f44f3f2562a41638ec1d84ffca1a0604e4b99c353c04b8ee64a2524cca}{TABLE\_UTILISATEUR\_DATE\_VALIDITE})))
+00233         \{
+00234             emit \hyperlink{class_supervision_a116ed6de0e9e3c9c94886235e9f6d6e8}{reponseDemandeDeConnexion}(\textcolor{keyword}{true}, \textcolor{stringliteral}{""});
+00235             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00236         \}
+00237         \textcolor{keywordflow}{else}
+00238         \{
+00239             emit \hyperlink{class_supervision_a116ed6de0e9e3c9c94886235e9f6d6e8}{reponseDemandeDeConnexion}(\textcolor{keyword}{false}, 
+      \hyperlink{_ihm_8h_a65a121daaef1677092ae2f6fa3392a10}{MESSAGE\_ERREUR\_UTILISATEUR\_DATE\_NON\_VALIDE});
+00240             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00241         \}
+00242     \}
+00243     \textcolor{keywordflow}{else}
+00244     \{
+00245         emit \hyperlink{class_supervision_a116ed6de0e9e3c9c94886235e9f6d6e8}{reponseDemandeDeConnexion}(\textcolor{keyword}{false}, 
+      \hyperlink{_ihm_8h_ac7f9ed2a1a76baab688e98e093b5d8fd}{MESSAGE\_ERREUR\_UTILISATEUR\_NON\_VALIDE});
+00246         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00247     \}
+00248 \}
+\end{DoxyCode}
+
+
+\subsubsection{Documentation des données membres}
+\mbox{\Hypertarget{class_supervision_a9f974b5c47899192395e539a0f11034c}\label{class_supervision_a9f974b5c47899192395e539a0f11034c}} 
+\index{Supervision@{Supervision}!armoire@{armoire}}
+\index{armoire@{armoire}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{armoire}{armoire}}
+{\footnotesize\ttfamily \hyperlink{class_armoire}{Armoire}$\ast$ Supervision\+::armoire\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+association d\textquotesingle{}un objet \hyperlink{class_armoire}{Armoire} 
+
+
+
+Définition à la ligne \hyperlink{_supervision_8h_source_l00084}{84} du fichier \hyperlink{_supervision_8h_source}{Supervision.\+h}.
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00273}{connecter\+Signaux\+Slots()}, \hyperlink{_supervision_8cpp_source_l00090}{creer\+Casiers()}, \hyperlink{_supervision_8cpp_source_l00111}{get\+Informations\+Armoire()}, et \hyperlink{_supervision_8cpp_source_l00036}{Supervision()}.
+
+\mbox{\Hypertarget{class_supervision_ac9a970d4f511f2eed5da4aed037533ab}\label{class_supervision_ac9a970d4f511f2eed5da4aed037533ab}} 
+\index{Supervision@{Supervision}!bdd@{bdd}}
+\index{bdd@{bdd}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{bdd}{bdd}}
+{\footnotesize\ttfamily \hyperlink{class_bdd}{Bdd}$\ast$ Supervision\+::bdd\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+association d\textquotesingle{}un objet \hyperlink{class_bdd}{Bdd} (accès à la base de données) 
+
+
+
+Définition à la ligne \hyperlink{_supervision_8h_source_l00080}{80} du fichier \hyperlink{_supervision_8h_source}{Supervision.\+h}.
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00305}{rechercher\+Article()}, \hyperlink{_supervision_8cpp_source_l00165}{recuperer\+Donnees\+Utilisateur()}, \hyperlink{_supervision_8cpp_source_l00036}{Supervision()}, et \hyperlink{_supervision_8cpp_source_l00141}{verifier\+Authentification\+Identifiant()}.
+
+\mbox{\Hypertarget{class_supervision_a3ac996538c83f3bd3df36095b0abb1b2}\label{class_supervision_a3ac996538c83f3bd3df36095b0abb1b2}} 
+\index{Supervision@{Supervision}!casiers@{casiers}}
+\index{casiers@{casiers}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{casiers}{casiers}}
+{\footnotesize\ttfamily Q\+Vector$<$\hyperlink{class_casier}{Casier}$\ast$$>$ Supervision\+::casiers\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+les casiers de l\textquotesingle{}armoire 
+
+
+
+Définition à la ligne \hyperlink{_supervision_8h_source_l00086}{86} du fichier \hyperlink{_supervision_8h_source}{Supervision.\+h}.
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00090}{creer\+Casiers()}.
+
+\mbox{\Hypertarget{class_supervision_ac01c57f7fd9d043ab46d439e55e426e5}\label{class_supervision_ac01c57f7fd9d043ab46d439e55e426e5}} 
+\index{Supervision@{Supervision}!code\+Barre@{code\+Barre}}
+\index{code\+Barre@{code\+Barre}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{code\+Barre}{codeBarre}}
+{\footnotesize\ttfamily \hyperlink{class_code_barre}{Code\+Barre}$\ast$ Supervision\+::code\+Barre\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+association d\textquotesingle{}un objet \hyperlink{class_code_barre}{Code\+Barre} 
+
+
+
+Définition à la ligne \hyperlink{_supervision_8h_source_l00083}{83} du fichier \hyperlink{_supervision_8h_source}{Supervision.\+h}.
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00036}{Supervision()}.
+
+\mbox{\Hypertarget{class_supervision_a045be64d74de4f7688574eec108220a5}\label{class_supervision_a045be64d74de4f7688574eec108220a5}} 
+\index{Supervision@{Supervision}!communication@{communication}}
+\index{communication@{communication}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{communication}{communication}}
+{\footnotesize\ttfamily \hyperlink{class_communication}{Communication}$\ast$ Supervision\+::communication\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+association d\textquotesingle{}un objet \hyperlink{class_communication}{Communication} 
+
+
+
+Définition à la ligne \hyperlink{_supervision_8h_source_l00085}{85} du fichier \hyperlink{_supervision_8h_source}{Supervision.\+h}.
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00273}{connecter\+Signaux\+Slots()}, et \hyperlink{_supervision_8cpp_source_l00036}{Supervision()}.
+
+\mbox{\Hypertarget{class_supervision_a5aa823c55bf1531497bbb8fdbc6c5528}\label{class_supervision_a5aa823c55bf1531497bbb8fdbc6c5528}} 
+\index{Supervision@{Supervision}!ihm@{ihm}}
+\index{ihm@{ihm}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{ihm}{ihm}}
+{\footnotesize\ttfamily \hyperlink{class_ihm}{Ihm}$\ast$ Supervision\+::ihm\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+association d\textquotesingle{}un objet \hyperlink{class_ihm}{Ihm} (fenêtre princiaple de l\textquotesingle{}application) 
+
+
+
+Définition à la ligne \hyperlink{_supervision_8h_source_l00079}{79} du fichier \hyperlink{_supervision_8h_source}{Supervision.\+h}.
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00273}{connecter\+Signaux\+Slots()}, et \hyperlink{_supervision_8cpp_source_l00090}{creer\+Casiers()}.
+
+\mbox{\Hypertarget{class_supervision_a3ec5986105208e9a2b02b7e97bf61090}\label{class_supervision_a3ec5986105208e9a2b02b7e97bf61090}} 
+\index{Supervision@{Supervision}!rfid@{rfid}}
+\index{rfid@{rfid}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{rfid}{rfid}}
+{\footnotesize\ttfamily \hyperlink{class_rfid}{Rfid}$\ast$ Supervision\+::rfid\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+association d\textquotesingle{}un objet \hyperlink{class_rfid}{Rfid} (le lecteur de badge) 
+
+
+
+Définition à la ligne \hyperlink{_supervision_8h_source_l00081}{81} du fichier \hyperlink{_supervision_8h_source}{Supervision.\+h}.
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00273}{connecter\+Signaux\+Slots()}, et \hyperlink{_supervision_8cpp_source_l00036}{Supervision()}.
+
+\mbox{\Hypertarget{class_supervision_a92384f2b12b2549cee988f83add8ad49}\label{class_supervision_a92384f2b12b2549cee988f83add8ad49}} 
+\index{Supervision@{Supervision}!utilisateur@{utilisateur}}
+\index{utilisateur@{utilisateur}!Supervision@{Supervision}}
+\paragraph{\texorpdfstring{utilisateur}{utilisateur}}
+{\footnotesize\ttfamily \hyperlink{class_utilisateur}{Utilisateur}$\ast$ Supervision\+::utilisateur\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+association d\textquotesingle{}un objet \hyperlink{class_utilisateur}{Utilisateur} (l\textquotesingle{}utilisateur authentifié) 
+
+
+
+Définition à la ligne \hyperlink{_supervision_8h_source_l00082}{82} du fichier \hyperlink{_supervision_8h_source}{Supervision.\+h}.
+
+
+
+Référencé par \hyperlink{_supervision_8cpp_source_l00256}{connecter\+Utilisateur()}, \hyperlink{_supervision_8cpp_source_l00076}{deconnecter\+Utilisateur()}, et \hyperlink{_supervision_8cpp_source_l00036}{Supervision()}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_supervision_8h}{Supervision.\+h}\item 
+\hyperlink{_supervision_8cpp}{Supervision.\+cpp}\end{DoxyCompactItemize}

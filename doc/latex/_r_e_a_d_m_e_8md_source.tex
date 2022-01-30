@@ -1,0 +1,293 @@
+\hypertarget{_r_e_a_d_m_e_8md_source}{}\subsection{R\+E\+A\+D\+M\+E.\+md}
+
+\begin{DoxyCode}
+00001 \(\backslash\)mainpage Le projet 
+00002 
+00003 \(\backslash\)tableofcontents
+00004 
+00005 e-stock est un système de gestion de stock automatisé qui permettra :
+00006 
+00007 * de contrôler et gérer l'utilisation de produits stockés dans une armoire sensible
+00008 * d'assurer la traçabilité de l'attribution du matériel et des consommables stockés
+00009 * de sécuriser l'accès par un contrôle d'accès par badge RFID
+00010 
+00011 \(\backslash\)section section\_tdm Table des matières
+00012 - \(\backslash\)ref page\_README
+00013 - \(\backslash\)ref page\_changelog
+00014 \(\backslash\)if todo
+00015 - \(\backslash\)ref todo
+00016 \(\backslash\)endif
+00017 \(\backslash\)if bug
+00018 - \(\backslash\)ref bug
+00019 \(\backslash\)endif
+00020 - \(\backslash\)ref page\_about
+00021 - \(\backslash\)ref page\_licence
+00022 
+00023 \(\backslash\)section section\_infos Informations
+00024 
+00025 \(\backslash\)author Pierre-Antoine Legger <pierreantoinelegger@gmail.com>
+00026 \(\backslash\)author Joffrey Tranchat <joffrey.tranchat@gmail.com>
+00027 \(\backslash\)date 2020
+00028 \(\backslash\)version 0.2
+00029 \(\backslash\)see https://svn.riouxsvn.com/e-stock
+00030 
+00031 
+00032 \(\backslash\)page page\_README README
+00033 
+00034 [TOC]
+00035 
+00036 # Projet \{#projet\}
+00037 
+00038 ## Présentation \{#presentation\}
+00039 
+00040 \_\_e-stock\_\_ est un système de gestion de stock automatisé qui permettra :
+00041 
+00042 * de contrôler et gérer l'utilisation de produits stockés dans une armoire sensible
+00043 * d'assurer la traçabilité de l'attribution du matériel et des consommables stockés
+00044 * de sécuriser l'accès par un contrôle d'accès par badge RFID
+00045 
+00046 Une armoire sera composée de 8 casiers maximum. Chaque casier sera équipé :
+00047 
+00048 * d'une gâche électrique afin d'assurer son ouverture/fermeture ;
+00049 * d'une balance pour assurer le comptage automatique des articles.
+00050 
+00051 Le comptage automatique de la quantité est déterminé en fonction du poids unitaire et du poids mesuré
+       sur la balance.
+00052 
+00053 Un lecteur de badge RFID est intégré à chaque armoire pour contrôler l'accès. L'exploitation de
+       l'armoire ​ e-stock​ est possible à partir de l'écran tactile intégré.
+00054 
+00055 On distinguera deux type d'articles :
+00056 
+00057 * les « consommables » qui sortent définitivement du stock
+00058 * les « empruntables » qui peuvent être restitués après leur utilisation
+00059 
+00060 ## Base de données MySQL \{#bdd\}
+00061 
+00062 ![](./sql/e-stock-v0.4.png)
+00063 
+00064 ~~~ \{.sql\}
+00065 DROP DATABASE IF EXISTS `e-stock`;
+00066 CREATE DATABASE IF NOT EXISTS `e-stock`;
+00067 USE `e-stock`;
+00068 
+00069 -- Création du compte d'accès à la base de données e-stock
+00070 -- CREATE USER 'estock'@'%' IDENTIFIED BY 'password';
+00071 -- GRANT ALL PRIVILEGES ON `e-stock`.* TO 'estock'@'%';
+00072 -- FLUSH PRIVILEGES;
+00073 -- --------------------------------------------------------
+00074 
+00075 CREATE TABLE IF NOT EXISTS `Profil` (
+00076   `idProfil` int(11) NOT NULL AUTO\_INCREMENT,
+00077   `Nom` varchar(64) NOT NULL,
+00078   PRIMARY KEY (`idProfil`)
+00079 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+00080 
+00081 INSERT INTO `Profil` (`Nom`) VALUES
+00082 ('Administrateur'),
+00083 ('Gestionnaire'),
+00084 ('Utilisateur');
+00085 
+00086 -- --------------------------------------------------------
+00087 
+00088 CREATE TABLE IF NOT EXISTS `Groupe` (
+00089   `idGroupe` int(11) NOT NULL AUTO\_INCREMENT,
+00090   `Nom` varchar(64) NOT NULL,
+00091   PRIMARY KEY (`idGroupe`),
+00092   CONSTRAINT Unique\_Groupe UNIQUE (`Nom`)
+00093 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+00094 
+00095 -- --------------------------------------------------------
+00096 
+00097 INSERT INTO `Groupe` (`Nom`) VALUES
+00098 ('PROFESSEUR'),
+00099 ('1-BTS-SN'),
+00100 ('T-BTS-SN');
+00101 
+00102 -- --------------------------------------------------------
+00103 
+00104 CREATE TABLE IF NOT EXISTS `Utilisateur` (
+00105   `idUtilisateur` int(11) NOT NULL AUTO\_INCREMENT,
+00106   `idProfil` int(11) NOT NULL,
+00107   `idGroupe` int(11) NOT NULL,
+00108   `Nom` varchar(64) NOT NULL,
+00109   `Prenom` varchar(64) NOT NULL,
+00110   `DateValidite` date NOT NULL,
+00111   `Identifiant` varchar(255) DEFAULT NULL,
+00112   `MotDePasse` varchar(255) DEFAULT NULL,
+00113   `Badge` varchar(11) NOT NULL,
+00114   `Email` varchar(64) NOT NULL,  
+00115   PRIMARY KEY (`idUtilisateur`),
+00116 --  CONSTRAINT Unique\_Utilisateur UNIQUE (`Badge`),
+00117   CONSTRAINT Utilisateur\_fk\_1 FOREIGN KEY (`idProfil`) REFERENCES Profil(`idProfil`) ON DELETE
+       CASCADE,
+00118   CONSTRAINT Utilisateur\_fk\_2 FOREIGN KEY (`idGroupe`) REFERENCES Groupe(`idGroupe`) ON DELETE CASCADE
+00119 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+00120 
+00121 -- --------------------------------------------------------
+00122 
+00123 CREATE TABLE IF NOT EXISTS `Armoire` (
+00124   `idArmoire` int(11) NOT NULL,
+00125   `Nom` varchar(255) NOT NULL,
+00126   `Description` varchar(255) DEFAULT NULL,
+00127   `nbCasiers` int(11) NOT NULL DEFAULT 8,
+00128   PRIMARY KEY (`idArmoire`)
+00129 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+00130 
+00131 INSERT INTO `Armoire` (`idArmoire`,`Nom`,`Description`,`nbCasiers`) VALUES('1','B22','Atelier','2');
+00132 
+00133 -- --------------------------------------------------------
+00134 
+00135 CREATE TABLE IF NOT EXISTS `Type` (
+00136   `idType` int(11) NOT NULL AUTO\_INCREMENT,
+00137   `Nom` varchar(64) NOT NULL,
+00138   PRIMARY KEY (`idType`)
+00139 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+00140 
+00141 INSERT INTO `Type` (`Nom`) VALUES
+00142 ('Equipement'),
+00143 ('Consommable');
+00144 
+00145 -- --------------------------------------------------------
+00146 
+00147 CREATE TABLE IF NOT EXISTS `Unite` (
+00148   `idUnite` int(11) NOT NULL AUTO\_INCREMENT,
+00149   `Nom` varchar(64) NOT NULL,
+00150   PRIMARY KEY (`idUnite`)
+00151 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+00152 
+00153 INSERT INTO `Unite` (`Nom`) VALUES
+00154 ('Metre'),
+00155 ('Piece'),
+00156 ('Pourcentage'),
+00157 ('Poids g'),
+00158 ('Poids kg');
+00159 
+00160 -- --------------------------------------------------------
+00161 
+00162 CREATE TABLE IF NOT EXISTS `Comptage` (
+00163   `idComptage` int(11) NOT NULL AUTO\_INCREMENT,
+00164   `Nom` varchar(64) NOT NULL,
+00165   PRIMARY KEY (`idComptage`)
+00166 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+00167 
+00168 INSERT INTO `Comptage` (`Nom`) VALUES
+00169 ('Aucun'),
+00170 ('Automatique'),
+00171 ('CodeBarre');
+00172 
+00173 -- --------------------------------------------------------
+00174 
+00175 CREATE TABLE IF NOT EXISTS `Action` (
+00176   `idAction` int(11) NOT NULL AUTO\_INCREMENT,
+00177   `Nom` varchar(64) NOT NULL,
+00178   PRIMARY KEY (`idAction`)
+00179 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+00180 
+00181 INSERT INTO `Action` (`Nom`) VALUES
+00182 ('Entree'),
+00183 ('Sortie');
+00184 
+00185 -- --------------------------------------------------------
+00186 
+00187 CREATE TABLE IF NOT EXISTS `Article` (
+00188   `idArticle` int(11) NOT NULL AUTO\_INCREMENT,
+00189   `idType` int(11) NOT NULL,  
+00190   --   `Type` enum('Equipement','Consommable'),
+00191   `Nom` varchar(255) NOT NULL,
+00192   `Code` varchar(255) NOT NULL,
+00193   `Designation` varchar(255) NOT NULL,
+00194   `Poids` int(11) NOT NULL,  
+00195   PRIMARY KEY (`idArticle`),
+00196   CONSTRAINT Article\_fk\_1 FOREIGN KEY (`idType`) REFERENCES Type(`idType`) ON DELETE CASCADE
+00197 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+00198 
+00199 -- --------------------------------------------------------
+00200 
+00201 CREATE TABLE IF NOT EXISTS `Stock` (
+00202   `idStock` int(11) NOT NULL AUTO\_INCREMENT,
+00203   `idArticle` int(11) NOT NULL,
+00204   `idComptage` int(11) NOT NULL,
+00205   `idUnite` int(11) NOT NULL,
+00206   `Quantite` int(11) DEFAULT 0,
+00207   `Disponible` int(11) DEFAULT 0,
+00208   `Tare` int(11) NOT NULL,  
+00209   `numeroCasier` int(11) NOT NULL,
+00210   PRIMARY KEY (`idStock`),
+00211   CONSTRAINT Unique\_NumeroCasier UNIQUE (`numeroCasier`),
+00212   CONSTRAINT Stock\_fk\_2 FOREIGN KEY (`idArticle`) REFERENCES Article(`idArticle`) ON DELETE CASCADE,
+00213   CONSTRAINT Stock\_fk\_3 FOREIGN KEY (`idComptage`) REFERENCES Comptage(`idComptage`) ON DELETE
+       CASCADE,
+00214   CONSTRAINT Stock\_fk\_4 FOREIGN KEY (`idUnite`) REFERENCES Unite(`idUnite`) ON DELETE CASCADE
+00215 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+00216 
+00217 -- --------------------------------------------------------
+00218 
+00219 CREATE TABLE IF NOT EXISTS `Mouvement` (
+00220   `idMouvement` int(11) NOT NULL AUTO\_INCREMENT, 
+00221   `idUtilisateur` int(11) NOT NULL,
+00222   `idStock` int(11) NOT NULL,
+00223   `idAction` int(11) NOT NULL,
+00224   --   `Action` enum('Entree','Sortie'),
+00225   `Quantite` int(11) NOT NULL,
+00226   `Horodatage` datetime NOT NULL,
+00227   PRIMARY KEY (`idMouvement`),
+00228   CONSTRAINT Mouvement\_fk\_1 FOREIGN KEY (`idUtilisateur`) REFERENCES Utilisateur(`idUtilisateur`) ON
+       DELETE CASCADE,
+00229   CONSTRAINT Mouvement\_fk\_2 FOREIGN KEY (`idStock`) REFERENCES Stock(`idStock`) ON DELETE CASCADE,
+00230   CONSTRAINT Mouvement\_fk\_3 FOREIGN KEY (`idAction`) REFERENCES Action(`idAction`) ON DELETE CASCADE
+00231 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+00232 ~~~
+00233 
+00234 ## Recette \{#recette\}
+00235 
+00236 - Pierre-Antoine Legger
+00237     * S'authentifier
+00238     * Rechercher un article
+00239     * Consulter le stock
+00240     * Communiquer avec le SE pour :
+00241         * Commander l'ouverture/fermeture des casiers
+00242         * Afficher l'état ouvert/fermé des casiers
+00243 
+00244 - Joffrey Tranchat
+00245     * Prendre et rapporter un article
+00246     * Mettre à jour le stock et les mouvements
+00247     * Consulter les mouvements
+00248     * Communiquer avec le SE pour :
+00249     * Récupérer les pesées des casiers
+00250     * Assurer le comptage automatique
+00251 
+00252 ## Informations \{#informations\}
+00253 
+00254 \(\backslash\)author Pierre-Antoine Legger <pierreantoinelegger@gmail.com>
+00255 \(\backslash\)author Joffrey Tranchat <joffrey.tranchat@gmail.com>
+00256 \(\backslash\)date 2020
+00257 \(\backslash\)version 0.2
+00258 \(\backslash\)see https://svn.riouxsvn.com/e-stock
+00259 
+00260 
+00261 \(\backslash\)page page\_about A propos
+00262 
+00263 \(\backslash\)author Pierre-Antoine Legger <pierreantoinelegger@gmail.com>
+00264 \(\backslash\)author Joffrey Tranchat <joffrey.tranchat@gmail.com>
+00265 \(\backslash\)date 2020
+00266 \(\backslash\)version 0.2
+00267 \(\backslash\)see https://svn.riouxsvn.com/e-stock
+00268 
+00269 
+00270 \(\backslash\)page page\_licence Licence GPL
+00271 
+00272 This program is free software; you can redistribute it and/or modify
+00273 it under the terms of the GNU General Public License as published by
+00274 the Free Software Foundation; either version 2 of the License, or
+00275 (at your option) any later version.
+00276 
+00277 This program is distributed in the hope that it will be useful,
+00278 but WITHOUT ANY WARRANTY; without even the implied warranty of
+00279 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+00280 GNU General Public License for more details.
+00281 
+00282 You should have received a copy of the GNU General Public License
+00283 along with this program; if not, write to the Free Software
+00284 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+\end{DoxyCode}

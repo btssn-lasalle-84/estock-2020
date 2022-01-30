@@ -1,0 +1,80 @@
+\hypertarget{_ihm_8h_source}{}\subsection{Ihm.\+h}
+\label{_ihm_8h_source}\index{Ihm.\+h@{Ihm.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef IHM\_H}
+00002 \textcolor{preprocessor}{#define IHM\_H}
+00003 
+\Hypertarget{_ihm_8h_source_l00004}\hyperlink{_ihm_8h_a32b8776aca48b06a1716942899916d16}{00004} \textcolor{preprocessor}{#define DEBUG\_IHM}
+00005 
+\Hypertarget{_ihm_8h_source_l00024}\hyperlink{_ihm_8h_a280ed5a4ea1cf0cd4c224443fa33db12}{00024} \textcolor{keyword}{enum} \hyperlink{_ihm_8h_a280ed5a4ea1cf0cd4c224443fa33db12}{FenetresIHM}
+00025 \{
+\Hypertarget{_ihm_8h_source_l00026}\hyperlink{_ihm_8h_a280ed5a4ea1cf0cd4c224443fa33db12a1f316de8685375f757a120ce0fde7af2}{00026}     \hyperlink{_ihm_8h_a280ed5a4ea1cf0cd4c224443fa33db12a1f316de8685375f757a120ce0fde7af2}{FENETRE\_BADGE},       
+\Hypertarget{_ihm_8h_source_l00027}\hyperlink{_ihm_8h_a280ed5a4ea1cf0cd4c224443fa33db12ab4af46727ba2f30a07d0dbf72fe1c6f5}{00027}     \hyperlink{_ihm_8h_a280ed5a4ea1cf0cd4c224443fa33db12ab4af46727ba2f30a07d0dbf72fe1c6f5}{FENETRE\_IDENTIFIANT}, 
+\Hypertarget{_ihm_8h_source_l00028}\hyperlink{_ihm_8h_a280ed5a4ea1cf0cd4c224443fa33db12aab522f0c9f0507be961991070788221f}{00028}     \hyperlink{_ihm_8h_a280ed5a4ea1cf0cd4c224443fa33db12aab522f0c9f0507be961991070788221f}{FENETRE\_MENU}         
+00029 \};
+00030 
+\Hypertarget{_ihm_8h_source_l00031}\hyperlink{_ihm_8h_a796bd7c6ba2e59281760fb155c6287e8}{00031} \textcolor{preprocessor}{#define APPLICATION "e-stock"}
+\Hypertarget{_ihm_8h_source_l00032}\hyperlink{_ihm_8h_ac7f9ed2a1a76baab688e98e093b5d8fd}{00032} \textcolor{preprocessor}{#define MESSAGE\_ERREUR\_UTILISATEUR\_NON\_VALIDE "Erreur : utilisateur non valide !"}
+\Hypertarget{_ihm_8h_source_l00033}\hyperlink{_ihm_8h_a65a121daaef1677092ae2f6fa3392a10}{00033} \textcolor{preprocessor}{#define MESSAGE\_ERREUR\_UTILISATEUR\_DATE\_NON\_VALIDE "Erreur : le compte n'est plaus valide !"}
+\Hypertarget{_ihm_8h_source_l00034}\hyperlink{_ihm_8h_a6f69dbaa1a7d36f46cb64b31933b0251}{00034} \textcolor{preprocessor}{#define MESSAGE\_ERREUR\_DEPASSEMENT\_QUANTITE "Opération impossible, le nombre d'articles maximum serait
+       dépassé"}
+00035 
+\Hypertarget{_ihm_8h_source_l00036}\hyperlink{_ihm_8h_ac91f014239536b9bb49d4265ca91d0d5}{00036} \textcolor{preprocessor}{#define ARTICLE\_QUANTITE 0}
+\Hypertarget{_ihm_8h_source_l00037}\hyperlink{_ihm_8h_a2c5f129a41ff7dac8fa0d97af2d1efd5}{00037} \textcolor{preprocessor}{#define ARTICLE\_DISPONIBLE 1}
+\Hypertarget{_ihm_8h_source_l00038}\hyperlink{_ihm_8h_a7935787ef2fa7206f347feff73167ce6}{00038} \textcolor{preprocessor}{#define NUMERO\_CASIERS 2}
+00039 
+00040 \textcolor{preprocessor}{#include <QtWidgets>}
+00041 
+00042 \textcolor{keyword}{class }\hyperlink{class_supervision}{Supervision};
+00043 \textcolor{keyword}{class }\hyperlink{class_casier}{Casier};
+00044 
+\Hypertarget{_ihm_8h_source_l00045}\hyperlink{namespace_ui}{00045} \textcolor{keyword}{namespace }\hyperlink{namespace_ui}{Ui} \{
+00046 \textcolor{keyword}{class }\hyperlink{class_ihm}{Ihm};
+00047 \}
+00048 
+\Hypertarget{_ihm_8h_source_l00062}\hyperlink{class_ihm}{00062} \textcolor{keyword}{class }\hyperlink{class_ihm}{Ihm} : \textcolor{keyword}{public} \hyperlink{class_q_main_window}{QMainWindow}
+00063 \{
+00064     Q\_OBJECT
+00065 
+00066 \textcolor{keyword}{public}:
+00067     \textcolor{keyword}{explicit} \hyperlink{class_ihm}{Ihm}(QWidget *parent = \textcolor{keyword}{nullptr});
+00068     ~\hyperlink{class_ihm}{Ihm}();
+00069 
+00070     \textcolor{keywordtype}{void} changerDeFenetre(\textcolor{keywordtype}{int} fenetre);
+00071     \textcolor{keywordtype}{void} placerCasier(\hyperlink{class_casier}{Casier} *casier);
+00072 
+00073 \textcolor{keyword}{private} slots:
+00074     \textcolor{keywordtype}{void} afficherInformationsArmoire(QStringList informationsArmoire);
+00075     \textcolor{keywordtype}{void} authentifierParBadge();
+00076     \textcolor{keywordtype}{void} authentifierParIdentifiant();
+00077     \textcolor{keywordtype}{void} deconnecterUtilisateur();
+00078     \textcolor{keywordtype}{void} allerFenetreBadge();
+00079     \textcolor{keywordtype}{void} allerFenetreIdentifiant();    
+00080     \textcolor{keywordtype}{void} allerFenetreMenu();
+00081     \textcolor{keywordtype}{void} afficherErreurBadge(QString message);
+00082     \textcolor{keywordtype}{void} afficherErreurDepassementQuantite();
+00083     \textcolor{keywordtype}{void} traiterDemandeDeConnexion(\textcolor{keywordtype}{bool} reponse, QString message);
+00084     \textcolor{keywordtype}{void} activerRecherche();
+00085     \textcolor{keywordtype}{void} rechercherArticle();
+00086     \textcolor{keywordtype}{void} effacerRechercheArticle();
+00087     \textcolor{keywordtype}{void} mettreAJourListeArticles(QVector<QStringList> articlesTrouves);
+00088     \textcolor{keywordtype}{void} selectionnerArticle(\textcolor{keywordtype}{int} index);
+00089     \textcolor{keywordtype}{void} afficherDonneesArticleSelectionne(QStringList donneesArticle);
+00090     \textcolor{keywordtype}{void} afficherDonneesArticleSelectionne(QVector<QStringList> donneesArticle);
+00091 
+00092 signals:
+00093     \textcolor{keywordtype}{void} badgeDetecte(QString);
+00094     \textcolor{keywordtype}{void} identifiantDetecte(QString identifiant, QString motDePasse);
+00095     \textcolor{keywordtype}{void} rechercheArticle(QString);
+00096     \textcolor{keywordtype}{void} articleSelectionne(QString);
+00097 
+00098 \textcolor{keyword}{private}:
+\Hypertarget{_ihm_8h_source_l00099}\hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{00099}     Ui::Ihm *\hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}; 
+\Hypertarget{_ihm_8h_source_l00100}\hyperlink{class_ihm_a454ab89ced1b27fcb42d550e443e780c}{00100}     \hyperlink{class_supervision}{Supervision} *\hyperlink{class_ihm_a454ab89ced1b27fcb42d550e443e780c}{supervision}; 
+00101 
+00102     \textcolor{keywordtype}{void} creerListeArticles(\textcolor{keyword}{const} QVector<QStringList> &articlesTrouves);
+00103 \};
+00104 
+00105 \textcolor{preprocessor}{#endif // IHM\_H}
+\end{DoxyCode}

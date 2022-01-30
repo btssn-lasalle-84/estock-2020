@@ -1,0 +1,125 @@
+\hypertarget{_communication_8cpp_source}{}\subsection{Communication.\+cpp}
+\label{_communication_8cpp_source}\index{Communication.\+cpp@{Communication.\+cpp}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include "\hyperlink{_communication_8h}{Communication.h}"}
+00002 \textcolor{preprocessor}{#include <QDebug>}
+00003 \textcolor{preprocessor}{#include <QObject>}
+00004 
+\Hypertarget{_communication_8cpp_source_l00023}\hyperlink{class_communication_a56cf4b262e592bcae1d987c3dd00487f}{00023} \hyperlink{class_communication_a56cf4b262e592bcae1d987c3dd00487f}{Communication::Communication}(\hyperlink{class_q_object}{QObject} *parent) : 
+      \hyperlink{class_q_object}{QObject}(parent), port(new QSerialPort(this)), trameBrute(\textcolor{stringliteral}{"\(\backslash\)0"}), nomPort(
+      \hyperlink{_communication_8h_a8542e30f71d5d41f405c329f0e9bafd7}{SERIAL\_PORT\_NAME})
+00024 \{
+00025     qDebug() << Q\_FUNC\_INFO;
+00026 \}
+00027 
+\Hypertarget{_communication_8cpp_source_l00032}\hyperlink{class_communication_a75ba08ce908d45251e28e4c1db94e6f4}{00032} \hyperlink{class_communication_a75ba08ce908d45251e28e4c1db94e6f4}{Communication::~Communication}()
+00033 \{
+00034     \hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{port}->close();
+00035     qDebug() << Q\_FUNC\_INFO;
+00036 \}
+00037 
+\Hypertarget{_communication_8cpp_source_l00042}\hyperlink{class_communication_a8fe8d15efd2590a1061a015f5f761924}{00042} \textcolor{keywordtype}{void} \hyperlink{class_communication_a8fe8d15efd2590a1061a015f5f761924}{Communication::demarrerCommunicationPort}()
+00043 \{
+00044     qDebug() << Q\_FUNC\_INFO;
+00045     \hyperlink{class_communication_ae39284eac0920a3d11c085b48c6234da}{configurerPort}();
+00046     \hyperlink{class_communication_ad5969603a6b7232d0227a461fd479251}{ouvrirPort}();
+00047 \}
+00048 
+\Hypertarget{_communication_8cpp_source_l00053}\hyperlink{class_communication_aa447a2fe9e2e5c2467a0816865a77340}{00053} \textcolor{keywordtype}{void} \hyperlink{class_communication_aa447a2fe9e2e5c2467a0816865a77340}{Communication::arreterCommunicationPort}()
+00054 \{
+00055     qDebug() << Q\_FUNC\_INFO;
+00056     \hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{port}->close();
+00057 \}
+00058 
+\Hypertarget{_communication_8cpp_source_l00063}\hyperlink{class_communication_ae39284eac0920a3d11c085b48c6234da}{00063} \textcolor{keywordtype}{void} \hyperlink{class_communication_ae39284eac0920a3d11c085b48c6234da}{Communication::configurerPort}()
+00064 \{
+00065     qDebug() << Q\_FUNC\_INFO;
+00066     \hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{port}->setPortName(\hyperlink{class_communication_a5fa89ee1fc732871f3f8f177fb50bf2a}{nomPort});
+00067     \hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{port}->setBaudRate(QSerialPort::Baud9600);
+00068     \hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{port}->setDataBits(QSerialPort::Data8);
+00069     \hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{port}->setParity(QSerialPort::NoParity);
+00070     \hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{port}->setStopBits(QSerialPort::OneStop);
+00071     \hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{port}->setFlowControl(QSerialPort::NoFlowControl);
+00072 \}
+00073 
+\Hypertarget{_communication_8cpp_source_l00078}\hyperlink{class_communication_ad5969603a6b7232d0227a461fd479251}{00078} \textcolor{keywordtype}{void} \hyperlink{class_communication_ad5969603a6b7232d0227a461fd479251}{Communication::ouvrirPort}()
+00079 \{
+00080     \textcolor{keywordflow}{if} (\hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{port}->open(QIODevice::ReadWrite))
+00081     \{
+00082         qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"connecté au port"} << \hyperlink{class_communication_a5fa89ee1fc732871f3f8f177fb50bf2a}{nomPort};
+00083         connect(\hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{port}, SIGNAL(readyRead()), \textcolor{keyword}{this}, SLOT(\hyperlink{class_communication_a0b8edc96112e71e1ec4a28cc6309cbbc}{recevoirTrame}()));
+00084     \}
+00085     \textcolor{keywordflow}{else}
+00086     \{
+00087         qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"erreur ouverture du port"} << \hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{port}->error();
+00088     \}
+00089 \}
+00090 
+\Hypertarget{_communication_8cpp_source_l00096}\hyperlink{class_communication_a06a0f05f4555c6e3586e1800bbaa5e13}{00096} \textcolor{keywordtype}{void} \hyperlink{class_communication_a06a0f05f4555c6e3586e1800bbaa5e13}{Communication::setNomPort}(QString nouveauPortSerie)
+00097 \{
+00098     \hyperlink{class_communication_a5fa89ee1fc732871f3f8f177fb50bf2a}{nomPort} = nouveauPortSerie;
+00099     qDebug() << Q\_FUNC\_INFO << \hyperlink{class_communication_a5fa89ee1fc732871f3f8f177fb50bf2a}{nomPort};
+00100 \}
+00101 
+\Hypertarget{_communication_8cpp_source_l00107}\hyperlink{class_communication_a53c26abe4c16ff155a15929dd5ad07cf}{00107} \textcolor{keywordtype}{void} \hyperlink{class_communication_a53c26abe4c16ff155a15929dd5ad07cf}{Communication::envoyerTrame}(QString trame)
+00108 \{
+00109     \textcolor{keywordflow}{if} (\hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{port}->isOpen())
+00110     \{
+00111        \hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{port}->write(trame.toLatin1());
+00112     \}
+00113 \}
+00114 
+\Hypertarget{_communication_8cpp_source_l00119}\hyperlink{class_communication_a0b8edc96112e71e1ec4a28cc6309cbbc}{00119} \textcolor{keywordtype}{void} \hyperlink{class_communication_a0b8edc96112e71e1ec4a28cc6309cbbc}{Communication::recevoirTrame}()
+00120 \{
+00121     \hyperlink{class_communication_a7a55775be5e16249315fe5faef4f13b4}{trameBrute} = \textcolor{stringliteral}{"\(\backslash\)0"};
+00122 
+00123     \textcolor{keywordflow}{while} (\hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{port}->waitForReadyRead(500))
+00124     \{
+00125         \hyperlink{class_communication_a7a55775be5e16249315fe5faef4f13b4}{trameBrute}.append(\hyperlink{class_communication_aff7d55208f31232fbdc1dcec488908f1}{port}->readAll());
+00126     \}    
+00127 
+00128     \textcolor{keywordflow}{if}(\hyperlink{class_communication_a3958c8f275ff8d50dca85afe65c795d1}{verifierTrame}(\hyperlink{class_communication_a7a55775be5e16249315fe5faef4f13b4}{trameBrute}))
+00129         \hyperlink{class_communication_ab4ff84d0fb69ffa990bc61939c95a093}{traiterTrame}(\hyperlink{class_communication_a7a55775be5e16249315fe5faef4f13b4}{trameBrute});
+00130 \}
+00131 
+\Hypertarget{_communication_8cpp_source_l00138}\hyperlink{class_communication_a3958c8f275ff8d50dca85afe65c795d1}{00138} \textcolor{keywordtype}{bool} \hyperlink{class_communication_a3958c8f275ff8d50dca85afe65c795d1}{Communication::verifierTrame}(QString trame)
+00139 \{
+00140     qDebug() << Q\_FUNC\_INFO << trame;
+00141     \textcolor{keywordflow}{if}(!trame.startsWith(\hyperlink{_communication_8h_add7c72d962d885317215f93ae8a9dc28}{EN\_TETE}))
+00142     \{
+00143         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00144     \}
+00145     \textcolor{keywordflow}{if}(!trame.endsWith(\hyperlink{_communication_8h_aafcc0c7b4996f7783c9f4e766a233487}{DELIMITEUR\_FIN}))
+00146     \{
+00147         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00148     \}
+00149 
+00150     \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00151 \}
+00152 
+\Hypertarget{_communication_8cpp_source_l00158}\hyperlink{class_communication_ab4ff84d0fb69ffa990bc61939c95a093}{00158} \textcolor{keywordtype}{void} \hyperlink{class_communication_ab4ff84d0fb69ffa990bc61939c95a093}{Communication::traiterTrame}(QString trame)
+00159 \{
+00160     \textcolor{keywordflow}{if}(trame.startsWith(\hyperlink{_communication_8h_add7c72d962d885317215f93ae8a9dc28}{EN\_TETE} + \hyperlink{_communication_8h_ac3d2c8b3b9dbc07cedf0bfa8a75d268f}{DELIMITEUR\_CHAMP} + 
+      \hyperlink{_communication_8h_ad49128d4b2d459f0d7f057b2e59fb2d5}{TRAME\_OUVERTURE} + \hyperlink{_communication_8h_ac3d2c8b3b9dbc07cedf0bfa8a75d268f}{DELIMITEUR\_CHAMP}))
+00161     \{
+00162         emit \hyperlink{class_communication_a9fb098f5b5cb8931efefc58984529119}{envoieTrameOuverture}(trame);
+00163     \}
+00164     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(trame.startsWith(\hyperlink{_communication_8h_add7c72d962d885317215f93ae8a9dc28}{EN\_TETE} + \hyperlink{_communication_8h_ac3d2c8b3b9dbc07cedf0bfa8a75d268f}{DELIMITEUR\_CHAMP} + 
+      \hyperlink{_communication_8h_a57c2e74056a9338d26f264703e2158d8}{TRAME\_ETAT} + \hyperlink{_communication_8h_ac3d2c8b3b9dbc07cedf0bfa8a75d268f}{DELIMITEUR\_CHAMP}))
+00165     \{
+00166         emit \hyperlink{class_communication_a8beb7417ede75d0056b06788ef72d21b}{envoieTrameEtat}(trame);
+00167     \}
+00168     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(trame.startsWith(\hyperlink{_communication_8h_add7c72d962d885317215f93ae8a9dc28}{EN\_TETE} + \hyperlink{_communication_8h_ac3d2c8b3b9dbc07cedf0bfa8a75d268f}{DELIMITEUR\_CHAMP} + 
+      \hyperlink{_communication_8h_a3a24fc54a5e48cb3eb9786ce61933a6c}{TRAME\_POIDS} + \hyperlink{_communication_8h_ac3d2c8b3b9dbc07cedf0bfa8a75d268f}{DELIMITEUR\_CHAMP}))
+00169     \{
+00170         emit \hyperlink{class_communication_aaea5653e8aa1b50b4774caf65db21409}{envoieTramePoids}(trame);
+00171     \}
+00172 \}
+00173 
+\Hypertarget{_communication_8cpp_source_l00179}\hyperlink{class_communication_ab8f5efe1d44805be0081e986b2687a12}{00179} \textcolor{keywordtype}{void} \hyperlink{class_communication_ab8f5efe1d44805be0081e986b2687a12}{Communication::envoyerRequetePoids}(QString numeroCasier)
+00180 \{
+00181     QString trame = \textcolor{stringliteral}{"CASIERS;3;"} + numeroCasier + \textcolor{stringliteral}{";\(\backslash\)r\(\backslash\)n"};
+00182     \hyperlink{class_communication_a53c26abe4c16ff155a15929dd5ad07cf}{envoyerTrame}(trame);
+00183 \}
+\end{DoxyCode}

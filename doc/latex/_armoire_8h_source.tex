@@ -1,0 +1,54 @@
+\hypertarget{_armoire_8h_source}{}\subsection{Armoire.\+h}
+\label{_armoire_8h_source}\index{Armoire.\+h@{Armoire.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef ARMOIRE\_H}
+00002 \textcolor{preprocessor}{#define ARMOIRE\_H}
+00003 
+00017 \textcolor{preprocessor}{#include <QObject>}
+00018 \textcolor{preprocessor}{#include <QString>}
+00019 \textcolor{preprocessor}{#include <QDebug>}
+00020 
+\Hypertarget{_armoire_8h_source_l00021}\hyperlink{_armoire_8h_a15e7936003b0c10a4cf49799119463ab}{00021} \textcolor{preprocessor}{#define DEBUG\_ARMOIRE}
+00022 
+\Hypertarget{_armoire_8h_source_l00027}\hyperlink{_armoire_8h_a8c8e83929e4df868beea17eda4fb5dad}{00027} \textcolor{keyword}{enum} \hyperlink{_armoire_8h_a8c8e83929e4df868beea17eda4fb5dad}{ChampArmoire}
+00028 \{
+\Hypertarget{_armoire_8h_source_l00029}\hyperlink{_armoire_8h_a8c8e83929e4df868beea17eda4fb5dada167bbea3f9d799583c77d0a6b12ed99e}{00029}     \hyperlink{_armoire_8h_a8c8e83929e4df868beea17eda4fb5dada167bbea3f9d799583c77d0a6b12ed99e}{TABLE\_ARMOIRE\_ID\_ARMOIRE},
+\Hypertarget{_armoire_8h_source_l00030}\hyperlink{_armoire_8h_a8c8e83929e4df868beea17eda4fb5dadaed87f53039b2f5f5401a4b4c9ea8a706}{00030}     \hyperlink{_armoire_8h_a8c8e83929e4df868beea17eda4fb5dadaed87f53039b2f5f5401a4b4c9ea8a706}{TABLE\_ARMOIRE\_NOM},
+\Hypertarget{_armoire_8h_source_l00031}\hyperlink{_armoire_8h_a8c8e83929e4df868beea17eda4fb5dadaa46613f3c7eb048c8392fb780e801cc8}{00031}     \hyperlink{_armoire_8h_a8c8e83929e4df868beea17eda4fb5dadaa46613f3c7eb048c8392fb780e801cc8}{TABLE\_ARMOIRE\_DESCRIPTION},
+\Hypertarget{_armoire_8h_source_l00032}\hyperlink{_armoire_8h_a8c8e83929e4df868beea17eda4fb5dada92634af3316ad54be209ef14cc8a8981}{00032}     \hyperlink{_armoire_8h_a8c8e83929e4df868beea17eda4fb5dada92634af3316ad54be209ef14cc8a8981}{TABLE\_ARMOIRE\_NB\_CASIERS}
+00033 \};
+00034 
+00035 \textcolor{keyword}{class }\hyperlink{class_bdd}{Bdd};
+00036 
+\Hypertarget{_armoire_8h_source_l00049}\hyperlink{class_armoire}{00049} \textcolor{keyword}{class }\hyperlink{class_armoire}{Armoire} : \textcolor{keyword}{public} \hyperlink{class_q_object}{QObject}
+00050 \{
+00051     Q\_OBJECT
+00052 \textcolor{keyword}{public}:
+00053     \hyperlink{class_armoire_a5db260c682a9d2688afc0efbd5be8d14}{Armoire}(\hyperlink{class_q_object}{QObject} *parent = \textcolor{keyword}{nullptr});
+00054     \hyperlink{class_armoire_a0f506a879391a987f12f59a23f60634e}{~Armoire}();
+00055 
+00056     \textcolor{keywordtype}{void} \hyperlink{class_armoire_a1c5266f9e4b01c0d2e1d244d2f11fffd}{recupererArmoire}(QString \hyperlink{class_armoire_a131caceb7d4b90cb7761851757e80f57}{idArmoire}=\textcolor{stringliteral}{"1"});
+00057     QStringList \hyperlink{class_armoire_a3e4d2ffc2fb91dd24d1160305ad36555}{getInformations}();
+00058     QString \hyperlink{class_armoire_a1a76e497170632b30f9821b396d53cec}{getIdArmoire}() \textcolor{keyword}{const};
+00059     QString \hyperlink{class_armoire_a0045e45e0c9a465af765667344ce8bee}{getNom}() \textcolor{keyword}{const};
+00060     QString \hyperlink{class_armoire_a19af26aa7dedd03202d2484744dcad76}{getDescripton}() \textcolor{keyword}{const};
+00061     QString \hyperlink{class_armoire_aa94faaf53b6da5139a22a2ab21d4cf12}{getNbCasiers}() \textcolor{keyword}{const};
+00062     QString \hyperlink{class_armoire_a706def736570580d7e5e3d2e29321c66}{getAdresseIPArmoire}() \textcolor{keyword}{const};
+00063 
+00064 \textcolor{keyword}{private}:
+\Hypertarget{_armoire_8h_source_l00065}\hyperlink{class_armoire_a555f656018e7b600987128cdc792e320}{00065}     \hyperlink{class_bdd}{Bdd} *\hyperlink{class_armoire_a555f656018e7b600987128cdc792e320}{bdd};                   
+\Hypertarget{_armoire_8h_source_l00066}\hyperlink{class_armoire_a131caceb7d4b90cb7761851757e80f57}{00066}     QString \hyperlink{class_armoire_a131caceb7d4b90cb7761851757e80f57}{idArmoire};          
+\Hypertarget{_armoire_8h_source_l00067}\hyperlink{class_armoire_a1de028da0fa3f085e2feaad8311d8795}{00067}     QString \hyperlink{class_armoire_a1de028da0fa3f085e2feaad8311d8795}{nom};                
+\Hypertarget{_armoire_8h_source_l00068}\hyperlink{class_armoire_aa18be328693d7602439c779e30156c02}{00068}     QString \hyperlink{class_armoire_aa18be328693d7602439c779e30156c02}{description};        
+\Hypertarget{_armoire_8h_source_l00069}\hyperlink{class_armoire_a9c4e926b7cddb13d097b75b3f5ef3de8}{00069}     QString \hyperlink{class_armoire_a9c4e926b7cddb13d097b75b3f5ef3de8}{nbCasiers};          
+\Hypertarget{_armoire_8h_source_l00070}\hyperlink{class_armoire_ab96bd042aa78eaefba0aefb860684ca6}{00070}     QString \hyperlink{class_armoire_ab96bd042aa78eaefba0aefb860684ca6}{adresseIPArmoire};   
+00071 
+00072     QString \hyperlink{class_armoire_abc30649cc7d4f3c0cefcc54894aeb406}{lireAdresseIP}();
+00073 
+00074 signals:
+00075     \textcolor{keywordtype}{void} \hyperlink{class_armoire_a1fc00ceaa842f579ee31c532a9b01508}{informationsArmoire}(QStringList);
+00076 \};
+00077 
+00078 \textcolor{preprocessor}{#endif // ARMOIRE\_H}
+\end{DoxyCode}
